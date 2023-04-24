@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Hylu Blog</title>
+    <link>https://hylu-blog.netlify.app/posts/</link>
+    <description>Recent content in Posts on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Apr 2023 00:39:23 -0400</lastBuildDate><atom:link href="https://hylu-blog.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making Osu Fanart</title>
+      <link>https://hylu-blog.netlify.app/posts/osu_fanart/</link>
+      <pubDate>Mon, 24 Apr 2023 00:39:23 -0400</pubDate>
+      
+      <guid>https://hylu-blog.netlify.app/posts/osu_fanart/</guid>
+      <description>osu! Fanarts? Osu holds several fanart contest every year with themes often related to the time of year. Themes such as Winter or Halloween are such examples. Regardless of theme, the general idea seems to always be to draw any of the osu mascots inside or partaking in said theme.
+At the time I had been playing osu for about 4 months and really enjoying it. On the other hand, I&amp;rsquo;ve been drawing casually for a few years as a hobby so it seemed naturally to want to give these contests a shot.</description>
+    </item>
+    
+  </channel>
+</rss>

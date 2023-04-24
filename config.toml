@@ -5,13 +5,12 @@ theme = 'PaperMod'
 
 [params]
     ShowBreadCrumbs = true
-    ShowReadingTime = true
     ShowPostNavLinks = true
 [params.cover]
     linkFullImages = true
 [params.homeInfoParams]
-    Title = "I Make Stuff"
-    Content = "I write about the stuff I make"
+    Title = "Don't mind me."
+    Content = "Just stress writing"
 
 [menu]
 [[menu.main]]

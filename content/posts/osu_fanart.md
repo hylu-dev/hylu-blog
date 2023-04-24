@@ -6,15 +6,15 @@ cover:
     image: img/osu/new_beginnings/final.png
     alt: ''
     caption: ''
-tags: ['osu', 'fanart', 'blender']
+tags: ['osu', 'fanart']
 categories: ['Art', 'Gaming']
 ---
+
 ## osu! Fanarts?
 
 Osu holds several fanart contest every year with themes often related to the time of year. Themes such as Winter or Halloween are such examples. Regardless of theme, the general idea seems to always be to draw any of the osu [mascots](https://osu.ppy.sh/wiki/en/Mascots) inside or partaking in said theme.
 
 At the time I had been playing osu for about 4 months and really enjoying it. On the other hand, I've been drawing casually for a few years as a hobby so it seemed naturally to want to give these contests a shot. Particularly, I saw it as an opportunity to push my art skills (as usually I just doodle around rather than create full pieces) as well as something to occupy my time.
-
 
 ## New Beginnings
 
@@ -24,17 +24,17 @@ The newness of it all actually gave me a lot of motivation and ideas for what to
 In my early sketches, I wanted to go with a fairly exaggerated perspective to hopefully make the piece feel more dynamic and also as practice for me in drawing perspective.
 
 I tried sketching out the perspective freehand but it didn't take long to realize that I needed some reference.
-![targets](/img/osu/new_beginnings/early_sketch.png)
+![Early Sketch](/img/osu/new_beginnings/early_sketch.png)
 
 Luckily, Clip Studio Paint has a 3D model feature that let me place some character as well as background models.
-![targets](/img/osu/new_beginnings/char_ref.png)
-![targets](/img/osu/new_beginnings/bg_ref.png)
+![Character Reference](/img/osu/new_beginnings/char_ref.png)
+![BG Reference](/img/osu/new_beginnings/bg_ref.png)
 
 These fireworks were a memorable challenge cause it was one of the times I where I just felt completely lost as to how to draw them. I had some fundamentals of painting and texturing that I could apply to something like the clouds but when it came to the vibrancy of fireworks, I didn't even know where to start. I started off by following some tutorial I found online but it just kept looking like neon lightsticks sprawled out into a flower.
-![targets](/img/osu/new_beginnings/firework_fail.png)
+![Failed Fireworks](/img/osu/new_beginnings/firework_fail.png)
 
  After a few hours I gave up following direct tutorials and just went back to looking at a bunch of anime references (think Kimi No Na Wa) and tried my best to replicate it through blending layers. The result look 10x better and although it wasn't nearly anything close to the references I used, I was more then happy to move on.
-![targets](/img/osu/new_beginnings/fireworks.png)
+![Fireworks](/img/osu/new_beginnings/fireworks.png)
 Though I must add, later I added some of the fireworks lighting onto the clouds and that really sold the look I wanted.
 
 Once I got most of the base colors and shadows worked out, it came time to work out the lighting. I went through a lot of iterations to try to get something that looked good. I really agonized over where the light source would be and how that would shine on the character and where shadows would be. In the end I kept getting results that had shadows that didn't feel right and also made Pippi less of the focal point I wanted. In the end, I just illuminated the parts I wanted to be on focus and then added a bunch of ambient light to balance out the shadows until it looked right. I'm a little disappointed I couldn't apply the lighting with more intention and spatial awareness but this was the best I could do for now. Perhaps next time I'll use more references to base my lighting upon.
