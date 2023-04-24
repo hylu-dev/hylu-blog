@@ -29,7 +29,7 @@ My result from the tutorial looked pretty bad I think, especially if you compare
 
 ## The Background
 
-Once I got some Blender fundamentals to work with, I figured it was time to move on the modelling the characters for real... Except I really procrastinated this. It just felt daunting to actually start modelling anything on my own and when I did start I'd just scrap it after a few minutes and give up. Instead, I again took a detour and decided to put together a background for the art piece.
+Once I got some Blender fundamentals to work with, I figured it was time to move on to modelling the characters for real... Except I really procrastinated this. It just felt daunting to actually start modelling anything on my own and when I did start I'd just scrap it after a few minutes and give up. Instead, I again took a detour and decided to put together a background for the art piece.
 
 I had a lot fun with this. Since the background is purely graphic rather than painterly, I felt a lot less of that artist daunt that kept me from starting anything. I didn't have to worry about line consistency or symmetricity, in fact, I did everything with my mouse.
 
@@ -51,10 +51,10 @@ There is an option to have Blend automatically weight paint for you but it was e
 
 ![Skeleton Rigging](/img/osu/journey_beatmap/skeleton_demo.gif)
 
-Often, I get lazy whether it's making my bed or cleaning the house. Creative work is no different. The shadows of Mocha (the green haired girl) aren't actually shadows at all. I just duplicated all of the meshes and shaded them to the colour I wanted. I then shifted their axes behind and slightly to the side of the real meshes to mimic shadows. I'm sure there's some way to project to model onto some plane under it and get a much more accurate and resourceful shadow but I was running out of time (less than an hour left) and brain cells to explore that solution. So instead this is what I did and it worked. I remember quote that went something like it's better to fake it than make it. Something one of the Rainworld devs said I believe. Well, here it is in action.
+Often, I get lazy whether it's making my bed or cleaning the house. Creative work is no different. The shadows of Mocha (the green haired girl) aren't actually shadows at all. I just duplicated all of the meshes and shaded them to the colour I wanted. I then shifted their axes behind and slightly to the side of the real meshes to mimic shadows. I'm sure there's some way to project to model onto some plane under it and get a much more accurate and resourceful shadow but I was running out of time (less than an hour left) and brain cells to explore that solution. So instead this is what I did and it worked. I remember a quote that went something like ***it's better to fake it than make it***. Something one of the Rainworld devs said I believe. Well, here it is in action.
 
 ![Shadow Hack](/img/osu/journey_beatmap/shadow_hack.png)
 
-With the Osu cookie taken off, the final render looks like this
+Finally, I composited my background image behind my meshes and gave it the final render.
 
 ![Final Render](/img/osu/journey_beatmap/render.png)
