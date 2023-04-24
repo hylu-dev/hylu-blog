@@ -1,0 +1,32 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Hylu Blog'
+theme = 'PaperMod'
+
+[params]
+    ShowBreadCrumbs = true
+    ShowReadingTime = true
+    ShowPostNavLinks = true
+[params.cover]
+    linkFullImages = true
+[params.homeInfoParams]
+    Title = "I Make Stuff"
+    Content = "I write about the stuff I make"
+
+[menu]
+[[menu.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+[[menu.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 20
+[[menu.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 30
+[[menu.main]]
+    name = 'Categories'
+    pageRef = '/categories'
+    weight = 40
