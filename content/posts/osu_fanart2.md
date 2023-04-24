@@ -45,13 +45,13 @@ Modelling was mostly a trial and error process of moving points around until I g
 
 I will however highlight the **rigging** and **weight painting** because that really boggled my mind. I had done some weight painting for my practice doughnut to paint over the sprinkle distribution over the top of the doughnut. I did not expect weight painting to be an integral part of skeleton rigging though. Turns out, each joint in the skeleton rig is associated to the mesh through a heatmap which determines which part of the mesh should move. Hot spots means the mesh will firmly twist and bend on the joint, cold spots, less so.
 
-There is an option to have Blend automatically weight paint for you but it was extremely off when I used it on my mesh so I had to manually weight paint everything.
+There is an option to have Blender automatically weight paint for you but it was extremely off when I used it on my mesh so I had to manually weight paint everything.
 
 ![Weight Painting](/img/osu/journey_beatmap/weight_painting.gif)
 
 ![Skeleton Rigging](/img/osu/journey_beatmap/skeleton_demo.gif)
 
-Often, I get lazy whether it's making my bed or cleaning the house. Creative work is no different. The shadows of Mocha (the green haired girl) aren't actually shadows at all. I just duplicated all of the meshes and shaded them to the colour I wanted. I then shifted their axes behind and slightly to the side of the real meshes to mimic shadows. I'm sure there's some way to project to model onto some plane under it and get a much more accurate and resourceful shadow but I was running out of time (less than an hour left) and brain cells to explore that solution. So instead this is what I did and it worked. I remember a quote that went something like ***it's better to fake it than make it***. Something one of the Rainworld devs said I believe. Well, here it is in action.
+Often, I get lazy whether it's making my bed or cleaning the house. Creative work is no different. The shadows of Mocha (the green haired girl) aren't actually shadows at all. I just duplicated all of the meshes and shaded them to the colour I wanted. I then shifted their axes behind and slightly to the side of the real meshes to mimic shadows. I'm sure there's some way to project to model onto some plane under it and get a much more accurate and resourceful shadow but I was running out of time (less than an hour left) and brain cells to explore that solution. So instead this is what I did and it worked. I remember a quote that went something like ***it's better to fake it than to make it***. Something one of the Rainworld devs said I believe. Well, here it is in action.
 
 ![Shadow Hack](/img/osu/journey_beatmap/shadow_hack.png)
 
