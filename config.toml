@@ -6,11 +6,12 @@ theme = 'PaperMod'
 [params]
     ShowBreadCrumbs = true
     ShowPostNavLinks = true
+    favicon = "/favicon/favicon.ico"
 [params.cover]
     linkFullImages = true
 [params.homeInfoParams]
     Title = "Don't mind me."
-    Content = "Just stress writing"
+    Content = "Just stress writing."
 
 [menu]
 [[menu.main]]
