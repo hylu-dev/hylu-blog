@@ -6,7 +6,35 @@
     <description>Recent content in Posts on Hylu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Apr 2023 00:39:23 -0400</lastBuildDate><atom:link href="https://hylu-blog.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 May 2023 01:18:34 -0400</lastBuildDate><atom:link href="https://hylu-blog.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making an Animated Osu Banner</title>
+      <link>https://hylu-blog.netlify.app/posts/osu_banner/</link>
+      <pubDate>Tue, 02 May 2023 01:18:34 -0400</pubDate>
+      
+      <guid>https://hylu-blog.netlify.app/posts/osu_banner/</guid>
+      <description>I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&amp;rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&amp;rsquo;s too large, the auto-compression will convert the image into a static jpeg).</description>
+    </item>
+    
+    <item>
+      <title>Using Kanban Boards</title>
+      <link>https://hylu-blog.netlify.app/posts/using_kanban_boards/</link>
+      <pubDate>Mon, 01 May 2023 15:12:19 -0400</pubDate>
+      
+      <guid>https://hylu-blog.netlify.app/posts/using_kanban_boards/</guid>
+      <description>Now that I&amp;rsquo;m starting on Slime Hunter, I figured I should get back to using some project management tools. In particular, Kanban boards as they are simple to manage and don&amp;rsquo;t come with nearly as much fluff as something like Jira issue tracking systems. The nice thing as well is that there&amp;rsquo;s so many great project management tools out there. In this case, I&amp;rsquo;ve decided to use Trello as I&amp;rsquo;m familiar with Atlassian tools (again Jira) so I feel comfortable continuing to use their products.</description>
+    </item>
+    
+    <item>
+      <title>Osu Fanart Again!?</title>
+      <link>https://hylu-blog.netlify.app/posts/osu_fanart2/</link>
+      <pubDate>Mon, 24 Apr 2023 02:57:43 -0400</pubDate>
+      
+      <guid>https://hylu-blog.netlify.app/posts/osu_fanart2/</guid>
+      <description>Journey into a Beatmap Getting Started After doing my first fanart, I didn&amp;rsquo;t have any intention of doing another but this one&amp;rsquo;s theme instantly gave me the idea of incorporating 3D modelling into the art piece. In summary, the theme is to create an Osu fanart with the OC&amp;rsquo;s inside a beatmap.
+I immediately had the idea of drawing Enchanted Love as I fell in love with the visuals from the original MV.</description>
+    </item>
+    
     <item>
       <title>Making Osu Fanart</title>
       <link>https://hylu-blog.netlify.app/posts/osu_fanart/</link>

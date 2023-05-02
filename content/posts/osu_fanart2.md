@@ -3,7 +3,7 @@ title: "Osu Fanart Again!?"
 date: 2023-04-24T02:57:43-04:00
 draft: false
 cover: 
-    image: img/osu/journey_beatmap/final.png
+    image: https://assets.ppy.sh/contests/175/entries/Nervy%20Badger.jpg
     alt: ''
     caption: ''
 tags: ['osu', 'fanart', 'blender']
