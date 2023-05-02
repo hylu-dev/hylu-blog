@@ -26,7 +26,7 @@ Once the main banner was done, I exported them in layers so I can seperate out w
 
 With those exported, I moved on to organizing them into Blender. **It took me a while to realize that just importing them is as images wasn't going to render**. Turns out pure image objects are more for just reference than anything. Instead, I needed to create an actual object in Blender and have the image on it as a texture. Luckily Blender has a nifty addon to import images directly as plane objects which will render.
 
-Howver, I had a lot of trouble getting images as planes to show up because in my original project, I forgot I removed the world lighting entirely so any objects with just the base shaders would just render black with no light. Once I realized this, I had to create a new shader. It seemed simple enough by just plugging in the image color directly into the material output but I forgot about the transparent parts of the images, they would also just render black this way. I managed a solution by mixing the image colors with a transparent shader and deciding when to mix into transparent based on the alpha channel of the image. Looking at it now, seems pretty obvious, but boy it did not come easy.
+Howver, I had a lot of trouble getting images as planes to show up because in my original project, **I forgot I removed the world lighting entirely** so any objects with just the base shaders would just render black with no light. Once I realized this, **I had to create a new shader**. It seemed simple enough by just plugging in the image color directly into the material output but I forgot about the transparent parts of the images, they would also just render black this way. I managed a solution by mixing the image colors with a transparent shader and deciding when to mix into transparent based on the alpha channel of the image. Looking at it now, seems pretty obvious, but boy it did not come easy.
 
 ![Image Shading](/img/osu/banner/image_shading.png)
 
@@ -39,3 +39,5 @@ Once I finally got the images texture to show in full color, I could start layer
 Animating was pretty simple, I only animated the positions of the characters and props with a subtle rotation to *Mocha's* head to give her a little bit more life as well as the beach ball. The rotation is really the coolest part as it suddenly gives the 2D scene a lot more depth.
 
 ![Animating](/img/osu/banner/animating.gif)
+
+Last thing to do was pop in a final render and we're done!
