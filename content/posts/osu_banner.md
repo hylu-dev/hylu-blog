@@ -44,4 +44,4 @@ Animating was pretty simple, I only animated the positions of the characters and
 
 Last thing to do was pop in a final render and we're done!
 
-> Well, almost. I had to convert it to a gif and do some optimizing to make it fit as a banner. As per usual, the online tool ezgif is overpowered. In general, I converted it to a banner sized gif, removed duplicate frames at the beginning and end, extended the final frame duration so the loop isn't too distracting, remove some in between frames to save space, and ran their optimizer to reduce the file size. Now we have a finished animated Osu banner!
+> Well, almost. I had to convert it to a gif and do some optimizing to make it fit as a banner. As per usual, the online tool ezgif is overpowered. In general, I converted it to a banner sized gif, removed duplicate frames at the beginning and end, extended the final frame duration so the loop isn't too distracting, remove some in between frames to save space, and ran their optimizer to reduce the file size (around .94mb seems to be the sweet spot to not get auto-compressed). Now we have a finished animated Osu banner!
