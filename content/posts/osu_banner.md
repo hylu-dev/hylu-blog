@@ -34,7 +34,7 @@ However, I had a lot of trouble getting images as planes to show up because in m
 
 Once I finally got the images texture to show in full color, I could start layering up the banner.
 
-![Plane Layering](/img/osu/banner/plane_layering.png)
+![Plane Layering](/img/osu/banner/plane_layering.gif)
 
 ## Animating
 
