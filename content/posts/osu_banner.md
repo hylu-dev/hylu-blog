@@ -12,7 +12,7 @@ categories: ['Art', 'Gaming']
 
 I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of *Enchanted Love*, **might as well put those meshes to more use**. I wanted to keep it fairly simple as I know I'm pretty limited in gif size and quality for it to work as a profile banner (otherwise if it's too large, the auto-compression will convert the image into a static jpeg).
 
-## Compositing
+## Designing the Banner
 
 I did some playing around and took some inspiration from this amazing art work.
 {{< tweet user="bigheadcrusher" id="1477679577824886784" >}}
