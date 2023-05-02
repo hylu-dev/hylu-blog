@@ -28,6 +28,8 @@ With those exported, I moved on to organizing them into Blender. **It took me a 
 
 However, I had a lot of trouble getting images as planes to show up because in my original project, **I forgot I removed the world lighting entirely** so any objects with just the base shaders would just render black with no light. Once I realized this, **I had to create a new shader**. It seemed simple enough by just plugging in the image color directly into the material output but I forgot about the transparent parts of the images, they would also just render black this way. I managed a solution by mixing the image colors with a transparent shader and deciding when to mix into transparent based on the alpha channel of the image. Looking at it now, seems pretty obvious, but boy it did not come easy.
 
+> As a self note, there was a bit of white dithering around the pngs when I imported them in. **By changing the image node interpolation from *linear to* *closest***, the issue was gone. The white dithering is still in the original image though this is just an issue with Clip Studio's exporting. Apparently, Photoshop has a "matted" option when exporting png's which removes dithering. Hopefully, a future version of CSP will also have the feature.
+
 ![Image Shading](/img/osu/banner/image_shading.png)
 
 Once I finally got the images texture to show in full color, I could start layering up the banner.
