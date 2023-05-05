@@ -38,7 +38,7 @@ Once I finally got the images texture to show in full color, I could start layer
 
 ## Animating
 
-Animating was pretty simple, I only animated the positions of the characters and props with a subtle rotation to *Mocha's* head to give her a little bit more life as well as the beach ball. Seeing the rotations in the final render really adds a cool depth to what is otherwise a very 2D compositiion.
+Animating was pretty simple, I only animated the positions of the characters and props with a subtle rotation to *Mocha's* head to give her a little bit more life as well as the beach ball. Seeing the rotations in the final render really adds a cool depth to what is otherwise a very 2D composition.
 
 ![Animating](/img/osu/banner/animating.gif)
 
