@@ -3,7 +3,7 @@ title: "Warframe visage inks are great! Duviri's alright too."
 date: 2023-04-27T21:45:22-04:00
 draft: true
 cover: 
-    image: /img/warframe/frame_drifter.jpg
+    image: images/frame_drifter.jpg
     alt: 'Drifter'
 tags: ['warframe']
 categories: ['Gaming', "Personal"]
@@ -15,11 +15,11 @@ Warframe recently released it's long awaited update, **The Duviri Paradox**. I'v
 
 **Still, I'd like to share my Drifter.** Rather than the Duviri update itself, I've been most happy with my improve operator cosmetics, now that they've added visage inks. The ability to use the face paints as a **pseudo eye-liner** is such a game changer to making operator faces not look so weird. I also continue to enjoy my Ivara fashion. I was happy enought to even make a [Reddit post](https://www.reddit.com/r/Warframe/comments/131ex3o/came_back_to_the_game_for_duviri_and_learned/) hehe.
 
-![Warframe Fashion Back](/img/warframe/frame_drifter2.jpg)
-![Drifter Face](/img/warframe/drifter_face.jpg)
+![Warframe Fashion Back](images/frame_drifter2.jpg)
+![Drifter Face](images/drifter_face.jpg)
 
 Usually the drifter faces look awkward and uncanny in Warframe so the face inks really help.
 
-![Drifter Settings](/img/warframe/visage_settings.png)
+![Drifter Settings](images/visage_settings.png)
 
 Anyways, now that I've shared my experience, let's put a cap on Warframe and see about getting some development progress! Or to even get started in the first place lol.

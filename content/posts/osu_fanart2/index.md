@@ -25,7 +25,7 @@ From there, I took a detour from working purely on the art piece to learning som
 
 My result from the tutorial looked pretty bad I think, especially if you compare it to his results. I decided not to overthink it as I just wanted to get a feel for how to use the software anyways. *Also a note for myself, I chose to render with Eevee as opposed to Cycles.*
 
-![Doughnut Spin](/img/osu/journey_beatmap/doughnut_spin.gif)
+![Doughnut Spin](images/doughnut_spin.gif)
 
 ## The Background
 
@@ -33,7 +33,7 @@ Once I got some Blender fundamentals to work with, I figured it was time to move
 
 I had a lot fun with this. Since the background is purely graphic rather than painterly, I felt a lot less of that artist daunt that kept me from starting anything. I didn't have to worry about line consistency or symmetricity, in fact, I did everything with my mouse.
 
-![Art Background](/img/osu/journey_beatmap/bg.png)
+![Art Background](images/bg.png)
 
 The repeating patterns (the hearts) were really satisfying to make. A simple picture suddenly becomes a visually pleasant mosaic just through some basic tiling. Perhaps the speed of putting together a more graphic art style made it more enjoyable.
 
@@ -47,14 +47,14 @@ I will however highlight the **rigging** and **weight painting** because that re
 
 There is an option to have Blender automatically weight paint for you but it was extremely off when I used it on my mesh so I had to manually weight paint everything.
 
-![Weight Painting](/img/osu/journey_beatmap/weight_painting.gif)
+![Weight Painting](images/weight_painting.gif)
 
-![Skeleton Rigging](/img/osu/journey_beatmap/skeleton_demo.gif)
+![Skeleton Rigging](images/skeleton_demo.gif)
 
 Often, I get lazy whether it's making my bed or cleaning the house. Creative work is no different. The shadows of Mocha (the green haired girl) aren't actually shadows at all. I just duplicated all of the meshes and shaded them to the colour I wanted. I then shifted their axes behind and slightly to the side of the real meshes to mimic shadows. I'm sure there's some way to project to model onto some plane under it and get a much more accurate and resourceful shadow but I was running out of time (less than an hour left) and brain cells to explore that solution. So instead this is what I did and it worked. I remember a quote that went something like ***it's better to fake it than to make it***. Something one of the Rainworld devs said I believe. Well, here it is in action.
 
-![Shadow Hack](/img/osu/journey_beatmap/shadow_hack.png)
+![Shadow Hack](images/shadow_hack.png)
 
 Finally, I composited my background image behind my meshes and gave it the final render.
 
-![Final Render](/img/osu/journey_beatmap/render.png)
+![Final Render](images/render.png)

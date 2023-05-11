@@ -53,17 +53,17 @@ At first, the idea of using a whole different number system just for rotations c
 
 Applied in blender, you may notice that influencing a single quat value doesn't rotate the way you expect. Instead, altering a lone quat value will only flip the mesh into different orientations as follows, no rotations in between.
 
-![Quaternion Blender](/img/dev/quat_blender.png)
+![Quaternion Blender](images/quat_blender.png)
 
 Smooth rotation starts happening when you influence multiple values at once. In essence, the orientations are mixing depending on the weight you give to each value. Therefore, when thinking about how each quaternion value relates to its 3D rotation, you can think of a quaternion rotation as **mixing together these four orientations in order to create the desired rotation.** Of course, it's not that simple as the way the mixing and rotating happens is a result of the underlying math but I think this way of thinking offers better visual and it can aid in understanding what's really happening.
 
 For instance, if you start with the model facing towards us with the quarternion `(0, 0, 0, 1)` and we want to flip it 90deg about the X-axis. What we should really be thinking is *"Which two orientations can I mix to get what I want"*. You might notice in the above example that a quaternion of `(1, 0, 0, 0)` rotates 180deg about the X-axis. So, wouldn't we be wanting some rotation in between these two? This is precisely the answer. `(1, 1, 0 0 )` mixes evenly the starting position and the 180deg rotation to result in a 90deg rotation.
 
-![Quat Blender Rotation](/img/dev/quat_blender_rotation.gif)
+![Quat Blender Rotation](images/quat_blender_rotation.gif)
 
 For more complex rotations, you can imagine mixing in the other values to get further rotations. Here I add to Y and the mesh rotation mixes towards the upside-down, front facing position.
 
-![Quat Blender Rotation 3 Axes](/img/dev/quat_blender_rotation2.gif)
+![Quat Blender Rotation 3 Axes](images/quat_blender_rotation2.gif)
 
 it turns out you can achieve every 3D rotation this way without any of the drawbacks of Euler rotations.
 
