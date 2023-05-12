@@ -1,7 +1,9 @@
 ---
-title: "Introduction to Shaders"
+title: "Introduction to Unity Shaders"
 date: 2023-05-06T13:26:32-04:00
 draft: false
+cover:
+    image: "https://acegikmo.com/shaderforge/images/web/screenshots/sf_ss_mainpage_b.jpg"
 mermaid: true
 tags: ["unity"]
 category: ["Development"]
@@ -129,7 +131,7 @@ Shader "Unlit/SimpleShader" {
     }
     SubShader {
         Tags {"RenderType" = "Opaque"} // allows determination of rendering properties. For the SubShader, this largely includes sorting alpha values, render queuing, etc.
-        LOD 100 // level of detail, picks SubShaders based on this value
+        LOD 100 // level of detail, when you have multiple subshaders, they are prioritized based on this value
 
         Pass {
             Tags {} // Determination of graphics properties: blending modes, stencil properties, etc.
@@ -187,7 +189,7 @@ Shader "Unlit/SimpleShader" {
 
 Generally, a mesh will have more pixels when rendered than vertices. It's usually best to do the calculations in the shader that has the least iterations. There may be more vertices than pixels in the case you have a high poly model being rendered from extremely far way. In which case after rasterization, you'll only have a few pixels for the fragment shader to process.
 
-## Example Shaders
+## Creating Shaders
 
 ### Displaying 'Normals' as Colours
 
@@ -223,3 +225,61 @@ float4 frag(v2f i) : SV_Target{
     return float4(i.normal, 1);
 }
 ```
+
+### Repeating Patterns
+
+There are a litany of ways repeating patterns can be achieved and naturally so, many involve the use of wave functions.
+
+To start, try feeding the uv position into a sin function and watch the results.
+
+```c
+float2 col = sin(i.uv.xy);
+return float4(col.xy, col.x , 1);
+```
+
+You'll find that there's virtually no difference compared to just feeding those uv coordinate to the fragment shader directly. If you think about what the `sin(x)` graph looks from 0 -> 1, it doesn't oscillate in the range and instead only increases. To be able to see any amount of repetition, we need to increase the period. Increasing it by 2π or τ, will fit the whole first cycle into the 0 -> 1 range allowing us to see the beginning of some repetition. But let's get several more cycles in with 6τ so we get a fuller hatching pattern instead.
+
+From there, we may also want to phase-shift to get a more symmetrical pattern by having the peak of the sin wave in the center.
+
+Now the hatching bars are quite blurry since there is a smooth shift between colours as the the pattern moves across the sin wave. Instead let's have the values round to the nearest integer with a cool trick `floor`
+
+```c
+floor(x + 0.5) // Rounds down below .5 exclusive and rounds up above .5 inclusive.
+```
+
+Finally, we get this hatched shader
+
+```c
+float2 col = floor(sin(i.uv.xy*6*TAU - PI/2) + .5);
+return float4(col.xy, 0, 1);
+```
+
+![Simple Pattern](images/simple_pattern.png)
+
+We get can even fancier and add a wiggle to the stripes. For simplicity, let's add the wiggle just to the horizontal stripes. Intuitively, we want to do is shift the position of the pixels along the horizontal stripe up and down in a wave pattern.
+
+Let's start by just adding an offset to those stripes.
+
+```c
+float offset = i.uv.x;
+float2 col = floor( cos( (i.uv.xy+offset)*12*TAU)*.6 + .5 ); // I've made some period and amplitude adjustments as well
+return float4(col.xy, 0, 1);
+```
+
+You'll notice that the horizontal stripes are now moving diagonally upwards because we're adding to them as we move left to right on the x-axis.
+
+Now, it's as simple as adding a wave function to our offset and we'll get a smooth up and down wiggle to our line.
+
+```c
+float offset = .03*cos((i.uv.x)*6*TAU);
+float2 col = floor( cos( (i.uv.xy+offset) *12*TAU) *.6 + .5 );
+return float4(col.xy, 0, 1);
+```
+
+Similarly to the stripes themselves, I've adjusted the period and amplitude to change the look of the wiggles.
+
+![Wiggle Pattern](images/wiggle_pattern.png)
+
+> Notice, though I'm only focusing on adding the wiggle to the horizontal stripes, they've also influenced the period of the vertical stripes. As the wave function of the offset peaks, **we're also phase-shifting the vertical lines** which is why there are tighter grouping of vertical stripes after the peaks of the horizontal waves and bigger gaps after the dips.
+
+### Blending Modes
