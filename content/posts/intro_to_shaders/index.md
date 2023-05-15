@@ -189,7 +189,7 @@ Shader "Unlit/SimpleShader" {
 
 Generally, a mesh will have more pixels when rendered than vertices. It's usually best to do the calculations in the shader that has the least iterations. There may be more vertices than pixels in the case you have a high poly model being rendered from extremely far way. In which case after rasterization, you'll only have a few pixels for the fragment shader to process.
 
-## Creating Shaders
+## Creating Some Simple Fragment Shaders
 
 ### Displaying 'Normals' as Colours
 
@@ -282,4 +282,73 @@ Similarly to the stripes themselves, I've adjusted the period and amplitude to c
 
 > Notice, though I'm only focusing on adding the wiggle to the horizontal stripes, they've also influenced the period of the vertical stripes. As the wave function of the offset peaks, **we're also phase-shifting the vertical lines** which is why there are tighter grouping of vertical stripes after the peaks of the horizontal waves and bigger gaps after the dips.
 
-### Blending Modes
+## Blending
+
+If you're familiar with blending modes in programs such as Photoshop, the theory is the same. When pixels are being layered on top of eachother, you can manipulate how pixels above interact with the pixels below. For example, you can add the values of the pixels to result in brighter colors when layering colors or multiply colors resulting in darkening (as colors as normalized between 0-1).
+
+The process of blending looks like this
+
+![Blending Equation](images/blending_equation.png)
+
+The achieve different blending effects on shaders, you will be manipulating this equation to decide how the colors defined in your shader will be effected by the colors behind it.
+
+```c
+Cull Off // don't cull back or front faces (allows a transparent box to render the front and back)
+ZWrite Off // disable writing to depth buffer
+ZTest LEqual // <default> adjust render should read from depth buffer (Only render if the depth is less than or equal to)
+Blend One One // set blending to additive (src*1 + dst*1)
+//Blend DstColor Zero // multiply (src*dst + dst*0)
+```
+
+### Depth Buffer
+
+When objects are in view of the camera, Unity will write its depth position from the camera as a value between 0 and 1. For other objects, their depth positions are also recorded but also compared to items already in the depth buffer. If they are behind an object, they will not render.
+
+Objects that aren't in view can have their fragment shaders removed from the scene in order to save on resources that wouldn't be seen by the player anyways.
+
+This can have side affects for transparency textures as you want to objects behind them to render fully in order to see the transparent objects in front them overlay their colors.
+
+To remedy this, you can set Tags to notify Unity's renderer how they should deal with the shader
+
+```c
+Tags {
+    "RenderType" = "Transparent" // tags to inform render pipeline of the type of shader (used in things like post processing)
+    "Queue" = "Transparent" // adjusts draw order for transparency (render after opaque materials are rendered)
+}
+```
+
+## Creating a Vertex Shader
+
+Now that we're familiar with manipulating shaders on a per pixel basis, we can start thinking about how we can apply the same process into the mesh vertices themselves. Similar to how we're able to create patterns using math functions, we can also render our vertices along the same math functions as well. As an example, we're going to create a rippling effect where the shader creates actual ripples in the mesh shape just like a drop of water onto a still lake.
+
+First, let's create the radial wave pattern in the fragment shader and apply that knowledge later into the vertex shader.
+The idea is identical to the linear striped patterns from earlier but instead of following along one of the uv components, we will get the distance vector to the center of the mesh instead.
+
+```c
+float4 frag(v2f i) : SV_Target{
+    //float distance = length(float2(.5,.5)-i.uv.xy); // gets distance from center
+    float distance = length(i.uv.xy * 2 - 1); // another way is to normalize the uv coordinate from -1 to 1 with 0 as center
+    float wave = cos((distance) * 6 * TAU + _Time.y);
+    return wave;
+}
+```
+
+Now that we have our pattern, we can map that function directly into our vertex shader. The only difference is taht instead of assigning the wave value to a pixel color, we will now assign it as a transform to the y component of each vertex, effectively bending the mesh up an down according to the cosine wave.
+
+```c
+v2f vert(appdata v) {
+    v2f o;
+    float distance = length(v.uv0 * 2 - 1);
+    float wave = cos((distance) * 6 * TAU + _Time.y);
+    v.vertex.y = wave*_WaveAmp; // Added property to adjust wave amplitude
+
+    o.vertex = UnityObjectToClipPos(v.vertex);
+    o.normal = mul((float3x3)unity_ObjectToWorld, v.normal); // UnityObjectToWorldNormal(v.normals);
+    o.uv = (v.uv0 + _Offset) * _Scale;
+    return o;
+}
+```
+
+And just like that, we have waves in both the pattern and shape of our plane.
+
+![Ripple Shader](images/ripple_shader.gif)
