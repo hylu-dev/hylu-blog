@@ -319,36 +319,54 @@ Tags {
 
 ## Creating a Vertex Shader
 
-Now that we're familiar with manipulating shaders on a per pixel basis, we can start thinking about how we can apply the same process into the mesh vertices themselves. Similar to how we're able to create patterns using math functions, we can also render our vertices along the same math functions as well. As an example, we're going to create a rippling effect where the shader creates actual ripples in the mesh shape just like a drop of water onto a still lake.
+Now that we're familiar with manipulating shaders on a per pixel basis, we can start thinking about **how we can apply the same process into the mesh vertices themselves**. Similar to how we're able to create patterns using math functions, we can also render our vertices along the same math functions as well. As an example, **we're going to create a rippling effect** where the shader creates actual ripples in the mesh shape just like a drop of water onto a still lake.
 
 First, let's create the radial wave pattern in the fragment shader and apply that knowledge later into the vertex shader.
 The idea is identical to the linear striped patterns from earlier but instead of following along one of the uv components, we will get the distance vector to the center of the mesh instead.
 
 ```c
 float4 frag(v2f i) : SV_Target{
-    //float distance = length(float2(.5,.5)-i.uv.xy); // gets distance from center
-    float distance = length(i.uv.xy * 2 - 1); // another way is to normalize the uv coordinate from -1 to 1 with 0 as center
+    float distance = length(float2(.5,.5)-uv.xy); // gets distance from center
     float wave = cos((distance) * 6 * TAU + _Time.y);
     return wave;
 }
 ```
 
-Now that we have our pattern, we can map that function directly into our vertex shader. The only difference is taht instead of assigning the wave value to a pixel color, we will now assign it as a transform to the y component of each vertex, effectively bending the mesh up an down according to the cosine wave.
+Now that we have our pattern, we can map that function directly into our vertex shader. The only difference is that **instead of assigning the wave value to a pixel color, we will now assign it as a transform to the y component of each vertex**, effectively bending the mesh up an down according to the cosine wave.
+
+For posterity, let's also just stick the wave code into its own function as well as tweaking it to look more ripple-like.
 
 ```c
+float getWave(float2 uv) {
+    float distance = length(uv * 2 - 1); // [another way] normalize the uv coordinate from -1 to 1 with 0 as center and get distance
+    float wave = cos((distance) * 6 * TAU - _Time.y);
+    wave *= _WaveAmp; // property to adjust wave height in inspector
+    wave *= (1 - distance); // dissipate over distance
+    return wave;
+}
 v2f vert(appdata v) {
     v2f o;
-    float distance = length(v.uv0 * 2 - 1);
-    float wave = cos((distance) * 6 * TAU + _Time.y);
-    v.vertex.y = wave*_WaveAmp; // Added property to adjust wave amplitude
+    v.vertex.y = getWave(v.uv0);
 
     o.vertex = UnityObjectToClipPos(v.vertex);
     o.normal = mul((float3x3)unity_ObjectToWorld, v.normal); // UnityObjectToWorldNormal(v.normals);
     o.uv = (v.uv0 + _Offset) * _Scale;
     return o;
 }
+float4 frag(v2f i) : SV_Target{
+    float wave = getWave(i.uv)*2;
+    return wave;
+}
 ```
 
 And just like that, we have waves in both the pattern and shape of our plane.
 
 ![Ripple Shader](images/ripple_shader.gif)
+
+> With dissipation
+
+![Ripple Shader2](images/ripple_shader2.gif)
+
+> Without dissipation
+
+## Texture Sampling
