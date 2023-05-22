@@ -2,6 +2,8 @@
 title: "Handling Normals from Unity to Blender"
 date: 2023-05-15T14:34:17-04:00
 draft: False
+cover:
+    image: https://docs.blender.org/manual/en/2.79/_images/modeling_meshes_editing_normals_viewport.png
 ---
 
 While trying to import a plane from Blender to Unity, I ran into the issue of the normals facing the wrong direction once imported into Unity. This was particularly an issue when it came to vertex shaders as any vertex transform performed incorrectly.

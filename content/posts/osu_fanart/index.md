@@ -3,7 +3,7 @@ title: "Making Osu Fanart"
 date: 2023-04-24T00:39:23-04:00
 draft: false
 cover: 
-    image: img/osu/new_beginnings/final.png
+    image: images/final.png
     alt: ''
     caption: ''
 tags: ['osu', 'fanart']

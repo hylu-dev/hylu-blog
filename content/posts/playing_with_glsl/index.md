@@ -122,6 +122,67 @@ float frac(float v) {
 ```
 
 Frac will only return values between a range of 0 and 1 and if its fed a `v` out of this range, the pattern will repeat.
-So you can surround your shader code with a frac and get repeating pattern that look like this.
+So you can surround your shader code with a frac and get a repeating pattern that looks like this.
 
 ![frac example](https://pic4.zhimg.com/80/v2-2e6c3b65fbf3a07aa0e781ec6f3e97a7_1440w.webp)
+
+## Generating Shapes with Arctangent
+
+Trigonometric functions are closely tied with circles and are a key component to generating repeating, cyclical patterns. Here, we are taking a look at the power of the arctangent function.
+
+To begin, the arctangent function when graphed is a right rotation and mirror of the standard tangent graph.
+
+![Arctangent Graph](https://dfrrh0itwp1ti.cloudfront.net/img/a/trigonometry/trigonometric-functions/arctan/arctan.png)
+![Tangent Graph](https://study.com/cimages/multimages/16/tan38155360018730577690.png)
+
+It can be hard to wrap your head around how each value of x in the arctan graph correlates to its plotted value but the key is to focus on how the arctan function relates to the tan function itself.
+
+```r
+arctan(x) = θ ==> tanθ = x
+```
+
+It's primarily used to find the angle between the opposite and adjacent sides of a trangle
+
+```r
+θ = arctan(opposite/adjacent)
+```
+
+When wanting to create patterns, this relation should be your tool to visualizing how patterns can be built with arctan.
+
+For example, for every pixel we have a `vector2` of it's position and by subbing that into arctan, we can get the angle that the pixel lies from the origin.
+
+Let's move the origin to the center and try plotting the angle directly to the color of the shader.
+
+```c
+void main(){
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    vec3 color = vec3(0.0);
+
+    vec2 pos = st*2. - 1.;
+    
+    float r = length(pos)*2.0;
+    float a = atan(pos.y,pos.x);
+    color = vec3(a);
+    
+    gl_FragColor = vec4(color, 1.0);
+}
+```
+
+![Arctan Shader](images/arctan_shader.png)
+
+> You can see how starting from the postive x-axis, the gradient gets brighter as the angle increases radially. Then below the axis, negative angles are rendered black.
+
+If we then sub the angles into `cos`, we get the adjacent side of the right triangle angled θ from the origin.
+
+![Cos Shader](images/cos_shader.png)
+
+> The adjacent component is only positive in quadrants I and IV
+
+What's exciting now is remember this is still a cosine function. We can increase the period in order to see more cycles.
+
+```c
+float f = cos(a*8.); // 8 cycles
+f = floor(f + .5); // round to solid values
+```
+
+![Umbrella Shader](images/umbrella_shader.png)

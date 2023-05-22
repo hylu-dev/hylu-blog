@@ -5,7 +5,7 @@ draft: false
 cover:
     image: "https://acegikmo.com/shaderforge/images/web/screenshots/sf_ss_mainpage_b.jpg"
 mermaid: true
-tags: ["unity"]
+tags: ["unity, shaders"]
 category: ["Development"]
 ---
 
@@ -370,3 +370,66 @@ And just like that, we have waves in both the pattern and shape of our plane.
 > Without dissipation
 
 ## Texture Sampling
+
+So far, we've been using shaders on textureless materials but often we want to use shaders to enhance existing textures that are on materials. For example, we might have a photo-realistic mud texture that we want to apply a shader to add some bumps and dips based on the texture.
+
+Compared to the previous shaders, there's a few new pieces of code we need to include for us to use the colour data from the current material.
+
+```c
+Properties{
+    _MainTex("Texture", 2D) = "white" {} // pass the texture data, 2D is most common but other types like 3D exist
+}
+// variables
+sampler2D _Maintex; // variable for texture data
+float4 _Maintex_ST; // optional, holds tiling scale (_ST is a Unity semantic and automatically gives it the tiling data)
+
+v2f vert(appdata v) {
+    v2f o;
+    
+    o.vertex = UnityObjectToClipPos(v.vertex);
+    o.uv = TRANSFORM_TEX(v.uv, _MainTex); // optional, scales the uv based on the tiling offset above
+    o.uv = v.uv // otherwise, assigning the uv directly works the same
+    return o;
+}
+
+float4 frag(v2f i) : SV_Target{
+    fixed4 col = tex2D(_MainTex, i.uv); // samples a color from the texture based on the uv
+    return col;
+}
+```
+
+### Mapping a Texture to World Space
+
+Normally, when you map a material onto a mesh, you want to link the material position strictly to the UV coordinates of the object. In some cases such as for ground textures with planes, it can be really useful to instead map those into the world. This makes it so as you move or add more objects using, they can seamlessly use the same pattern.
+
+To do this, we first need to **convert each vertex coordinate into its respect world coordinate**. This is also an opportunity to take advantage of TEXCOORDS as we need someplace to store these coordinates so they are accessible in the fragment shader.
+
+```c
+struct v2f { 
+    float2 uv: TEXCOORD0;
+    float3 worldPos: TEXCOORD1; // empty coordinates we will later use to store the converted vertex coords
+    float4 vertex: SV_POSITION;
+};
+v2f vert(appdata v) {
+    v2f o;
+
+    o.worldPos = mul(UNITY_MATRIX_M, v.vertex); // converts vertex coords to world coords by multipling be Unity's model matrix
+    o.vertex = UnityObjectToClipPos(v.vertex);
+
+    o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+    o.uv.x += _Time.y*.1 ;
+    return o;
+}
+```
+
+Now, instead of using the UV coordinates to sample a color from the texture, we're going to use the world position.
+
+```c
+float4 frag(v2f i) : SV_Target{
+    float2 topDownProjection = i.worldPos.xz; // We want to apply the texture only to the top of a flat plane so we take the x and z coordinates.
+    fixed4 col = tex2D(_MainTex, topDownProjection);
+    return col;
+}
+```
+
+![World Space Texture](images/world_space_texture.gif)
