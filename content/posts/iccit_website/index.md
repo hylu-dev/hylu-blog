@@ -1,7 +1,7 @@
 ---
 title: "ICCIT Web Development Logs"
 date: 2023-05-24T12:16:13-04:00
-draft: false
+draft: true
 cover:
     image: images/footer.png
 ---
