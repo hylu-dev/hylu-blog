@@ -433,3 +433,30 @@ float4 frag(v2f i) : SV_Target{
 ```
 
 ![World Space Texture](images/world_space_texture.gif)
+
+### Texture Masking
+
+We can also produce a masking effect by drawing another texture and using its values to mask out specific parts of our main texture. This is the same as you would do when masking textures on photoshop.
+
+To begin, let's create a mask and play with it. We'll do a simple mask of black and white. This is drawn simply in Clip Studio.
+
+![Simple Mask](images/pattern_mask.png)
+
+Create a new texture input we'll call `_MaskTex` and use the mask as an input.
+
+To see how we can play with the values, sample the colors from the mask with our object uv and run it through a sign function to get waves of values based on the color at each pixel of the mask.
+
+```c
+float GetWave(float coord) {
+    float wave = sin( (coord + _Time.y)*2*TAU ); // 2*TAU makes the period do two full cycles between an x input of 0-1
+    // notice the repeating waves around transition between white and black from the original mask
+    wave *= coord; // keeps colors that are already dark from cycling to white
+    return wave;
+}
+float4 frag(v2f i) : SV_Target{
+    col = tex2D(_MaskTex, i.uv);
+    return GetWave(col);
+}
+```
+
+![Mask Sampling](images/mask_sampling.gif)
