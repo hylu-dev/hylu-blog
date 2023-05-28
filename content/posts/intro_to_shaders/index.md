@@ -460,3 +460,42 @@ float4 frag(v2f i) : SV_Target{
 ```
 
 ![Mask Sampling](images/mask_sampling.gif)
+
+### Mixing Textures
+
+When you think of the ground texture of a surface, there's many component to it. There are dirt surfaces, grassy areas, rocks, and everything in between. You need a way to smoothly transition from one texture to another.
+
+We can also mix between multiple textures through the use of lerp where the final parameter decides which texture to show. Instead, let's sub in our sample from our mask to decide between textures. With more detailed masks, you can get much more realistic transitions between different textures.
+
+```c
+float4 frag(v2f i) : SV_Target {
+
+    float2 topDownProjection = i.worldPos.xz/5;
+
+    float4 tex0 = tex2D(_MainTex, topDownProjection);
+    float4 tex1 = tex2D(_SecondTex, topDownProjection);
+
+    float mask = tex2D(_MaskTex, i.uv);
+
+    col = lerp(tex0, tex1, mask);
+    return col;
+}
+```
+
+![Texture Lerp](images/texture_lerp.gif)
+
+> We're still mapping the texture based on world coordinates so the textures is consistent no matter the position of the plane. Additionally, techniques such a noise are used to create better transition between textures but we remain this simple example for now.
+
+## Mipmaps
+
+When textures are stored in Unity, they are often converted into a series of lower and lower resolution images kept on one file. This way, when textures are shown on screen, Unity can sample from the lower resolution images based on the position of the camera from the texture to get cleaner and less noisy results.
+
+* Isotropic - Stores series of smaller textures for better sampling at further distances
+* Anisotropic - Stores series of squished textures for better sampling at extreme angles
+
+## Filtering
+
+* Single - No blending between pixels (nearest neighbour)
+* Bilinear - Blends between pixels
+* Trilinear - Blends between pixels and mip levels
+  * Sometimes lines can show up on the texture when the sampler switches mip levels, especially for low angle anisotropics

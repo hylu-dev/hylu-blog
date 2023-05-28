@@ -170,7 +170,13 @@ void main(){
 
 ![Arctan Shader](images/arctan_shader.png)
 
-> You can see how starting from the postive x-axis, the gradient gets brighter as the angle increases radially. Then below the axis, negative angles are rendered black.
+In GLSL, atan has two overloads, first used here can have deceptive behavior when it comes to signs
+> atan returns either the angle whose trigonometric arctangent is yx or y_over_x, depending on which overload is invoked. In the first overload, the signs of y and x are used to determine the quadrant that the angle lies in. The value returned by atan in this case is in the range [−π,π]. The result is undefined if x=0
+
+.
+
+For the second overload, atan returns the angle whose tangent is y_over_x. The value returned in this case is in the range [−π2,π2]
+. n.
 
 If we then sub the angles into `cos`, we get the adjacent side of the right triangle angled θ from the origin.
 
@@ -186,3 +192,15 @@ f = floor(f + .5); // round to solid values
 ```
 
 ![Umbrella Shader](images/umbrella_shader.png)
+
+## Morphing Mosaic
+
+```c
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution;
+    uv = uv*2. - vec2(1.); // center origin
+    float angle = atan(sin(uv.y*PI), sin(uv.x*PI));
+    vec4 color = vec4(ceil(sin(angle*10. + u_time)));
+    gl_FragColor = color;
+}
+```
