@@ -204,3 +204,36 @@ void main() {
     gl_FragColor = color;
 }
 ```
+
+## Mixing Patterns
+
+By encorporating smaller, simpler patterns into your shader, you can combine them and get surprisingly complex designs that also show off the beauty of the math behind it.
+
+```c
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution;
+    uv = uv*2. - vec2(1.); // center origin
+
+    float dist = length(uv);
+    float angle = atan(uv.y*PI, uv.x*PI);
+
+    float waves = sin(dist*5.*TAU - u_time*0.);
+    float umbrella = sin(angle*5. + u_time*0.);
+
+    vec4 color;
+    color = vec4(umbrella);
+    color += waves;
+    gl_FragColor = color;
+}
+```
+
+{{< img-tile >}}
+    {{< img src="images/ripple.jpg" >}}
+    {{< img src="images/star.jpg" >}}
+{{< /img-tile >}}
+
+> A ripple and a star pattern
+
+![Combined Ripple Star](images/ripple-star.jpg)
+
+> Combined together
