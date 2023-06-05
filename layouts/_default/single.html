@@ -20,6 +20,10 @@
       {{- partial "post_canonical.html" . -}}
     </div>
     {{- end }}
+    <!-- Add mathjax min js file -->
+    {{ if (.Params.math) }}
+    {{ partial "mathjax.html" }}
+    {{ end }}
   </header>
   {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
   {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
