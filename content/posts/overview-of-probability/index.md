@@ -103,9 +103,14 @@ $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
 The thing you might notice is that we're also describing conditional probabilities, so what's the difference?
 
-Instead of using the joint probability \\(\frac{P(A\cap B)}\\), we use the reverse condition \\(\frac{P(E|H)}\\). Simply put, **we choose the theorem that best suits the data we have**. More generally, the conditional formula often suits simpler problems like pulling marbles from a bag.
+Instead of using the joint probability \\(P(A\cap B)\\), we use the reverse condition \\(P(B|A)P(A)\\). But these are actually equivalent! Think about it this way: **The probability of A and B happening is the same thing as saying the probability of A happening and the probabilty of B given that A happened.**
 
-Bayes Theorem is better suited to conditional problems where our condition updates our original probability. In other words, we can visualize the probability as a hypothesis and a piece of evidence. We can repeatedly update our probability as new evidence comes in. This is often applied in risk evaluation as well as machine learning.
+But what's the point?
+
+Bayes Theorem is better suited to conditional problems where our condition updates our original probability. In other words, we can visualize the probability as a hypothesis and a piece of evidence. We can repeatedly update our probability as new evidence comes in.
+
+$$P(A\cap B) = P(B|A)P(A) = P(New\ evidence\ after\ current\ event)P(current\ event)$$
+
 
 As an example, let's say our hypothesis is that Anne is a vegetarian and let's say that 1/4 of people are vegetarians. Then the probability of Anne being one is just so.
 
@@ -116,3 +121,5 @@ Now, let's say we get some evidence that Anne is a climate change activist. Now 
 Let's say we infer that a fifth of vegetarians are activists and a tenth of non-vegetarians are activists. Then we can solve as follows
 
 $$P(H|E) = \frac{P(Vegetarian)P(Activist\ if\ Vegetarian)}{P(Activist)} = \frac{\frac{1}{4}*\frac{1}{5}}{\frac{1}{5}+\frac{1}{10}} = \frac{1}{6}$$
+
+Imagine from here, we can repeat the process with new evidence using the previous evidence as our hypothesis instead, further refining our probability. This forms the basis of many uses cases like risk analysis and machine learning.'
