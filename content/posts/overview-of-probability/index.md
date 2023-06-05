@@ -86,3 +86,33 @@ Those who work with probabilities on large datasets are generally familiar with 
 - 99.7% of values are within 3 \\(\sigma\\) away from the mean
 
 Knowing the standard deviation gives great insight into how clustered dataset is around the mean. Larger values suggest a more spread out dataset.
+
+## Conditional Probabilities
+
+Conditional probabilities ask, "what is the probability of A given a condition B".
+
+More formally,
+
+$$P(A|B) = \frac{P(A\cap B)}{P(B)}$$
+
+The intuition is that we're looking at subset of the data that satisfies this condition B. Then, we're taking a fraction of those that satisfy A within the subset B.
+
+## Bayes Theorem
+
+$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+
+The thing you might notice is that we're also describing conditional probabilities, so what's the difference?
+
+Instead of using the joint probability \\(\frac{P(A\cap B)}\\), we use the reverse condition \\(\frac{P(E|H)}\\). Simply put, **we choose the theorem that best suits the data we have**. More generally, the conditional formula often suits simpler problems like pulling marbles from a bag.
+
+Bayes Theorem is better suited to conditional problems where our condition updates our original probability. In other words, we can visualize the probability as a hypothesis and a piece of evidence. We can repeatedly update our probability as new evidence comes in. This is often applied in risk evaluation as well as machine learning.
+
+As an example, let's say our hypothesis is that Anne is a vegetarian and let's say that 1/4 of people are vegetarians. Then the probability of Anne being one is just so.
+
+$$P(H) = 1/4$$
+
+Now, let's say we get some evidence that Anne is a climate change activist. Now the question is, "what's the probability that Anne is a vegetarian given that she's also a climate change activist (activist for short).
+
+Let's say we infer that a fifth of vegetarians are activists and a tenth of non-vegetarians are activists. Then we can solve as follows
+
+$$P(H|E) = \frac{P(Vegetarian)P(Activist\ if\ Vegetarian)}{P(Activist)} = \frac{\frac{1}{4}*\frac{1}{5}}{\frac{1}{5}+\frac{1}{10}} = \frac{1}{6}$$
