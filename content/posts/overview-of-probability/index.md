@@ -111,8 +111,9 @@ Bayes Theorem is better suited to conditional problems where our condition updat
 
 $$P(A\cap B) = P(B|A)P(A) = P(New\ evidence\ after\ current\ event)P(current\ event)$$
 
+### An Example
 
-As an example, let's say our hypothesis is that Anne is a vegetarian and let's say that 1/4 of people are vegetarians. Then the probability of Anne being one is just so.
+Let's say our hypothesis is that Anne is a vegetarian and let's say that 1/4 of people are vegetarians. Then the probability of Anne being one is just so.
 
 $$P(H) = 1/4$$
 

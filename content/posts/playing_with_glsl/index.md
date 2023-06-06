@@ -3,9 +3,7 @@ title: "Playing With GLSL"
 date: 2023-05-11T14:23:07-04:00
 draft: false
 cover: 
-    image: 'https://repository-images.githubusercontent.com/32267301/46578c00-9a17-11eb-81ed-6719b09490c2'
-    alt: ''
-    caption: ''
+    image: 'https://thebookofshaders.com/07/froebel.jpg'
 tags: ['glsl', 'shader']
 categories: ['Development']
 ---
