@@ -6,7 +6,8 @@ theme = 'PaperMod'
 [params]
     ShowBreadCrumbs = true
     ShowPostNavLinks = true
-    favicon = "/favicon/favicon.ico"
+[params.assets]
+    favicon = "/favicon.ico"
 [params.cover]
     linkFullImages = true
 [params.homeInfoParams]

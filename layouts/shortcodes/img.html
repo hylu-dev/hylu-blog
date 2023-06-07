@@ -1,6 +1,36 @@
 {{- $src := .Get "src" -}}
-{{- with .Parent -}}
-  <img alt="{{ $src }}" src="{{ $src }}" class="{{ .Get "class" }}-image">
-{{- else -}}
-  <img alt="{{ $src }}" src="{{ $src }}">
-{{- end -}}
+<div class="center-flex">
+  <a class="link {{ .Get "class" }}" href="{{ $src }}">
+    <img alt="{{ $src }}" src="{{ $src }}" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+    transition: all .3s ease-out;
+  }
+
+  .img:hover {
+    transform: scale(1.3);
+  }
+
+  .img-sm {
+    width: 50%;
+  }
+
+  .img-md {
+    width: 70%;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+</style>

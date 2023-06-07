@@ -58,7 +58,7 @@ For example you may be sampling for animals that are dogs, you'd have an output 
 
 We call the set of features the **feature vector**. We call the output label the **target**
 
-![ML Type Difference](https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.png)
+{{< img class="img-md" src="https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.png" >}}
 
 ## Machine Learning Models
 
@@ -66,7 +66,9 @@ Once we have our data that we want to perform machine learning on, we need to de
 
 ### K-Nearest Neighbours (KNN)
 
-![KNN](https://miro.medium.com/v2/resize:fit:828/0*jqxx3-dJqFjXD6FA)
+{{< img class="img-sm" src="https://miro.medium.com/v2/resize:fit:828/0*jqxx3-dJqFjXD6FA" >}}
+
+
 
 The intuition here is we have a labelled dataset, if get a new point in the dataset, we can infer how it should be labelled based on it's distance from other points.
 
@@ -108,14 +110,111 @@ We want to find the category that maximizes the probability given by the Naive B
 
 ### Logistic Regression
 
-![Logistic Regression](https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.png)
+{{< img class="img-sm" src="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.png" >}}
 
 ### Support Vector Machines
 
-![Support Vector Machine](https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.png)
+{{< img class="img-md" src="https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.png" >}}
 
 ## Neural Network
 
 For more complex data, modern approaches have been using neural network models.
 
-### Gradient Descent
+The intuition of a neural network is that we want to break up our classification model into a set of *neurons* that take in
+
+{{< mermaid >}}
+flowchart LR
+    subgraph Neuron
+    direction LR
+        x1 -->|w0| h
+        x2 -->|w1| h
+        xn -->|wn| h
+        h(("Neuron")) -->|output| p("Activation Function")
+        b("bias") --> h
+    end
+{{< /mermaid >}}
+
+{{< mermaid >}}
+flowchart LR
+    subgraph Neural Network
+    direction LR
+        i[("Input")] --> h["Hidden Layers"] --> p(("Output Neurons"))
+    end
+{{< /mermaid >}}
+
+### Neurons & Hidden Layers
+
+{{< img class="img-md" src="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.png">}}
+
+Neurons are grouped into layers known as *hidden layers*. We can have as many layers as deemed necessary, and each layer will have to job of classifying the data given by the previous layer.
+
+For example, one layer may being classifying line strokes of an image while the next layer starts classifying different strokes together into shapes. The end goal may be to be able to identify text.
+
+#### Weights & Biases
+
+Each neuron's job is to pick up on specific aspects of our input into it. They way we do this is by assigning weights to each of the inputs into the neuron.
+
+For example, if our input is the pixels of a screen, perhaps we want our neuron to pick up only on a specific area on the screen of pixels. We would then have more postive weights on those pixels and weaker or potentially negative weights on the other pixels.
+
+Every neuron will have it's own associated weights that it assigns it's inputs.
+
+Depending on our data, we want our neuron to only be active at a certain magnitude of values. For instance, we want our neuron to start activating given a weighted sum > 10. The solution is adding a constant called a **bias** that shifts our sum so that it only activates at the values we want.
+
+> You might be wondering, "okay but, how do we decide these weight and biases?". If we were to do this manually, it'd be an astronomical test of patience. Instead, the work of finding the right set of weights & biases will come later in the *learning* portion.
+
+#### Activation Function
+
+Once we compute the weighted sum of values entering a neuron we can get virtually any number. Usually we want a normalized range a values. For example, if we're taking brightness of pixels on a screen, it's useful to have values between 0 and 1. The solution is entering the sum into an **activation function**.
+
+A common activation function is the logistic function (sigmoid).
+
+$$\sigma(x) = \frac{1}{1+e^{-x}}$$
+
+Though these days, a more popular choice is ReLU (Rectified Linear Unit)
+
+$$ReLU(a) = max(0,a)$$
+
+> 0 for a < 0, increases linearly otherwise
+
+#### As an Equation
+
+Luckily, this sequence of weighted sums, activation functions, and biases can be computed as a matrix.
+
+$$
+a_0^{(1)} = \sigma(
+\begin{bmatrix}
+w_{0,0} & w_{0,0} & ... & w_{0,n}\\\\
+w_{0,0} & w_{0,0} & ... & w_{0,n}\\\\
+... & ... & ... & ...\\\\
+w_{k,0} & w_{k,0} & ... & w_{k,n}
+\end{bmatrix}
+\begin{bmatrix}
+a_{0}^{(0)}\\\\
+a_{1}^{(0)}\\\\
+...\\\\
+a_{n}^{(0)}
+\end{bmatrix}
++
+\begin{bmatrix}
+b_0\\\\b_1\\\\...\\\\b_n
+\end{bmatrix}
+)
+$$
+
+Any **single** neuron \\(a_n^{layer}\\) is the combination of normalized (\\(\sigma\\)) weights and biases, of **all** the neurons from the previous layer.
+
+### Gradient Descent (or how calculus learns)
+
+In order to start learning, we need an idea of how bad or good a particular set of weights and biases are. We call this the **cost function**.
+
+The idea is that on every learning iteration, we want to minimize the cost function. However creating such a function and directly calculating some minimum isn't a trivial task.
+
+Instead, if we have some cost function, all we need to know is the slope of the function at a given input weights. Then we just need to shift the weights so that we move in the direction on the downward slope of the cost function. Hence, gradient *descent*.
+
+> Gradient descent just means walking in the downhill direction to minimize the cost function. - 3b1b
+
+{{< img src="https://www.3blue1brown.com/content/lessons/2017/gradient-descent/gradient-descent.png" class="img-sm" >}}
+
+### Back Propagation
+
+This is the algorithm for efficiently computing gradient descent.
