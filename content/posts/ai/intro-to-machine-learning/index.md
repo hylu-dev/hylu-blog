@@ -6,8 +6,8 @@ cover:
     image: "https://img.freepik.com/premium-vector/machine-learning-banner-web-icon-set-data-mining-algorithm-neural-network_35632-107.jpg?w=2000"
 math: true
 mermaid: true
-tags: [""]
-category: [""]
+tags: ["math", "ai"]
+category: ["Development", "Study"]
 ---
 
 In preparation for a deep learning course I'm taking over the Summer, I'm taking a short [intro course on machine learning](https://www.youtube.com/watch?v=i_LwzRVP7bg) to help prepare me for some of the fundamental concepts.
@@ -35,8 +35,6 @@ Loss functions can vary but they can be as simple as calculating the difference.
 $$loss = sum(|y_{real} - y_{predicted}|)$$
 
 $$loss = sum((y_{real} - y_{predicted})^2)$$
-
-
 
 ### Datasets
 
@@ -178,9 +176,10 @@ $$ReLU(a) = max(0,a)$$
 
 #### As an Equation
 
-Luckily, this sequence of weighted sums, activation functions, and biases can be computed as a matrix.
+Luckily, this sequence of weighted sums, activations, and biases can be computed as a matrix.
 
 $$
+\def\activation{
 a_0^{(1)} = \sigma(
 \begin{bmatrix}
 w_{0,0} & w_{0,0} & ... & w_{0,n}\\\\
@@ -199,6 +198,7 @@ a_{n}^{(0)}
 b_0\\\\b_1\\\\...\\\\b_n
 \end{bmatrix}
 )
+}
 $$
 
 Any **single** neuron \\(a_n^{layer}\\) is the combination of normalized (\\(\sigma\\)) weights and biases, of **all** the neurons from the previous layer.
@@ -218,3 +218,33 @@ Instead, if we have some cost function, all we need to know is the slope of the 
 ### Back Propagation
 
 This is the algorithm for efficiently computing gradient descent.
+
+To reiterate, the goal of gradient descent is to systematically lower the cost function by adjusting the weights and biases for a given set of neurons.
+
+A common cost function is to simply take the squared difference of the models prediction vs the actual values.
+
+$$C(x) = (x - y)^2$$
+
+The result is a series of values representing how closely or far away the model was the ideal answer.
+
+Let's however start our intuition with how would we want our outputs to change to get a lower cost. If we were trying to train our model to identify numbers, we would have outputs of all the digits 0-9. Now let's say we give our model the number 2. Our ideal output is for the 2 output light up to one while every other output is zero. We'd likely want it to increase the weights & biases to lead to 2 as well as lower the weights & biases of all the other outputs.
+
+{{< img src="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2017/backpropagation/classify-as-2.png" >}}
+
+Not only that, we out cost function, **we know how far away each of our prediction are from the actual outputs**. The more the cost, the more we want to lower or increase the weights & biases leading to that output.
+
+Further more, we have 3 avenues to alter the activations for a neuron (the output of a neuron)
+
+- Change the bias
+- Change the weights
+- Change the activations of the previous neuron
+
+Recall the equation for the activation of a given neuron
+
+$$\activation$$
+
+Notice that we multiply the weights with the activations of the previous neurons. **The brighter a neuron is, the more effect a change in weight will have.** This is core to altering weights as we need to nudge them in proportion to the previous activations.
+
+We can go through every one of the outcomes and collect an average of how much we want each of the preceeding neurons to change in order to get a better outcome. We can then repeat this for the previous layer's neurons and so forth. Hence, *back propagation*.
+
+In summary
