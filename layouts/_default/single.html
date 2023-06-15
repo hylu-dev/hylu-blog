@@ -20,6 +20,10 @@
       {{- partial "post_canonical.html" . -}}
     </div>
     {{- end }}
+    <!-- Add js module in local js directory file -->
+    {{ if (.Params.module) }}
+    {{ partial "module.html" (dict "context" . "module" $.Params.module) }}
+    {{ end }}
     <!-- Add mathjax min js file -->
     {{ if (.Params.math) }}
     {{ partial "mathjax.html" }}

@@ -140,6 +140,28 @@ flowchart LR
     end
 {{< /mermaid >}}
 
+#### Equation for a Neuron
+
+$$
+\begin{bmatrix}
+x_0\\\\
+x_1\\\\
+\vdots\\\\
+x_n
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+w_0\\\\
+w_1\\\\
+\vdots\\\\
+w_n
+\end{bmatrix}
+\rightarrow
+z = \sum_{i} w_i x_i + b
+\rightarrow
+f(z) = a
+$$
+
 ### Neurons & Hidden Layers
 
 {{< img class="img-md" src="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.png">}}
@@ -162,13 +184,21 @@ Depending on our data, we want our neuron to only be active at a certain magnitu
 
 #### Activation Function
 
-Once we compute the weighted sum of values entering a neuron we can get virtually any number. Usually we want a normalized range a values. For example, if we're taking brightness of pixels on a screen, it's useful to have values between 0 and 1. The solution is entering the sum into an **activation function**.
+Once the weighted sums are calculated, they are run through an *activation function* as a final step before we take the value of that neuron.
+
+Activation functions serve two primary purposes. Removing **linearity** from the network and for use in **binary classification**
+
+Linearity in a network would mean multiple layers could just be represented as a single linear combination, removing the complexity of having multiple layers in the first place. Why does this help? Most phenomena in the world can't be represented linearly and if they can, there's likely not a need to use a neural net in the first place. **We want to describe non-linear phenomena using a non-linear model.**
+
+As for the second purpose, the values from the weighted sums can be virtually anything but often we want them to be between 0 and 1. This is where an activation function can come in to add a final normalization to the value of a neuron.
 
 A common activation function is the logistic function (sigmoid).
 
 $$\sigma(x) = \frac{1}{1+e^{-x}}$$
 
-Though these days, a more popular choice is ReLU (Rectified Linear Unit)
+> This is almost exclusively used for output layers for the binary classification
+
+A popular choice for hidden layer neurons is ReLU (Rectified Linear Unit)
 
 $$ReLU(a) = max(0,a)$$
 
@@ -182,20 +212,20 @@ $$
 \def\activation{
 a_0^{(1)} = \sigma(
 \begin{bmatrix}
-w_{0,0} & w_{0,0} & ... & w_{0,n}\\\\
-w_{0,0} & w_{0,0} & ... & w_{0,n}\\\\
-... & ... & ... & ...\\\\
-w_{k,0} & w_{k,0} & ... & w_{k,n}
+w_{0,0} & w_{0,0} & \dots & w_{0,n}\\\\
+w_{0,0} & w_{0,0} & \dots & w_{0,n}\\\\
+\vdots & \vdots & \ddots & \vdots \\\\
+w_{k,0} & w_{k,0} & \dots & w_{k,n}
 \end{bmatrix}
 \begin{bmatrix}
 a_{0}^{(0)}\\\\
 a_{1}^{(0)}\\\\
-...\\\\
+\vdots\\\\
 a_{n}^{(0)}
 \end{bmatrix}
 +
 \begin{bmatrix}
-b_0\\\\b_1\\\\...\\\\b_n
+b_0\\\\b_1\\\\ \vdots \\\\b_n
 \end{bmatrix}
 )
 }

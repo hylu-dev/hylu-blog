@@ -1,6 +1,6 @@
 {{- $src := .Get "src" -}}
 <div class="center-flex">
-  <a class="link {{ .Get "class" }}" href="{{ $src }}">
+  <a class="link {{ .Get "class" }}" href="{{ $src }}" target="_blank">
     <img alt="{{ $src }}" src="{{ $src }}" class="img">
   </a>
 </div>
@@ -32,5 +32,9 @@
   .center-flex {
     display: flex;
     justify-content: center;
+  }
+
+  .white {
+    background-color: white;
   }
 </style>

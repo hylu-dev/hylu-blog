@@ -5,7 +5,7 @@ draft: false
 cover:
     image: "https://acegikmo.com/shaderforge/images/web/screenshots/sf_ss_mainpage_b.jpg"
 mermaid: true
-tags: ["unity, shaders"]
+tags: ["unity", "shaders"]
 category: ["Development"]
 ---
 
