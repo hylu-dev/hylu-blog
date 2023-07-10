@@ -115,7 +115,7 @@ $$\rmatrices$$
     uniform mat4 m2;
     uniform mat4 m3;
     void main() {
-    gl_Position = projectionMatrix * modelViewMatrix * m1 * m2 * m3 * vec4(position.x, position.y, position.z, 1.0);
+        gl_Position = projectionMatrix * modelViewMatrix * m1 * m2 * m3 * vec4(position.x, position.y, position.z, 1.0);
     }
 </script>
 

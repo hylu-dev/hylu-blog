@@ -1,9 +1,9 @@
 ---
-title: "Procedural Animation"
+title: "Rain World Procedural Animation"
 date: 2023-06-07T15:59:24-04:00
 draft: true
 cover:
-    image: ""
+    image: "https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/rockFight.gif"
 tags: [""]
 category: ["Development"]
 ---
@@ -16,7 +16,7 @@ Though, the more I look into the games that impress me the more I realize that d
 
 With that preamble aside, after playing Rainworld, I've gotten extremely interested in it's procedural animation. It's mindbending how everything seems to twist and move in 3 dimensions despite being purely 2D sprites and it all seems to be done with a lot of clever code and sprite design.
 
-## Rainworld Procedural Animation Research
+## Rain World Procedural Animation Research
 
 I've done some looking around for tutorials on Rainworld animation and other than a popular [GDC Presentation](https://www.youtube.com/watch?v=sVntwsrjNe4), I couldn't find any direct tutorial other than comment speculations and surface level analysis. I'd seem to hit a rut until I found out that Joar's whole devlog is archived nicely at **<https://candlesign.github.io/Rain-World-Devlog/Home>**.
 
