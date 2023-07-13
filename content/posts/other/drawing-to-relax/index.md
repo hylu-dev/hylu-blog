@@ -1,7 +1,7 @@
 ---
 title: "Drawing to Relax"
 date: 2023-07-13T01:27:51-04:00
-draft: false
+draft: true
 cover:
     image: "images/mee.png"
 tags: ["art"]
