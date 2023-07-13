@@ -10,8 +10,6 @@ tags: ["ai"]
 category: ["Development"]
 ---
 
-{{< toc >}}
-
 ## Neural Networks
 
 See Machine Learning
