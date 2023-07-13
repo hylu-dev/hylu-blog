@@ -2,6 +2,7 @@ baseURL: 'https://hylog.netlify.app/'
 languageCode: en-us
 title: Hylu Blog
 theme: PaperMod
+disqusShortname: hylog
 params:
   profileMode:
         enabled: true
@@ -22,16 +23,15 @@ params:
   TocOpen: true
   ShowCodeCopyButtons: true
 
-  # comments: true # https://gohugo.io/content-management/comments/
-
+  comments: true
   defaultTheme: auto
   assets:
-    favicon: favicon.ico
+    favicon: "favicon/favicon.ico"
   cover:
     linkFullImages: true
   homeInfoParams:
-    Title: Don't mind me.
-    Content: Just stress writing.
+    Title: "Don't mind me."
+    Content: "Just stress writing."
 menu:
   main:
     - name: Archive
