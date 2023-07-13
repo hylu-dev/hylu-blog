@@ -28,10 +28,10 @@ I tried sketching out the perspective freehand but it didn't take long to realiz
 
 Luckily, Clip Studio Paint has a 3D model feature that let me place some character as well as background models.
 
-{{< img-tile >}}
+{{< img-tiles >}}
     {{< img src="images/char_ref.png" >}}
     {{< img src="images/bg_ref.png" >}}
-{{< /img-tile >}}
+{{< /img-tiles >}}
 
 These fireworks were a memorable challenge cause it was one of the times I where I just felt completely lost as to how to draw something. I had some fundamentals of painting and texturing that I could apply to something like the clouds but when it came to the vibrancy of fireworks, I didn't even know where to start. I started off by following some tutorial I found online but it just kept looking like neon lightsticks sprawled out into a flower.
 ![Failed Fireworks](images/firework_fail.png)

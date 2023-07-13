@@ -1,0 +1,30 @@
+<div class="flex-tiles">
+    {{ .Inner }}
+</div>
+
+<style>
+    .flex-tiles {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    .flex-tiles > * {
+        width: 49%;
+    }
+</style>
+
+{{/*  
+Example Syntax:
+
+{{< img-tile >}}
+    {{< img src="images/1.png" >}}
+    {{< img src="images/2.png" >}}
+    {{< img src="images/3.png" >}}
+    {{< img src="images/4.png" >}}
+    {{< img src="images/5.png" >}}
+{{</ img-tile >}}
+    
+*/}}

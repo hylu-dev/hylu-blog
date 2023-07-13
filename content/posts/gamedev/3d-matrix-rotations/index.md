@@ -3,7 +3,7 @@ title: "3D Matrix Rotations"
 date: 2023-06-15T02:03:50-04:00
 draft: False
 cover:
-    image: ""
+    image: "https://thebookofshaders.com/08/rotate.jpg"
 three: true
 module: "script.js"
 math: true

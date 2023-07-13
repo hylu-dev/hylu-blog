@@ -1,7 +1,7 @@
 ---
-title: "Folder structure and making mistakes"
+title: "Folder Structure and Making Mistakes"
 date: 2023-04-28T15:44:49-04:00
-draft: true
+draft: false
 tags: ["unity"]
 category: ["Development"]
 ---

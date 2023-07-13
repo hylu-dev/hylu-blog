@@ -350,5 +350,44 @@ A naive approach involves sliding a bounding box across the image and having the
 
 #### Single Shot Detector
 
-
 WHY DO WE NEED TO FLATTEN LAYERS (LOOK INTO THIS)
+
+## Recurrent Neural Networks
+
+These are a special type of neural net designed to work for a sequence of data. Normally each set of inputs are independent from eachother but there are needs for them to depend on each other such as sequences of words or sounds. The main difference is that we feed our output back into the next set of inputs and keep a concept of "memory" in our net.
+
+### Unfolding Layers
+
+Unfolding is a terminology to describe a very simple process. Examining a recurrent layer over multiple timesteps. Rather than showing one recurrent network, we show it as multiple networks that feed into eachother to create that recurrent behavior. This makes it easier to see how our recursion occurs as well as how backpropagation occurs.
+
+{{< img src="https://machinelearningmastery.com/wp-content/uploads/2021/09/rnn1-1536x726.png">}}
+
+### Backpropagation in Time (BPTT)
+
+Our normal backpropagation algorithm is updated for use in RNN's.
+
+- choose \\((k\\)) time steps for training
+- Propagate through unfolded network for \\(k\\) time steps compute output at all timesteps
+- Calcualte error as: \\e = (y_{t+k} - p_{t+k})
+  - \\(y\\) is our output \\(p\\) is our target output at the time step
+- Backpropagate the error across unfolded network and update weights.
+
+## Natural Language Processing (NLP)
+
+The computational treatment of human language. Many large datasets of text exist for training known as a *corpus* that are large, structured sets of text for machine learning.
+Generally, the process of creating an NLP model requires a lot of preprocessing of your training text and figuring which method of text chunking and labelling best suits the model you want.
+
+{{< img class="img-sm" src="https://www.researchgate.net/profile/Kim-Schouten/publication/318138528/figure/fig4/AS:667674447204357@1536197401651/The-NLP-pipeline-used-at-the-basis-of-the-methods-features-compared-to-the-number-of.png">}}
+
+### Common Problems
+
+- Ambiguity: The same sentence can have multiple meanings
+- Synonyms and Homonyms
+- Mispellings
+- Sarcasm
+- Allegory
+- Dialects
+
+### Tokenization
+
+A strategy to deal with complex sentences is to break it up into smaller chunks. Most often this simply by splitting the word by whitespace (1 word 1 token). You may also decide to drop any punctuation to simplify the problem at the cost of some understanding.
