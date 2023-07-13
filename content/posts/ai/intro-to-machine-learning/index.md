@@ -13,8 +13,6 @@ category: ["Development", "Study"]
 In preparation for a deep learning course I'm taking over the Summer, I'm taking a short [intro course on machine learning](https://www.youtube.com/watch?v=i_LwzRVP7bg) to help prepare me for some of the fundamental concepts.
 I've been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it's more than worth getting my feet wet.
 
-{{< toc >}}
-
 ## ML Overview
 
 {{< mermaid >}}

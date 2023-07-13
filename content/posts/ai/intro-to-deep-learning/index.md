@@ -391,3 +391,9 @@ Generally, the process of creating an NLP model requires a lot of preprocessing 
 ### Tokenization
 
 A strategy to deal with complex sentences is to break it up into smaller chunks. Most often this simply by splitting the word by whitespace (1 word 1 token). You may also decide to drop any punctuation to simplify the problem at the cost of some understanding.
+
+### Integer Encoding vs Word Embeddings
+
+Traditional word encoding is done by *one-hot-encoding* every word in your vocabulary. As you can imagine, vectors become huge and memory heavy as well as the fact that each word is independent and we don't capture meaning or context.
+
+Word Embeddings instead represent each word as a multidimensional vector of floating point values. In essence, weights. The value here as that use floating point values are trainable and we can therefore train our model to capture more meaning out of each word by training those weights.

@@ -11,8 +11,6 @@ category: ["Study"]
 
 I've always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
 
-{{< toc >}}
-
 ## Random Variable
 
 Whenever there's a question of probability, you tend to have some range of possible outcomes sourced from a specific event.
