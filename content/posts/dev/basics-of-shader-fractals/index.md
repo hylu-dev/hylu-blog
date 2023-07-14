@@ -141,7 +141,7 @@ float dist = length(uv)*global_dist;
 color = abs(.6*sin(color + global_dist + dist*2. + u_time));
 ```
 
-{{< shader size=300 >}}
+{{< shader >}}
 <script class="fragmentShader" type="x-shader/x-fragment">
 uniform float u_time;
 uniform vec2 u_resolution;
