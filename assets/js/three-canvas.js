@@ -18,9 +18,6 @@ function setupCanvas(container) {
 
     // CANVAS
     // Use unmodified vertices if vertex shader not given
-    //let vertexShader = document.getElementById( 'vertexShader' );
-    //let fragmentShader = document.getElementById( 'fragmentShader' );
-
     let vertexShader = container.querySelector(".vertexShader");
     let fragmentShader = container.querySelector(".fragmentShader");
 

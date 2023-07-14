@@ -3,8 +3,6 @@
     {{ $size = .Get "size" }}
 {{ end }}
 
-
-
 <div class="three-wrapper">
     <div class="three-container" style="height:{{$size}}px;width:{{$size}}px;">
         {{.Inner}}
@@ -18,3 +16,13 @@
         padding: 1rem;
     }
 </style>
+
+{{/* HOW TO USE
+<script class="vertexShader" type="x-shader/x-vertex">
+    <vertex shader code here>
+</script>
+
+<script class="fragmentShader" type="x-shader/x-fragment">
+    <fragment shader code here>
+</script>
+*/}}
