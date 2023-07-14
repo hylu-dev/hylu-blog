@@ -22,7 +22,7 @@ params:
   ShowToc: true
   TocOpen: true
   ShowCodeCopyButtons: true
-  defaultTheme: auto
+  defaultTheme: dark
   assets:
     favicon: "favicon.ico"
   cover:
