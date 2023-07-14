@@ -22,8 +22,6 @@ params:
   ShowToc: true
   TocOpen: true
   ShowCodeCopyButtons: true
-
-  comments: true
   defaultTheme: auto
   assets:
     favicon: "favicon.ico"
