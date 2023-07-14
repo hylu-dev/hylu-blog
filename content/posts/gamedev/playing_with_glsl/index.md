@@ -223,10 +223,10 @@ void main() {
 }
 ```
 
-{{< img-tiles >}}
+{{< tiles >}}
     {{< img src="images/ripple.jpg" >}}
     {{< img src="images/star.jpg" >}}
-{{< /img-tiles >}}
+{{< /tiles >}}
 
 > A ripple and a star pattern
 

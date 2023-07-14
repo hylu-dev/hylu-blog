@@ -17,12 +17,16 @@
       {{- partial "post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
-      {{- partial "post_canonical.html" . -}}
+      {{- partial "post_canonical.html" . -}}<!-- Add three.js module -->
     </div>
     {{- end }}
     <!-- Add js module in local js directory file -->
     {{ if (.Params.module) }}
     {{ partial "module.html" (dict "context" . "module" $.Params.module) }}
+    {{ end }}
+    <!-- Add three.js module -->
+    {{ if (.Params.three) }}
+    {{ partial "three.html" }}
     {{ end }}
     <!-- Add mathjax min js file -->
     {{ if (.Params.math) }}
