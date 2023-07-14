@@ -16,6 +16,8 @@ Fractals are built off of a single pattern or formula, repeated constantly with 
 
 I'll be following [kishimisu's guide](https://www.youtube.com/watch?v=f4s1h2YETNY) on shaders.
 
+### Create a Shape
+
 First off, we can start by creating some base patterns that we want to design our fractal off of. In this case, we can start with a simple circle.
 
 ```c
@@ -56,6 +58,8 @@ void main() {
 </script>
 {{</ shader >}}
 
+### Add fract()
+
 We can then form out a pattern by setting the uv coordinates to it's fractional component.
 
 ```c
@@ -82,6 +86,8 @@ void main() {
 }
 </script>
 {{</ shader >}}
+
+### Throw It in a Loop
 
 Here is where the fractal comes in. We can keep repeating this pattern for larger and larger uv coordinates by constantly iterating over it over our circle code. Additionally, we add our circle `color` to a `finalColor` variable so we get the result of every iteration on our canvas.
 
@@ -118,6 +124,66 @@ void main() {
 }
 </script>
 {{</ shader >}}
+
+### Add Some Complexity and Time
+
+While we have a fractal, the pattern is rather simple. We can up the interest just be nudging a few values and adding a few terms.
+We can also start animating by including a time variable.
+
+```c
+float global_dist = length(uv); // declared outside of loop
+
+uv = fract(uv*1.5)*2.-1.;
+float dist = length(uv)*global_dist;
+color = abs(.6*sin(color + global_dist + dist*2. + u_time));
+```
+
+{{< shader size=300 >}}
+<script class="fragmentShader" type="x-shader/x-fragment">
+uniform float u_time;
+uniform vec2 u_resolution;
+void main() {
+    vec3 finalColor;
+    vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
+    float global_dist = length(uv);
+    vec3 color;
+    for (float i = 0.; i < 3.; i++) {
+        uv = fract(uv*1.5)*2.-1.;
+        float dist = length(uv)*global_dist;
+        color = .1/abs(vec3(dist) - .5);
+        color = abs(.6*sin(color + global_dist + dist*2. + u_time));
+        color = pow(color, vec3(2.));
+        finalColor += color;
+    }
+
+    gl_FragColor = vec4(finalColor, 1.);
+}
+</script>
+{{</ shader >}}
+
+> Final shader
+
+```c
+uniform float u_time;
+uniform vec2 u_resolution;
+void main() {
+    vec3 finalColor;
+    vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
+    float global_dist = length(uv);
+    vec3 color;
+    for (float i = 0.; i < 3.; i++) {
+        uv = fract(uv*1.5)*2.-1.;
+        float dist = length(uv)*global_dist;
+        color = .1/abs(vec3(dist) - .5);
+        color = abs(.6*sin(color + global_dist + dist*2. + u_time));
+        color = pow(color, vec3(2.));
+        finalColor += color;
+    }
+
+    gl_FragColor = vec4(finalColor, 1.);
+}
+```
+
 
 ## Start Experimenting
 
