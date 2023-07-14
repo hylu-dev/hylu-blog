@@ -1,5 +1,5 @@
 ---
-title: "Drawing to Relax"
+title: "Some Casual Art"
 date: 2023-07-13T01:27:51-04:00
 draft: false
 cover:

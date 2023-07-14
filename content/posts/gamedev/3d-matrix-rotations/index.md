@@ -4,8 +4,7 @@ date: 2023-06-15T02:03:50-04:00
 draft: False
 cover:
     image: "https://thebookofshaders.com/08/rotate.jpg"
-three: true
-module: "script.js"
+module: "js/script.js"
 math: true
 tags: ["shaders"]
 category: ["Development"]
