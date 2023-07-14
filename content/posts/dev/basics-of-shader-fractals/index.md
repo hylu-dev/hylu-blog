@@ -127,8 +127,11 @@ void main() {
 
 ### Add Some Complexity and Time
 
-While we have a fractal, the pattern is rather simple. We can up the interest just be nudging a few values and adding a few terms.
-We can also start animating by including a time variable.
+While we have a fractal, the pattern is rather simple. We can up the interest just by **nudging a few values and adding a few terms**.
+
+It can be helpful to declare some terms outside the loop to keep the pattern from being too repetitive. In this case, I've added `global_dist` for the radial distance of the pixel from the center.
+
+We can also start animating by wrapping some terms in a `sin()` and adding a constant `u_time` to the phase shift for a smooth cycle between values.
 
 ```c
 float global_dist = length(uv); // declared outside of loop
