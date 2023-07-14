@@ -6,8 +6,7 @@ cover:
     image: images/final.png
     alt: ''
     caption: ''
-tags: ['osu', 'fanart']
-categories: ['Art', 'Gaming']
+tags: ['osu', 'fanart', 'art']
 ---
 
 ## osu! Fanarts?

@@ -4,8 +4,7 @@ date: 2023-06-07T15:59:24-04:00
 draft: true
 cover:
     image: "https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/rockFight.gif"
-tags: [""]
-category: ["Development"]
+tags: ["animation"]
 ---
 
 There's so many components to game development I want to learn about and the more I dig in, the more I feel like this hole of knowledge is neverending. It's also the fact that there's so much technology that's already been built and currently being built by people leagues ahead in expertise that it feels like a waste to start at anything only for it to be phased out by some new fangled technology.

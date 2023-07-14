@@ -4,8 +4,7 @@ date: 2023-05-05T10:37:52-04:00
 draft: false
 cover:
     image: https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg
-tags: ["math"]
-category: ["Development"]
+tags: ["math", "development"]
 ---
 
 When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.

@@ -6,8 +6,7 @@ cover:
     image: https://assets.ppy.sh/contests/175/entries/Nervy%20Badger.jpg
     alt: ''
     caption: ''
-tags: ['osu', 'fanart', 'blender']
-categories: ['Art', 'Gaming']
+tags: ['osu', 'fanart', 'blender', 'art']
 ---
 
 # Journey into a Beatmap

@@ -1,13 +1,12 @@
 ---
-title: "First Post"
+title: "New Beginnings"
 date: 2023-04-23T19:20:29-04:00
-draft: true
+draft: false
 cover:
     image: img/heart.svg
     alt: ''
     caption: ''
-tags: ['']
-categories: ['Personal']
+tags: ['personal']
 ---
 
 Hi, I'm a **developer**. That in itself doesn't mean too much really and for me it only really marks **the beginning** of what I would like to do and achieve. I've read my share of **devlogs** and appreciate the amount of value it gives to readers while also envying the sheer knowledge and coherence each of the authors are able to display. I hope I can also create devlogs of similar value. Saying that, **I don't really expect to have an audience** in this blog--infact part of me is too embarrassed to have this shown to anyone.

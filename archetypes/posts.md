@@ -5,5 +5,4 @@ draft: true
 cover:
     image: ""
 tags: [""]
-category: [""]
 ---

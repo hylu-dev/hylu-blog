@@ -6,7 +6,6 @@ cover:
     image: images/frame_drifter.jpg
     alt: 'Drifter'
 tags: ['warframe']
-categories: ['Gaming', "Personal"]
 ---
 
 Warframe recently released it's long awaited update, **The Duviri Paradox**. I've been silently waiting for it's release since it's been talked about and delayed for many years. I played some and overall and I feel like I could pretty well enjoy it if not for the bugs. I think the push for slower paced gameplay is cool but just doesn't really have a future with the rest of Warframe. I was a little disappointed how this really ends up as a huge, sectioned off experience with little impact on the rest of the game. For example, I was hoping they'd upgrade Drifter/Operator gameplay to really stand on its on and work better in conjunction with Warframe play. **Still, from a creativity and art side, quite beautiful!** I have more thoughts but let's leave it at that.

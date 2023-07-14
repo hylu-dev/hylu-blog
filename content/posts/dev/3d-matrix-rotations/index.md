@@ -6,8 +6,7 @@ cover:
     image: "https://thebookofshaders.com/08/rotate.jpg"
 module: "js/script.js"
 math: true
-tags: ["shaders"]
-category: ["Development"]
+tags: ["shaders", "development"]
 ---
 
  Rotation is one such transformation and that can be achieved by locking the desired axes of rotation and transforming the rest of the axes by \\(sin\\) and \\(cos\\).

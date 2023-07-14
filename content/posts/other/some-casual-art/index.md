@@ -4,8 +4,7 @@ date: 2023-07-13T01:27:51-04:00
 draft: false
 cover:
     image: "images/mee.png"
-tags: ["procreate"]
-category: ["Personal", "Art"]
+tags: ["procreate", "personal", "art"]
 comments: true
 ---
 

@@ -6,8 +6,7 @@ cover:
     image: images/trello_example.png
     alt: ''
     caption: ''
-tags: ['unity']
-categories: ['Development']
+tags: ['organization']
 
 ---
 

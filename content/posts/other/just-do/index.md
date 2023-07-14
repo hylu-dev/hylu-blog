@@ -4,8 +4,7 @@ date: 2023-07-11T02:31:07-04:00
 draft: true
 cover:
     image: ""
-tags: [""]
-category: ["Personal"]
+tags: ["personal"]
 ---
 
 It's been a while since I've done a post. Honestly, I've been hitting a bit of a slum. I have things I want to accomplish and a way towards it but every step in that direction feels so heavy. I am indulging in avoidance and everyday it eats at me because I know I can do better--I've done better.

@@ -4,8 +4,7 @@ date: 2023-05-03T10:54:02-04:00
 draft: false
 cover:
     image: images/jammo_movement.gif
-tags: ["unity"]
-category: ["Development"]
+tags: ["unity", "development"]
 ---
 
 I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk&list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&index=3

@@ -2,8 +2,7 @@
 title: "Folder Structure and Making Mistakes"
 date: 2023-04-28T15:44:49-04:00
 draft: false
-tags: ["unity"]
-category: ["Development"]
+tags: ["unity", "development"]
 ---
 
 When using a programming engine or framework, one of the things I get stuck on the most is how to organize all the directories and files for a project. Every technology has its own separate ethos when it comes to the separation of concerns. It's such an important part in order to not have a growing project becoming a nightmare for other's to work with, or even yourself after spending some time away from it.
