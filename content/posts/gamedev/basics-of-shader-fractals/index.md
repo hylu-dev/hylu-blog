@@ -1,7 +1,7 @@
 ---
 title: "Basics of Shader Fractals"
 date: 2023-07-13T20:53:06-04:00
-draft: true
+draft: False
 cover:
     image: ""
 shader: true

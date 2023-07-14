@@ -26,7 +26,7 @@ params:
   comments: true
   defaultTheme: auto
   assets:
-    favicon: "favicon/favicon.ico"
+    favicon: "favicon.ico"
   cover:
     linkFullImages: true
   homeInfoParams:
