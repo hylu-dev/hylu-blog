@@ -60,7 +60,7 @@ void main() {
 
 ### Add fract()
 
-We can then form out a pattern by setting the uv coordinates to it's fractional component.
+We can then form out a pattern by setting the uv coordinates to its fractional component.
 
 ```c
 uv = fract(uv)*2.-1.;
@@ -89,7 +89,7 @@ void main() {
 
 ### Throw It in a Loop
 
-Here is where the fractal comes in. We can keep repeating this pattern for larger and larger uv coordinates by constantly iterating over it over our circle code. Additionally, we add our circle `color` to a `finalColor` variable so we get the result of every iteration on our canvas.
+Here is where the fractal comes in. We can keep repeating this pattern for larger and larger uv coordinates by constantly iterating over our circle code. Additionally, we add our circle `color` to a `finalColor` variable so we get the result of every iteration on our canvas.
 
 ```c
     vec3 finalColor;
@@ -129,7 +129,7 @@ void main() {
 
 While we have a fractal, the pattern is rather simple. We can up the interest just by **nudging a few values and adding a few terms**.
 
-It can be helpful to declare some terms outside the loop to keep the pattern from being too repetitive. In this case, I've added `global_dist` for the radial distance of the pixel from the center.
+It can be helpful to declare some terms outside the loop to keep the pattern from being too repetitive. In this case, I've added `global_dist` for the radial distance of a pixel from the center.
 
 We can also start animating by wrapping some terms in a `sin()` and adding a constant `u_time` to the phase shift for a smooth cycle between values.
 
@@ -187,10 +187,9 @@ void main() {
 }
 ```
 
-
 ## Start Experimenting
 
-With this basis, you can continue to add to the fractal by **encorporating gradients, animating values, adding curves**, and **anything** at all really. The tiniest change can generate a wildy different fractal pattern and it's all about experimentation to get something you might like.
+With this basis, you can continue to add to the fractal by **encorporating gradients, adjusting iterations, adding curves**, and **anything** at all really. The tiniest change can generate a wildy different fractal pattern and it's all about experimentation to get something you might like.
 
 ```c
 uniform float u_time;
@@ -260,15 +259,12 @@ void main() {
 
     for (float i = 0.; i < 3.; i++) {
         uv = fract(uv*1.5) - .5;
-
         dist = length(uv)*exp(-global_dist);
         color = palette(global_dist+u_time*.5);
-        
         dist = .1*sin(dist*8. + u_time*2.);
         dist = abs(dist);
         dist = .01/dist;
         dist = pow(dist, 1.2);
-        
         final_color += color*dist;
     }
     gl_FragColor = vec4(final_color, 1.);
