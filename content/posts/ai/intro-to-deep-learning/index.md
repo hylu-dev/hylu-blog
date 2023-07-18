@@ -267,7 +267,9 @@ Computer vision is the field of computer science dedicated to enabling computers
 
 ### Object Classification and Localization
 
-TBeing able to identift specific objects within an image frequently used in a variety of technological applications. For example, face filters need to identify where human faces and specific features are. This can become compilicated as any single picture can have a variety of sizes, aspect ratios, colours, and objects of the interest the computer needs to filter through in order to identify an object.
+Being able to identifY specific objects within an image frequently used in a variety of technological applications. For example, face filters need to identify where human faces and specific features are. This can become compilicated as any single picture can have a variety of sizes, aspect ratios, colours, and objects of the interest the computer needs to filter through in order to identify an object.
+
+### TF Model for Identifying Single Objects
 
 A simple model involves training a network to identify an object in an image by outputting a bounding box at the desired location. For identifying a single object, this is a fairly simple task
 
@@ -395,3 +397,10 @@ A strategy to deal with complex sentences is to break it up into smaller chunks.
 Traditional word encoding is done by *one-hot-encoding* every word in your vocabulary. As you can imagine, vectors become huge and memory heavy as well as the fact that each word is independent and we don't capture meaning or context.
 
 Word Embeddings instead represent each word as a multidimensional vector of floating point values. In essence, weights. The value here as that use floating point values are trainable and we can therefore train our model to capture more meaning out of each word by training those weights.
+
+### NLP Model in TensorFlow
+
+In this example, we're going to create a model for detecting textual similarity between documents and a given text.
+
+#### Text Preprocessing
+

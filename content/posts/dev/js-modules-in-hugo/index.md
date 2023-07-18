@@ -195,47 +195,43 @@ precision mediump float;
 
 uniform float u_time;
 uniform vec2 u_resolution;
+uniform vec2 u_mouse;
 
 #define PI 3.1415926538
-#define TAU 6.2831855
 
-vec4 vignette(vec4 color, float weight) {
-    vec2 uv = gl_FragCoord.xy*2. / u_resolution -1.;
-    color *= 1.-abs(uv.x*uv.y)*weight;
-    return color;
+float square(vec2 uv, vec2 pos, float size) {
+    float blur = .02;
+    vec2 bot = smoothstep(pos-blur, pos, uv);
+    vec2 top = smoothstep(pos+size, pos+size+blur, uv);
+    vec2 shape = bot-top;
+    return shape.x*shape.y;
 }
 
-float line(vec2 p1, vec2 p2) {
-    return 0.;
-}
-
-vec2 orbit(vec2 uv, float radius, float period) {
-    uv.x += sin(u_time*period)*radius;
-    uv.y += cos(u_time*period)*radius;
-    return uv;
-}
-
-vec2 center() {
-    vec2 uv = gl_FragCoord.xy / u_resolution;
-    uv = uv*2. - 1.;
-    return uv;
-}
-
-float dotgrid(vec2 uv, float density) {
-    float dist = length(sin(uv*density*TAU));
-    return 1.-floor(dist + .5);
+mat2 rotate(float angle) {
+    return mat2(
+        cos(angle), -sin(angle),
+        sin(angle), cos(angle)
+    );
 }
 
 void main() {
+    vec3 color;
     vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
-    vec4 color;
-    color = vec4(dotgrid(
-    center(),
-    length(orbit(center(), .5, PI/2.))+5.
-    ));
-    color *= (1.-length(.5*orbit(center(), .5, PI/2.)));
-    color -= ceil(length(center()) - 1.); // circle canvas
-    gl_FragColor = color;
+    float dist = length(uv);
+    dist = sin(dist*2. + u_time);
+    dist = pow(dist, 8.);
+
+    uv = fract(uv*5.*rotate(u_time*.2) + 3.*sin(u_time*.5))*2. - 1.;
+
+    float shape = square(uv, vec2(-dist/2.), dist);
+
+    shape += smoothstep(-.02, -.01, uv.x) -
+     smoothstep(.01, .02, uv.x) +
+     smoothstep(-.02, -.01, uv.y) -
+     smoothstep(.01, .02, uv.y);
+    color = vec3(shape);
+
+    gl_FragColor = vec4(color, 1.);
 }
 </script>
 {{</ shader >}}
