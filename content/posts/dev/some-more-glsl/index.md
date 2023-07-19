@@ -64,4 +64,4 @@ void main() {
 {{</ shader >}}
 {{</ tiles >}}
 
-Notice the occasional shader flickering. Because we need to hardcode in a value for `PI`, the imprecision cause our sine waves to not line up where we need them to and giving unexpected values at those junctures.
+Notice the occasional shader flickering. Because we need to hardcode in a value for `PI`, the imprecision causes our sine waves to not line up where we need them to and returning unexpected values at those junctures.

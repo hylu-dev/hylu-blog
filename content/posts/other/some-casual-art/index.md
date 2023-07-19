@@ -17,4 +17,5 @@ I've been trying to get into the habit of drawing casually as opposed to doing s
     {{< img src="images/4.jpg" >}}
     {{< img src="images/5.jpg" >}}
     {{< img src="images/6.jpg" >}}
+    {{< img src="images/7.jpg" >}}
 {{</ tiles >}}
