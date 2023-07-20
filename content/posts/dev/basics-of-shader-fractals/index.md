@@ -39,7 +39,7 @@ void main() {
 ```
 
 {{< shader size=300 >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
 uniform float u_time;
 uniform vec2 u_resolution;
 void main() {
@@ -67,7 +67,7 @@ uv = fract(uv)*2.-1.;
 ```
 
 {{< shader size=300 >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
 uniform float u_time;
 uniform vec2 u_resolution;
 void main() {
@@ -105,7 +105,7 @@ Here is where the fractal comes in. We can keep repeating this pattern for large
 ```
 
 {{< shader size=300 >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
 uniform float u_time;
 uniform vec2 u_resolution;
 void main() {
@@ -142,7 +142,7 @@ color = abs(.6*sin(color + global_dist + dist*2. + u_time));
 ```
 
 {{< shader >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
 uniform float u_time;
 uniform vec2 u_resolution;
 void main() {
@@ -233,7 +233,7 @@ void main() {
 ```
 
 {{< shader >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
 uniform float u_time;
 uniform vec2 u_resolution;
 

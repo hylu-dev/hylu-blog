@@ -143,7 +143,7 @@ While this cuts down a lot of the code for the shader canvas itself, the result 
 
 {{< tiles >}}
 {{< shader size="300" >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
     uniform float u_time;
     uniform vec2 u_resolution;
 
@@ -188,7 +188,7 @@ While this cuts down a lot of the code for the shader canvas itself, the result 
 {{</ shader >}}
 
 {{< shader size="300" >}}
-<script class="fragmentShader" type="x-shader/x-fragment">
+<script class="fragment-shader" type="x-shader/x-fragment">
 #ifdef GL_ES
 precision mediump float;
 #endif

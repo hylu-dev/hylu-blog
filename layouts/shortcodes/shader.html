@@ -4,9 +4,15 @@
 {{ end }}
 
 <div class="three-wrapper">
-    <div class="three-container" style="height:{{$size}}px;width:{{$size}}px;">
-        {{.Inner}}
-    </div>
+{{ if .Get "mode" }}
+        <div class="three-3d-container" style="height:{{$size}}px;width:{{$size}}px;">
+            {{.Inner}}
+        </div>
+{{ else }}
+        <div class="three-2d-container" style="height:{{$size}}px;width:{{$size}}px;">
+            {{.Inner}}
+        </div>
+{{ end }}
 </div>
 
 <style>
