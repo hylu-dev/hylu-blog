@@ -99,9 +99,9 @@ To start, we want to be able to optionally enable our import for each post. We c
 
 ```go
 <!-- Import threeCanvas module -->
-    {{ if (.Params.shader) }}
-    {{ partial "shader.html" }}
-    {{ end }}
+{{ if (.Params.shader) }}
+{{ partial "shader.html" }}
+{{ end }}
 ```
 
 Now in our post, we can simply enable it in our **front matter**
@@ -128,9 +128,9 @@ Here we use a bit of a tricky syntax courtesy of [Hugo Pipes](https://gohugo.io/
 
 What happens here is that we grab our script at `assets/js/script.js`, do some extra processing like minification, and then use `.Permalink` to create a visible link for our script to import the module from.
 
-### Actually Importing the Module
+### All That's Left is to Use It
 
-Now that we have a solid script tag link from our post template to our js, we can now just write our JS module as we normally would and perform imports to other modules since we're in a top-level context.
+Now that we're able to run our `asset/script.js` while inside our post, we can now proceed to write the JS module itself.
 
 ```js
 import * as THREE from 'https:<host>.three.module.min.js';
@@ -138,100 +138,26 @@ import * as THREE from 'https:<host>.three.module.min.js';
 // The rest of the script...
 ```
 
-While this cuts down a lot of the code for the shader canvas itself, the result for me is a nice shortcode that allows to me easily render shader's within a blog post!
+Then, for whichever post you'd like the module to run, just set the front matter param to true and your module will be imported!
+
+```yml
+shader: true
+```
+
+In my case, my module loads shaders by query selecting for an `HTMLElement` with class `.three-container`. I've created another shortcode to generate that html.
+
+The result for me is a nice shortcode that allows to me easily render shaders within a blog post such as the below.
 
 {{< tiles >}}
 {{< shader size="300" >}}
-<script class="fragment-shader" type="x-shader/x-fragment">
-    uniform float u_time;
-    uniform vec2 u_resolution;
-
-    #define PI 3.1415926538
-    #define TAU 6.2831855
-
-    // Inigo Quilez
-    vec3 palette( in float t )
-    {
-        vec3 a = vec3(.5);
-        vec3 b = vec3(.5);
-        vec3 c = vec3(1.);
-        vec3 d = vec3(0.00, 0.33, 0.67);
-        return a + b*cos( 6.28318*(c*t+d) );
-    }
-
-    float logistic(float x) {
-        return 1./(1. + exp(-x));
-    }
-
-    float logistic_step(float x) {
-        float repeat = 12.*(fract(x)) - 6.; // We want the logistic function between [-6,6]
-        return logistic(repeat) + floor(x);
-    }
-
-    void main() {
-        vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
-        float global_dist = length(uv);
-        vec4 color;
-        float dist = length(uv);
-        float angle = atan(uv.y*PI, uv.x*PI);
-        float layer_offset = dist*2.*TAU;
-        float waves = 1.-sin(dist*5.*TAU - u_time*3.);
-        float umbrella = sin(angle*5. + u_time + layer_offset);
-        color += vec4(umbrella);
-        color += waves;
-        color *= vec4(palette(global_dist+u_time*.1),1.);
-        color *= pow(color, vec4(1.2)); // Increase contrast
-        gl_FragColor = color;
-    }
+<script class="fragment-file" type="x-shader/x-fragment">
+shaders/swirl.frag
 </script>
 {{</ shader >}}
 
 {{< shader size="300" >}}
-<script class="fragment-shader" type="x-shader/x-fragment">
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-uniform float u_time;
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-
-#define PI 3.1415926538
-
-float square(vec2 uv, vec2 pos, float size) {
-    float blur = .02;
-    vec2 bot = smoothstep(pos-blur, pos, uv);
-    vec2 top = smoothstep(pos+size, pos+size+blur, uv);
-    vec2 shape = bot-top;
-    return shape.x*shape.y;
-}
-
-mat2 rotate(float angle) {
-    return mat2(
-        cos(angle), -sin(angle),
-        sin(angle), cos(angle)
-    );
-}
-
-void main() {
-    vec3 color;
-    vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
-    float dist = length(uv);
-    dist = sin(dist*2. + u_time);
-    dist = pow(dist, 8.);
-
-    uv = fract(uv*5.*rotate(u_time*.2) + 3.*sin(u_time*.5))*2. - 1.;
-
-    float shape = square(uv, vec2(-dist/2.), dist);
-
-    shape += smoothstep(-.02, -.01, uv.x) -
-     smoothstep(.01, .02, uv.x) +
-     smoothstep(-.02, -.01, uv.y) -
-     smoothstep(.01, .02, uv.y);
-    color = vec3(shape);
-
-    gl_FragColor = vec4(color, 1.);
-}
+<script class="fragment-file" type="x-shader/x-fragment">
+shaders/grid-squares.frag
 </script>
 {{</ shader >}}
 {{</ tiles >}}
