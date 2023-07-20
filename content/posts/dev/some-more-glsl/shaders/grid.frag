@@ -17,7 +17,7 @@ float slope_step(float x) {
 void main() {
     vec3 color;
     vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
-    uv += slope_step(u_time*.2);
+    uv += slope_step(u_time*.5);
     uv = fract(uv*5.);
     float shape = smoothstep(-.1, -.01, uv.x) -
      smoothstep(.01, .1, uv.x) +

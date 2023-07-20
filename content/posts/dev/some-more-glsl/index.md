@@ -18,9 +18,9 @@ To start, let's take a look at a simple 2D shader placed on a 3D cube.
         <script class="fragment-file" type="x-shader/x-fragment">
         shaders/random.frag
         </script>
-        {{</ shader >}}
+    {{</ shader >}}
         
-        {{< shader size="300" mode="3DR" >}}
+    {{< shader size="300" mode="3DR" >}}
         <script class="fragment-file" type="x-shader/x-fragment">
         shaders/random.frag
         </script>
