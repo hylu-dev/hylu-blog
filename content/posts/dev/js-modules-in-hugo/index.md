@@ -2,7 +2,6 @@
 title: "JS Modules in Hugo"
 date: 2023-07-14T07:57:33-04:00
 draft: false
-shader: true
 cover:
     image: "https://discoverthreejs.com/images/logo/banner_trans.png"
 tags: ["development"]

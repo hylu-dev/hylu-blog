@@ -2,7 +2,6 @@
 title: "Some More GLSL"
 date: 2023-07-19T03:43:21-04:00
 draft: false
-shader: true
 cover:
     image: "https://thebookofshaders.com/04/glslGallery.gif"
 tags: ["glsl"]
@@ -15,74 +14,17 @@ So far, I've been primarily writing 2D shaders to create patterns on a flat canv
 To start, let's take a look at a simple 2D shader placed on a 3D cube.
 
 {{< tiles >}}
-{{< shader size="300" >}}
-<script class="fragment-shader" type="x-shader/x-fragment">
-uniform float u_time;
-uniform vec2 u_resolution;
-
-#define SEED 123.
-
-float random (in vec2 _st) {
-    return fract(sin(dot(_st.xy,
-                         vec2(12.9898,78.233)))*
-        43758.5453123);
-}
-
-float signed_random(in vec2 _st) {
-    return 2.*random(_st)-1.;
-}
-
-void main() {
-    vec3 color;
-    vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
-    vec2 uv0 = (uv + 1.)/2.;
-    float shape;
-    float count = 10.;
-    float offset = 2.*step(1., mod(uv.y*count, 2.0 )) - 1.;
-    offset += 5.*signed_random(vec2(floor(uv.y*count)+SEED));
-    uv.x +=  u_time*.1*offset + offset;
-    float h_offset = signed_random(vec2(floor(uv.x*20.)) + SEED);
-    shape = ceil(sin(h_offset));
-    color = vec3(shape);
-    color *= vec3(uv0.x, uv0.y, 1);
-    gl_FragColor = vec4(1.-color, 1.);
-}
-</script>
-{{</ shader >}}
-{{< shader size="300" mode="3D" >}}
-<script class="fragment-shader" type="x-shader/x-fragment">
-uniform float u_time;
-uniform vec2 u_resolution;
-
-#define SEED 123.
-
-float random (in vec2 _st) {
-    return fract(sin(dot(_st.xy,
-                         vec2(12.9898,78.233)))*
-        43758.5453123);
-}
-
-float signed_random(in vec2 _st) {
-    return 2.*random(_st)-1.;
-}
-
-void main() {
-    vec3 color;
-    vec2 uv = (gl_FragCoord.xy*2. - u_resolution.xy) / u_resolution.y;
-    vec2 uv0 = (uv + 1.)/2.;
-    float shape;
-    float count = 10.;
-    float offset = 2.*step(1., mod(uv.y*count, 2.0 )) - 1.;
-    offset += 5.*signed_random(vec2(floor(uv.y*count)+SEED));
-    uv.x +=  u_time*.1*offset + offset;
-    float h_offset = signed_random(vec2(floor(uv.x*20.)) + SEED);
-    shape = ceil(sin(h_offset));
-    color = vec3(shape);
-    color *= vec3(uv0.x, uv0.y, 1);
-    gl_FragColor = vec4(1.-color, 1.);
-}
-</script>
-{{</ shader >}}
+    {{< shader size="300" >}}
+        <script class="fragment-file" type="x-shader/x-fragment">
+        shaders/random.frag
+        </script>
+        {{</ shader >}}
+        
+        {{< shader size="300" mode="3DR" >}}
+        <script class="fragment-file" type="x-shader/x-fragment">
+        shaders/random.frag
+        </script>
+    {{</ shader >}}
 {{</ tiles >}}
 
 Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we'd like the texture to wrap over the cube instead.

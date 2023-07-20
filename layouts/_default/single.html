@@ -24,10 +24,6 @@
     {{ if (.Params.module) }}
     {{ partial "module.html" (dict "context" . "module" $.Params.module) }}
     {{ end }}
-    <!-- Import threeCanvas module -->
-    {{ if (.Params.shader) }}
-    {{ partial "shader.html" }}
-    {{ end }}
     <!-- Add mathjax min js file -->
     {{ if (.Params.math) }}
     {{ partial "mathjax.html" }}

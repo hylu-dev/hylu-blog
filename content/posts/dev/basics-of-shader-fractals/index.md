@@ -4,7 +4,6 @@ date: 2023-07-13T20:53:06-04:00
 draft: False
 cover:
     image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Simple_Fractals.png"
-shader: true
 math: true
 tags: ["shaders", "glsl"]
 category: ["Development"]
