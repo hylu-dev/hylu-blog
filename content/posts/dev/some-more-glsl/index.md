@@ -64,4 +64,4 @@ shaders/grid.frag
 {{</ shader >}}
 {{</ tiles >}}
 
-Notice how the shader occasionally glitches positions. Because we need to hardcode a value for `PI`, the imprecision causes our sine waves to not line up where we need them to and instead, returning unexpected values at those junctures.
+Notice how the shader occasionally glitches positions. Because we need to hardcode a value for `PI`, the imprecision causes our sine waves to not line up where we need them to and instead, return unexpected values at those junctures.
