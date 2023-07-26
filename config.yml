@@ -4,6 +4,7 @@ title: Hylu Blog
 theme: PaperMod
 disqusShortname: hylog
 params:
+  custom_css: ["css/custom.css"]
   profileMode:
         enabled: true
         title: "</empty>" # optional default will be site title

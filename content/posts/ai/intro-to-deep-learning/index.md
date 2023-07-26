@@ -3,9 +3,8 @@ title: "Intro to Deep Learning"
 date: 2023-06-12T17:22:24-04:00
 draft: false
 cover:
-    image: "https://thedatascientist.com/wp-content/uploads/2015/12/cool_neural_network.jpeg"
+    image: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Convolutional_Neural_Network_Tutorial.jpg"
 math: true
-mermaid: true
 tags: ["ai"]
 category: ["Development"]
 ---
@@ -350,8 +349,6 @@ A naive approach involves sliding a bounding box across the image and having the
 
 #### Single Shot Detector
 
-WHY DO WE NEED TO FLATTEN LAYERS (LOOK INTO THIS)
-
 ## Recurrent Neural Networks
 
 These are a special type of neural net designed to work for a sequence of data. Normally each set of inputs are independent from eachother but there are needs for them to depend on each other such as sequences of words or sounds. The main difference is that we feed our output back into the next set of inputs and keep a concept of "memory" in our net.
@@ -372,10 +369,17 @@ Our normal backpropagation algorithm is updated for use in RNN's.
   - \\(y\\) is our output \\(p\\) is our target output at the time step
 - Backpropagate the error across unfolded network and update weights.
 
+### LSTM
+
+Standard RNN's often suffer from vanishing or exploding gradients when the sequence of data gets too large. It doesn't do well on remembering data from very old time steps. LSTMs add another component to the network that learns what timesteps should be remembered or forgotten. This way, we can keep track of long term sequential data.
+
 ## Natural Language Processing (NLP)
 
 The computational treatment of human language. Many large datasets of text exist for training known as a *corpus* that are large, structured sets of text for machine learning.
+
 Generally, the process of creating an NLP model requires a lot of preprocessing of your training text and figuring which method of text chunking and labelling best suits the model you want.
+
+Later when we talk about word embeddings, the learning component of NLP comes into play where can train a model to set a weights for each word in a vocabulary.
 
 {{< img class="img-sm" src="https://www.researchgate.net/profile/Kim-Schouten/publication/318138528/figure/fig4/AS:667674447204357@1536197401651/The-NLP-pipeline-used-at-the-basis-of-the-methods-features-compared-to-the-number-of.png">}}
 
@@ -390,7 +394,13 @@ Generally, the process of creating an NLP model requires a lot of preprocessing 
 
 ### Tokenization
 
-A strategy to deal with complex sentences is to break it up into smaller chunks. Most often this simply by splitting the word by whitespace (1 word 1 token). You may also decide to drop any punctuation to simplify the problem at the cost of some understanding.
+A strategy to deal with complex sentences is to break it up into smaller chunks. Most often this simply by splitting the word by whitespace. You may also decide to drop any punctuation to simplify the problem at the cost of some understanding.
+
+### Text Preprocessing
+
+Raw text often contains loads of unnecessary words, punctuations, grammar, and *word variations* that can make it harder to discern between words and phrases as well as being computationally expensive. To remedy this, before we enter any machine learning, we do some preprocessing on the text to help simplify our task.
+
+Some common processing includes removing *stop word*, which are common words that don't add much meaning to a text ("the", "this", "and"). We can do lemmatization do reduce variations of words to their root ("finally", "final") so we can better compare them. You can find some prebuilt text preprocessors among ML libraries that do more or less depending on what you're looking for.
 
 ### Integer Encoding vs Word Embeddings
 
@@ -398,9 +408,20 @@ Traditional word encoding is done by *one-hot-encoding* every word in your vocab
 
 Word Embeddings instead represent each word as a multidimensional vector of floating point values. In essence, weights. The value here as that use floating point values are trainable and we can therefore train our model to capture more meaning out of each word by training those weights.
 
-### NLP Model in TensorFlow
+**word2vec** are a family of techniques used to train word embeddings
 
-In this example, we're going to create a model for detecting textual similarity between documents and a given text.
+When you're using word embeddings, you actually don't need to do any text preprocessing. Since we're embedding trainable features into each word, we can get a lot of granular meaning trained into a corpus whether they're stop words or punctuations. The training should do the job of placing less emphasis on less important words as well as developing meaningful weights to compare words together with. Nonetheless, this doesn't mean you *can't* do any preprocessing, but it's not as necessary as it is for integer encoding and it's effect is more nuanced.
 
-#### Text Preprocessing
+### TF-IDF & Similarity
 
+**Term Frequency** is purely the frequency that a term appears in a document. It can be measured many different ways such as just the raw occurences or logarithmically \\(log(1+ rawcount\\)).
+
+**Inverse Document Frequency** is how common a word is among a given corpus--and then we take the inverse. We take the inverse because often we want to minimize the weight of common terms like "the" or "a" so infrequent terms can have a greater impact.
+
+**TF-IDF** puts both of these concepts together and places importances on terms that are frequently used and have rarity in a corpus.
+
+When it comes to actually comparing text, a common method to use is known as **Cosine Similarity**
+
+### Encoder/Decodeer Architecture
+
+<https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/>
