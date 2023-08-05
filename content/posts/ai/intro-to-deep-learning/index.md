@@ -422,6 +422,70 @@ When you're using word embeddings, you actually don't need to do any text prepro
 
 When it comes to actually comparing text, a common method to use is known as **Cosine Similarity**
 
-### Encoder/Decodeer Architecture
+## Encoder-Decoder Architecture
 
 <https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/>
+
+### Auto Encoders
+
+These are a special case of encoder-decoder archetecture where the input and output domains are (typically) the same. More specifically, we take out input and compress them down to a lower dimensionality (called a *bottleneck*) before reconstructing it back to its original dimensions in the output
+
+For example, here we take an image and encode it down to a smaller dimension of `latent_size` before decoding it back to size.
+
+```py
+# set random seeds to aid reproducibility
+tf.random.set_seed(42)
+np.random.seed(42)
+
+latent_size = 30 # defines the dimensionality of the bottleneck
+
+def rounded_accuracy(y_true, y_pred):
+    return keras.metrics.binary_accuracy(tf.round(y_true), tf.round(y_pred))
+
+# define our encoder
+stacked_encoder = keras.models.Sequential([
+    keras.layers.Flatten(input_shape=[28, 28]),
+    keras.layers.Dense(100, activation="selu"),
+    keras.layers.Dense(latent_size, activation="selu"),
+])
+
+# define our decoder
+stacked_decoder = keras.models.Sequential([
+    keras.layers.Dense(100, activation="selu", input_shape=[latent_size]),
+    keras.layers.Dense(28 * 28, activation="sigmoid"),
+    keras.layers.Reshape([28, 28])
+])
+
+# compile and train the model
+stacked_ae = keras.models.Sequential([stacked_encoder, stacked_decoder])
+stacked_ae.compile(
+    loss="binary_crossentropy",
+    optimizer=keras.optimizers.Adam(learning_rate=0.01), 
+    metrics=[rounded_accuracy]
+)
+
+# Note, in this case, the targets are the same as the input! That's why we've
+# passed X_train for the 'y_train' parameter. 
+history = stacked_ae.fit(
+    X_train, 
+    X_train, 
+    epochs=20,
+    validation_data=(X_valid, X_valid)
+)
+```
+
+But what's the point of training in a loop like this? Well after we've trained the model, the bottleneck layer learns the important features of the inputs. We can then drop the decoder and use just the encoder for other classification tasks. This is the autoencoder.
+
+Another application, instead of having the exact same inputs and targets, we can use this same model and use noisy images as the input and the source images as the outputs. This would be training to model on how to denoise images!
+
+## Generative Algorithms
+
+First, for a refresher on *Naive Bayes*, refer back to **[here]({{< ref "/posts/ai/intro-to-machine-learning#naive-bayes" >}})**
+
+## Variational Auto Encoders
+
+<https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73>
+
+Where traditional autoencoders encodes an input to a single point, VAEs encode inputs into a probability distribution over the **latent space**. Specifically, we want the latent space created by the encoder to be regular enough that we can take a point within the space and decode it to generate new content. With a normal autoencoder, this latent space is typically unorganized and overfitted so some points in the space will decode into meaningless content. **VAEs regularize the latent space so it has good properties for the generative process.**
+
+> A latent space is a representation of compressed data. You can imagine this as the bottleneck of an autoencoder. Latent attributes are single piece of that representation.
