@@ -482,10 +482,20 @@ Another application, instead of having the exact same inputs and targets, we can
 
 First, for a refresher on *Naive Bayes*, refer back to **[here]({{< ref "/posts/ai/intro-to-machine-learning#naive-bayes" >}})**
 
-## Variational Auto Encoders
+### Variational Auto Encoders
 
 <https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73>
 
 Where traditional autoencoders encodes an input to a single point, VAEs encode inputs into a probability distribution over the **latent space**. Specifically, we want the latent space created by the encoder to be regular enough that we can take a point within the space and decode it to generate new content. With a normal autoencoder, this latent space is typically unorganized and overfitted so some points in the space will decode into meaningless content. **VAEs regularize the latent space so it has good properties for the generative process.**
 
 > A latent space is a representation of compressed data. You can imagine this as the bottleneck of an autoencoder. Latent attributes are single piece of that representation.
+
+## Course Retrospective
+
+As of 8/8/2023, I have finished SCS3546 Deep Learning course from UoTSCS. Overall, I've gained a much better understanding of the fundamentals of deep learning and insight into how modern AI models are built today. There's a lot more to the building of ML models than I expected. Logically, I knew there was a ton of incredibly complicated math and theory behind ML but I was kind of hoping a lot of that would be abstracted behind the code. To be fair, a lot of it is but there's a huge importance to understanding what's happening behind the seens to know how good models are built.
+
+Another surprise was how much data processing is core to machine learning. I'm realizing now it's really all about the data you use, the quality of it, and how you can format it, that creates the basis of the model you build. Furthermore, it's just the pure fact that machine learning is relatively new and fast growing. While there are libaries that can help you process data, it's rarely ever a "one function does it all" solution. Depending on the data and problem you're dealing with, it's on you to figure out how to get that data is a ML ready form.
+
+Statistics is also a very core part or ML, particularly for gauging and comparing the quality of a model. There is a lot of probability happening within the models themselves but I find it's the graphs and charts where you really benefit from having a strong statistics background.
+
+All this stuff I'm honestly quite bad at and have mostly disliked in school but I think my fascination AI use cases will have me applying my new knowledge is future projects.
