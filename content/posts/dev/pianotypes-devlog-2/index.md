@@ -1,7 +1,7 @@
 ---
 title: "Pianotypes Devlog 2"
 date: 2023-08-21T13:18:35-04:00
-draft: true
+draft: false
 cover:
     image: ""
 tags: ["development", "pianotypes"]
