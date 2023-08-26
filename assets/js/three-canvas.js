@@ -1,5 +1,6 @@
 import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.153.0/three.module.min.js';
 
+let mousePos = [0,0];
 apply();
 
 async function apply() {
@@ -67,6 +68,10 @@ function getPerspectiveCamera(container) {
 }
 
 async function getShader(container) {
+    container.addEventListener('mousemove', e => {
+        mousePos = [e.offsetX, container.offsetHeight-e.offsetY];
+    })
+
     let vertexShader = "void main() {gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);}";
     let fragmentShader = "void main() {gl_FragColor = vec4(1.0);}";
     
@@ -94,6 +99,7 @@ async function getShader(container) {
         uniforms: {
             u_time: { type: "f", value: 0 },
             u_resolution: { value: new THREE.Vector2(container.offsetWidth, container.offsetHeight) },
+            u_mouse: { value: new THREE.Vector2(mousePos[0], mousePos[1]) }
         },    
         vertexShader: vertexShader,
         fragmentShader: fragmentShader
@@ -103,6 +109,7 @@ async function getShader(container) {
 function animate(renderer, scene, camera, mesh) {
 	requestAnimationFrame( () => animate(renderer, scene, camera, mesh) );
     mesh.material.uniforms.u_time.value += 0.01;
+    mesh.material.uniforms.u_mouse.value = new THREE.Vector2(mousePos[0], mousePos[1]);
 	renderer.render( scene, camera );
 }
 
