@@ -93,9 +93,9 @@ void main() {
     float stars = pow(rand2(uv), 500.);
     color.rgba += stars;
 
-    vec2 moonUV = uv - vec2(.3,.4);
+    vec2 moonUV = uv - vec2(.4,.5);
     color += circle(moonUV, .25, blur);
-    color += (1.-length(moonUV))/1.5;
+    color += (1.-length(moonUV))/5.;
     
     for (float i=0.; i<1.; i+=1./10.) {
         float scale = mix(30., 1., i);
@@ -104,7 +104,7 @@ void main() {
         float alpha = layer;
         layer *= (1.-i);
         
-        layer += 1.+(moonUV.y-i/4.);
+        layer = mix(layer, (moonUV.y-uv.y)/5., uv.y);
 
 
         color = mix(color, vec4(layer), alpha);
