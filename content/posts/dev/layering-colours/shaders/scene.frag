@@ -9,15 +9,6 @@ uniform vec2 u_mouse;
 #define PI 3.1415926538
 #define TAU 6.2831855
 
-// create triangles
-// create trees
-// fractal trees along x
-// create perlin hills
-// place trees along hills (floor(uv.x))
-// vary tree height
-// loop hills trees as distance layers
-// add parallaxing
-
 float rand(float x) {
     return fract(sin(x*1255.9898)*43758.5453123)*2.-1.;
 }
@@ -85,6 +76,10 @@ float layer(vec2 uv, float blur) {
     return color;
 }
 
+float circle(vec2 uv, float r, float blur) {
+    return 1.- smoothstep(-blur, blur, length(vec2(0)-uv)-r);
+}
+
 void main() {
     // Normalized coordinates
     vec2 uv = gl_FragCoord.xy / u_resolution.xy;
@@ -93,16 +88,25 @@ void main() {
     float t = u_time;
     uv.x *= u_resolution.x/u_resolution.y;
     
+    float blur = 0.01;
     vec4 color = vec4(0);
     float stars = pow(rand2(uv), 500.);
     color.rgba += stars;
 
-    float blur = 0.01;
+    vec2 moonUV = uv - vec2(.3,.4);
+    color += circle(moonUV, .25, blur);
+    color += (1.-length(moonUV))/1.5;
+    
     for (float i=0.; i<1.; i+=1./10.) {
         float scale = mix(30., 1., i);
         float layer = layer(uv*scale+vec2(t+i*100., i)-m, blur);
+
         float alpha = layer;
         layer *= (1.-i);
+        
+        layer += 1.+(moonUV.y-i/4.);
+
+
         color = mix(color, vec4(layer), alpha);
     }
 
