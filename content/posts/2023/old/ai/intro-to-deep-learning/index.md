@@ -480,7 +480,7 @@ Another application, instead of having the exact same inputs and targets, we can
 
 ## Generative Algorithms
 
-First, for a refresher on *Naive Bayes*, refer back to **[here]({{< ref "/posts/ai/intro-to-machine-learning#naive-bayes" >}})**
+First, for a refresher on *Naive Bayes*, refer back to **[here]({{< ref "/posts/2023/old/ai/intro-to-machine-learning#naive-bayes" >}})**
 
 ### Variational Auto Encoders
 

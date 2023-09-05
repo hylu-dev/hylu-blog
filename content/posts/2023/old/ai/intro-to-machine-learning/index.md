@@ -72,7 +72,7 @@ More formally, we take \\(K\\) of the nearest data points to our new point and b
 
 ### Naive Bayes
 
-Recall [Bayes Theorem]({{< ref "/posts/ai/overview-of-probability#bayes-theorem" >}})
+Recall [Bayes Theorem]({{< ref "/posts/2023/old/ai/overview-of-probability#bayes-theorem" >}})
 
 $$
 \def\series{x_1, x_2,..., x_n}

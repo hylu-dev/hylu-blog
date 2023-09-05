@@ -27,7 +27,7 @@ Well, I don't want to talk too much about this part as it's just the usual finag
 
 After I got the hang of reactivity in Svelte, it was pretty smooth sailing porting over everything from VueJS. Except, state management. Vue has a pretty comprehensive set of tool for handling global state which was extremely important for my project. I track nearly the entire piano state in a single class. From a design perspective, I dunno maybe it's bad, it certainly feels like it might be, but for my project it also has its benefits in simplifying state to one object. In VueJS, I can simply wrap the object in a reactivity wrapper and I can simply import the object in any of my components and get the the global state I need just like that.
 
-In Svelte, a reactivy wrapper doesn't quite exist, instead they use a concept known as stores. It's honestly great in hindsight but for the way I've designed my piano state, the purpose of stores doesn't translate 1:1. I wrote another [post]({{< ref "/posts/dev/svelte-reactive-classes" >}}) that goes into more about how I got it done but it took a lot of research as well as trial and error before I could find a clean solution that I was happy with.
+In Svelte, a reactivy wrapper doesn't quite exist, instead they use a concept known as stores. It's honestly great in hindsight but for the way I've designed my piano state, the purpose of stores doesn't translate 1:1. I wrote another [post]({{< ref "/posts/2023/old/dev/svelte-reactive-classes" >}}) that goes into more about how I got it done but it took a lot of research as well as trial and error before I could find a clean solution that I was happy with.
 
 ## Fixing old issues
 
