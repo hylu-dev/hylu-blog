@@ -8,8 +8,6 @@ tags: ["math", "c++"]
 math: true
 ---
 
-## Signed VS Unsigned Integers
-
 ## Two's Complement Representation
 
 ### Why We Use It
@@ -29,7 +27,7 @@ Comparing both representations, `-1` would look like this
 11111111111111111111111111111111
 ```
 
-The normal signed binary representation is pretty easily understand if you know what a sign bit is. You just have the typical binary for `1` with the most significant bit being the sign bit to indicate that it's negative. **Then why the heck do we use two's complement instead?** Isn't it just more confusing?
+The normal signed binary representation is pretty easily understood if you know what a sign bit is. You just have the typical binary for `1` with the most significant bit being the sign bit to indicate that it's negative. **Then why the heck do we use two's complement instead?** Isn't it just more confusing?
 
 There are a few drawbacks to the normal method.
 
@@ -114,4 +112,4 @@ Decimal Representation = -2147483647
 Bit Representation = 10000000000000000000000000000001
 ```
 
-The unsigned bit takes precedence resulting in the negative sign bit from the `-3` being the most significant postivive bit in the result.
+The unsigned bit takes precedence resulting in the negative sign bit from the `-3` being the most significant postive bit in the result.
