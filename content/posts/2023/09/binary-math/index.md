@@ -95,3 +95,23 @@ $$
 $$
 1011
 $$
+
+## Unsigned Int Added to Signed Bit
+
+```c++
+unsigned int un = 2;
+int n = -3;
+PrintUnsignedBits(un + n);
+PrintSignedBits(-2147483647);
+
+>
+Unsigned Int (un + n)
+Decimal Representation = 4294967295
+Bit Representation = 11111111111111111111111111111111
+
+Signed Int (-3)
+Decimal Representation = -2147483647
+Bit Representation = 10000000000000000000000000000001
+```
+
+The unsigned bit takes precedence resulting in the negative sign bit from the `-3` being the most significant postivive bit in the result.
