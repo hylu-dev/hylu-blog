@@ -1,5 +1,5 @@
 ---
-title: "Binary Math"
+title: "Signed Ints and Two's Complement"
 date: 2023-09-12T16:56:05-04:00
 draft: false
 cover:
