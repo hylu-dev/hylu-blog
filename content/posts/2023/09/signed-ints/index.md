@@ -12,7 +12,7 @@ math: true
 
 ### Why We Use It
 
-In c++, signed integers are represented in two's complement notation. Before I get to how that notation works, I want to explain how we use it.
+In c++, signed integers are represented in two's complement notation. Before I get to how that notation works, I want to explain why we use it.
 
 Comparing both representations, `-1` would look like this
 
@@ -94,7 +94,7 @@ $$
 1011
 $$
 
-## Unsigned Int Added to Signed Bit
+## Signed Int Added to Unsigned Int
 
 ```c++
 unsigned int un = 2;
@@ -112,4 +112,4 @@ Decimal Representation = -2147483647
 Bit Representation = 10000000000000000000000000000001
 ```
 
-The unsigned bit takes precedence resulting in the negative sign bit from the `-3` being the most significant postive bit in the result.
+**The unsigned bit takes precedence** resulting in the negative sign bit from the `-3` being the most significant postive bit in the result.
