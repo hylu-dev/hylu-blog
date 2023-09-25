@@ -1,12 +1,30 @@
 ---
 title: "Dot Product and How it Relates to Light"
 date: 2023-09-14T14:57:16-04:00
-draft: true
+draft: false
 cover:
     image: ""
 tags: ["math"]
 math: true
 ---
+
+## What Matters
+
+The dot product has a bunch of properties when you use it's raw **scalar** output but honestly most of the times you will use the dot product is to find **the angle between two vectors** by rearranging to equation as follows
+
+$$
+A\cdot B = |A||B|cos\theta
+$$
+
+$$
+\theta = \arccos(\dfrac{A\cdot B}{|A||B|})
+$$
+
+$$
+where\\ A\cdot B = A_x \times A_y + B_x \times B_y
+$$
+
+In games, this equation is used exhaustively to calculate light projections and field of view.
 
 ## What Is It?
 
