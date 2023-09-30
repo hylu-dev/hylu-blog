@@ -7,6 +7,28 @@ cover:
 tags: ["c++"]
 ---
 
+## Declaring Data Structures on the Heap
+
+> <https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack>
+
+```cpp
+vector<Type> vect;
+```
+
+will allocate the vector, i.e. the header info, on the stack, but the elements on the free store ("heap").
+
+```cpp
+vector<Type> *vect = new vector<Type>;
+```
+
+allocates everything on the free store (except vect pointer, which is on the stack).
+
+```cpp
+vector<Type*> vect;
+```
+
+will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).
+
 ## Dangling Pointers on the Heap
 
 So the idea with dangling pointers is that if you allocate a piece of memory in the heap you need a pointer to pointer to that slot of memory. That's a given.

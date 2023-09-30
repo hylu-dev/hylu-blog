@@ -56,7 +56,7 @@ for (it = myList.begin(); it != myList.end(); ++it) {
 
 The list data structure only allows bi-directional iteration but doesn't allow you to immediately access a particular index as it needs to follow the trail of memory addresses to find it.
 
-Something like a `vector` does allow immediate indexing so you can use the iterator to increment the data pointer by index. In this case, you can also use the typically array-indexing syntax and it will automatically use the iterator for random access as needed.
+Something like a `vector` does allow immediate indexing so you can use the iterator to increment the data pointer by index. In this case, you can also use the typical array-indexing syntax and it will automatically use the iterator for random access as needed.
 
 ```cpp
 std::vector<int> myVector = {1, 2, 3, 4, 5};
