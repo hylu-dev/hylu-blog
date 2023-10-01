@@ -7,11 +7,9 @@ cover:
 tags: ["pianotypes", "development"]
 ---
 
-Not many code changes as of late but I've been more active on one of the packages I'm using to play sound, [smplr](https://github.com/danigb/smplr).
+Not many code changes as of late but I've been more active on one of the packages I'm using to play sound, [smplr](https://github.com/danigb/smplr). It's such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to [danigb](https://github.com/danigb/).
 
-It's such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to (danigb)[https://github.com/danigb/].
-
-It's currently in early development which causes it to be prone to bugs. In particular, a number of key changes were made as of late that added to great new features and capabilities as well as some bugs I found while using them.
+A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
 
 ## Note Scheduling Throughput
 
@@ -43,7 +41,7 @@ function scheduleCallback(delay, callback){
 }
 ```
 
-But after some back and forth with some issues, danigb introduced a built in onstart as per my [suggestion](https://github.com/danigb/smplr/discussions/28)!
+But after some back and forth with some issues, danigb introduced a built in onstart as per my [suggestion](https://github.com/danigb/smplr/discussions/28)! I've replaced my code with the new callback and it works amazingly.
 
 ## Other stuff
 
