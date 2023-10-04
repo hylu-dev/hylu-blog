@@ -9,6 +9,56 @@ tags: ["c++"]
 
 A compilation of various features and gotchas I've encountered while studying C++.
 
+## When to Use Initializer Lists
+
+Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
+
+### Initialize Const Members
+
+You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor. Okay, then we can move it to the constructor. Nope, it's a `const` variable so it can't be modified.
+
+Initializer lists let's us instantiate `const` variables as with arguments before they can't be modified.
+
+```cpp
+class Test {
+    const int t;
+public:
+    Test(int t):t(t) {}  //Initializer list must be used
+    int getT() { return t; }
+};
+```
+
+### Call a Parent Constructor
+
+If you're deriving from a base class, you may want to initialize those base class members with it's constructor.
+
+```cpp
+class A {
+    int i;
+public:
+    A(int );
+};
+ 
+A::A(int arg) {
+    i = arg;
+    cout << "A's Constructor called: Value of i: " << i << endl;
+}
+```
+
+```cpp
+class B {
+    A a;
+public:
+    B(int );
+};
+ 
+B::B(int x):a(x) {  //Initializer list must be used
+    cout << "B's Constructor called";
+}
+```
+
+> <https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/>
+
 ## Stack and Heap Memory
 
 ### Declaring Data Structures on the Heap
