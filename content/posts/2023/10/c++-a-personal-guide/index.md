@@ -1,13 +1,117 @@
 ---
-title: "C++ Iterators"
-date: 2023-09-30T12:41:58-04:00
+title: "C++ a Personal Guide"
+date: 2023-10-04T13:05:14-04:00
 draft: false
 cover:
-    image: ""
+    image: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png"
 tags: ["c++"]
 ---
 
-## Classic Iteration
+A compilation of various features and gotchas I've encountered while studying C++.
+
+## Stack and Heap Memory
+
+### Declaring Data Structures on the Heap
+
+> <https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack>
+
+```cpp
+vector<Type> vect;
+```
+
+will allocate the vector, i.e. the header info, on the stack, but the elements on the free store ("heap").
+
+```cpp
+vector<Type> *vect = new vector<Type>;
+```
+
+allocates everything on the free store (except vect pointer, which is on the stack).
+
+```cpp
+vector<Type*> vect;
+```
+
+will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).
+
+### Dangling Pointers on the Heap
+
+So the idea with dangling pointers is that if you allocate a piece of memory in the heap you need a pointer to pointer to that slot of memory. That's a given.
+
+```cpp
+int* p  = new int(5);
+```
+
+Now if you want to release that block of memory, you use the pointer to free it.
+
+```cpp
+delete *p
+```
+
+But there's a problem! You now have a pointer just pointing to a random block of memory that can be used by anything.
+This is a **dangling pointer**.
+
+### Dangling Pointers on the Stack
+
+If variables go out of scope in the stack, it gets released from the stack so we don't need to depend on `delete`. However we can still get the dangers of dangling pointers.
+
+```cpp
+int* DoSomething() {
+    int x;
+    int* p = &x;
+    return p
+}
+
+int* a = DoSomething();
+```
+
+`a` now points to an unused piece of memory in the stack! This is dangerous cause that memory space could be taken up by something later on and we don't want to mess with that memory.
+
+#### Difference With Uninitialized Variables
+
+An uninitialized variable is generally a bad idea
+
+`int x;`
+
+If you dereference it, you could get anything depending on whatever was left there in memory. This is not as bad as the aforementioned *dangling pointer* though as at least that memory block is being used by `x` so it won't be used later down line until `x` is released.
+
+```cpp
+int x;
+```
+
+### Memory Leaks
+
+If you allocate some memory on the heap, you should always have a pointer leading to it. If you lose those pointers, than you'll have no way of accessing that memory.
+
+That is, **you won't ever be able to free that memory**.
+
+## Double Pointers and Arrays
+
+Quick look at how we can assign a double pointer to an array.
+
+Normally we can create a pointer array like this.
+
+```cpp
+int* arr[5];
+
+for (int i = 0; i<5; i++) {
+    arr[i] = new int(1);
+}
+```
+
+If we want another pointer to point to this array we need to use a double pointer. We can also index that pointer like an array once we've assigned it.
+
+```cpp
+int** p = nullptr;
+p = arr;
+
+for (int i = 0; i<5; i++) {
+    std::cout << p[i];
+}
+```
+
+## Iterators
+
+### Classic Iteration
 
 The classic example of iteration is just a normal for loop for you start from an int and increment by 1 until you arrive at the end
 
@@ -30,7 +134,7 @@ for (int i = 0; i < 5; i++) {
 }
 ```
 
-## Non-Continguous Iterating
+### Non-Continguous Iterating
 
 Data structures don't always store data contiguously. Something like a `list` acts as a container for each value added to it. Then, links each container with a pointer to the correct memory address. Iterating this requires manually following the cookie crumbs of memory addresses until you get to the index you were looking for.
 
@@ -52,7 +156,7 @@ for (it = myList.begin(); it != myList.end(); ++it) {
 }
 ```
 
-## Iterator Random Access
+### Iterator Random Access
 
 The list data structure only allows bi-directional iteration but doesn't allow you to immediately access a particular index as it needs to follow the trail of memory addresses to find it.
 
@@ -74,7 +178,7 @@ std::cout << "Element at index 3: " << myVector[3] << std::endl;
 return 0;
 ```
 
-## Using Range Based Loops
+### Using Range Based Loops
 
 Starting from C++11, range-based for loop are provided, to iterate over elements with a simpler syntax.
 
@@ -89,7 +193,7 @@ for (auto& num : numbers) {
 return 0;
 ```
 
-### Auto
+#### Auto
 
 > <https://stackoverflow.com/questions/29859796/c-auto-vs-auto>
 
