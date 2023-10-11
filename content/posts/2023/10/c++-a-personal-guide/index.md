@@ -249,5 +249,5 @@ return 0;
 
 - Use `auto &&` for the ability to modify and discard values of the sequence within the loop. (That is, unless the container provides a read-only view, such as `std::initializer_list`, in which case it will be effectively an `auto const &`.)
 - Use `auto &` to modify the values of the sequence in a meaningful way.
-- Use `auto` const & for read-only access.
+- Use `auto const &` for read-only access.
 - Use `auto` to work with (modifiable) copies.

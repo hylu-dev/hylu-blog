@@ -4,7 +4,7 @@ date: 2023-05-11T14:23:07-04:00
 draft: false
 cover: 
     image: 'https://thebookofshaders.com/07/froebel.jpg'
-tags: ['glsl', 'shader']
+tags: ['glsl', 'shaders']
 ---
 
 From what I've read, one of the classic shader introductions people reference is this online module-of-sorts known as **TheBookOfShaders**. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
