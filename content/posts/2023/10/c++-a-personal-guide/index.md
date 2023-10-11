@@ -9,11 +9,15 @@ tags: ["c++"]
 
 A compilation of various features and gotchas I've encountered while studying C++.
 
-## When to Use Initializer Lists
+## Instantiating Object Member Variables
+
+
+
+### When to Use Initializer Lists
 
 Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
 
-### Initialize Const Members
+#### Initialize Const Members
 
 You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor. Okay, then we can move it to the constructor. Nope, it's a `const` variable so it can't be modified.
 
@@ -28,7 +32,7 @@ public:
 };
 ```
 
-### Call a Parent Constructor
+#### Call a Parent Constructor
 
 If you're deriving from a base class, you may want to initialize those base class members with it's constructor.
 
@@ -237,10 +241,8 @@ std::vector<int> numbers = {1, 2, 3, 4, 5};
 
 // Using a range-based for loop to iterate over elements
 for (auto& num : numbers) {
-    std::cout << num << " ";
+    std::cout << num << std::endl;
 }
-
-return 0;
 ```
 
 #### Auto
@@ -248,6 +250,6 @@ return 0;
 > <https://stackoverflow.com/questions/29859796/c-auto-vs-auto>
 
 - Use `auto &&` for the ability to modify and discard values of the sequence within the loop. (That is, unless the container provides a read-only view, such as `std::initializer_list`, in which case it will be effectively an `auto const &`.)
-- Use `auto &` to modify the values of the sequence in a meaningful way.
+- Use `auto &` to pass as reference instead of value.
 - Use `auto const &` for read-only access.
-- Use `auto` to work with (modifiable) copies.
+- Use `auto` to work with (modifiable) bytecopies.
