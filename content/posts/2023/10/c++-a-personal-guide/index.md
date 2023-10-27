@@ -1,5 +1,5 @@
 ---
-title: "C++ a Personal Guide"
+title: "C++ A Personal Guide"
 date: 2023-10-04T13:05:14-04:00
 draft: false
 cover:
@@ -10,8 +10,6 @@ tags: ["c++"]
 A compilation of various features and gotchas I've encountered while studying C++.
 
 ## Instantiating Object Member Variables
-
-
 
 ### When to Use Initializer Lists
 
