@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Intro to Machine Learning | Hylu Blog</title>
+<meta name="keywords" content="math, ai">
+<meta name="description" content="In preparation for a deep learning course I&rsquo;m taking over the Summer, I&rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I&rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&rsquo;s more than worth getting my feet wet.
+ML Overview flowchart LRsubgraph Shader Lifecycledirection LRd[(&#34;Dataset&#34;)] --&gt; m((&#34;Model&#34;)) --&gt; o(&#34;">
+<meta name="author" content="">
+<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/ai/intro-to-machine-learning/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Intro to Machine Learning" />
+<meta property="og:description" content="In preparation for a deep learning course I&rsquo;m taking over the Summer, I&rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I&rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&rsquo;s more than worth getting my feet wet.
+ML Overview flowchart LRsubgraph Shader Lifecycledirection LRd[(&#34;Dataset&#34;)] --&gt; m((&#34;Model&#34;)) --&gt; o(&#34;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/ai/intro-to-machine-learning/" />
+<meta property="og:image" content="https://img.freepik.com/premium-vector/machine-learning-banner-web-icon-set-data-mining-algorithm-neural-network_35632-107.jpg?w=2000" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-28T21:17:51-04:00" />
+<meta property="article:modified_time" content="2023-05-28T21:17:51-04:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://img.freepik.com/premium-vector/machine-learning-banner-web-icon-set-data-mining-algorithm-neural-network_35632-107.jpg?w=2000" />
+<meta name="twitter:title" content="Intro to Machine Learning"/>
+<meta name="twitter:description" content="In preparation for a deep learning course I&rsquo;m taking over the Summer, I&rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I&rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&rsquo;s more than worth getting my feet wet.
+ML Overview flowchart LRsubgraph Shader Lifecycledirection LRd[(&#34;Dataset&#34;)] --&gt; m((&#34;Model&#34;)) --&gt; o(&#34;"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hylog.netlify.app/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Intro to Machine Learning",
+      "item": "https://hylog.netlify.app/posts/2023/old/ai/intro-to-machine-learning/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Intro to Machine Learning",
+  "name": "Intro to Machine Learning",
+  "description": "In preparation for a deep learning course I\u0026rsquo;m taking over the Summer, I\u0026rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I\u0026rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it\u0026rsquo;s more than worth getting my feet wet. ML Overview flowchart LR\rsubgraph Shader Lifecycle\rdirection LR\rd[(\"Dataset\")] --\u003e m((\"Model\")) --\u003e o(\"",
+  "keywords": [
+    "math", "ai"
+  ],
+  "articleBody": "In preparation for a deep learning course I’m taking over the Summer, I’m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I’ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it’s more than worth getting my feet wet.\nML Overview flowchart LR\rsubgraph Shader Lifecycle\rdirection LR\rd[(\"Dataset\")] --\u003e m((\"Model\")) --\u003e o(\"Predicted Values\") ---|compare with| a(\"Actual Values\") --\u003e|calculate| l[\"Loss\"]\rl --\u003e|training data| m\rend\rLoss Functions When we compare our predicted results to the actual results, how do we calculate the loss?\nLoss functions can vary but they can be as simple as calculating the difference.\n$$loss = sum(|y_{real} - y_{predicted}|)$$\n$$loss = sum((y_{real} - y_{predicted})^2)$$\nDatasets Training Set: Data to train the model Validation Set: Data that the model has not seen to ensure model can handle unseen data Testing Set: Data to test the model (seen or unseen) Types of Machine Learning Supervised Learning - Using labelled input data to train models, e.g. inputting animal pictured labelled with the coorresponding animal names. Unsupervised Learning - Using unlabelled input data to learn about pattern in data, e.g. inputting unlabelled animal pictures and having your machine try to group them Reinforcement Learning = Agent learning in an environment based on rewards and penalties Supervised Learning With a supervised dataset, you have a bunch of sampled data that each have an output label that classifies that data sample, as well as having 1 or more features which are just information about that subject.\nFor example you may be sampling for animals that are dogs, you’d have an output label dictating whether that simple is or isn’t a dog as well as features of the sample like their weight, size, and color.\nWe call the set of features the feature vector. We call the output label the target\nMachine Learning Models Once we have our data that we want to perform machine learning on, we need to decide on the model we use to classify new, unlabelled data.\nK-Nearest Neighbours (KNN) The intuition here is we have a labelled dataset, if get a new point in the dataset, we can infer how it should be labelled based on it’s distance from other points.\nMore formally, we take \\(K\\) of the nearest data points to our new point and based on the most common label, we infer the label of our new point. We can choose any number of \\(K\\) and depending on our dataset, can have varying levels of effectiveness.\nNaive Bayes Recall Bayes Theorem\n$$ \\def\\series{x_1, x_2,…, x_n} P(A|B) = \\frac{P(B|A)P(A)}{P(B)} $$\nNaive Bayes is a generalization of this formula for a series of evidence.\nFor some category \\(C_k\\) (e.g. cats, dogs, etc.) and evidence \\(\\series\\) (furry, red, small, etc.)\n$$ P(C_k|\\series)\\ \\alpha\\ \\Pi_{i=1}^n P(x_i|C_k)P(C_k) $$\nOur target acts as the category \\(C_k\\) Our feature vector act as the evidence \\(\\series\\) Derivation step for reference $$ P(C_k|\\series)\\ = \\frac{P(\\series|C_k)P(C_k)}{P(\\series)} $$ Notice we remove the demoninator from Bayes Theorem. Since it isn’t influenced by \\(C_k\\), it acts as a constant. In following, \\(\\alpha\\) stands for proportional since they are no longer equal.\nBut how do we use Naive Bayes to classify data?\n$$\\hat{y}\\ (predicted\\ category) = argmax_k P(C_k|\\series)$$\nWe want to find the category that maximizes the probability given by the Naive Bayes. Essentially, we’ll be running Naive Bayes on each category and compare the categories that returns the highest probability.\nNotice why Naive Bayes works despite only being a proportional value. We only want to compare probabilities, we don’t actually need the probability itself.\nLogistic Regression Support Vector Machines Neural Network For more complex data, modern approaches have been using neural network models.\nThe intuition of a neural network is that we want to break up our classification model into a set of neurons that take in\nflowchart LR\rsubgraph Neuron\rdirection LR\rx1 --\u003e|w0| h\rx2 --\u003e|w1| h\rxn --\u003e|wn| h\rh((\"Neuron\")) --\u003e|output| p(\"Activation Function\")\rb(\"bias\") --\u003e h\rend\rflowchart LR\rsubgraph Neural Network\rdirection LR\ri[(\"Input\")] --\u003e h[\"Hidden Layers\"] --\u003e p((\"Output Neurons\"))\rend\rEquation for a Neuron $$ \\begin{bmatrix} x_0\\\\ x_1\\\\ \\vdots\\\\ x_n \\end{bmatrix} \\cdot \\begin{bmatrix} w_0\\\\ w_1\\\\ \\vdots\\\\ w_n \\end{bmatrix} \\rightarrow z = \\sum_{i} w_i x_i + b \\rightarrow f(z) = a $$\nNeurons \u0026 Hidden Layers Neurons are grouped into layers known as hidden layers. We can have as many layers as deemed necessary, and each layer will have to job of classifying the data given by the previous layer.\nFor example, one layer may being classifying line strokes of an image while the next layer starts classifying different strokes together into shapes. The end goal may be to be able to identify text.\nWeights \u0026 Biases Each neuron’s job is to pick up on specific aspects of our input into it. They way we do this is by assigning weights to each of the inputs into the neuron.\nFor example, if our input is the pixels of a screen, perhaps we want our neuron to pick up only on a specific area on the screen of pixels. We would then have more postive weights on those pixels and weaker or potentially negative weights on the other pixels.\nEvery neuron will have it’s own associated weights that it assigns it’s inputs.\nDepending on our data, we want our neuron to only be active at a certain magnitude of values. For instance, we want our neuron to start activating given a weighted sum \u003e 10. The solution is adding a constant called a bias that shifts our sum so that it only activates at the values we want.\nYou might be wondering, “okay but, how do we decide these weight and biases?”. If we were to do this manually, it’d be an astronomical test of patience. Instead, the work of finding the right set of weights \u0026 biases will come later in the learning portion.\nActivation Function Once the weighted sums are calculated, they are run through an activation function as a final step before we take the value of that neuron.\nActivation functions serve two primary purposes. Removing linearity from the network and for use in binary classification\nLinearity in a network would mean multiple layers could just be represented as a single linear combination, removing the complexity of having multiple layers in the first place. Why does this help? Most phenomena in the world can’t be represented linearly and if they can, there’s likely not a need to use a neural net in the first place. We want to describe non-linear phenomena using a non-linear model.\nAs for the second purpose, the values from the weighted sums can be virtually anything but often we want them to be between 0 and 1. This is where an activation function can come in to add a final normalization to the value of a neuron.\nA common activation function is the logistic function (sigmoid).\n$$\\sigma(x) = \\frac{1}{1+e^{-x}}$$\nThis is almost exclusively used for output layers for the binary classification\nA popular choice for hidden layer neurons is ReLU (Rectified Linear Unit)\n$$ReLU(a) = max(0,a)$$\n0 for a \u003c 0, increases linearly otherwise\nAs an Equation Luckily, this sequence of weighted sums, activations, and biases can be computed as a matrix.\n$$ \\def\\activation{ a_0^{(1)} = \\sigma( \\begin{bmatrix} w_{0,0} \u0026 w_{0,0} \u0026 \\dots \u0026 w_{0,n}\\\\ w_{0,0} \u0026 w_{0,0} \u0026 \\dots \u0026 w_{0,n}\\\\ \\vdots \u0026 \\vdots \u0026 \\ddots \u0026 \\vdots \\\\ w_{k,0} \u0026 w_{k,0} \u0026 \\dots \u0026 w_{k,n} \\end{bmatrix} \\begin{bmatrix} a_{0}^{(0)}\\\\ a_{1}^{(0)}\\\\ \\vdots\\\\ a_{n}^{(0)} \\end{bmatrix} + \\begin{bmatrix} b_0\\\\b_1\\\\ \\vdots \\\\b_n \\end{bmatrix} ) } $$\nAny single neuron \\(a_n^{layer}\\) is the combination of normalized (\\(\\sigma\\)) weights and biases, of all the neurons from the previous layer.\nGradient Descent (or how calculus learns) In order to start learning, we need an idea of how bad or good a particular set of weights and biases are. We call this the cost function.\nThe idea is that on every learning iteration, we want to minimize the cost function. However creating such a function and directly calculating some minimum isn’t a trivial task.\nInstead, if we have some cost function, all we need to know is the slope of the function at a given input weights. Then we just need to shift the weights so that we move in the direction on the downward slope of the cost function. Hence, gradient descent.\nGradient descent just means walking in the downhill direction to minimize the cost function. - 3b1b\nBack Propagation This is the algorithm for efficiently computing gradient descent.\nTo reiterate, the goal of gradient descent is to systematically lower the cost function by adjusting the weights and biases for a given set of neurons.\nA common cost function is to simply take the squared difference of the models prediction vs the actual values.\n$$C(x) = (x - y)^2$$\nThe result is a series of values representing how closely or far away the model was the ideal answer.\nLet’s however start our intuition with how would we want our outputs to change to get a lower cost. If we were trying to train our model to identify numbers, we would have outputs of all the digits 0-9. Now let’s say we give our model the number 2. Our ideal output is for the 2 output light up to one while every other output is zero. We’d likely want it to increase the weights \u0026 biases to lead to 2 as well as lower the weights \u0026 biases of all the other outputs.\nNot only that, we out cost function, we know how far away each of our prediction are from the actual outputs. The more the cost, the more we want to lower or increase the weights \u0026 biases leading to that output.\nFurther more, we have 3 avenues to alter the activations for a neuron (the output of a neuron)\nChange the bias Change the weights Change the activations of the previous neuron Recall the equation for the activation of a given neuron\n$$\\activation$$\nNotice that we multiply the weights with the activations of the previous neurons. The brighter a neuron is, the more effect a change in weight will have. This is core to altering weights as we need to nudge them in proportion to the previous activations.\nWe can go through every one of the outcomes and collect an average of how much we want each of the preceeding neurons to change in order to get a better outcome. We can then repeat this for the previous layer’s neurons and so forth. Hence, back propagation.\nIn summary\n",
+  "wordCount" : "1762",
+  "inLanguage": "en",
+  "image":"https://img.freepik.com/premium-vector/machine-learning-banner-web-icon-set-data-mining-algorithm-neural-network_35632-107.jpg?w=2000","datePublished": "2023-05-28T21:17:51-04:00",
+  "dateModified": "2023-05-28T21:17:51-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hylog.netlify.app/posts/2023/old/ai/intro-to-machine-learning/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hylu Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hylog.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Intro to Machine Learning
+    </h1>
+    <div class="post-meta"><span title='2023-05-28 21:17:51 -0400 EDT'>May 28, 2023</span>
+
+</div>
+    
+    
+    
+    
+    
+<script
+  type="application/javascript"
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  async
+></script>
+<script 
+  type="text/x-mathjax-config"
+  async
+  >
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+    
+  </header> 
+<figure class="entry-cover"><a href="https://img.freepik.com/premium-vector/machine-learning-banner-web-icon-set-data-mining-algorithm-neural-network_35632-107.jpg?w=2000" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://img.freepik.com/premium-vector/machine-learning-banner-web-icon-set-data-mining-algorithm-neural-network_35632-107.jpg?w=2000" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#ml-overview" aria-label="ML Overview">ML Overview</a><ul>
+                        
+                <li>
+                    <a href="#loss-functions" aria-label="Loss Functions">Loss Functions</a></li>
+                <li>
+                    <a href="#datasets" aria-label="Datasets">Datasets</a></li>
+                <li>
+                    <a href="#types-of-machine-learning" aria-label="Types of Machine Learning">Types of Machine Learning</a></li></ul>
+                </li>
+                <li>
+                    <a href="#supervised-learning" aria-label="Supervised Learning">Supervised Learning</a></li>
+                <li>
+                    <a href="#machine-learning-models" aria-label="Machine Learning Models">Machine Learning Models</a><ul>
+                        
+                <li>
+                    <a href="#k-nearest-neighbours-knn" aria-label="K-Nearest Neighbours (KNN)">K-Nearest Neighbours (KNN)</a></li>
+                <li>
+                    <a href="#naive-bayes" aria-label="Naive Bayes">Naive Bayes</a></li>
+                <li>
+                    <a href="#logistic-regression" aria-label="Logistic Regression">Logistic Regression</a></li>
+                <li>
+                    <a href="#support-vector-machines" aria-label="Support Vector Machines">Support Vector Machines</a></li></ul>
+                </li>
+                <li>
+                    <a href="#neural-network" aria-label="Neural Network">Neural Network</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#equation-for-a-neuron" aria-label="Equation for a Neuron">Equation for a Neuron</a></li></ul>
+                    
+                <li>
+                    <a href="#neurons--hidden-layers" aria-label="Neurons &amp; Hidden Layers">Neurons &amp; Hidden Layers</a><ul>
+                        
+                <li>
+                    <a href="#weights--biases" aria-label="Weights &amp; Biases">Weights &amp; Biases</a></li>
+                <li>
+                    <a href="#activation-function" aria-label="Activation Function">Activation Function</a></li>
+                <li>
+                    <a href="#as-an-equation" aria-label="As an Equation">As an Equation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#gradient-descent-or-how-calculus-learns" aria-label="Gradient Descent (or how calculus learns)">Gradient Descent (or how calculus learns)</a></li>
+                <li>
+                    <a href="#back-propagation" aria-label="Back Propagation">Back Propagation</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>In preparation for a deep learning course I&rsquo;m taking over the Summer, I&rsquo;m taking a short <a href="https://www.youtube.com/watch?v=i_LwzRVP7bg">intro course on machine learning</a> to help prepare me for some of the fundamental concepts.
+I&rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&rsquo;s more than worth getting my feet wet.</p>
+<h2 id="ml-overview">ML Overview<a hidden class="anchor" aria-hidden="true" href="#ml-overview">#</a></h2>
+<div class="mermaid">
+flowchart LR
+    subgraph Shader Lifecycle
+    direction LR
+        d[("Dataset")] --> m(("Model")) --> o("Predicted Values") ---|compare with| a("Actual Values") -->|calculate| l["Loss"]
+        l -->|training data| m
+    end
+</div>
+<h3 id="loss-functions">Loss Functions<a hidden class="anchor" aria-hidden="true" href="#loss-functions">#</a></h3>
+<p>When we compare our predicted results to the actual results, how do we calculate the loss?</p>
+<p>Loss functions can vary but they can be as simple as calculating the difference.</p>
+<p>$$loss = sum(|y_{real} - y_{predicted}|)$$</p>
+<p>$$loss = sum((y_{real} - y_{predicted})^2)$$</p>
+<h3 id="datasets">Datasets<a hidden class="anchor" aria-hidden="true" href="#datasets">#</a></h3>
+<ul>
+<li>Training Set: Data to train the model</li>
+<li>Validation Set: Data that the model has not seen to ensure model can handle unseen data</li>
+<li>Testing Set: Data to test the model (seen or unseen)</li>
+</ul>
+<h3 id="types-of-machine-learning">Types of Machine Learning<a hidden class="anchor" aria-hidden="true" href="#types-of-machine-learning">#</a></h3>
+<ul>
+<li><strong>Supervised Learning</strong> - Using labelled input data to train models, e.g. inputting animal pictured labelled with the coorresponding animal names.</li>
+<li><strong>Unsupervised Learning</strong> - Using unlabelled input data to learn about pattern in data, e.g. inputting unlabelled animal pictures and having your machine try to group them</li>
+<li><strong>Reinforcement Learning</strong> = Agent learning in an environment based on rewards and penalties</li>
+</ul>
+<h2 id="supervised-learning">Supervised Learning<a hidden class="anchor" aria-hidden="true" href="#supervised-learning">#</a></h2>
+<p>With a supervised dataset, you have a bunch of sampled data that each have an <strong>output label</strong> that classifies that data sample, as well as having 1 or more <strong>features</strong> which are just information about that subject.</p>
+<p>For example you may be sampling for animals that are dogs, you&rsquo;d have an output label dictating whether that simple is or isn&rsquo;t a dog as well as features of the sample like their weight, size, and color.</p>
+<p>We call the set of features the <strong>feature vector</strong>. We call the output label the <strong>target</strong></p>
+<div class="center-flex">
+  <a class="center-flex link img-md" href="https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.png" target="_blank">
+    <img alt="https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.png" src="https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<h2 id="machine-learning-models">Machine Learning Models<a hidden class="anchor" aria-hidden="true" href="#machine-learning-models">#</a></h2>
+<p>Once we have our data that we want to perform machine learning on, we need to decide on the model we use to classify new, unlabelled data.</p>
+<h3 id="k-nearest-neighbours-knn">K-Nearest Neighbours (KNN)<a hidden class="anchor" aria-hidden="true" href="#k-nearest-neighbours-knn">#</a></h3>
+<div class="center-flex">
+  <a class="center-flex link img-sm" href="https://miro.medium.com/v2/resize:fit:828/0*jqxx3-dJqFjXD6FA" target="_blank">
+    <img alt="https://miro.medium.com/v2/resize:fit:828/0*jqxx3-dJqFjXD6FA" src="https://miro.medium.com/v2/resize:fit:828/0*jqxx3-dJqFjXD6FA" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<p>The intuition here is we have a labelled dataset, if get a new point in the dataset, we can infer how it should be labelled based on it&rsquo;s distance from other points.</p>
+<p>More formally, we take \(K\) of the nearest data points to our new point and based on the most common label, we infer the label of our new point. We can choose any number of \(K\) and depending on our dataset, can have varying levels of effectiveness.</p>
+<h3 id="naive-bayes">Naive Bayes<a hidden class="anchor" aria-hidden="true" href="#naive-bayes">#</a></h3>
+<p>Recall <a href="https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/#bayes-theorem">Bayes Theorem</a></p>
+<p>$$
+\def\series{x_1, x_2,&hellip;, x_n}
+P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+$$</p>
+<p>Naive Bayes is a generalization of this formula for a series of evidence.</p>
+<p>For some category \(C_k\) (e.g. cats, dogs, etc.) and evidence \(\series\) (furry, red, small, etc.)</p>
+<p>$$
+P(C_k|\series)\ \alpha\ \Pi_{i=1}^n P(x_i|C_k)P(C_k)
+$$</p>
+<ul>
+<li>Our <strong>target</strong> acts as the category \(C_k\)</li>
+<li>Our <strong>feature vector</strong> act as the evidence \(\series\)</li>
+</ul>
+<blockquote>
+<p>Derivation step for reference
+$$
+P(C_k|\series)\ = \frac{P(\series|C_k)P(C_k)}{P(\series)}
+$$
+Notice we remove the demoninator from Bayes Theorem. Since it isn&rsquo;t influenced by \(C_k\), it acts as a constant. In following, \(\alpha\) stands for proportional since they are no longer equal.</p>
+</blockquote>
+<p><strong>But how do we use Naive Bayes to classify data?</strong></p>
+<p>$$\hat{y}\ (predicted\ category) = argmax_k P(C_k|\series)$$</p>
+<p>We want to find the category that maximizes the probability given by the Naive Bayes. Essentially, we&rsquo;ll be running Naive Bayes on each category and compare the categories that returns the highest probability.</p>
+<blockquote>
+<p>Notice why Naive Bayes works despite only being a proportional value. We only want to compare probabilities, we don&rsquo;t actually need the probability itself.</p>
+</blockquote>
+<h3 id="logistic-regression">Logistic Regression<a hidden class="anchor" aria-hidden="true" href="#logistic-regression">#</a></h3>
+<div class="center-flex">
+  <a class="center-flex link img-sm" href="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.png" target="_blank">
+    <img alt="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.png" src="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<h3 id="support-vector-machines">Support Vector Machines<a hidden class="anchor" aria-hidden="true" href="#support-vector-machines">#</a></h3>
+<div class="center-flex">
+  <a class="center-flex link img-md" href="https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.png" target="_blank">
+    <img alt="https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.png" src="https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<h2 id="neural-network">Neural Network<a hidden class="anchor" aria-hidden="true" href="#neural-network">#</a></h2>
+<p>For more complex data, modern approaches have been using neural network models.</p>
+<p>The intuition of a neural network is that we want to break up our classification model into a set of <em>neurons</em> that take in</p>
+<div class="mermaid">
+flowchart LR
+    subgraph Neuron
+    direction LR
+        x1 -->|w0| h
+        x2 -->|w1| h
+        xn -->|wn| h
+        h(("Neuron")) -->|output| p("Activation Function")
+        b("bias") --> h
+    end
+</div>
+<div class="mermaid">
+flowchart LR
+    subgraph Neural Network
+    direction LR
+        i[("Input")] --> h["Hidden Layers"] --> p(("Output Neurons"))
+    end
+</div>
+<h4 id="equation-for-a-neuron">Equation for a Neuron<a hidden class="anchor" aria-hidden="true" href="#equation-for-a-neuron">#</a></h4>
+<p>$$
+\begin{bmatrix}
+x_0\\
+x_1\\
+\vdots\\
+x_n
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+w_0\\
+w_1\\
+\vdots\\
+w_n
+\end{bmatrix}
+\rightarrow
+z = \sum_{i} w_i x_i + b
+\rightarrow
+f(z) = a
+$$</p>
+<h3 id="neurons--hidden-layers">Neurons &amp; Hidden Layers<a hidden class="anchor" aria-hidden="true" href="#neurons--hidden-layers">#</a></h3>
+<div class="center-flex">
+  <a class="center-flex link img-md" href="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.png" target="_blank">
+    <img alt="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.png" src="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<p>Neurons are grouped into layers known as <em>hidden layers</em>. We can have as many layers as deemed necessary, and each layer will have to job of classifying the data given by the previous layer.</p>
+<p>For example, one layer may being classifying line strokes of an image while the next layer starts classifying different strokes together into shapes. The end goal may be to be able to identify text.</p>
+<h4 id="weights--biases">Weights &amp; Biases<a hidden class="anchor" aria-hidden="true" href="#weights--biases">#</a></h4>
+<p>Each neuron&rsquo;s job is to pick up on specific aspects of our input into it. They way we do this is by assigning weights to each of the inputs into the neuron.</p>
+<p>For example, if our input is the pixels of a screen, perhaps we want our neuron to pick up only on a specific area on the screen of pixels. We would then have more postive weights on those pixels and weaker or potentially negative weights on the other pixels.</p>
+<p>Every neuron will have it&rsquo;s own associated weights that it assigns it&rsquo;s inputs.</p>
+<p>Depending on our data, we want our neuron to only be active at a certain magnitude of values. For instance, we want our neuron to start activating given a weighted sum &gt; 10. The solution is adding a constant called a <strong>bias</strong> that shifts our sum so that it only activates at the values we want.</p>
+<blockquote>
+<p>You might be wondering, &ldquo;okay but, how do we decide these weight and biases?&rdquo;. If we were to do this manually, it&rsquo;d be an astronomical test of patience. Instead, the work of finding the right set of weights &amp; biases will come later in the <em>learning</em> portion.</p>
+</blockquote>
+<h4 id="activation-function">Activation Function<a hidden class="anchor" aria-hidden="true" href="#activation-function">#</a></h4>
+<p>Once the weighted sums are calculated, they are run through an <em>activation function</em> as a final step before we take the value of that neuron.</p>
+<p>Activation functions serve two primary purposes. Removing <strong>linearity</strong> from the network and for use in <strong>binary classification</strong></p>
+<p>Linearity in a network would mean multiple layers could just be represented as a single linear combination, removing the complexity of having multiple layers in the first place. Why does this help? Most phenomena in the world can&rsquo;t be represented linearly and if they can, there&rsquo;s likely not a need to use a neural net in the first place. <strong>We want to describe non-linear phenomena using a non-linear model.</strong></p>
+<p>As for the second purpose, the values from the weighted sums can be virtually anything but often we want them to be between 0 and 1. This is where an activation function can come in to add a final normalization to the value of a neuron.</p>
+<p>A common activation function is the logistic function (sigmoid).</p>
+<p>$$\sigma(x) = \frac{1}{1+e^{-x}}$$</p>
+<blockquote>
+<p>This is almost exclusively used for output layers for the binary classification</p>
+</blockquote>
+<p>A popular choice for hidden layer neurons is ReLU (Rectified Linear Unit)</p>
+<p>$$ReLU(a) = max(0,a)$$</p>
+<blockquote>
+<p>0 for a &lt; 0, increases linearly otherwise</p>
+</blockquote>
+<h4 id="as-an-equation">As an Equation<a hidden class="anchor" aria-hidden="true" href="#as-an-equation">#</a></h4>
+<p>Luckily, this sequence of weighted sums, activations, and biases can be computed as a matrix.</p>
+<p>$$
+\def\activation{
+a_0^{(1)} = \sigma(
+\begin{bmatrix}
+w_{0,0} &amp; w_{0,0} &amp; \dots &amp; w_{0,n}\\
+w_{0,0} &amp; w_{0,0} &amp; \dots &amp; w_{0,n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+w_{k,0} &amp; w_{k,0} &amp; \dots &amp; w_{k,n}
+\end{bmatrix}
+\begin{bmatrix}
+a_{0}^{(0)}\\
+a_{1}^{(0)}\\
+\vdots\\
+a_{n}^{(0)}
+\end{bmatrix}
++
+\begin{bmatrix}
+b_0\\b_1\\ \vdots \\b_n
+\end{bmatrix}
+)
+}
+$$</p>
+<p>Any <strong>single</strong> neuron \(a_n^{layer}\) is the combination of normalized (\(\sigma\)) weights and biases, of <strong>all</strong> the neurons from the previous layer.</p>
+<h3 id="gradient-descent-or-how-calculus-learns">Gradient Descent (or how calculus learns)<a hidden class="anchor" aria-hidden="true" href="#gradient-descent-or-how-calculus-learns">#</a></h3>
+<p>In order to start learning, we need an idea of how bad or good a particular set of weights and biases are. We call this the <strong>cost function</strong>.</p>
+<p>The idea is that on every learning iteration, we want to minimize the cost function. However creating such a function and directly calculating some minimum isn&rsquo;t a trivial task.</p>
+<p>Instead, if we have some cost function, all we need to know is the slope of the function at a given input weights. Then we just need to shift the weights so that we move in the direction on the downward slope of the cost function. Hence, gradient <em>descent</em>.</p>
+<blockquote>
+<p>Gradient descent just means walking in the downhill direction to minimize the cost function. - 3b1b</p>
+</blockquote>
+<div class="center-flex">
+  <a class="center-flex link img-sm" href="https://www.3blue1brown.com/content/lessons/2017/gradient-descent/gradient-descent.png" target="_blank">
+    <img alt="https://www.3blue1brown.com/content/lessons/2017/gradient-descent/gradient-descent.png" src="https://www.3blue1brown.com/content/lessons/2017/gradient-descent/gradient-descent.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<h3 id="back-propagation">Back Propagation<a hidden class="anchor" aria-hidden="true" href="#back-propagation">#</a></h3>
+<p>This is the algorithm for efficiently computing gradient descent.</p>
+<p>To reiterate, the goal of gradient descent is to systematically lower the cost function by adjusting the weights and biases for a given set of neurons.</p>
+<p>A common cost function is to simply take the squared difference of the models prediction vs the actual values.</p>
+<p>$$C(x) = (x - y)^2$$</p>
+<p>The result is a series of values representing how closely or far away the model was the ideal answer.</p>
+<p>Let&rsquo;s however start our intuition with how would we want our outputs to change to get a lower cost. If we were trying to train our model to identify numbers, we would have outputs of all the digits 0-9. Now let&rsquo;s say we give our model the number 2. Our ideal output is for the 2 output light up to one while every other output is zero. We&rsquo;d likely want it to increase the weights &amp; biases to lead to 2 as well as lower the weights &amp; biases of all the other outputs.</p>
+<div class="center-flex">
+  <a class="center-flex link " href="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2017/backpropagation/classify-as-2.png" target="_blank">
+    <img alt="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2017/backpropagation/classify-as-2.png" src="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2017/backpropagation/classify-as-2.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<p>Not only that, we out cost function, <strong>we know how far away each of our prediction are from the actual outputs</strong>. The more the cost, the more we want to lower or increase the weights &amp; biases leading to that output.</p>
+<p>Further more, we have 3 avenues to alter the activations for a neuron (the output of a neuron)</p>
+<ul>
+<li>Change the bias</li>
+<li>Change the weights</li>
+<li>Change the activations of the previous neuron</li>
+</ul>
+<p>Recall the equation for the activation of a given neuron</p>
+<p>$$\activation$$</p>
+<p>Notice that we multiply the weights with the activations of the previous neurons. <strong>The brighter a neuron is, the more effect a change in weight will have.</strong> This is core to altering weights as we need to nudge them in proportion to the previous activations.</p>
+<p>We can go through every one of the outcomes and collect an average of how much we want each of the preceeding neurons to change in order to get a better outcome. We can then repeat this for the previous layer&rsquo;s neurons and so forth. Hence, <em>back propagation</em>.</p>
+<p>In summary</p>
+
+
+    
+    
+    
+<script
+  type="application/javascript"
+  src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+  async
+></script>
+<script>
+  var config = {
+    startOnLoad: true,
+    theme:'dark',
+    align:'center',
+  };
+  mermaid.initialize(config);
+</script>
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hylog.netlify.app/tags/math/">math</a></li>
+      <li><a href="https://hylog.netlify.app/tags/ai/">ai</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Overview of Probability</span>
+  </a>
+  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/handling_normals_from_unity_to_blender/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Handling Normals from Unity to Blender</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

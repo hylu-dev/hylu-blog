@@ -10,16 +10,17 @@
 
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylu-blog.netlify.app/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://hylu-blog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylu-blog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylu-blog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylu-blog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylu-blog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="https://hylog.netlify.app/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://hylu-blog.netlify.app/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://hylog.netlify.app/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -28,38 +29,10 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
 </noscript><meta property="og:title" content="Hylu Blog" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://hylu-blog.netlify.app/" />
+<meta property="og:url" content="https://hylog.netlify.app/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hylu Blog"/>
@@ -70,9 +43,9 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Hylu Blog",
-  "url": "https://hylu-blog.netlify.app/",
+  "url": "https://hylog.netlify.app/",
   "description": "",
-  "thumbnailUrl": "https://hylu-blog.netlify.app/favicon.ico",
+  "thumbnailUrl": "https://hylog.netlify.app/favicon.ico",
   "sameAs": [
       
   ]
@@ -80,14 +53,10 @@
 </script>
 </head>
 
-<body class="list" id="top">
+<body class="list dark" id="top">
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
+    if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
     }
 
 </script>
@@ -95,7 +64,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylu-blog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -121,99 +90,51 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylu-blog.netlify.app/" title="Hylu Blog">
-                    <span class="active">Home</span>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylu-blog.netlify.app/tags/" title="Tags">
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
                     <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://hylu-blog.netlify.app/categories/" title="Categories">
-                    <span>Categories</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>Don&rsquo;t mind me.</h1>
-    </header>
-    <div class="entry-content">
-        Just stress writing.
-    </div>
-    <footer class="entry-footer">
-        <div class="social-icons">
+<main class="main"><div class="profile">
+    <div class="profile_inner">
+        <img draggable="false" src="https://hylog.netlify.app/img/heart.svg" alt="&lt;title of image as alt&gt;" title="&lt;title of image as alt&gt;"
+            height="320" width="320" />
+        <h1><!-- raw HTML omitted --></h1>
+        <span></span><div class="social-icons" >
 </div>
 
-    </footer>
-</article>
+        <div class="buttons">
+            <a class="button" href="/posts" rel="noopener" title="Archive">
+                <span class="button-inner">
+                    Archive
+                </span>
+            </a>
+            <a class="button" href="https://github.com/hylu-dev" rel="noopener" title="Github">
+                <span class="button-inner">
+                    Github&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
 
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif" alt="">
-</figure>
-  <header class="entry-header">
-    <h2>Making an Animated Osu Banner
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I’m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it’s too large, the auto-compression will convert the image into a static jpeg)....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-05-02 01:18:34 -0400 EDT'>May 2, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Making an Animated Osu Banner" href="https://hylu-blog.netlify.app/posts/osu_banner/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://hylu-blog.netlify.app/img/development/trello_example.png" alt="">
-</figure>
-  <header class="entry-header">
-    <h2>Using Kanban Boards
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Now that I’m starting on Slime Hunter, I figured I should get back to using some project management tools. In particular, Kanban boards as they are simple to manage and don’t come with nearly as much fluff as something like Jira issue tracking systems. The nice thing as well is that there’s so many great project management tools out there. In this case, I’ve decided to use Trello as I’m familiar with Atlassian tools (again Jira) so I feel comfortable continuing to use their products....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-05-01 15:12:19 -0400 EDT'>May 1, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Using Kanban Boards" href="https://hylu-blog.netlify.app/posts/using_kanban_boards/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://assets.ppy.sh/contests/175/entries/Nervy%20Badger.jpg" alt="">
-</figure>
-  <header class="entry-header">
-    <h2>Osu Fanart Again!?
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Journey into a Beatmap Getting Started After doing my first fanart, I didn’t have any intention of doing another but this one’s theme instantly gave me the idea of incorporating 3D modelling into the art piece. In summary, the theme is to create an Osu fanart with the OC’s inside a beatmap.
-I immediately had the idea of drawing Enchanted Love as I fell in love with the visuals from the original MV....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-24 02:57:43 -0400 EDT'>April 24, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Osu Fanart Again!?" href="https://hylu-blog.netlify.app/posts/osu_fanart2/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://hylu-blog.netlify.app/img/osu/new_beginnings/final.png" alt="">
-</figure>
-  <header class="entry-header">
-    <h2>Making Osu Fanart
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>osu! Fanarts? Osu holds several fanart contest every year with themes often related to the time of year. Themes such as Winter or Halloween are such examples. Regardless of theme, the general idea seems to always be to draw any of the osu mascots inside or partaking in said theme.
-At the time I had been playing osu for about 4 months and really enjoying it. On the other hand, I’ve been drawing casually for a few years as a hobby so it seemed naturally to want to give these contests a shot....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-24 00:39:23 -0400 EDT'>April 24, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Making Osu Fanart" href="https://hylu-blog.netlify.app/posts/osu_fanart/"></a>
-</article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylu-blog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

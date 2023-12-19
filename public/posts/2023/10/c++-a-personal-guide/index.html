@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>C&#43;&#43; A Personal Guide | Hylu Blog</title>
+<meta name="keywords" content="c&#43;&#43;">
+<meta name="description" content="A compilation of various features and gotchas I&rsquo;ve encountered while studying C&#43;&#43;.
+Instantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
+Initialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor.">
+<meta name="author" content="">
+<link rel="canonical" href="https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-a-personal-guide/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="C&#43;&#43; A Personal Guide" />
+<meta property="og:description" content="A compilation of various features and gotchas I&rsquo;ve encountered while studying C&#43;&#43;.
+Instantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
+Initialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-a-personal-guide/" />
+<meta property="og:image" content="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-04T13:05:14-04:00" />
+<meta property="article:modified_time" content="2023-10-04T13:05:14-04:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png" />
+<meta name="twitter:title" content="C&#43;&#43; A Personal Guide"/>
+<meta name="twitter:description" content="A compilation of various features and gotchas I&rsquo;ve encountered while studying C&#43;&#43;.
+Instantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
+Initialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hylog.netlify.app/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "C++ A Personal Guide",
+      "item": "https://hylog.netlify.app/posts/2023/10/c++-a-personal-guide/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C++ A Personal Guide",
+  "name": "C\u002b\u002b A Personal Guide",
+  "description": "A compilation of various features and gotchas I\u0026rsquo;ve encountered while studying C++.\nInstantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.\nInitialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor.",
+  "keywords": [
+    "c++"
+  ],
+  "articleBody": "A compilation of various features and gotchas I’ve encountered while studying C++.\nInstantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.\nInitialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor. Okay, then we can move it to the constructor. Nope, it’s a const variable so it can’t be modified.\nInitializer lists let’s us instantiate const variables as with arguments before they can’t be modified.\nclass Test { const int t; public: Test(int t):t(t) {} //Initializer list must be used int getT() { return t; } }; Call a Parent Constructor If you’re deriving from a base class, you may want to initialize those base class members with it’s constructor.\nclass A { int i; public: A(int ); }; A::A(int arg) { i = arg; cout \u003c\u003c \"A's Constructor called: Value of i: \" \u003c\u003c i \u003c\u003c endl; } class B { A a; public: B(int ); }; B::B(int x):a(x) { //Initializer list must be used cout \u003c\u003c \"B's Constructor called\"; } https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/\nStack and Heap Memory Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack\nvector\u003cType\u003e vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (“heap”).\nvector\u003cType\u003e *vect = new vector\u003cType\u003e; allocates everything on the free store (except vect pointer, which is on the stack).\nvector\u003cType*\u003e vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).\nDangling Pointers on the Heap So the idea with dangling pointers is that if you allocate a piece of memory in the heap you need a pointer to pointer to that slot of memory. That’s a given.\nint* p = new int(5); Now if you want to release that block of memory, you use the pointer to free it.\ndelete *p But there’s a problem! You now have a pointer just pointing to a random block of memory that can be used by anything. This is a dangling pointer.\nDangling Pointers on the Stack If variables go out of scope in the stack, it gets released from the stack so we don’t need to depend on delete. However we can still get the dangers of dangling pointers.\nint* DoSomething() { int x; int* p = \u0026x; return p } int* a = DoSomething(); a now points to an unused piece of memory in the stack! This is dangerous cause that memory space could be taken up by something later on and we don’t want to mess with that memory.\nDifference With Uninitialized Variables An uninitialized variable is generally a bad idea\nint x;\nIf you dereference it, you could get anything depending on whatever was left there in memory. This is not as bad as the aforementioned dangling pointer though as at least that memory block is being used by x so it won’t be used later down line until x is released.\nint x; Memory Leaks If you allocate some memory on the heap, you should always have a pointer leading to it. If you lose those pointers, than you’ll have no way of accessing that memory.\nThat is, you won’t ever be able to free that memory.\nDouble Pointers and Arrays Quick look at how we can assign a double pointer to an array.\nNormally we can create a pointer array like this.\nint* arr[5]; for (int i = 0; i\u003c5; i++) { arr[i] = new int(1); } If we want another pointer to point to this array we need to use a double pointer. We can also index that pointer like an array once we’ve assigned it.\nint** p = nullptr; p = arr; for (int i = 0; i\u003c5; i++) { std::cout \u003c\u003c p[i]; } Iterators Classic Iteration The classic example of iteration is just a normal for loop for you start from an int and increment by 1 until you arrive at the end\nfor (int i = 0; i \u003c 10; i++) { std::cout \u003c\u003c \"Hello World!\"; } This works well for an integer index but it gets more interesting if we want to iterate over a data structure. We want to be able to go through each index of a data structure by accessing the correct memory address.\nIn case of an array or vector, we can do so by incrementing the memory address since the array holds data in a contiguous fashion (each memory address is adjacent to the next). So we can loop using an incrementing pointer like follows.\nint[5] nums = {1, 2, 3, 4, 5}; int* ptr = nums; //stores address of the first element for (int i = 0; i \u003c 5; i++) { std::cout \u003c\u003c *ptr; ptr++; //increments the memory address by sizeof(int) } Non-Continguous Iterating Data structures don’t always store data contiguously. Something like a list acts as a container for each value added to it. Then, links each container with a pointer to the correct memory address. Iterating this requires manually following the cookie crumbs of memory addresses until you get to the index you were looking for.\nInstead of needing to do that manually, many of these data structures offer their own iterators that handle the work needed to get to the next index of a data structure. Most data structures let you extract the iterator with the following syntax.\nstd::list\u003cint\u003e::iterator it; you an then use that iterator traverse the data structure as you please.\nstd::list\u003cint\u003e myList = {1, 2, 3, 4, 5}; // Using an iterator to traverse the list std::list\u003cint\u003e::iterator it; for (it = myList.begin(); it != myList.end(); ++it) { std::cout \u003c\u003c *it \u003c\u003c \" \"; // Dereferencing the iterator to access the element } Iterator Random Access The list data structure only allows bi-directional iteration but doesn’t allow you to immediately access a particular index as it needs to follow the trail of memory addresses to find it.\nSomething like a vector does allow immediate indexing so you can use the iterator to increment the data pointer by index. In this case, you can also use the typical array-indexing syntax and it will automatically use the iterator for random access as needed.\nstd::vector\u003cint\u003e myVector = {1, 2, 3, 4, 5}; // Using a random access iterator to access elements std::vector\u003cint\u003e::iterator it = myVector.begin(); // Accessing elements at specific positions std::cout \u003c\u003c \"Element at index 2: \" \u003c\u003c *(it + 2) \u003c\u003c std::endl; std::cout \u003c\u003c \"Element at index 4: \" \u003c\u003c *(it + 4) \u003c\u003c std::endl; // Using the [] operator for random access std::cout \u003c\u003c \"Element at index 3: \" \u003c\u003c myVector[3] \u003c\u003c std::endl; return 0; Using Range Based Loops Starting from C++11, range-based for loop are provided, to iterate over elements with a simpler syntax.\nstd::vector\u003cint\u003e numbers = {1, 2, 3, 4, 5}; // Using a range-based for loop to iterate over elements for (auto\u0026 num : numbers) { std::cout \u003c\u003c num \u003c\u003c std::endl; } Auto https://stackoverflow.com/questions/29859796/c-auto-vs-auto\nUse auto \u0026\u0026 for the ability to modify and discard values of the sequence within the loop. (That is, unless the container provides a read-only view, such as std::initializer_list, in which case it will be effectively an auto const \u0026.) Use auto \u0026 to pass as reference instead of value. Use auto const \u0026 for read-only access. Use auto to work with (modifiable) bytecopies. ",
+  "wordCount" : "1288",
+  "inLanguage": "en",
+  "image":"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png","datePublished": "2023-10-04T13:05:14-04:00",
+  "dateModified": "2023-10-04T13:05:14-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hylog.netlify.app/posts/2023/10/c++-a-personal-guide/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hylu Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hylog.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <h1 class="post-title">
+      C&#43;&#43; A Personal Guide
+    </h1>
+    <div class="post-meta"><span title='2023-10-04 13:05:14 -0400 EDT'>October 4, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#instantiating-object-member-variables" aria-label="Instantiating Object Member Variables">Instantiating Object Member Variables</a><ul>
+                        
+                <li>
+                    <a href="#when-to-use-initializer-lists" aria-label="When to Use Initializer Lists">When to Use Initializer Lists</a><ul>
+                        
+                <li>
+                    <a href="#initialize-const-members" aria-label="Initialize Const Members">Initialize Const Members</a></li>
+                <li>
+                    <a href="#call-a-parent-constructor" aria-label="Call a Parent Constructor">Call a Parent Constructor</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#stack-and-heap-memory" aria-label="Stack and Heap Memory">Stack and Heap Memory</a><ul>
+                        
+                <li>
+                    <a href="#declaring-data-structures-on-the-heap" aria-label="Declaring Data Structures on the Heap">Declaring Data Structures on the Heap</a></li>
+                <li>
+                    <a href="#dangling-pointers-on-the-heap" aria-label="Dangling Pointers on the Heap">Dangling Pointers on the Heap</a></li>
+                <li>
+                    <a href="#dangling-pointers-on-the-stack" aria-label="Dangling Pointers on the Stack">Dangling Pointers on the Stack</a><ul>
+                        
+                <li>
+                    <a href="#difference-with-uninitialized-variables" aria-label="Difference With Uninitialized Variables">Difference With Uninitialized Variables</a></li></ul>
+                </li>
+                <li>
+                    <a href="#memory-leaks" aria-label="Memory Leaks">Memory Leaks</a></li></ul>
+                </li>
+                <li>
+                    <a href="#double-pointers-and-arrays" aria-label="Double Pointers and Arrays">Double Pointers and Arrays</a></li>
+                <li>
+                    <a href="#iterators" aria-label="Iterators">Iterators</a><ul>
+                        
+                <li>
+                    <a href="#classic-iteration" aria-label="Classic Iteration">Classic Iteration</a></li>
+                <li>
+                    <a href="#non-continguous-iterating" aria-label="Non-Continguous Iterating">Non-Continguous Iterating</a></li>
+                <li>
+                    <a href="#iterator-random-access" aria-label="Iterator Random Access">Iterator Random Access</a></li>
+                <li>
+                    <a href="#using-range-based-loops" aria-label="Using Range Based Loops">Using Range Based Loops</a><ul>
+                        
+                <li>
+                    <a href="#auto" aria-label="Auto">Auto</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>A compilation of various features and gotchas I&rsquo;ve encountered while studying C++.</p>
+<h2 id="instantiating-object-member-variables">Instantiating Object Member Variables<a hidden class="anchor" aria-hidden="true" href="#instantiating-object-member-variables">#</a></h2>
+<h3 id="when-to-use-initializer-lists">When to Use Initializer Lists<a hidden class="anchor" aria-hidden="true" href="#when-to-use-initializer-lists">#</a></h3>
+<p>Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.</p>
+<h4 id="initialize-const-members">Initialize Const Members<a hidden class="anchor" aria-hidden="true" href="#initialize-const-members">#</a></h4>
+<p>You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor. Okay, then we can move it to the constructor. Nope, it&rsquo;s a <code>const</code> variable so it can&rsquo;t be modified.</p>
+<p>Initializer lists let&rsquo;s us instantiate <code>const</code> variables as with arguments before they can&rsquo;t be modified.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Test</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> t;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Test(<span style="color:#66d9ef">int</span> t)<span style="color:#f92672">:</span>t(t) {}  <span style="color:#75715e">//Initializer list must be used
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getT</span>() { <span style="color:#66d9ef">return</span> t; }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="call-a-parent-constructor">Call a Parent Constructor<a hidden class="anchor" aria-hidden="true" href="#call-a-parent-constructor">#</a></h4>
+<p>If you&rsquo;re deriving from a base class, you may want to initialize those base class members with it&rsquo;s constructor.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    A(<span style="color:#66d9ef">int</span> );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>A<span style="color:#f92672">::</span>A(<span style="color:#66d9ef">int</span> arg) {
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> arg;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;A&#39;s Constructor called: Value of i: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span> {
+</span></span><span style="display:flex;"><span>    A a;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    B(<span style="color:#66d9ef">int</span> );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>B<span style="color:#f92672">::</span>B(<span style="color:#66d9ef">int</span> x)<span style="color:#f92672">:</span>a(x) {  <span style="color:#75715e">//Initializer list must be used
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;B&#39;s Constructor called&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p><a href="https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/">https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/</a></p>
+</blockquote>
+<h2 id="stack-and-heap-memory">Stack and Heap Memory<a hidden class="anchor" aria-hidden="true" href="#stack-and-heap-memory">#</a></h2>
+<h3 id="declaring-data-structures-on-the-heap">Declaring Data Structures on the Heap<a hidden class="anchor" aria-hidden="true" href="#declaring-data-structures-on-the-heap">#</a></h3>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack">https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack</a></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>Type<span style="color:#f92672">&gt;</span> vect;
+</span></span></code></pre></div><p>will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (&ldquo;heap&rdquo;).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>Type<span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span>vect <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> vector<span style="color:#f92672">&lt;</span>Type<span style="color:#f92672">&gt;</span>;
+</span></span></code></pre></div><p>allocates everything on the free store (except vect pointer, which is on the stack).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>Type<span style="color:#f92672">*&gt;</span> vect;
+</span></span></code></pre></div><p>will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).</p>
+<h3 id="dangling-pointers-on-the-heap">Dangling Pointers on the Heap<a hidden class="anchor" aria-hidden="true" href="#dangling-pointers-on-the-heap">#</a></h3>
+<p>So the idea with dangling pointers is that if you allocate a piece of memory in the heap you need a pointer to pointer to that slot of memory. That&rsquo;s a given.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p  <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>(<span style="color:#ae81ff">5</span>);
+</span></span></code></pre></div><p>Now if you want to release that block of memory, you use the pointer to free it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">delete</span> <span style="color:#f92672">*</span>p
+</span></span></code></pre></div><p>But there&rsquo;s a problem! You now have a pointer just pointing to a random block of memory that can be used by anything.
+This is a <strong>dangling pointer</strong>.</p>
+<h3 id="dangling-pointers-on-the-stack">Dangling Pointers on the Stack<a hidden class="anchor" aria-hidden="true" href="#dangling-pointers-on-the-stack">#</a></h3>
+<p>If variables go out of scope in the stack, it gets released from the stack so we don&rsquo;t need to depend on <code>delete</code>. However we can still get the dangers of dangling pointers.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">DoSomething</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> a <span style="color:#f92672">=</span> DoSomething();
+</span></span></code></pre></div><p><code>a</code> now points to an unused piece of memory in the stack! This is dangerous cause that memory space could be taken up by something later on and we don&rsquo;t want to mess with that memory.</p>
+<h4 id="difference-with-uninitialized-variables">Difference With Uninitialized Variables<a hidden class="anchor" aria-hidden="true" href="#difference-with-uninitialized-variables">#</a></h4>
+<p>An uninitialized variable is generally a bad idea</p>
+<p><code>int x;</code></p>
+<p>If you dereference it, you could get anything depending on whatever was left there in memory. This is not as bad as the aforementioned <em>dangling pointer</em> though as at least that memory block is being used by <code>x</code> so it won&rsquo;t be used later down line until <code>x</code> is released.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> x;
+</span></span></code></pre></div><h3 id="memory-leaks">Memory Leaks<a hidden class="anchor" aria-hidden="true" href="#memory-leaks">#</a></h3>
+<p>If you allocate some memory on the heap, you should always have a pointer leading to it. If you lose those pointers, than you&rsquo;ll have no way of accessing that memory.</p>
+<p>That is, <strong>you won&rsquo;t ever be able to free that memory</strong>.</p>
+<h2 id="double-pointers-and-arrays">Double Pointers and Arrays<a hidden class="anchor" aria-hidden="true" href="#double-pointers-and-arrays">#</a></h2>
+<p>Quick look at how we can assign a double pointer to an array.</p>
+<p>Normally we can create a pointer array like this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> arr[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    arr[i] <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If we want another pointer to point to this array we need to use a double pointer. We can also index that pointer like an array once we&rsquo;ve assigned it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">**</span> p <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> arr;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">5</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> p[i];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="iterators">Iterators<a hidden class="anchor" aria-hidden="true" href="#iterators">#</a></h2>
+<h3 id="classic-iteration">Classic Iteration<a hidden class="anchor" aria-hidden="true" href="#classic-iteration">#</a></h3>
+<p>The classic example of iteration is just a normal for loop for you start from an int and increment by 1 until you arrive at the end</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Hello World!&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This works well for an integer index but it gets more interesting if we want to iterate over a data structure. We want to be able to go through each index of a data structure by accessing the correct memory address.</p>
+<p>In case of an array or vector, we can do so by incrementing the memory address since the array holds data in a <strong>contiguous</strong> fashion (each memory address is adjacent to the next). So we can loop using an incrementing pointer like follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">5</span>] nums <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> ptr <span style="color:#f92672">=</span> nums; <span style="color:#75715e">//stores address of the first element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>ptr;
+</span></span><span style="display:flex;"><span>    ptr<span style="color:#f92672">++</span>; <span style="color:#75715e">//increments the memory address by sizeof(int)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="non-continguous-iterating">Non-Continguous Iterating<a hidden class="anchor" aria-hidden="true" href="#non-continguous-iterating">#</a></h3>
+<p>Data structures don&rsquo;t always store data contiguously. Something like a <code>list</code> acts as a container for each value added to it. Then, links each container with a pointer to the correct memory address. Iterating this requires manually following the cookie crumbs of memory addresses until you get to the index you were looking for.</p>
+<p>Instead of needing to do that manually, many of these data structures offer their own <strong>iterators</strong> that handle the work needed to get to the next index of a data structure. Most data structures let you extract the iterator with the following syntax.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+</span></span></code></pre></div><p>you an then use that iterator traverse the data structure as you please.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> myList <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using an iterator to traverse the list
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (it <span style="color:#f92672">=</span> myList.begin(); it <span style="color:#f92672">!=</span> myList.end(); <span style="color:#f92672">++</span>it) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>it <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>; <span style="color:#75715e">// Dereferencing the iterator to access the element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h3 id="iterator-random-access">Iterator Random Access<a hidden class="anchor" aria-hidden="true" href="#iterator-random-access">#</a></h3>
+<p>The list data structure only allows bi-directional iteration but doesn&rsquo;t allow you to immediately access a particular index as it needs to follow the trail of memory addresses to find it.</p>
+<p>Something like a <code>vector</code> does allow immediate indexing so you can use the iterator to increment the data pointer by index. In this case, you can also use the typical array-indexing syntax and it will automatically use the iterator for random access as needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> myVector <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using a random access iterator to access elements
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it <span style="color:#f92672">=</span> myVector.begin();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Accessing elements at specific positions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Element at index 2: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>(it <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Element at index 4: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>(it <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using the [] operator for random access
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Element at index 3: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> myVector[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span></code></pre></div><h3 id="using-range-based-loops">Using Range Based Loops<a hidden class="anchor" aria-hidden="true" href="#using-range-based-loops">#</a></h3>
+<p>Starting from C++11, range-based for loop are provided, to iterate over elements with a simpler syntax.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> numbers <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using a range-based for loop to iterate over elements
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> num : numbers) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> num <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="auto">Auto<a hidden class="anchor" aria-hidden="true" href="#auto">#</a></h4>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/29859796/c-auto-vs-auto">https://stackoverflow.com/questions/29859796/c-auto-vs-auto</a></p>
+</blockquote>
+<ul>
+<li>Use <code>auto &amp;&amp;</code> for the ability to modify and discard values of the sequence within the loop. (That is, unless the container provides a read-only view, such as <code>std::initializer_list</code>, in which case it will be effectively an <code>auto const &amp;</code>.)</li>
+<li>Use <code>auto &amp;</code> to pass as reference instead of value.</li>
+<li>Use <code>auto const &amp;</code> for read-only access.</li>
+<li>Use <code>auto</code> to work with (modifiable) bytecopies.</li>
+</ul>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hylog.netlify.app/tags/c&#43;&#43;/">c&#43;&#43;</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://hylog.netlify.app/posts/2023/10/portrait-mobile-games/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Portrait Action Mobile Games</span>
+  </a>
+  <a class="next" href="https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Pianotypes Devlog 5</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>3D Character Unity Setup | Hylu Blog</title>
+<meta name="keywords" content="unity, development">
+<meta name="description" content="I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk&amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&amp;index=3
+Adding a 3D Character Animation States Unity has it&rsquo;s own skeleton rigging system called Mecanim.
+To add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.
+There you can add each of the states you want to transition your model to and from.">
+<meta name="author" content="">
+<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="3D Character Unity Setup" />
+<meta property="og:description" content="I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk&amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&amp;index=3
+Adding a 3D Character Animation States Unity has it&rsquo;s own skeleton rigging system called Mecanim.
+To add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.
+There you can add each of the states you want to transition your model to and from." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/" />
+<meta property="og:image" content="https://hylog.netlify.app/images/jammo_movement.gif" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-03T10:54:02-04:00" />
+<meta property="article:modified_time" content="2023-05-03T10:54:02-04:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://hylog.netlify.app/images/jammo_movement.gif" />
+<meta name="twitter:title" content="3D Character Unity Setup"/>
+<meta name="twitter:description" content="I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk&amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&amp;index=3
+Adding a 3D Character Animation States Unity has it&rsquo;s own skeleton rigging system called Mecanim.
+To add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.
+There you can add each of the states you want to transition your model to and from."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hylog.netlify.app/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "3D Character Unity Setup",
+      "item": "https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "3D Character Unity Setup",
+  "name": "3D Character Unity Setup",
+  "description": "I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk\u0026amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy\u0026amp;index=3\nAdding a 3D Character Animation States Unity has it\u0026rsquo;s own skeleton rigging system called Mecanim.\nTo add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.\nThere you can add each of the states you want to transition your model to and from.",
+  "keywords": [
+    "unity", "development"
+  ],
+  "articleBody": "I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk\u0026list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy\u0026index=3\nAdding a 3D Character Animation States Unity has it’s own skeleton rigging system called Mecanim.\nTo add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.\nThere you can add each of the states you want to transition your model to and from. I set idle to be the default state which is self-explanatory. From there, I connect transition arrows between each of the states and set a condition for each of the transitions to occur.\nThe condition will just be a boolean that I can use later in script. These booleans can be declared on a side panel called paramters.\nLastly, you assign your animation to the motion property of each animation state.\nOnce this is setup, immediately you will see your character using the playing the animation and using the default state that’s been set.\nCharacter Inputs The Old Way The old way of managing inputs in Unity is by using the input manager accessible in the project settings. There you can set mapping of keys to actions and use those new naming in code. For example, you can map W and UP to jump, and use that naming in your code. Whenver you need to change it, just change it from the input manager instead of digging through code.\nif (Input.GetKeyDown(\"jump\")) { // do stuff } The New Input System However, this system has a few drawbacks\nDynamically changing the bindings is difficult Can have some confusion over the types of inputs (Controller vs Joystick) The new input system comes with addresses to these as well as a load of new features that make it much easier to manage all types of inputs and switch them on the fly without needing to write a bunch of your own code.\nThese are the basic steps from what I’ve gathered\nCreate an InputActions object (Usually like to create a seperate directory for the file)\nOpen it and setup new maps and bindings (there are defaults that may fit your needs as is)\nAdd a new C# script to your character to handle movement\nIn the awake function access your components as well as creating a PlayerInput object to access your InputActions\nprivate void Awake() { input = new PlayerInput(); characterController = GetComponent(); animator = GetComponent(); } Notice this PlayerInput class was generated by ticking the “Generate C# Class” option from the InputActions object. This is an alternative way to access PlayerInputs instead of adding the component directly to your character and attaching the relevant scripts. From there you can access your inputs, animations, as well as character manipulation. I won’t go into the logic but I will leave some examples of how to use these classes.\nInput callbacks\ninput.Player.Move.started += onMoveInput; input.Player.Move.canceled += onMoveInput; input.Player.Move.performed += onMoveInput; A list of callback functions you add to be triggered after the indicated events\nAnimator Parameters\nisWalkHash = Animator.StringToHash(\"isWalking\"); bool isWalking = animator.GetBool(\"isWalking\"); animator.SetBool(isWalkHash, true); Altering the parameters let’s you start and stop animations based on your state graph. The StringToHash is a performance optimization to use instead of pure strings to access a parameter\nManipulating the character\ncharacterController.Move(currMove * currRunMultiplier * Time.deltaTime); Use Unity’s built in controller to handle movement and collisions. In this case, to move the character.\n",
+  "wordCount" : "579",
+  "inLanguage": "en",
+  "image":"https://hylog.netlify.app/images/jammo_movement.gif","datePublished": "2023-05-03T10:54:02-04:00",
+  "dateModified": "2023-05-03T10:54:02-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hylu Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hylog.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <h1 class="post-title">
+      3D Character Unity Setup
+    </h1>
+    <div class="post-meta"><span title='2023-05-03 10:54:02 -0400 EDT'>May 3, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/images/jammo_movement.gif" target="_blank"
+            rel="noopener noreferrer">
+        <img loading="lazy" srcset="https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/images/jammo_movement_hub6b3a05af98aa422718224a98c1a0a67_892015_360x0_resize_box_1.gif 360w ,https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/images/jammo_movement_hub6b3a05af98aa422718224a98c1a0a67_892015_480x0_resize_box_1.gif 480w ,https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/images/jammo_movement.gif 600w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/images/jammo_movement.gif" alt="" 
+            width="600" height="361"></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#adding-a-3d-character" aria-label="Adding a 3D Character">Adding a 3D Character</a></li>
+                <li>
+                    <a href="#animation-states" aria-label="Animation States">Animation States</a></li>
+                <li>
+                    <a href="#character-inputs" aria-label="Character Inputs">Character Inputs</a><ul>
+                        
+                <li>
+                    <a href="#the-old-way" aria-label="The Old Way">The Old Way</a></li>
+                <li>
+                    <a href="#the-new-input-system" aria-label="The New Input System">The New Input System</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>I followed this tutorial <a href="https://www.youtube.com/watch?v=bXNFxQpp2qk&amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&amp;index=3">https://www.youtube.com/watch?v=bXNFxQpp2qk&amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&amp;index=3</a></p>
+<h2 id="adding-a-3d-character">Adding a 3D Character<a hidden class="anchor" aria-hidden="true" href="#adding-a-3d-character">#</a></h2>
+<h2 id="animation-states">Animation States<a hidden class="anchor" aria-hidden="true" href="#animation-states">#</a></h2>
+<p>Unity has it&rsquo;s own skeleton rigging system called Mecanim.</p>
+<p>To add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.</p>
+<p><img loading="lazy" src="images/animation_states.png" alt="Animation States"  />
+</p>
+<p>There you can add each of the states you want to transition your model to and from. I set idle to be the default state which is self-explanatory. From there, I connect transition arrows between each of the states and set a condition for each of the transitions to occur.</p>
+<p>The condition will just be a boolean that I can use later in script. These booleans can be declared on a side panel called <strong>paramters</strong>.</p>
+<p>Lastly, you assign your animation to the motion property of each animation state.</p>
+<p>Once this is setup, immediately you will see your character using the playing the animation and using the default state that&rsquo;s been set.</p>
+<h2 id="character-inputs">Character Inputs<a hidden class="anchor" aria-hidden="true" href="#character-inputs">#</a></h2>
+<h3 id="the-old-way">The Old Way<a hidden class="anchor" aria-hidden="true" href="#the-old-way">#</a></h3>
+<p>The old way of managing inputs in Unity is by using the input manager accessible in the project settings. There you can set mapping of keys to actions and use those new naming in code. For example, you can map <strong>W</strong> and <strong>UP</strong> to <strong>jump</strong>, and use that naming in your code. Whenver you need to change it, just change it from the input manager instead of digging through code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (Input.GetKeyDown(<span style="color:#e6db74">&#34;jump&#34;</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do stuff</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="the-new-input-system">The New Input System<a hidden class="anchor" aria-hidden="true" href="#the-new-input-system">#</a></h3>
+<p>However, this system has a few drawbacks</p>
+<ul>
+<li>Dynamically changing the bindings is difficult</li>
+<li>Can have some confusion over the types of inputs (Controller vs Joystick)</li>
+</ul>
+<p>The new input system comes with addresses to these as well as a load of new features that make it much easier to manage all types of inputs and switch them on the fly without needing to write a bunch of your own code.</p>
+<p>These are the basic steps from what I&rsquo;ve gathered</p>
+<ol>
+<li>
+<p>Create an InputActions object (Usually like to create a seperate directory for the file)</p>
+</li>
+<li>
+<p>Open it and setup new maps and bindings (there are defaults that may fit your needs as is)</p>
+</li>
+<li>
+<p>Add a new C# script to your character to handle movement</p>
+</li>
+<li>
+<p>In the awake function access your components as well as creating a PlayerInput object to access your InputActions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> Awake() {
+</span></span><span style="display:flex;"><span>    input = <span style="color:#66d9ef">new</span> PlayerInput();
+</span></span><span style="display:flex;"><span>    characterController = GetComponent&lt;CharacterController&gt;();
+</span></span><span style="display:flex;"><span>    animator = GetComponent&lt;Animator&gt;();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Notice this PlayerInput class was generated by ticking the &ldquo;Generate C# Class&rdquo; option from the InputActions object. This is an alternative way to access PlayerInputs instead of adding the component directly to your character and attaching the relevant scripts.
+<img loading="lazy" src="images/PlayerInput_class.png" alt="PlayerInput Class"  />
+</p>
+</blockquote>
+</li>
+<li>
+<p>From there you can access your <strong>inputs</strong>, <strong>animations</strong>, as well as <strong>character manipulation</strong>. I won&rsquo;t go into the logic but I will leave some examples of how to use these classes.</p>
+<ul>
+<li>
+<p>Input callbacks</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>input.Player.Move.started += onMoveInput;
+</span></span><span style="display:flex;"><span>input.Player.Move.canceled += onMoveInput;
+</span></span><span style="display:flex;"><span>input.Player.Move.performed += onMoveInput;
+</span></span></code></pre></div><p>A list of callback functions you add to be triggered after the indicated events</p>
+</li>
+<li>
+<p>Animator Parameters</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>isWalkHash = Animator.StringToHash(<span style="color:#e6db74">&#34;isWalking&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> isWalking = animator.GetBool(<span style="color:#e6db74">&#34;isWalking&#34;</span>);
+</span></span><span style="display:flex;"><span>animator.SetBool(isWalkHash, <span style="color:#66d9ef">true</span>);
+</span></span></code></pre></div><p>Altering the parameters let&rsquo;s you start and stop animations based on your state graph.
+The <code>StringToHash</code> is a performance optimization to use instead of pure strings to access a parameter</p>
+</li>
+<li>
+<p>Manipulating the character</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>characterController.Move(currMove * currRunMultiplier * Time.deltaTime);
+</span></span></code></pre></div><p>Use Unity&rsquo;s built in controller to handle movement and collisions. In this case, to move the character.</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hylog.netlify.app/tags/unity/">unity</a></li>
+      <li><a href="https://hylog.netlify.app/tags/development/">development</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/quaternion/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Understanding Quaternions</span>
+  </a>
+  <a class="next" href="https://hylog.netlify.app/posts/2023/old/osu/osu_banner/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Making an Animated Osu Banner</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

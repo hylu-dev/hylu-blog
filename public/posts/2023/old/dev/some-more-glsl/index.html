@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Some More GLSL | Hylu Blog</title>
+<meta name="keywords" content="glsl">
+<meta name="description" content="Vertex Shaders So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
+To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.
+Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead.">
+<meta name="author" content="">
+<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Some More GLSL" />
+<meta property="og:description" content="Vertex Shaders So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
+To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.
+Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/" />
+<meta property="og:image" content="https://thebookofshaders.com/04/glslGallery.gif" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-19T03:43:21-04:00" />
+<meta property="article:modified_time" content="2023-07-19T03:43:21-04:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://thebookofshaders.com/04/glslGallery.gif" />
+<meta name="twitter:title" content="Some More GLSL"/>
+<meta name="twitter:description" content="Vertex Shaders So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
+To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.
+Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hylog.netlify.app/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Some More GLSL",
+      "item": "https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Some More GLSL",
+  "name": "Some More GLSL",
+  "description": "Vertex Shaders So far, I\u0026rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.\nTo start, let\u0026rsquo;s take a look at a simple 2D shader placed on a 3D cube.\nNotice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we\u0026rsquo;d like the texture to wrap over the cube instead.",
+  "keywords": [
+    "glsl"
+  ],
+  "articleBody": "Vertex Shaders So far, I’ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.\nTo start, let’s take a look at a simple 2D shader placed on a 3D cube.\nNotice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we’d like the texture to wrap over the cube instead.\nShaders With Normals Normals refer to vector data stored at each vertice of a mesh. The vector points perpendicular from the mesh and gives us information on which way this vertice is facing. We can use this information to make sure our shader gets properly transformed onto each side of the shape instead of covering its profile.\nTiming Functions It’s easy to add moving parts to a shader by including a u_time term. However, if you want more interesting motion, you should be interested in adding shapes and curves using functions.\nSlope Step This was my first implementation of a start and stop timing function. It’s very close to working but has a fatal flaw.\nfloat slope_step(float x) { float c = .5*floor(x)*ceil(sin(x*PI)); float b = .5*floor(x+1.)*ceil(sin(x*PI-PI)); float a = x*ceil(sin(x*PI))-floor(x)*ceil(sin(x*PI)); return a + b + c; } https://www.desmos.com/calculator/zj8mjz9tos\nNotice how the shader occasionally glitches positions. Because we need to hardcode a value for PI, the imprecision causes our sine waves to not line up where we need them to and instead, return unexpected values at those junctures.\n",
+  "wordCount" : "258",
+  "inLanguage": "en",
+  "image":"https://thebookofshaders.com/04/glslGallery.gif","datePublished": "2023-07-19T03:43:21-04:00",
+  "dateModified": "2023-07-19T03:43:21-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hylu Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hylog.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Some More GLSL
+    </h1>
+    <div class="post-meta"><span title='2023-07-19 03:43:21 -0400 EDT'>July 19, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://thebookofshaders.com/04/glslGallery.gif" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://thebookofshaders.com/04/glslGallery.gif" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#vertex-shaders" aria-label="Vertex Shaders">Vertex Shaders</a><ul>
+                        
+                <li>
+                    <a href="#shaders-with-normals" aria-label="Shaders With Normals">Shaders With Normals</a></li></ul>
+                </li>
+                <li>
+                    <a href="#timing-functions" aria-label="Timing Functions">Timing Functions</a><ul>
+                        
+                <li>
+                    <a href="#slope-step" aria-label="Slope Step">Slope Step</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="vertex-shaders">Vertex Shaders<a hidden class="anchor" aria-hidden="true" href="#vertex-shaders">#</a></h2>
+<p>So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, <strong>shaders can also be applied to 3D objects</strong> to manipulate not only their textures but also their shape.</p>
+<p>To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.</p>
+<div class="flex-tiles">
+    
+    
+
+<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+    
+
+
+<div class="three-wrapper">
+
+    <div class="three-2d-container" style="height:300px;width:300px;">
+        
+        <script class="fragment-file" type="x-shader/x-fragment">
+        shaders/random.frag
+        </script>
+    
+    </div>
+
+</div>
+
+<style>
+    .three-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+</style>
+
+
+        
+    
+
+<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+    
+
+    
+
+
+<div class="three-wrapper">
+
+    <div class="three-3dr-container" style="height:300px;width:300px;">
+        
+        <script class="fragment-file" type="x-shader/x-fragment">
+        shaders/random.frag
+        </script>
+    
+    </div>
+
+</div>
+
+<style>
+    .three-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+</style>
+
+
+
+</div>
+
+<style>
+    .flex-tiles {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    .flex-tiles > * {
+        width: 49%;
+    }
+</style>
+
+
+<p>Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead.</p>
+<h3 id="shaders-with-normals">Shaders With Normals<a hidden class="anchor" aria-hidden="true" href="#shaders-with-normals">#</a></h3>
+<p>Normals refer to vector data stored at each vertice of a mesh. The vector points perpendicular from the mesh and gives us information on <strong>which way this vertice is facing</strong>. We can use this information to make sure our shader gets properly transformed onto each side of the shape instead of covering its profile.</p>
+<h2 id="timing-functions">Timing Functions<a hidden class="anchor" aria-hidden="true" href="#timing-functions">#</a></h2>
+<p>It&rsquo;s easy to add moving parts to a shader by including a <code>u_time</code> term. However, if you want more interesting motion, you should be interested in adding shapes and curves using functions.</p>
+<h3 id="slope-step">Slope Step<a hidden class="anchor" aria-hidden="true" href="#slope-step">#</a></h3>
+<p>This was my first implementation of a start and stop timing function. It&rsquo;s very close to working but has a fatal flaw.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">slope_step</span>(<span style="color:#66d9ef">float</span> x) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> c <span style="color:#f92672">=</span> <span style="color:#ae81ff">.5</span><span style="color:#f92672">*</span><span style="color:#a6e22e">floor</span>(x)<span style="color:#f92672">*</span><span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">sin</span>(x<span style="color:#f92672">*</span>PI));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">.5</span><span style="color:#f92672">*</span><span style="color:#a6e22e">floor</span>(x<span style="color:#f92672">+</span><span style="color:#ae81ff">1.</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">sin</span>(x<span style="color:#f92672">*</span>PI<span style="color:#f92672">-</span>PI));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> a <span style="color:#f92672">=</span> x<span style="color:#f92672">*</span><span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">sin</span>(x<span style="color:#f92672">*</span>PI))<span style="color:#f92672">-</span><span style="color:#a6e22e">floor</span>(x)<span style="color:#f92672">*</span><span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">sin</span>(x<span style="color:#f92672">*</span>PI));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p><a href="https://www.desmos.com/calculator/zj8mjz9tos">https://www.desmos.com/calculator/zj8mjz9tos</a></p>
+</blockquote>
+<div class="flex-tiles">
+    
+<div class="html-block">
+    <iframe src="https://www.desmos.com/calculator/i5gzs0ba8p?embed" width="300" height="300"></iframe>
+</div>
+
+<style>
+    .html-block {
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
+    }
+</style>
+
+
+
+<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+    
+
+
+<div class="three-wrapper">
+
+    <div class="three-2d-container" style="height:300px;width:300px;">
+        
+<script class="fragment-file" type="x-shader/x-fragment">
+shaders/grid.frag
+</script>
+
+    </div>
+
+</div>
+
+<style>
+    .three-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+</style>
+
+
+
+</div>
+
+<style>
+    .flex-tiles {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    .flex-tiles > * {
+        width: 49%;
+    }
+</style>
+
+
+<p>Notice how the shader occasionally glitches positions. Because we need to hardcode a value for <code>PI</code>, the imprecision causes our sine waves to not line up where we need them to and instead, return unexpected values at those junctures.</p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hylog.netlify.app/tags/glsl/">glsl</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Svelte Reactive Classes</span>
+  </a>
+  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/js-modules-in-hugo/">
+    <span class="title">Next »</span>
+    <br>
+    <span>JS Modules in Hugo</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

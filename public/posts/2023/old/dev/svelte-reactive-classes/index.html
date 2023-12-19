@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Svelte Reactive Classes | Hylu Blog</title>
+<meta name="keywords" content="development, svelte">
+<meta name="description" content="I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
+The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.">
+<meta name="author" content="">
+<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Svelte Reactive Classes" />
+<meta property="og:description" content="I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
+The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/" />
+<meta property="og:image" content="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-12T20:29:42-04:00" />
+<meta property="article:modified_time" content="2023-08-12T20:29:42-04:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png" />
+<meta name="twitter:title" content="Svelte Reactive Classes"/>
+<meta name="twitter:description" content="I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
+The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hylog.netlify.app/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Svelte Reactive Classes",
+      "item": "https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Svelte Reactive Classes",
+  "name": "Svelte Reactive Classes",
+  "description": "I\u0026rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.\nThe Problem In Vue, it\u0026rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.",
+  "keywords": [
+    "development", "svelte"
+  ],
+  "articleBody": "I’ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.\nThe Problem In Vue, it’s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.\nMaking Svelete Classes Reactive With Stores Let’s start by creating a simple JavaScript.\nclass ClassStore { constructor(num) { this.num = num } increment() { this.num++; } } When managing state with Svelte stores, the overarching paradigm is everything with a subscribe method is a store.\nWe can easily apply this to our class. Additionally, rather than implementing the class subscription manually, we can make use of Svelte’s writable function to return all subscribers the most up to date copy of our class.\nimport { writable } from 'svelte/store'; class ClassStore { constructor(num) { this.num = num; this._store = writable(this); } increment() { this.num++; this._store.set(this); } subscribe(subscriber) { return this._store.subscribe(subscriber); } } Most notably, every single one of our class methods needs to call the .set method on our writable store. This way, every update to our class will notify subscribers.\nSubscribing to Properties of a Reactive Class Using Derived Stores While we now have a reactive class, any subscription to the class will be set to react to any changes made to the class instance. This can create a lot of unnecessary overhead and also result in undesirable updates.\nFor instance, when making a reactive class for a piano, I kept an internal dictionary of the states of each piano key. Whenever a single piano key is pressed, the list updates resulting in every single (all 88) key to be notified.\nWe can instead, create a new store based off of our main store that only tracks the state of a portion of our original class. This is a derived store.\nI’ve included a simplified version of the aforementioned piano store. This piano only holds 7 keys and whether they are being played.\nclass PianoStore { constructor() { this.keyboardStates = { C: false, D: false, E: false, F: false, G: false, A: false, B: false }; this._store = writable(this) } pressKey(note) { this.keyboardStates[note] = true; this._store.set(this) } releaseKey(note) { this.keyboardStates[note] = false; this._store.set(this) } getIsPressed(note) { return this..keyboardStates[note]; } subscribe(subscriber) { return this._store.subscribe(subscriber) } } const piano = new PianoStore(); export default Piano If we referenced the store directly, we’ll get updates from any key update.\n// KeyC.svelte \u003cscript\u003e import piano from 'PianoStore' const note = 'C' $: if ($piano.getIsPressed(note)) console.log(note) \u003c/script\u003e \u003cdiv on:keydown={$piano.pressKey(note)} on:keyup={$piano.releaseKey(note)}\u003e\u003c/div\u003e This component will end up console logging no matter which note is pressed when we actually only want it to log when the current key 'C' is pressed.\n// KeyC.svelte \u003cscript\u003e import piano from 'PianoStore' import { derived } from 'svelte/store'; const note = 'C' const isPressed = derived(piano, ($piano) =\u003e $piano.getIsPressed(note)); $: if (isPressed) console.log(note) \u003c/script\u003e \u003cdiv on:keydown={$piano.pressKey(note)} on:keyup={$piano.releaseKey(note)}\u003e\u003c/div\u003e Now we make a new derived store that is only reactive on the current note 'C' state inside the $piano.keyboardStates.\n",
+  "wordCount" : "560",
+  "inLanguage": "en",
+  "image":"https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png","datePublished": "2023-08-12T20:29:42-04:00",
+  "dateModified": "2023-08-12T20:29:42-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hylu Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hylog.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Svelte Reactive Classes
+    </h1>
+    <div class="post-meta"><span title='2023-08-12 20:29:42 -0400 EDT'>August 12, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-problem" aria-label="The Problem">The Problem</a></li>
+                <li>
+                    <a href="#making-svelete-classes-reactive-with-stores" aria-label="Making Svelete Classes Reactive With Stores">Making Svelete Classes Reactive With Stores</a></li>
+                <li>
+                    <a href="#subscribing-to-properties-of-a-reactive-class-using-derived-stores" aria-label="Subscribing to Properties of a Reactive Class Using Derived Stores">Subscribing to Properties of a Reactive Class Using Derived Stores</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience.
+My first and primary pain point thus far has been implementing a global reactive state for the piano.</p>
+<h2 id="the-problem">The Problem<a hidden class="anchor" aria-hidden="true" href="#the-problem">#</a></h2>
+<p>In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.</p>
+<h2 id="making-svelete-classes-reactive-with-stores">Making Svelete Classes Reactive With Stores<a hidden class="anchor" aria-hidden="true" href="#making-svelete-classes-reactive-with-stores">#</a></h2>
+<p>Let&rsquo;s start by creating a simple JavaScript.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassStore</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When managing state with Svelte stores, the overarching paradigm is <strong>everything with a <code>subscribe</code> method is a store</strong>.</p>
+<p>We can easily apply this to our class. Additionally, rather than implementing the class subscription manually, we can make use of Svelte&rsquo;s <code>writable</code> function to return all
+subscribers the most up to date copy of our class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">writable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;svelte/store&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassStore</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">writable</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span>.<span style="color:#a6e22e">set</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">subscriber</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">subscriber</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Most notably, every single one of our class methods needs to call the <code>.set</code> method on our writable store. This way, every update to our class will notify subscribers.</p>
+<h2 id="subscribing-to-properties-of-a-reactive-class-using-derived-stores">Subscribing to Properties of a Reactive Class Using Derived Stores<a hidden class="anchor" aria-hidden="true" href="#subscribing-to-properties-of-a-reactive-class-using-derived-stores">#</a></h2>
+<p>While we now have a reactive class, any subscription to the class will be set to react to <strong>any</strong> changes made to the class instance.
+This can create a lot of unnecessary overhead and also result in undesirable updates.</p>
+<p>For instance, when making a reactive class for a piano, I kept an internal dictionary
+of the states of each piano key. Whenever a single piano key is pressed, the list updates resulting in every single (all 88) key to be notified.</p>
+<p>We can instead, create a new store based off of our main store that only tracks the state of a portion of our original class. This is a <a href="https://svelte.dev/docs/svelte-store#derived">derived store</a>.</p>
+<p>I&rsquo;ve included a simplified version of the aforementioned piano store. This piano only holds 7 keys and whether they are being played.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PianoStore</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">keyboardStates</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">C</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">D</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">E</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">F</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">G</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">A</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">B</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> };
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">writable</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pressKey</span>(<span style="color:#a6e22e">note</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">keyboardStates</span>[<span style="color:#a6e22e">note</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span>.<span style="color:#a6e22e">set</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">releaseKey</span>(<span style="color:#a6e22e">note</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">keyboardStates</span>[<span style="color:#a6e22e">note</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span>.<span style="color:#a6e22e">set</span>(<span style="color:#66d9ef">this</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getIsPressed</span>(<span style="color:#a6e22e">note</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>..<span style="color:#a6e22e">keyboardStates</span>[<span style="color:#a6e22e">note</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">subscriber</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_store</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">subscriber</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">piano</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PianoStore</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Piano</span>
+</span></span></code></pre></div><p>If we referenced the store directly, we&rsquo;ll get updates from any key update.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>// KeyC.svelte
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">piano</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;PianoStore&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;C&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">$piano</span>.<span style="color:#a6e22e">getIsPressed</span>(<span style="color:#a6e22e">note</span>)) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">note</span>)
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">on:keydown</span><span style="color:#f92672">=</span><span style="color:#e6db74">{$piano.pressKey(note)}</span> <span style="color:#a6e22e">on:keyup</span><span style="color:#f92672">=</span><span style="color:#e6db74">{$piano.releaseKey(note)}</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>This component will end up console logging no matter which note is pressed when we actually only want it to log when the current key <code>'C'</code> is pressed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>// KeyC.svelte
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">piano</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;PianoStore&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">derived</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;svelte/store&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">note</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;C&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isPressed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">derived</span>(<span style="color:#a6e22e">piano</span>, (<span style="color:#a6e22e">$piano</span>) =&gt; <span style="color:#a6e22e">$piano</span>.<span style="color:#a6e22e">getIsPressed</span>(<span style="color:#a6e22e">note</span>));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isPressed</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">note</span>)
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">on:keydown</span><span style="color:#f92672">=</span><span style="color:#e6db74">{$piano.pressKey(note)}</span> <span style="color:#a6e22e">on:keyup</span><span style="color:#f92672">=</span><span style="color:#e6db74">{$piano.releaseKey(note)}</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>Now we make a new derived store that is only reactive on the current note <code>'C'</code> state inside the <code>$piano.keyboardStates</code>.</p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hylog.netlify.app/tags/development/">development</a></li>
+      <li><a href="https://hylog.netlify.app/tags/svelte/">svelte</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/revisting-pianotypes/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Revisting Pianotypes</span>
+  </a>
+  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Some More GLSL</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

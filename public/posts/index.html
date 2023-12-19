@@ -9,16 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="Posts - Hylu Blog">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylu-blog.netlify.app/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://hylu-blog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylu-blog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylu-blog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylu-blog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylu-blog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="https://hylog.netlify.app/posts/">
+<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://hylu-blog.netlify.app/posts/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://hylog.netlify.app/posts/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -27,38 +28,10 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
 </noscript><meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://hylu-blog.netlify.app/posts/" />
+<meta property="og:url" content="https://hylog.netlify.app/posts/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -74,21 +47,17 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://hylu-blog.netlify.app/posts/"
+      "item": "https://hylog.netlify.app/posts/"
     }
   ]
 }
 </script>
 </head>
 
-<body class="list" id="top">
+<body class="list dark" id="top">
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
+    if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
     }
 
 </script>
@@ -96,7 +65,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylu-blog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -122,91 +91,281 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylu-blog.netlify.app/" title="Hylu Blog">
-                    <span>Home</span>
+                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                    <span class="active">Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylu-blog.netlify.app/tags/" title="Tags">
+                <a href="https://hylog.netlify.app/tags/" title="Tags">
                     <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://hylu-blog.netlify.app/categories/" title="Categories">
-                    <span>Categories</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://hylu-blog.netlify.app/">Home</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a></div>
   <h1>
     Posts
   </h1>
 </header>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif" alt="">
+<figure class="entry-cover"><a href="https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime.png" target="_blank"
+            rel="noopener noreferrer">
+        <img loading="lazy" srcset="https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime_huc012c8ff40ee8c008911f2f87bf3a010_376019_360x0_resize_box_3.png 360w ,https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime_huc012c8ff40ee8c008911f2f87bf3a010_376019_480x0_resize_box_3.png 480w ,https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime_huc012c8ff40ee8c008911f2f87bf3a010_376019_720x0_resize_box_3.png 720w ,https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime_huc012c8ff40ee8c008911f2f87bf3a010_376019_1080x0_resize_box_3.png 1080w ,https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime.png 1166w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://hylog.netlify.app/posts/2023/12/slime-hunter/images/slime.png" alt="" 
+            width="1166" height="802"></a>
+        
 </figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
   <header class="entry-header">
-    <h2>Making an Animated Osu Banner
+    <h2 class="entry-hint-parent">Slime Hunter Pitch
     </h2>
   </header>
   <div class="entry-content">
-    <p>I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I’m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it’s too large, the auto-compression will convert the image into a static jpeg)....</p>
+    <p>First semester finished! With all the final assignments, I completely forgot about this blog. Whoops!
+In any case, I wanted to do a little retrospective on our final pitch assignment.
+Final Pitch The idea of this assignment is simple, we create a game idea and we pitch to the class with a short, 5 minute, prerecorded presentation. The presentation should be informative and succinct and give the viewers a clear idea of the game....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-05-02 01:18:34 -0400 EDT'>May 2, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Making an Animated Osu Banner" href="https://hylu-blog.netlify.app/posts/osu_banner/"></a>
+  <footer class="entry-footer"><span title='2023-12-19 01:03:34 -0500 EST'>December 19, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Slime Hunter Pitch" href="https://hylog.netlify.app/posts/2023/12/slime-hunter/"></a>
 </article>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://hylu-blog.netlify.app/img/development/trello_example.png" alt="">
-</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
   <header class="entry-header">
-    <h2>Using Kanban Boards
+    <h2 class="entry-hint-parent">C&#43;&#43; Test Review
     </h2>
   </header>
   <div class="entry-content">
-    <p>Now that I’m starting on Slime Hunter, I figured I should get back to using some project management tools. In particular, Kanban boards as they are simple to manage and don’t come with nearly as much fluff as something like Jira issue tracking systems. The nice thing as well is that there’s so many great project management tools out there. In this case, I’ve decided to use Trello as I’m familiar with Atlassian tools (again Jira) so I feel comfortable continuing to use their products....</p>
+    <p>Just some scattered notes for test review.
+Object Composition Object memory is stored contiguously. If an object has pointers, those pointers are still stored contiguously but point to wherever the data is.
+Object Ownership One simple approach is to say that whatever creates the object becomes the owner of the object Thus, it becomes responsible for deleting it Inheritance Polymorphism Zombie* bob = new Zombie(&#34;Bob&#34;); Zombie* sally = new ZombieSoldier(&#34;Sally&#34;, 100); bob-&gt;attack(); // prints &#34;Bob throws a punch&#34; sally-&gt;attack(); // prints &#34;Sally throws a punch&#34; // wait....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-05-01 15:12:19 -0400 EDT'>May 1, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Using Kanban Boards" href="https://hylu-blog.netlify.app/posts/using_kanban_boards/"></a>
+  <footer class="entry-footer"><span title='2023-10-16 13:48:23 -0400 EDT'>October 16, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; Test Review" href="https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-test-review/"></a>
 </article>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://assets.ppy.sh/contests/175/entries/Nervy%20Badger.jpg" alt="">
+<figure class="entry-cover"><a href="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1.gif" target="_blank"
+            rel="noopener noreferrer">
+        <img loading="lazy" srcset="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1_hu022e00806e10e8712f92f5179c70d53c_162066_360x0_resize_box_1.gif 360w ,https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1_hu022e00806e10e8712f92f5179c70d53c_162066_480x0_resize_box_1.gif 480w ,https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1.gif 600w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1.gif" alt="" 
+            width="600" height="399"></a>
+        
 </figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
   <header class="entry-header">
-    <h2>Osu Fanart Again!?
+    <h2 class="entry-hint-parent">Satisfying 2D Movement
     </h2>
   </header>
   <div class="entry-content">
-    <p>Journey into a Beatmap Getting Started After doing my first fanart, I didn’t have any intention of doing another but this one’s theme instantly gave me the idea of incorporating 3D modelling into the art piece. In summary, the theme is to create an Osu fanart with the OC’s inside a beatmap.
-I immediately had the idea of drawing Enchanted Love as I fell in love with the visuals from the original MV....</p>
+    <p>I’m in the middle of working on my first mainline c&#43;&#43; project at school.
+We’re tasked with making a simple vertical spaceship shooter using c&#43;&#43; with SDL and some pre-made assets to form the game. At the moment, I’ve set up most of the classes I will need and have a simple ship that renders onto the screen.
+Naive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-04-24 02:57:43 -0400 EDT'>April 24, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Osu Fanart Again!?" href="https://hylu-blog.netlify.app/posts/osu_fanart2/"></a>
+  <footer class="entry-footer"><span title='2023-10-13 22:35:08 -0400 EDT'>October 13, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Satisfying 2D Movement" href="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/"></a>
 </article>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://hylu-blog.netlify.app/img/osu/new_beginnings/final.png" alt="">
+<figure class="entry-cover"><a href="https://vulcanpost.com/wp-content/uploads/2022/08/Postknight-2-Malaysian-Mobile-Game-Kurechii-Review-002.jpg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://vulcanpost.com/wp-content/uploads/2022/08/Postknight-2-Malaysian-Mobile-Game-Kurechii-Review-002.jpg" alt=""></a>
+        
 </figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
   <header class="entry-header">
-    <h2>Making Osu Fanart
+    <h2 class="entry-hint-parent">Portrait Action Mobile Games
     </h2>
   </header>
   <div class="entry-content">
-    <p>osu! Fanarts? Osu holds several fanart contest every year with themes often related to the time of year. Themes such as Winter or Halloween are such examples. Regardless of theme, the general idea seems to always be to draw any of the osu mascots inside or partaking in said theme.
-At the time I had been playing osu for about 4 months and really enjoying it. On the other hand, I’ve been drawing casually for a few years as a hobby so it seemed naturally to want to give these contests a shot....</p>
+    <p>As I was looking for games to play during my bus rides, I realized the convenience of being able to play phone games one-handed, or just simply in portrait mode. It’s a lot more comfortable to hold, especially in tighter environments like a bus.
+There’s lot’s of options for this but they mostly amount to puzzle games and such. Instead, I wanted something more actiony and rpg-like I could play in that format....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-04-24 00:39:23 -0400 EDT'>April 24, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Making Osu Fanart" href="https://hylu-blog.netlify.app/posts/osu_fanart/"></a>
+  <footer class="entry-footer"><span title='2023-10-11 20:03:58 -0400 EDT'>October 11, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Portrait Action Mobile Games" href="https://hylog.netlify.app/posts/2023/10/portrait-mobile-games/"></a>
 </article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230703144619/CPP-Language.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C&#43;&#43; A Personal Guide
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A compilation of various features and gotchas I’ve encountered while studying C&#43;&#43;.
+Instantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
+Initialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-10-04 13:05:14 -0400 EDT'>October 4, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; A Personal Guide" href="https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-a-personal-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Pianotypes Devlog 5
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Not many code changes as of late but I’ve been more active on one of the packages I’m using to play sound, smplr. It’s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.
+A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
+Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot’s of static....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-10-01 02:07:05 -0400 EDT'>October 1, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Pianotypes Devlog 5" href="https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="https://craftofcoding.files.wordpress.com/2015/12/stackmemory31.jpg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://craftofcoding.files.wordpress.com/2015/12/stackmemory31.jpg" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Stack and Heap
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack
+vector&lt;Type&gt; vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (“heap”).
+vector&lt;Type&gt; *vect = new vector&lt;Type&gt;; allocates everything on the free store (except vect pointer, which is on the stack).
+vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-27 10:08:53 -0400 EDT'>September 27, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Stack and Heap" href="https://hylog.netlify.app/posts/2023/09/stack-and-heap/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Linear_subspaces_with_shading.svg/1200px-Linear_subspaces_with_shading.svg.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Linear_subspaces_with_shading.svg/1200px-Linear_subspaces_with_shading.svg.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Useful Linear Algebra
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Dot Product Find the interior angle between two vectors $$ A\cdot B = |A||B|cos\theta $$
+$$ \theta = \arccos(\dfrac{A\cdot B}{|A||B|}) $$
+$$ where\ A\cdot B = A_x \times A_y &#43; B_x \times B_y $$
+Cross Product Get perpendicular vector from two vectors Find area created by two vectors (for 2D, parallelogram area, for 3D, parallelepiped area) This is the magnitude of perpendicular vector Matrix Multiplication There is a formula for calculating the resultant matrix from a matrix multiplication....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-25 12:17:47 -0400 EDT'>September 25, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Useful Linear Algebra" href="https://hylog.netlify.app/posts/2023/09/useful-linear-algebra/"></a>
+</article>
+
+<article class="post-entry"> 
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Dot Product and How it Relates to Light
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>What Matters The dot product has a bunch of properties when you use it’s raw scalar output but honestly most of the times you will use the dot product is to find the angle between two vectors by rearranging to equation as follows
+$$ A\cdot B = |A||B|cos\theta $$
+$$ \theta = \arccos(\dfrac{A\cdot B}{|A||B|}) $$
+$$ where\ A\cdot B = A_x \times A_y &#43; B_x \times B_y $$
+In games, this equation is used exhaustively to calculate light projections and field of view....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-14 14:57:16 -0400 EDT'>September 14, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Dot Product and How it Relates to Light" href="https://hylog.netlify.app/posts/2023/09/dot-product/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="https://images.unsplash.com/photo-1569396116180-210c182bedb8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Signed Ints and Two&#39;s Complement
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Two’s Complement Representation Why We Use It In c&#43;&#43;, signed integers are represented in two’s complement notation. Before I get to how that notation works, I want to explain why we use it.
+Comparing both representations, -1 would look like this
+// Decimal 4294967295 // Binary Signed Int 10000000000000000000000000000001 // Two&#39;s Complement Signed Int 11111111111111111111111111111111 The normal signed binary representation is pretty easily understood if you know what a sign bit is....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-12 16:56:05 -0400 EDT'>September 12, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Signed Ints and Two&#39;s Complement" href="https://hylog.netlify.app/posts/2023/09/signed-ints/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://hylog.netlify.app/posts/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylu-blog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
