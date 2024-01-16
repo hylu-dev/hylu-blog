@@ -76,6 +76,14 @@ IMPLEMENT_PREFAB(Checker, {
 
 This feature is dependent on high vertex density meshes for there to be enough detail to see the math functions. This is why I put the time into the ability to generate vertex dense meshes.
 
+### Collision Detection
+
+{{< tiles >}}
+    {{< img src="images/collision1.gif" >}}
+    {{< img src="images/collision2.gif" >}}
+    {{< img src="images/collision3.gif" >}}
+{{</ tiles >}}
+
 ### Challenges
 
 #### Projection Issues
