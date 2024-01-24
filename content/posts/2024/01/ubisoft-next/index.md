@@ -3,7 +3,7 @@ title: "Ubisoft NEXT"
 date: 2024-01-10T01:02:05-05:00
 draft: false
 cover:
-    image: "images/plane.gif"
+    image: "images/start.gif"
 tags: ["gamedev", "c++"]
 ---
 
@@ -36,12 +36,13 @@ I took a look at some [older submissions](https://toronto.ubisoft.com/2021-ubiso
   - I can start though with generating a maze
   - And hopefully use that knowledge to apply to the game topic
 
-
 I relied heavily on the amazing series from [One Lone Coder](https://www.youtube.com/watch?v=ih20l3pJoeU). It goes through everything from the matrix conversations to vertex creations, to camera controls and more.
 
 ### Shape Primitives With Flexible Vertex Density
 
 ### Vertex Shading
+
+{{< img src="images/plane.gif" >}}
 
 One of my favourite additions is the capability of vertex shading. My prior work in this blog is evident if my enjoyment of creating shader patterns using math functions so I wanted to include that in the engine. The implementation is pretty simple. Loop through all the vertexes and run some function on the position of each vertex.
 
@@ -84,6 +85,10 @@ This feature is dependent on high vertex density meshes for there to be enough d
     {{< img src="images/collision3.gif" >}}
 {{</ tiles >}}
 
+### Particle System
+
+{{< img src="images/particles.gif" >}}
+
 ### Challenges
 
 #### Projection Issues
@@ -112,3 +117,41 @@ triTransformed.p0 = triTransformed.p0 / triTransformed.p0.w;
 triTransformed.p1 = triTransformed.p1 / triTransformed.p1.w;
 triTransformed.p2 = triTransformed.p2 / triTransformed.p2.w;
 ```
+
+## Competition Day
+
+The topic for this year's NEXT was incredibly broad. "Firing projectles".
+
+In prior years, the topic was usually some old school game like Bomberman or Gravitar. This gave us a lot for room
+for creativity on the kind of game we wanted to make.
+
+### Darkstar Showdown
+
+- Two player turn-based shooter
+- Dark moon
+- Ships
+  - Cones
+- Projectiles
+  - Cubes
+  - Affected by gravity
+- Camera switching perspectives
+- Giant sphere that separates both players
+  - Floating asteroids orbitting around
+  - Shooting asteroids breaks into smaller bits that can be picked up for upgrades
+    - Ship speed
+    - Repair ship health
+    - Projectile size/damage
+  - Shooting the star makes it pulse
+    - Becomes smaller (less obstacle)
+    - Everyone takes 10 damage
+    - Fuel is immediately maxed for everyone
+  - Turns
+    - After two turns, the star will automatically pulse 
+    - You have 1 bullet each turn, it takes 1 turn to reload
+
+- Final Menus
+- Restart
+- Clipping
+- Depth Buffering
+
+{{< img src="images/pulse.gif" >}}
