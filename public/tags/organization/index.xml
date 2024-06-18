@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Organization on Hylu Blog</title>
+    <link>http://localhost:1313/tags/organization/</link>
+    <description>Recent content in Organization on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 May 2023 15:12:19 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/organization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Kanban Boards</title>
+      <link>http://localhost:1313/posts/2023/old/other/using_kanban_boards/</link>
+      <pubDate>Mon, 01 May 2023 15:12:19 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/using_kanban_boards/</guid>
+      <description>Now that I&amp;rsquo;m starting on Slime Hunter, I figured I should get back to using some project management tools. In particular, Kanban boards as they are simple to manage and don&amp;rsquo;t come with nearly as much fluff as something like Jira issue tracking systems. The nice thing as well is that there&amp;rsquo;s so many great project management tools out there. In this case, I&amp;rsquo;ve decided to use Trello as I&amp;rsquo;m familiar with Atlassian tools (again Jira) so I feel comfortable continuing to use their products.</description>
+    </item>
+  </channel>
+</rss>

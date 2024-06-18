@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Svelte Reactive Classes | Hylu Blog</title>
 <meta name="keywords" content="development, svelte">
 <meta name="description" content="I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
 The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/">
 <noscript>
     <style>
         #theme-toggle,
@@ -30,71 +29,7 @@ The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object.
         }
 
     </style>
-</noscript><meta property="og:title" content="Svelte Reactive Classes" />
-<meta property="og:description" content="I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
-The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/" />
-<meta property="og:image" content="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-08-12T20:29:42-04:00" />
-<meta property="article:modified_time" content="2023-08-12T20:29:42-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png" />
-<meta name="twitter:title" content="Svelte Reactive Classes"/>
-<meta name="twitter:description" content="I&rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
-The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Svelte Reactive Classes",
-      "item": "https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Svelte Reactive Classes",
-  "name": "Svelte Reactive Classes",
-  "description": "I\u0026rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.\nThe Problem In Vue, it\u0026rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.",
-  "keywords": [
-    "development", "svelte"
-  ],
-  "articleBody": "I’ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.\nThe Problem In Vue, it’s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.\nMaking Svelete Classes Reactive With Stores Let’s start by creating a simple JavaScript.\nclass ClassStore { constructor(num) { this.num = num } increment() { this.num++; } } When managing state with Svelte stores, the overarching paradigm is everything with a subscribe method is a store.\nWe can easily apply this to our class. Additionally, rather than implementing the class subscription manually, we can make use of Svelte’s writable function to return all subscribers the most up to date copy of our class.\nimport { writable } from 'svelte/store'; class ClassStore { constructor(num) { this.num = num; this._store = writable(this); } increment() { this.num++; this._store.set(this); } subscribe(subscriber) { return this._store.subscribe(subscriber); } } Most notably, every single one of our class methods needs to call the .set method on our writable store. This way, every update to our class will notify subscribers.\nSubscribing to Properties of a Reactive Class Using Derived Stores While we now have a reactive class, any subscription to the class will be set to react to any changes made to the class instance. This can create a lot of unnecessary overhead and also result in undesirable updates.\nFor instance, when making a reactive class for a piano, I kept an internal dictionary of the states of each piano key. Whenever a single piano key is pressed, the list updates resulting in every single (all 88) key to be notified.\nWe can instead, create a new store based off of our main store that only tracks the state of a portion of our original class. This is a derived store.\nI’ve included a simplified version of the aforementioned piano store. This piano only holds 7 keys and whether they are being played.\nclass PianoStore { constructor() { this.keyboardStates = { C: false, D: false, E: false, F: false, G: false, A: false, B: false }; this._store = writable(this) } pressKey(note) { this.keyboardStates[note] = true; this._store.set(this) } releaseKey(note) { this.keyboardStates[note] = false; this._store.set(this) } getIsPressed(note) { return this..keyboardStates[note]; } subscribe(subscriber) { return this._store.subscribe(subscriber) } } const piano = new PianoStore(); export default Piano If we referenced the store directly, we’ll get updates from any key update.\n// KeyC.svelte \u003cscript\u003e import piano from 'PianoStore' const note = 'C' $: if ($piano.getIsPressed(note)) console.log(note) \u003c/script\u003e \u003cdiv on:keydown={$piano.pressKey(note)} on:keyup={$piano.releaseKey(note)}\u003e\u003c/div\u003e This component will end up console logging no matter which note is pressed when we actually only want it to log when the current key 'C' is pressed.\n// KeyC.svelte \u003cscript\u003e import piano from 'PianoStore' import { derived } from 'svelte/store'; const note = 'C' const isPressed = derived(piano, ($piano) =\u003e $piano.getIsPressed(note)); $: if (isPressed) console.log(note) \u003c/script\u003e \u003cdiv on:keydown={$piano.pressKey(note)} on:keyup={$piano.releaseKey(note)}\u003e\u003c/div\u003e Now we make a new derived store that is only reactive on the current note 'C' state inside the $piano.keyboardStates.\n",
-  "wordCount" : "560",
-  "inLanguage": "en",
-  "image":"https://d2h1bfu6zrdxog.cloudfront.net/wp-content/uploads/2023/02/coderpad-semana-3-sveltestores.png","datePublished": "2023-08-12T20:29:42-04:00",
-  "dateModified": "2023-08-12T20:29:42-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -108,7 +43,7 @@ The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object.
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -130,16 +65,18 @@ The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object.
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -150,7 +87,7 @@ The Problem In Vue, it&rsquo;s possible to add a reactive wrapper to any object.
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Svelte Reactive Classes
     </h1>
@@ -287,16 +224,16 @@ of the states of each piano key. Whenever a single piano key is pressed, the lis
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/development/">development</a></li>
-      <li><a href="https://hylog.netlify.app/tags/svelte/">svelte</a></li>
+      <li><a href="http://localhost:1313/tags/development/">Development</a></li>
+      <li><a href="http://localhost:1313/tags/svelte/">Svelte</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/revisting-pianotypes/">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/revisting-pianotypes/">
     <span class="title">« Prev</span>
     <br>
     <span>Revisting Pianotypes</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/some-more-glsl/">
     <span class="title">Next »</span>
     <br>
     <span>Some More GLSL</span>
@@ -308,7 +245,7 @@ of the states of each piano key. Whenever a single piano key is pressed, the lis
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

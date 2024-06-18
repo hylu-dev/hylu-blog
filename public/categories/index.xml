@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Hylu Blog</title>
-    <link>https://hylu-blog.netlify.app/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Hylu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 May 2023 01:18:34 -0400</lastBuildDate><atom:link href="https://hylu-blog.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Art</title>
-      <link>https://hylu-blog.netlify.app/categories/art/</link>
-      <pubDate>Tue, 02 May 2023 01:18:34 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/categories/art/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gaming</title>
-      <link>https://hylu-blog.netlify.app/categories/gaming/</link>
-      <pubDate>Tue, 02 May 2023 01:18:34 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/categories/gaming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>https://hylu-blog.netlify.app/categories/development/</link>
-      <pubDate>Mon, 01 May 2023 15:12:19 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/categories/development/</guid>
-      <description></description>
-    </item>
-    
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

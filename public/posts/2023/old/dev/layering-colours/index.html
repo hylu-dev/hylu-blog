@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Layering Colours | Hylu Blog</title>
 <meta name="keywords" content="glsl">
 <meta name="description" content="Hey, yep I&rsquo;m back already with more mental pain.
@@ -12,18 +12,17 @@ I&rsquo;ve been working on putting together a layered parallax scene as per http
 I&rsquo;m a good ways there writing most of the code on my own. I&rsquo;ve made series of repeating trees across a sloping hill and it&rsquo;s time for me to start layering them on top with a for loop.
 In the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/layering-colours/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/layering-colours/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/layering-colours/">
 <noscript>
     <style>
         #theme-toggle,
@@ -32,73 +31,7 @@ In the tutorial, he wrote all of the shape functions to return vec4 so they incl
         }
 
     </style>
-</noscript><meta property="og:title" content="Layering Colours" />
-<meta property="og:description" content="Hey, yep I&rsquo;m back already with more mental pain.
-I&rsquo;ve been working on putting together a layered parallax scene as per https://www.youtube.com/watch?v=XaiYKkxvrFM.
-I&rsquo;m a good ways there writing most of the code on my own. I&rsquo;ve made series of repeating trees across a sloping hill and it&rsquo;s time for me to start layering them on top with a for loop.
-In the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/layering-colours/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-08-26T12:23:27-04:00" />
-<meta property="article:modified_time" content="2023-08-26T12:23:27-04:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Layering Colours"/>
-<meta name="twitter:description" content="Hey, yep I&rsquo;m back already with more mental pain.
-I&rsquo;ve been working on putting together a layered parallax scene as per https://www.youtube.com/watch?v=XaiYKkxvrFM.
-I&rsquo;m a good ways there writing most of the code on my own. I&rsquo;ve made series of repeating trees across a sloping hill and it&rsquo;s time for me to start layering them on top with a for loop.
-In the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Layering Colours",
-      "item": "https://hylog.netlify.app/posts/2023/old/dev/layering-colours/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Layering Colours",
-  "name": "Layering Colours",
-  "description": "Hey, yep I\u0026rsquo;m back already with more mental pain.\nI\u0026rsquo;ve been working on putting together a layered parallax scene as per https://www.youtube.com/watch?v=XaiYKkxvrFM.\nI\u0026rsquo;m a good ways there writing most of the code on my own. I\u0026rsquo;ve made series of repeating trees across a sloping hill and it\u0026rsquo;s time for me to start layering them on top with a for loop.\nIn the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours.",
-  "keywords": [
-    "glsl"
-  ],
-  "articleBody": "Hey, yep I’m back already with more mental pain.\nI’ve been working on putting together a layered parallax scene as per https://www.youtube.com/watch?v=XaiYKkxvrFM.\nI’m a good ways there writing most of the code on my own. I’ve made series of repeating trees across a sloping hill and it’s time for me to start layering them on top with a for loop.\nIn the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours.\nIn my code, I wanted to keep the shape functions simple so I left them as returning a float of 1 for pixels in the shape and zero elsewhere (plus blur).\nI first started off by adding the layers on top of eachother directly but I realized that that wasn’t going to work because despite the fact I was hardcoding 1.0 into the alpha channel, the layers in front were still going to mix with the colours behind it.\nIf I want to make the layers in the front darker, then when I add the layer on top of a light layer, it’s just going to inherit the colours below it. This is not the way.\nInstead, if I want to add a layer and replace the colour of whatever is underneath, then the best option turns out to be mix().\nTypically, you would use mix() to smoothly interpolate between two values based on a value x between 1 and 0. Since we just want to pick one of the two colours, we can mix the colour with the canvas and use 1 in areas of the layer to replace what’s under and use 0 for areas outside the layer keep what was on the canvas the same.\nfor (float i=0.; i\u003c1.; i+=1./10.) { float scale = mix(30., 1., i); float layer = float(layer(uv*scale+vec2(t+i*100., i)-m)); float alpha = layer; layer *= (1.-i); // darkens front layers color = mix(color, vec4(layer), alpha); } ",
-  "wordCount" : "326",
-  "inLanguage": "en",
-  "datePublished": "2023-08-26T12:23:27-04:00",
-  "dateModified": "2023-08-26T12:23:27-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/dev/layering-colours/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -112,7 +45,7 @@ In the tutorial, he wrote all of the shape functions to return vec4 so they incl
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -134,16 +67,18 @@ In the tutorial, he wrote all of the shape functions to return vec4 so they incl
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -154,7 +89,7 @@ In the tutorial, he wrote all of the shape functions to return vec4 so they incl
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Layering Colours
     </h1>
@@ -192,7 +127,7 @@ In the tutorial, he wrote all of the shape functions to return vec4 so they incl
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 
-<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+<script type="module" async src="http://localhost:1313/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
 
 <div class="three-wrapper">
 
@@ -223,15 +158,15 @@ shaders/scene.frag
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/glsl/">glsl</a></li>
+      <li><a href="http://localhost:1313/tags/glsl/">Glsl</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-5/">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/">
     <span class="title">« Prev</span>
     <br>
     <span>Pianotypes Devlog 5</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/which-way-does-the-uv-go/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/which-way-does-the-uv-go/">
     <span class="title">Next »</span>
     <br>
     <span>Which Way Does the UV Go?</span>
@@ -243,7 +178,7 @@ shaders/scene.frag
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

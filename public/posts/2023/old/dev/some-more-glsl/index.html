@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Some More GLSL | Hylu Blog</title>
 <meta name="keywords" content="glsl">
 <meta name="description" content="Vertex Shaders So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
 To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.
 Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/some-more-glsl/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/some-more-glsl/">
 <noscript>
     <style>
         #theme-toggle,
@@ -31,73 +30,7 @@ Notice that the texture remains flat but is effectively cropped onto the project
         }
 
     </style>
-</noscript><meta property="og:title" content="Some More GLSL" />
-<meta property="og:description" content="Vertex Shaders So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
-To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.
-Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/" />
-<meta property="og:image" content="https://thebookofshaders.com/04/glslGallery.gif" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-19T03:43:21-04:00" />
-<meta property="article:modified_time" content="2023-07-19T03:43:21-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://thebookofshaders.com/04/glslGallery.gif" />
-<meta name="twitter:title" content="Some More GLSL"/>
-<meta name="twitter:description" content="Vertex Shaders So far, I&rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
-To start, let&rsquo;s take a look at a simple 2D shader placed on a 3D cube.
-Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&rsquo;d like the texture to wrap over the cube instead."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Some More GLSL",
-      "item": "https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Some More GLSL",
-  "name": "Some More GLSL",
-  "description": "Vertex Shaders So far, I\u0026rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.\nTo start, let\u0026rsquo;s take a look at a simple 2D shader placed on a 3D cube.\nNotice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we\u0026rsquo;d like the texture to wrap over the cube instead.",
-  "keywords": [
-    "glsl"
-  ],
-  "articleBody": "Vertex Shaders So far, I’ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.\nTo start, let’s take a look at a simple 2D shader placed on a 3D cube.\nNotice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we’d like the texture to wrap over the cube instead.\nShaders With Normals Normals refer to vector data stored at each vertice of a mesh. The vector points perpendicular from the mesh and gives us information on which way this vertice is facing. We can use this information to make sure our shader gets properly transformed onto each side of the shape instead of covering its profile.\nTiming Functions It’s easy to add moving parts to a shader by including a u_time term. However, if you want more interesting motion, you should be interested in adding shapes and curves using functions.\nSlope Step This was my first implementation of a start and stop timing function. It’s very close to working but has a fatal flaw.\nfloat slope_step(float x) { float c = .5*floor(x)*ceil(sin(x*PI)); float b = .5*floor(x+1.)*ceil(sin(x*PI-PI)); float a = x*ceil(sin(x*PI))-floor(x)*ceil(sin(x*PI)); return a + b + c; } https://www.desmos.com/calculator/zj8mjz9tos\nNotice how the shader occasionally glitches positions. Because we need to hardcode a value for PI, the imprecision causes our sine waves to not line up where we need them to and instead, return unexpected values at those junctures.\n",
-  "wordCount" : "258",
-  "inLanguage": "en",
-  "image":"https://thebookofshaders.com/04/glslGallery.gif","datePublished": "2023-07-19T03:43:21-04:00",
-  "dateModified": "2023-07-19T03:43:21-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -111,7 +44,7 @@ Notice that the texture remains flat but is effectively cropped onto the project
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -133,16 +66,18 @@ Notice that the texture remains flat but is effectively cropped onto the project
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -153,7 +88,7 @@ Notice that the texture remains flat but is effectively cropped onto the project
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Some More GLSL
     </h1>
@@ -208,7 +143,7 @@ Notice that the texture remains flat but is effectively cropped onto the project
     
     
 
-<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+<script type="module" async src="http://localhost:1313/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
     
 
 
@@ -236,7 +171,7 @@ Notice that the texture remains flat but is effectively cropped onto the project
         
     
 
-<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+<script type="module" async src="http://localhost:1313/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
     
 
     
@@ -313,7 +248,7 @@ Notice that the texture remains flat but is effectively cropped onto the project
 
 
 
-<script type="module" async src="https://hylog.netlify.app/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
+<script type="module" async src="http://localhost:1313/js/bundle.min.ed14cdeec2cdfd6738b20d935e3844ef55b6f520e4966b679ea08398462d7497.js" integrity="sha256-7RTN7sLN/Wc4sg2TXjhE71W29SDklmtnnqCDmEYtdJc="></script>
     
 
 
@@ -365,15 +300,15 @@ shaders/grid.frag
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/glsl/">glsl</a></li>
+      <li><a href="http://localhost:1313/tags/glsl/">Glsl</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/">
     <span class="title">« Prev</span>
     <br>
     <span>Svelte Reactive Classes</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/js-modules-in-hugo/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/js-modules-in-hugo/">
     <span class="title">Next »</span>
     <br>
     <span>JS Modules in Hugo</span>
@@ -385,7 +320,7 @@ shaders/grid.frag
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

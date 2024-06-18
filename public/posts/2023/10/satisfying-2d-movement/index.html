@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Satisfying 2D Movement | Hylu Blog</title>
 <meta name="keywords" content="gamedev">
 <meta name="description" content="I&rsquo;m in the middle of working on my first mainline c&#43;&#43; project at school.
 We&rsquo;re tasked with making a simple vertical spaceship shooter using c&#43;&#43; with SDL and some pre-made assets to form the game. At the moment, I&rsquo;ve set up most of the classes I will need and have a simple ship that renders onto the screen.
 Naive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/10/satisfying-2d-movement/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/10/satisfying-2d-movement/">
 <noscript>
     <style>
         #theme-toggle,
@@ -31,73 +30,7 @@ Naive Movement My first iteration of ship movement does have some forward thinki
         }
 
     </style>
-</noscript><meta property="og:title" content="Satisfying 2D Movement" />
-<meta property="og:description" content="I&rsquo;m in the middle of working on my first mainline c&#43;&#43; project at school.
-We&rsquo;re tasked with making a simple vertical spaceship shooter using c&#43;&#43; with SDL and some pre-made assets to form the game. At the moment, I&rsquo;ve set up most of the classes I will need and have a simple ship that renders onto the screen.
-Naive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/" />
-<meta property="og:image" content="https://hylog.netlify.app/images/movement-1.gif" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-10-13T22:35:08-04:00" />
-<meta property="article:modified_time" content="2023-10-13T22:35:08-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://hylog.netlify.app/images/movement-1.gif" />
-<meta name="twitter:title" content="Satisfying 2D Movement"/>
-<meta name="twitter:description" content="I&rsquo;m in the middle of working on my first mainline c&#43;&#43; project at school.
-We&rsquo;re tasked with making a simple vertical spaceship shooter using c&#43;&#43; with SDL and some pre-made assets to form the game. At the moment, I&rsquo;ve set up most of the classes I will need and have a simple ship that renders onto the screen.
-Naive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Satisfying 2D Movement",
-      "item": "https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Satisfying 2D Movement",
-  "name": "Satisfying 2D Movement",
-  "description": "I\u0026rsquo;m in the middle of working on my first mainline c++ project at school.\nWe\u0026rsquo;re tasked with making a simple vertical spaceship shooter using c++ with SDL and some pre-made assets to form the game. At the moment, I\u0026rsquo;ve set up most of the classes I will need and have a simple ship that renders onto the screen.\nNaive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys.",
-  "keywords": [
-    "gamedev"
-  ],
-  "articleBody": "I’m in the middle of working on my first mainline c++ project at school.\nWe’re tasked with making a simple vertical spaceship shooter using c++ with SDL and some pre-made assets to form the game. At the moment, I’ve set up most of the classes I will need and have a simple ship that renders onto the screen.\nNaive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys. Using SDL polling, it’s easy to want to bind movement directly to each game iteration and triggering of the SDL keydown event. The problem is, standard keyboards when held have a delay on the first press before sending keyevents on every frame. What that looks like is the shape making a quick jerk, then pause, then start gliding across the screen.\nTo avoid that jerk, I use a simple isMove boolean to toggle ship movement on key presses which removes the dependency on the keyboard for continuous key events. This movements looks like the below.\nYou probably notice the lack of diagonal movement. I could add that quickly but it would be overridden anyways by the below method.\nBetter Movement The main issue with the previous movement strategy is that it feels too static and unnatural. In real life, vehicles don’t immediately go from stationary to 100km/h. There’s acceleration and decceleration that needs to happen for objects to get up to speed.\n// player input decides the direction vector. direction is 0 with no input float pos[2] = { 0.0 f }; float direction[2] = { 0.0f }; float move[2] = { 0.0f }; float friction = .97f; // normalize vector float magnitude = (float)std::sqrt(direction[0] * direction[0] + direction[1] * direction[1]); if (magnitude \u003e 0) { direction[0] = direction[0] / magnitude; direction[1] = direction[1] / magnitude; } move[0] += direction[0] * speed * deltaTime; move[1] += direction[1] * speed * deltaTime; move[0] *= friction; move[1] *= friction; pos[0] += move[0]; pos[1] += move[1]; There’s a quite a big more code now since I’m working with vectors to calculate the direction we’re moving in at any given time. This still isn’t the best implementation, especially since I don’t have a nice way to cap out the movement speed. I would consider using either some interpolating or clamping to keep a hard cap on the speed. For now I’ve just hardcoded some friction that ensure the accelerated speed doesn’t go on to infinity and also smoothly slows down when there’s no movement at all.\n",
-  "wordCount" : "423",
-  "inLanguage": "en",
-  "image":"https://hylog.netlify.app/images/movement-1.gif","datePublished": "2023-10-13T22:35:08-04:00",
-  "dateModified": "2023-10-13T22:35:08-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -111,7 +44,7 @@ Naive Movement My first iteration of ship movement does have some forward thinki
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -133,16 +66,18 @@ Naive Movement My first iteration of ship movement does have some forward thinki
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -153,7 +88,7 @@ Naive Movement My first iteration of ship movement does have some forward thinki
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Satisfying 2D Movement
     </h1>
@@ -165,11 +100,9 @@ Naive Movement My first iteration of ship movement does have some forward thinki
     
     
   </header> 
-<figure class="entry-cover"><a href="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1.gif" target="_blank"
+<figure class="entry-cover"><a href="http://localhost:1313/posts/2023/10/satisfying-2d-movement/images/movement-1.gif" target="_blank"
             rel="noopener noreferrer">
-        <img loading="lazy" srcset="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1_hu022e00806e10e8712f92f5179c70d53c_162066_360x0_resize_box_1.gif 360w ,https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1_hu022e00806e10e8712f92f5179c70d53c_162066_480x0_resize_box_1.gif 480w ,https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1.gif 600w" 
-            sizes="(min-width: 768px) 720px, 100vw" src="https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/images/movement-1.gif" alt="" 
-            width="600" height="399"></a>
+        <img loading="lazy" src="http://localhost:1313/posts/2023/10/satisfying-2d-movement/images/movement-1.gif" alt=""></a>
         
 </figure>
 <style>
@@ -345,15 +278,15 @@ The problem is, standard keyboards when held have a delay on the first press bef
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/gamedev/">gamedev</a></li>
+      <li><a href="http://localhost:1313/tags/gamedev/">Gamedev</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-test-review/">
+  <a class="prev" href="http://localhost:1313/posts/2023/10/c&#43;&#43;-test-review/">
     <span class="title">« Prev</span>
     <br>
     <span>C&#43;&#43; Test Review</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/10/portrait-mobile-games/">
+  <a class="next" href="http://localhost:1313/posts/2023/10/portrait-mobile-games/">
     <span class="title">Next »</span>
     <br>
     <span>Portrait Action Mobile Games</span>
@@ -365,7 +298,7 @@ The problem is, standard keyboards when held have a delay on the first press bef
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

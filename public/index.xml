@@ -1,49 +1,443 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hylu Blog</title>
-    <link>https://hylu-blog.netlify.app/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Hylu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 May 2023 01:18:34 -0400</lastBuildDate><atom:link href="https://hylu-blog.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jun 2024 23:56:04 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Responsive Melee Combat</title>
+      <link>http://localhost:1313/posts/2024/06/responsive-melee-combat/</link>
+      <pubDate>Wed, 05 Jun 2024 23:56:04 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/06/responsive-melee-combat/</guid>
+      <description>What is Responsive Combat Whether it&amp;rsquo;s an attack, dodge, or block, responsive combat ensures each feels immediate and with appropriate feedback. Games like Hades got this nailed down to a tee. Attacks feel punchy with minimal delay and the player rarely feels like their fighting with the controls to get the game to do what they want. By providing precise control over the character&amp;rsquo;s abilities, responsive combat enhances the sense of agency and satisfaction, leading to more intense and rewarding gameplay experiences.</description>
+    </item>
+    <item>
+      <title>Real Time Toon Shading in Unity</title>
+      <link>http://localhost:1313/posts/2024/05/real-time-toon-shading/</link>
+      <pubDate>Sun, 12 May 2024 00:12:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/05/real-time-toon-shading/</guid>
+      <description>Toon Shading We&amp;rsquo;ll be using a numbers of methods from Unity&amp;rsquo;s URP package by importing Lighting.hlsl. That file has some other inclusions that we will also make direct use of. In all, we&amp;rsquo;ll be using the following files.
+Lighting.hlsl RealTimeLights.hlsl Shadows.hlsl SpaceTransforms.hlsl Lighting.hlsl RealTimeLights.hlsl. In order to ensure our reacts to light in real-time, we need to hook on to some of Unity&amp;rsquo;s lighting methods to acquire the lights in the scene as well as the shadow maps.</description>
+    </item>
+    <item>
+      <title>Unity Custom Passes with URP</title>
+      <link>http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/</link>
+      <pubDate>Tue, 07 May 2024 12:35:27 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/</guid>
+      <description>I&amp;rsquo;m documenting some of my adventures looking into the Scriptable Render Pipelines in Unity. I have the goal of creating a stylized 3D pixel-art render pipeline heavily inspired by t3ssel8r.
+What is URP Cel-Shading Rendering To an Intermediate Texture During rendering passes, it&amp;rsquo;s common to store information by rendering to a texture instead of immediately rendering to the screen. For example, if you want to just do a pass to collect depth information, you can draw that information in memory and hold on to it to reference for later usage.</description>
+    </item>
+    <item>
+      <title>GitHub Basics for Designers</title>
+      <link>http://localhost:1313/posts/2024/05/github-basics/</link>
+      <pubDate>Tue, 07 May 2024 00:28:21 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/05/github-basics/</guid>
+      <description>This will be a short tutorial about GitHub to get you quickly up and started conceptually if you have little to no experience. I may gloss over some things if you&amp;rsquo;re already familiar.
+What is Git? Git is a version control system. It keeps tracks of a repository of files and records all changes made to the files. Most popular in software development for managing code bases.
+It provides a system for multiple people to work on the same files by tracking changes, allowing easy reverting, and merging multiple changes.</description>
+    </item>
+    <item>
+      <title>Fundamentals of Combinatorics</title>
+      <link>http://localhost:1313/posts/2024/04/combinatorics/</link>
+      <pubDate>Fri, 19 Apr 2024 21:13:54 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/04/combinatorics/</guid>
+      <description>Why I&amp;rsquo;m Writing This This semester I took a role tutoring MATH14998 (Computer Math) at Sheridan College. I originally felt a little out of water given how long it&amp;rsquo;s been since last studied math. Throughout the term, I&amp;rsquo;ve learned a lot about what it takes to teach and some of my short comings and strengths. One of them being, I have a sense of what concepts are particularly difficult grasp and finding ways to explain them so that the students can actually understand the concepts rather than memorize formulas.</description>
+    </item>
+    <item>
+      <title>Cyberpunk 2077 Thoughts</title>
+      <link>http://localhost:1313/posts/2024/02/01/cyberpunk-2077-thoughts/</link>
+      <pubDate>Thu, 01 Feb 2024 20:01:21 -0500</pubDate>
+      <guid>http://localhost:1313/posts/2024/02/01/cyberpunk-2077-thoughts/</guid>
+      <description>Stealth Gameplay My favourite way to play has definitely been stealth with the mixture of hacking and tech being incredibly satisfying and fits a unique power fantasy I haven&amp;rsquo;t experienced elsewhere. Being able control the battlefield by hacking things like door and explosives, or just zapping enemies on command, adds an almost sandbox like environment for the player to interact with. There&amp;rsquo;s also the satisfying choice of weaponry from silenced pistols and rifles to melee weapons</description>
+    </item>
+    <item>
+      <title>Ubisoft NEXT</title>
+      <link>http://localhost:1313/posts/2024/01/ubisoft-next/</link>
+      <pubDate>Wed, 10 Jan 2024 01:02:05 -0500</pubDate>
+      <guid>http://localhost:1313/posts/2024/01/ubisoft-next/</guid>
+      <description>Ubisoft NEXT is an annual competition run by Ubisoft that has contestants compete against a variety of disciplines within game development. From drawing art pieces, to level design, depending on your skillset you can test your abilities against others. The winner for each competition gets a 3-month internship with Ubisoft in Montreal!
+I&amp;rsquo;m entering into the programming category.
+Building a 3D Engine I took a look at some older submissions and noticed many of the successful projects tended towards 3D graphics.</description>
+    </item>
+    <item>
+      <title>Slime Hunter Pitch</title>
+      <link>http://localhost:1313/posts/2023/12/slime-hunter/</link>
+      <pubDate>Tue, 19 Dec 2023 01:03:34 -0500</pubDate>
+      <guid>http://localhost:1313/posts/2023/12/slime-hunter/</guid>
+      <description>First semester finished! With all the final assignments, I completely forgot about this blog. Whoops!
+In any case, I wanted to do a little retrospective on our final pitch assignment.
+Final Pitch The idea of this assignment is simple, we create a game idea and we pitch to the class with a short, 5 minute, prerecorded presentation. The presentation should be informative and succinct and give the viewers a clear idea of the game.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43; Test Review</title>
+      <link>http://localhost:1313/posts/2023/10/c&#43;&#43;-test-review/</link>
+      <pubDate>Mon, 16 Oct 2023 13:48:23 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/c&#43;&#43;-test-review/</guid>
+      <description>Just some scattered notes for test review.
+Object Composition Object memory is stored contiguously. If an object has pointers, those pointers are still stored contiguously but point to wherever the data is.
+Object Ownership One simple approach is to say that whatever creates the object becomes the owner of the object Thus, it becomes responsible for deleting it Inheritance Polymorphism Zombie* bob = new Zombie(&amp;#34;Bob&amp;#34;); Zombie* sally = new ZombieSoldier(&amp;#34;Sally&amp;#34;, 100); bob-&amp;gt;attack(); // prints &amp;#34;Bob throws a punch&amp;#34; sally-&amp;gt;attack(); // prints &amp;#34;Sally throws a punch&amp;#34; // wait.</description>
+    </item>
+    <item>
+      <title>Satisfying 2D Movement</title>
+      <link>http://localhost:1313/posts/2023/10/satisfying-2d-movement/</link>
+      <pubDate>Fri, 13 Oct 2023 22:35:08 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/satisfying-2d-movement/</guid>
+      <description>I&amp;rsquo;m in the middle of working on my first mainline c++ project at school.
+We&amp;rsquo;re tasked with making a simple vertical spaceship shooter using c++ with SDL and some pre-made assets to form the game. At the moment, I&amp;rsquo;ve set up most of the classes I will need and have a simple ship that renders onto the screen.
+Naive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys.</description>
+    </item>
+    <item>
+      <title>Portrait Action Mobile Games</title>
+      <link>http://localhost:1313/posts/2023/10/portrait-mobile-games/</link>
+      <pubDate>Wed, 11 Oct 2023 20:03:58 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/portrait-mobile-games/</guid>
+      <description>As I was looking for games to play during my bus rides, I realized the convenience of being able to play phone games one-handed, or just simply in portrait mode. It&amp;rsquo;s a lot more comfortable to hold, especially in tighter environments like a bus.
+There&amp;rsquo;s lot&amp;rsquo;s of options for this but they mostly amount to puzzle games and such. Instead, I wanted something more actiony and rpg-like I could play in that format.</description>
+    </item>
+    <item>
+      <title>C&#43;&#43; A Personal Guide</title>
+      <link>http://localhost:1313/posts/2023/10/c&#43;&#43;-a-personal-guide/</link>
+      <pubDate>Wed, 04 Oct 2023 13:05:14 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/c&#43;&#43;-a-personal-guide/</guid>
+      <description>A compilation of various features and gotchas I&amp;rsquo;ve encountered while studying C++.
+Instantiating Object Member Variables When to Use Initializer Lists Intializer lists offer a secondary method of initializer member variables for a class. A question comes up of why would we use this method as opposed to initializing the variables on declaration of just in the constructor. Below are a few core purposes.
+Initialize Const Members You could initialize these on declaration but what if you we want to pass in their values as arguments to the constructor.</description>
+    </item>
+    <item>
+      <title>Pianotypes Devlog 5</title>
+      <link>http://localhost:1313/posts/2023/10/pianotypes-devlog-5/</link>
+      <pubDate>Sun, 01 Oct 2023 02:07:05 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/pianotypes-devlog-5/</guid>
+      <description>Not many code changes as of late but I&amp;rsquo;ve been more active on one of the packages I&amp;rsquo;m using to play sound, smplr. It&amp;rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.
+A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
+Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&amp;rsquo;s of static.</description>
+    </item>
+    <item>
+      <title>Habits and Goals and Gratitude</title>
+      <link>http://localhost:1313/posts/2023/09/habits-and-goals/</link>
+      <pubDate>Thu, 28 Sep 2023 08:20:52 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/habits-and-goals/</guid>
+      <description>Having Goals I have goals and I like the fact that I do. It makes me feel like I have purpose, that I have some direction I need to follow. However, it often feels suffocating, demotivating, it makes me feel envious of others, it makes me feel that I&amp;rsquo;m unaccomplished or that I&amp;rsquo;m falling behind because of I haven&amp;rsquo;t done enough. These are the feelings of having goals.
+But how do you achieve goals.</description>
+    </item>
+    <item>
+      <title>Stack and Heap</title>
+      <link>http://localhost:1313/posts/2023/09/stack-and-heap/</link>
+      <pubDate>Wed, 27 Sep 2023 10:08:53 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/stack-and-heap/</guid>
+      <description>Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack
+vector&amp;lt;Type&amp;gt; vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (&amp;ldquo;heap&amp;rdquo;).
+vector&amp;lt;Type&amp;gt; *vect = new vector&amp;lt;Type&amp;gt;; allocates everything on the free store (except vect pointer, which is on the stack).
+vector&amp;lt;Type*&amp;gt; vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).</description>
+    </item>
+    <item>
+      <title>Useful Linear Algebra</title>
+      <link>http://localhost:1313/posts/2023/09/useful-linear-algebra/</link>
+      <pubDate>Mon, 25 Sep 2023 12:17:47 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/useful-linear-algebra/</guid>
+      <description>Dot Product Find the interior angle between two vectors $$ A\cdot B = |A||B|cos\theta $$
+$$ \theta = \arccos(\dfrac{A\cdot B}{|A||B|}) $$
+$$ where\ A\cdot B = A_x \times A_y + B_x \times B_y $$
+Cross Product Get perpendicular vector from two vectors Find area created by two vectors (for 2D, parallelogram area, for 3D, parallelepiped area) This is the magnitude of perpendicular vector Matrix Multiplication There is a formula for calculating the resultant matrix from a matrix multiplication.</description>
+    </item>
+    <item>
+      <title>Dot Product and How it Relates to Light</title>
+      <link>http://localhost:1313/posts/2023/09/dot-product/</link>
+      <pubDate>Thu, 14 Sep 2023 14:57:16 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/dot-product/</guid>
+      <description>What Matters The dot product has a bunch of properties when you use it&amp;rsquo;s raw scalar output but honestly most of the times you will use the dot product is to find the angle between two vectors by rearranging to equation as follows
+$$ A\cdot B = |A||B|cos\theta $$
+$$ \theta = \arccos(\dfrac{A\cdot B}{|A||B|}) $$
+$$ where\ A\cdot B = A_x \times A_y + B_x \times B_y $$
+In games, this equation is used exhaustively to calculate light projections and field of view.</description>
+    </item>
+    <item>
+      <title>Signed Ints and Two&#39;s Complement</title>
+      <link>http://localhost:1313/posts/2023/09/signed-ints/</link>
+      <pubDate>Tue, 12 Sep 2023 16:56:05 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/signed-ints/</guid>
+      <description>Two&amp;rsquo;s Complement Representation Why We Use It In c++, signed integers are represented in two&amp;rsquo;s complement notation. Before I get to how that notation works, I want to explain why we use it.
+Comparing both representations, -1 would look like this
+// Decimal 4294967295 // Binary Signed Int 10000000000000000000000000000001 // Two&amp;#39;s Complement Signed Int 11111111111111111111111111111111 The normal signed binary representation is pretty easily understood if you know what a sign bit is.</description>
+    </item>
+    <item>
+      <title>PGDAP Log 2</title>
+      <link>http://localhost:1313/posts/2023/09/pgdap-log-2/</link>
+      <pubDate>Tue, 12 Sep 2023 11:34:05 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/pgdap-log-2/</guid>
+      <description>I&amp;rsquo;m on my second week and to my surprise, all my anxieties and insecurities subsided really quickly. It had been while since I&amp;rsquo;ve had a proper schedule or talk to people in person on a frequent basis but I&amp;rsquo;m glad at how smoothly I&amp;rsquo;ve been able to reacclimate and I&amp;rsquo;ve been feeling a lot happier as a result.
+Anyways so far, it&amp;rsquo;s just been a lot of intro talk and fundamentals of concepts I&amp;rsquo;ve already learned before.</description>
+    </item>
+    <item>
+      <title>Starting the School Year</title>
+      <link>http://localhost:1313/posts/2023/09/starting-the-school-year/</link>
+      <pubDate>Tue, 05 Sep 2023 11:33:26 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/starting-the-school-year/</guid>
+      <description>Today is my first official day of class attending the Advanced Programming program at Sheridan College.
+To commemorate this, I&amp;rsquo;ve reorganized my whole directory structure for this blog to be organized by year and month rather than sub topics. I&amp;rsquo;ve been finding the subtopic folders to be growing far to fast (particularly the dev folder) to keep posting all in one place.
+This way, my working directory is ever only so large for each month and I&amp;rsquo;m also relieved of the duty of figuring out which folder I should be making my post in.</description>
+    </item>
+    <item>
+      <title>Pianotypes Devlog 5</title>
+      <link>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/</link>
+      <pubDate>Mon, 04 Sep 2023 16:48:12 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/</guid>
+      <description>I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.
+Why Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.
+The extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing.</description>
+    </item>
+    <item>
+      <title>Layering Colours</title>
+      <link>http://localhost:1313/posts/2023/old/dev/layering-colours/</link>
+      <pubDate>Sat, 26 Aug 2023 12:23:27 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/layering-colours/</guid>
+      <description>Hey, yep I&amp;rsquo;m back already with more mental pain.
+I&amp;rsquo;ve been working on putting together a layered parallax scene as per https://www.youtube.com/watch?v=XaiYKkxvrFM.
+I&amp;rsquo;m a good ways there writing most of the code on my own. I&amp;rsquo;ve made series of repeating trees across a sloping hill and it&amp;rsquo;s time for me to start layering them on top with a for loop.
+In the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours.</description>
+    </item>
+    <item>
+      <title>Which Way Does the UV Go?</title>
+      <link>http://localhost:1313/posts/2023/old/dev/which-way-does-the-uv-go/</link>
+      <pubDate>Fri, 25 Aug 2023 23:35:31 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/which-way-does-the-uv-go/</guid>
+      <description>While I was working on writing simple shape patterns in GLSL, I ended up with an interesting conundrum.
+I fell into the pattern of creating shapes by closing in each side of the shape with a smoothstep in the following form.
+smoothstep(-blur, +blur, uv.x); In this case, this creates a vertical edge where the left side is 0 and the right side is 1. I then do the same thing for the rest of the side of the shape, until I enclose it so that all values inside the shape are 1 and everywhere else remains 0.</description>
+    </item>
+    <item>
+      <title>Pianotypes Devlog 4</title>
+      <link>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-4/</link>
+      <pubDate>Fri, 25 Aug 2023 21:51:48 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-4/</guid>
+      <description>Not too much to report.
+I had the realization that I can pause the scheduled notes by suspending the AudioContext since they depend on the context&amp;rsquo;s timer. It&amp;rsquo;d be pretty easy to add pause functionality. The only caveat is that if I pause the AudioContext, than all sound from the piano is also paused. Perhaps I could code in a notice to resume the timer given the user inputs a key press but I don&amp;rsquo;t want to resume the context on every key press.</description>
+    </item>
+    <item>
+      <title>Reviving Tabby Sort</title>
+      <link>http://localhost:1313/posts/2023/old/dev/reviving-tabby-sort/</link>
+      <pubDate>Wed, 23 Aug 2023 22:23:06 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/reviving-tabby-sort/</guid>
+      <description>A couple years ago I made a little extension for chrome to organize and sort tabs by url domains. It was really quick and crudely designed and since I wasn&amp;rsquo;t even a Chrome user, I didn&amp;rsquo;t think too much about improving it. Fast forward to now, I decided to do exactly that.
+Looking at old code Actually the code was mostly better than I expected, other than some variable naming and redundant lines, I didn&amp;rsquo;t see much need to rewrite it.</description>
+    </item>
+    <item>
+      <title>Pianotypes Devlog 3</title>
+      <link>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-3/</link>
+      <pubDate>Wed, 23 Aug 2023 09:29:07 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-3/</guid>
+      <description>Today I spent some time working on getting the instructions dialogues up. I originally planned on creating a secondary overlay window that pops up given a trigger. Very similar to how to the toast notifications work but instead with a much larger area. The only problem with that is I wanted a clean way to inject custom html into the dialogue box depending on who triggers it. In the case of the toast notification I just pass it a string which is fine given it&amp;rsquo;s only suppose to be a sure notifier anyways.</description>
+    </item>
+    <item>
+      <title>Pianotypes Devlog 2</title>
+      <link>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-2/</link>
+      <pubDate>Mon, 21 Aug 2023 13:18:35 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-2/</guid>
+      <description>I&amp;rsquo;m a bit more than late for a second devlog but I figured there&amp;rsquo;s no better thing to call this. I originally made this blog for the purposes of short and sweet devlogs but my recent posts have been bit larger than what I originally intended. I&amp;rsquo;m hoping with this log to bring that focus back down to just that.
+Since my previous post, I&amp;rsquo;ve done a lot of fine tuning of the UI and functionality of the site.</description>
+    </item>
+    <item>
+      <title>Revisting Pianotypes</title>
+      <link>http://localhost:1313/posts/2023/old/dev/revisting-pianotypes/</link>
+      <pubDate>Fri, 18 Aug 2023 17:50:32 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/revisting-pianotypes/</guid>
+      <description>I recently finished a course in deep learning and wanted to took a look at a few ways I could apply my knowledge to. The idea the came to me was to create an ai music generation model and feed it into my old pianotypes app. Simple right!
+It&amp;rsquo;s all broken So I booted up my old, dusty, untouched, forgotten, delapidated, abused, ramshackled, repository, and lo and behold, I can&amp;rsquo;t get it to run.</description>
+    </item>
+    <item>
+      <title>Svelte Reactive Classes</title>
+      <link>http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/</link>
+      <pubDate>Sat, 12 Aug 2023 20:29:42 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/</guid>
+      <description>I&amp;rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
+The Problem In Vue, it&amp;rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.</description>
+    </item>
+    <item>
+      <title>Some More GLSL</title>
+      <link>http://localhost:1313/posts/2023/old/dev/some-more-glsl/</link>
+      <pubDate>Wed, 19 Jul 2023 03:43:21 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/some-more-glsl/</guid>
+      <description>Vertex Shaders So far, I&amp;rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
+To start, let&amp;rsquo;s take a look at a simple 2D shader placed on a 3D cube.
+Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&amp;rsquo;d like the texture to wrap over the cube instead.</description>
+    </item>
+    <item>
+      <title>JS Modules in Hugo</title>
+      <link>http://localhost:1313/posts/2023/old/dev/js-modules-in-hugo/</link>
+      <pubDate>Fri, 14 Jul 2023 07:57:33 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/js-modules-in-hugo/</guid>
+      <description>While writing this blog, I&amp;rsquo;ve been constantly finding a need to include various JavaScript libraries such as graphics libraries or text processors. I love the simplicity of Markdown but sometimes it can be really helpful to include more meaningful content and visuals to better illustrate a certain topic or idea.
+My most recent endeavor was adding an easy way to render shaders within each of posts which turned out to be a more painful task than I originally anticipated.</description>
+    </item>
+    <item>
+      <title>Basics of Shader Fractals</title>
+      <link>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</link>
+      <pubDate>Thu, 13 Jul 2023 20:53:06 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</guid>
+      <description>Fractals are built off of a single pattern or formula, repeated constantly with smaller and smaller transformations. In glsl, this idea translates nicely into iterative coding with for loops.
+How to Make a Fractal I&amp;rsquo;ll be following kishimisu&amp;rsquo;s guide on shaders.
+Create a Shape First off, we can start by creating some base patterns that we want to design our fractal off of. In this case, we can start with a simple circle.</description>
+    </item>
+    <item>
+      <title>Some Casual Art</title>
+      <link>http://localhost:1313/posts/2023/old/other/some-casual-art/</link>
+      <pubDate>Thu, 13 Jul 2023 01:27:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/some-casual-art/</guid>
+      <description>I&amp;rsquo;ve been trying to get into the habit of drawing casually as opposed to doing so as part of some contest or project. Part of that is just drawing what I feel in the moment. I&amp;rsquo;m not intending to follow any style but at the same time I&amp;rsquo;m not stopping myself from easing any habits which resulted with a few pictures that do share a style. I always felt with drawing that I have no clue what my style is.</description>
+    </item>
+    <item>
+      <title>Just do</title>
+      <link>http://localhost:1313/posts/2023/old/other/just-do/</link>
+      <pubDate>Tue, 11 Jul 2023 02:31:07 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/just-do/</guid>
+      <description>It&amp;rsquo;s been a while since I&amp;rsquo;ve done a post. Honestly, I&amp;rsquo;ve been hitting a bit of a slum. I have things I want to accomplish and a way towards it but every step in that direction feels so heavy. I am indulging in avoidance and everyday it eats at me because I know I can do better&amp;ndash;I&amp;rsquo;ve done better.
+What is it that I want to do? I want to make something of my own and share it to people who know why.</description>
+    </item>
+    <item>
+      <title>3D Matrix Rotations</title>
+      <link>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</link>
+      <pubDate>Thu, 15 Jun 2023 02:03:50 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</guid>
+      <description>Rotation is one such transformation and that can be achieved by locking the desired axes of rotation and transforming the rest of the axes by \(sin\) and \(cos\).
+Intuition of 3x3Matrix Transformations 3x3 matrices can be used to bend the coordinate space in 3 dimensions, effectively allowing any desired transformations to objects in that space.
+As the coordinate space is being transformed, it&amp;rsquo;s helpful breaking up the matrix into its unit vectors</description>
+    </item>
+    <item>
+      <title>Intro to Deep Learning</title>
+      <link>http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/</link>
+      <pubDate>Mon, 12 Jun 2023 17:22:24 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/</guid>
+      <description>Neural Networks See Machine Learning
+How do you decide how many neurons to use per layer?
+One way is to start with all layers uing the same amount of neurons and continue adding them until they start overfitting the data
+Dropout: Regularlization technique to avoid overfitting. Leaves out data to better deal with general cases. 20%-50% dropout is a good starting range. Momentum: Helps finding the direction of next descent and prevent oscillations.</description>
+    </item>
+    <item>
+      <title>Rain World Procedural Animation</title>
+      <link>http://localhost:1313/posts/2023/old/dev/procedural-animation/</link>
+      <pubDate>Wed, 07 Jun 2023 15:59:24 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/procedural-animation/</guid>
+      <description>There&amp;rsquo;s so many components to game development I want to learn about and the more I dig in, the more I feel like this hole of knowledge is neverending. It&amp;rsquo;s also the fact that there&amp;rsquo;s so much technology that&amp;rsquo;s already been built and currently being built by people leagues ahead in expertise that it feels like a waste to start at anything only for it to be phased out by some new fangled technology.</description>
+    </item>
+    <item>
+      <title>Overview of Probability</title>
+      <link>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</link>
+      <pubDate>Sun, 04 Jun 2023 12:27:54 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</guid>
+      <description>I&amp;rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
+Random Variable Whenever there&amp;rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.</description>
+    </item>
+    <item>
+      <title>Intro to Machine Learning</title>
+      <link>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</link>
+      <pubDate>Sun, 28 May 2023 21:17:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</guid>
+      <description>In preparation for a deep learning course I&amp;rsquo;m taking over the Summer, I&amp;rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I&amp;rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&amp;rsquo;s more than worth getting my feet wet.
+ML Overview flowchart LRsubgraph Shader Lifecycledirection LRd[(&#34;Dataset&#34;)] --&gt; m((&#34;Model&#34;)) --&gt; o(&#34;</description>
+    </item>
+    <item>
+      <title>ICCIT Web Development Logs</title>
+      <link>http://localhost:1313/posts/2023/old/other/iccit_website/</link>
+      <pubDate>Wed, 24 May 2023 12:16:13 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/iccit_website/</guid>
+      <description>Main Page Events Shop Main Page Events Shop </description>
+    </item>
+    <item>
+      <title>Handling Normals from Unity to Blender</title>
+      <link>http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/</link>
+      <pubDate>Mon, 15 May 2023 14:34:17 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/</guid>
+      <description>While trying to import a plane from Blender to Unity, I ran into the issue of the normals facing the wrong direction once imported into Unity. This was particularly an issue when it came to vertex shaders as any vertex transform performed incorrectly.
+This crux of the issue is that Blender considers the z-axis to be the vertical axis while unity considers the y-axis to be. So, for a plane in Blender, the normals would face towards the positive z-axis but when imported to Unity, they remain so which to Unity is actually along the horizontal plane.</description>
+    </item>
+    <item>
+      <title>Playing With GLSL</title>
+      <link>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</link>
+      <pubDate>Thu, 11 May 2023 14:23:07 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</guid>
+      <description>From what I&amp;rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
+Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0.</description>
+    </item>
+    <item>
+      <title>Introduction to Unity Shaders</title>
+      <link>http://localhost:1313/posts/2023/old/dev/intro_to_shaders/</link>
+      <pubDate>Sat, 06 May 2023 13:26:32 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/intro_to_shaders/</guid>
+      <description>Shaders are programs used to describe how pixels should be arranged, colored, and transformed on the screen. The simple definition extends to so many applications especially in 3D graphics in movies and games. Every computer generated prop placed in a scene is carefully designed to look a certain way, all with the help of shaders.
+Shader&amp;rsquo;s make use of the GPU to constantly run concurrent calculation on every pixel and you can decide what those calculations do through programming with languages such as HLSL and GLSL.</description>
+    </item>
+    <item>
+      <title>Understanding Quaternions</title>
+      <link>http://localhost:1313/posts/2023/old/dev/quaternion/</link>
+      <pubDate>Fri, 05 May 2023 10:37:52 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/quaternion/</guid>
+      <description>When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.
+How It&amp;rsquo;s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes.</description>
+    </item>
+    <item>
+      <title>3D Character Unity Setup</title>
+      <link>http://localhost:1313/posts/2023/old/dev/3d_character_unity_setup/</link>
+      <pubDate>Wed, 03 May 2023 10:54:02 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/3d_character_unity_setup/</guid>
+      <description>I followed this tutorial https://www.youtube.com/watch?v=bXNFxQpp2qk&amp;amp;list=PLwyUzJb_FNeQrIxCEjj5AMPwawsw5beAy&amp;amp;index=3
+Adding a 3D Character Animation States Unity has it&amp;rsquo;s own skeleton rigging system called Mecanim.
+To add animations to a character, you first need to add an animator component to your character model and then create a character controller object and link it to the component. Double clicking the controller will then open up a panel to handle state transitions between animations.
+There you can add each of the states you want to transition your model to and from.</description>
+    </item>
     <item>
       <title>Making an Animated Osu Banner</title>
-      <link>https://hylu-blog.netlify.app/posts/osu_banner/</link>
+      <link>http://localhost:1313/posts/2023/old/osu/osu_banner/</link>
       <pubDate>Tue, 02 May 2023 01:18:34 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/posts/osu_banner/</guid>
+      <guid>http://localhost:1313/posts/2023/old/osu/osu_banner/</guid>
       <description>I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&amp;rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&amp;rsquo;s too large, the auto-compression will convert the image into a static jpeg).</description>
     </item>
-    
     <item>
       <title>Using Kanban Boards</title>
-      <link>https://hylu-blog.netlify.app/posts/using_kanban_boards/</link>
+      <link>http://localhost:1313/posts/2023/old/other/using_kanban_boards/</link>
       <pubDate>Mon, 01 May 2023 15:12:19 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/posts/using_kanban_boards/</guid>
+      <guid>http://localhost:1313/posts/2023/old/other/using_kanban_boards/</guid>
       <description>Now that I&amp;rsquo;m starting on Slime Hunter, I figured I should get back to using some project management tools. In particular, Kanban boards as they are simple to manage and don&amp;rsquo;t come with nearly as much fluff as something like Jira issue tracking systems. The nice thing as well is that there&amp;rsquo;s so many great project management tools out there. In this case, I&amp;rsquo;ve decided to use Trello as I&amp;rsquo;m familiar with Atlassian tools (again Jira) so I feel comfortable continuing to use their products.</description>
     </item>
-    
+    <item>
+      <title>Folder Structure and Making Mistakes</title>
+      <link>http://localhost:1313/posts/2023/old/other/folder_structure/</link>
+      <pubDate>Fri, 28 Apr 2023 15:44:49 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/folder_structure/</guid>
+      <description>When using a programming engine or framework, one of the things I get stuck on the most is how to organize all the directories and files for a project. Every technology has its own separate ethos when it comes to the separation of concerns. It&amp;rsquo;s such an important part in order to not have a growing project becoming a nightmare for other&amp;rsquo;s to work with, or even yourself after spending some time away from it.</description>
+    </item>
+    <item>
+      <title>Warframe visage inks are great! Duviri&#39;s alright too.</title>
+      <link>http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/</link>
+      <pubDate>Thu, 27 Apr 2023 21:45:22 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/</guid>
+      <description>Warframe recently released it&amp;rsquo;s long awaited update, The Duviri Paradox. I&amp;rsquo;ve been silently waiting for it&amp;rsquo;s release since it&amp;rsquo;s been talked about and delayed for many years. I played some and overall and I feel like I could pretty well enjoy it if not for the bugs. I think the push for slower paced gameplay is cool but just doesn&amp;rsquo;t really have a future with the rest of Warframe. I was a little disappointed how this really ends up as a huge, sectioned off experience with little impact on the rest of the game.</description>
+    </item>
     <item>
       <title>Osu Fanart Again!?</title>
-      <link>https://hylu-blog.netlify.app/posts/osu_fanart2/</link>
+      <link>http://localhost:1313/posts/2023/old/osu/osu_fanart2/</link>
       <pubDate>Mon, 24 Apr 2023 02:57:43 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/posts/osu_fanart2/</guid>
+      <guid>http://localhost:1313/posts/2023/old/osu/osu_fanart2/</guid>
       <description>Journey into a Beatmap Getting Started After doing my first fanart, I didn&amp;rsquo;t have any intention of doing another but this one&amp;rsquo;s theme instantly gave me the idea of incorporating 3D modelling into the art piece. In summary, the theme is to create an Osu fanart with the OC&amp;rsquo;s inside a beatmap.
 I immediately had the idea of drawing Enchanted Love as I fell in love with the visuals from the original MV.</description>
     </item>
-    
     <item>
       <title>Making Osu Fanart</title>
-      <link>https://hylu-blog.netlify.app/posts/osu_fanart/</link>
+      <link>http://localhost:1313/posts/2023/old/osu/osu_fanart/</link>
       <pubDate>Mon, 24 Apr 2023 00:39:23 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/posts/osu_fanart/</guid>
+      <guid>http://localhost:1313/posts/2023/old/osu/osu_fanart/</guid>
       <description>osu! Fanarts? Osu holds several fanart contest every year with themes often related to the time of year. Themes such as Winter or Halloween are such examples. Regardless of theme, the general idea seems to always be to draw any of the osu mascots inside or partaking in said theme.
 At the time I had been playing osu for about 4 months and really enjoying it. On the other hand, I&amp;rsquo;ve been drawing casually for a few years as a hobby so it seemed naturally to want to give these contests a shot.</description>
     </item>
-    
+    <item>
+      <title>New Beginnings</title>
+      <link>http://localhost:1313/posts/2023/old/other/first-post/</link>
+      <pubDate>Sun, 23 Apr 2023 19:20:29 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/first-post/</guid>
+      <description>Hi, I&amp;rsquo;m a developer. That in itself doesn&amp;rsquo;t mean too much really and for me it only really marks the beginning of what I would like to do and achieve. I&amp;rsquo;ve read my share of devlogs and appreciate the amount of value it gives to readers while also envying the sheer knowledge and coherence each of the authors are able to display. I hope I can also create devlogs of similar value.</description>
+    </item>
   </channel>
 </rss>

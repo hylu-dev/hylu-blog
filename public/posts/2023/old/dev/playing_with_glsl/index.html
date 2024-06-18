@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Playing With GLSL | Hylu Blog</title>
 <meta name="keywords" content="glsl, shaders">
 <meta name="description" content="From what I&rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
 Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/playing_with_glsl/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/playing_with_glsl/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/playing_with_glsl/">
 <noscript>
     <style>
         #theme-toggle,
@@ -30,71 +29,7 @@ Drawing Circles A Circle Using step To start, this is what it looks like using t
         }
 
     </style>
-</noscript><meta property="og:title" content="Playing With GLSL" />
-<meta property="og:description" content="From what I&rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
-Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/playing_with_glsl/" />
-<meta property="og:image" content="https://thebookofshaders.com/07/froebel.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-05-11T14:23:07-04:00" />
-<meta property="article:modified_time" content="2023-05-11T14:23:07-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://thebookofshaders.com/07/froebel.jpg" />
-<meta name="twitter:title" content="Playing With GLSL"/>
-<meta name="twitter:description" content="From what I&rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
-Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Playing With GLSL",
-      "item": "https://hylog.netlify.app/posts/2023/old/dev/playing_with_glsl/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Playing With GLSL",
-  "name": "Playing With GLSL",
-  "description": "From what I\u0026rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.\nDrawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0.",
-  "keywords": [
-    "glsl", "shaders"
-  ],
-  "articleBody": "From what I’ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.\nDrawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0. Make pixels within radius away from the center white, otherwise black\nfloat circle(in vec2 sst, in float radius) { vec2 dist = vec2(0.5)-st; float length = sqrt(pow(dist.x, 2.)+pow(dist.y,2.)); // getting magnitude of dist vector pct = step(length, radius); } smoothstep Something that confused me with smoothstep was that I expected the value returned to be the interpolated result of a start a and end b based off a fraction c. However it’s actually the inverse operation. You instead give it a value between a and b and value c in between the two and you’ll that percentage between the two back as a fraction of 1.\nThis is similar to the inverse lerp described by Freya Holmér\nThis was confusing as most interpolation I’ve used previously (typically in a function just called lerp) has its third argument be the fraction of 1 to interpolate with.\nfloat lerp(float a, float b, float t) { return (1.0 - t) * a + b * t // for 0 \u003c= t \u003c= 1, return a value as a fraction t of the range a -\u003e b } // ex. lerp(0, 10, .5) = 5 float invLerp(float a, float b, float v) { return (v - a)/(b-a) // normalizes v between a and b to be between 0 and 1 and return that fraction } // ex. invLerp(0, 10, 5) = .5 Once this was understood, things like generating circles with smoothstep made a lot more sense.\nA Circle Using smoothstep() Now approaching with smoothstep()\nfloat circle(in vec2 st, in float radius) { float length = distance(st, vec(0.5)) // using GLSL built-in instead return 1. -smoothstep(radius-(radius*0.01), radius+(radius*0.01), length); } Effectively. this does the same thing except changes around the logic and blurs the edges of the circle.\nThis works largely the same as the step function except instead of a single number edge, you have a range between radius-(radius*0.01) and radius+(radius*0.01). If the interpolated value is under this range, smoothstep will return 0. If the interpolated value is above this range, it will return 1.\nNow, if it’s between this range, you will get a smooth fractional between 0 and 1 causing a transitional blurred edge to the circle as instead of flipping from black to white (0 -\u003e 1), it blends towards it for the width of that range.\nThe range, TheBookoOfShaders gives it is small in order to keep the circle quite sharp. But, by increasing the range, the blur becomes much clearer.\nDot Product to Calculate Vector Length? Generally, division is a costly operation for computers and thus so is the square root. For this reason, if there’s an alternative to getting the length of a vector than the Pythagoras Theorem, we’d like to use it.\nA Doom developer when to great lengths to avoid performing the costly inverse square root operation that he developed a brilliantly cursed alternative to it.\nThe dot product returns the projection of one vector v1 onto another and multiplies the length of the projection with that other vector v2. There are a couple things to note.\nThe result is the magnitude of |v1projected| * |v2| The length of v1projected decreases the wider the angle between it and v2 The general formula is |A||B|cosθ In the case that v1 == v2, the magnitude of v1projected == v1 as well. This means the result of the dot product is actually |v1|**2!\nmore formally... if v1 == v2 then v1⋅v2 = v1⋅v1 = |v1||v1|cos(0) = |v1|**2 We’re now close to getting the length of the vector, but again need to take to sqrt of it all the get the final length of v1.\nLet’s look at what TheBookOfShaders does\nfloat circle(in vec2 st, in float radius) { vec2 dist = st-vec2(0.5); float length = dot(dist, dist)*4. return 1. -smoothstep(radius-(radius*0.01), radius+(radius*0.01), length); } Instead, what TheBookOfShaders opts to do is to multiply it all by 4 and call it day dot(dist, dist)*4. I’ve done a bunch of playing around and all I conclude is, this is not equivalent to the actual length of the vector. Comparing it to using a distance function, radius of the circle isn’t accurately represented. Instead, it following an exponential curve as you increase/decrease the radius value compared to a linear one where the value you input maps to the actual circle radii.\nUltimately, the purpose of their example is to showcase a circle in GLSL and even with the square of the vector length, it’s still enough to show it, just not for the correct radius. I will say, the author should’ve multiplied it by 2, this way at least the max circle radius of 0.5 would match up with the correct distance function.\nSo in the end, you’re better off using the square root here.\nfrac the frac() function is . It’s often use to help visualize values in you’re shader outside of 1. Specifically, shaders in Unity don’t natively clamp values between 0 and 1 so if you’re trying to create a gradient shader where color is based on the UV position on a mesh, that UV position can go above and below 0 and 1.\nThe implementation of frac() is incredibly simple and is as follows.\nfloat frac(float v) { return v - floor(v); } Frac will only return values between a range of 0 and 1 and if its fed a v out of this range, the pattern will repeat. So you can surround your shader code with a frac and get a repeating pattern that looks like this.\nGenerating Shapes with Arctangent Trigonometric functions are closely tied with circles and are a key component to generating repeating, cyclical patterns. Here, we are taking a look at the power of the arctangent function.\nTo begin, the arctangent function when graphed is a right rotation and mirror of the standard tangent graph.\nIt can be hard to wrap your head around how each value of x in the arctan graph correlates to its plotted value but the key is to focus on how the arctan function relates to the tan function itself.\narctan(x) = θ ==\u003e tanθ = x It’s primarily used to find the angle between the opposite and adjacent sides of a trangle\nθ = arctan(opposite/adjacent) When wanting to create patterns, this relation should be your tool to visualizing how patterns can be built with arctan.\nFor example, for every pixel we have a vector2 of it’s position and by subbing that into arctan, we can get the angle that the pixel lies from the origin.\nLet’s move the origin to the center and try plotting the angle directly to the color of the shader.\nvoid main(){ vec2 st = gl_FragCoord.xy/u_resolution.xy; vec3 color = vec3(0.0); vec2 pos = st*2. - 1.; float r = length(pos)*2.0; float a = atan(pos.y,pos.x); color = vec3(a); gl_FragColor = vec4(color, 1.0); } In GLSL, atan has two overloads, first used here can have deceptive behavior when it comes to signs\natan returns either the angle whose trigonometric arctangent is yx or y_over_x, depending on which overload is invoked. In the first overload, the signs of y and x are used to determine the quadrant that the angle lies in. The value returned by atan in this case is in the range [−π,π]. The result is undefined if x=0\n.\nFor the second overload, atan returns the angle whose tangent is y_over_x. The value returned in this case is in the range [−π2,π2] . n.\nIf we then sub the angles into cos, we get the adjacent side of the right triangle angled θ from the origin.\nThe adjacent component is only positive in quadrants I and IV\nWhat’s exciting now is remember this is still a cosine function. We can increase the period in order to see more cycles.\nfloat f = cos(a*8.); // 8 cycles f = floor(f + .5); // round to solid values Morphing Mosaic void main() { vec2 uv = gl_FragCoord.xy / u_resolution; uv = uv*2. - vec2(1.); // center origin float angle = atan(sin(uv.y*PI), sin(uv.x*PI)); vec4 color = vec4(ceil(sin(angle*10. + u_time))); gl_FragColor = color; } Mixing Patterns By encorporating smaller, simpler patterns into your shader, you can combine them and get surprisingly complex designs that also show off the beauty of the math behind it.\nvoid main() { vec2 uv = gl_FragCoord.xy / u_resolution; uv = uv*2. - vec2(1.); // center origin float dist = length(uv); float angle = atan(uv.y*PI, uv.x*PI); float waves = sin(dist*5.*TAU - u_time*0.); float umbrella = sin(angle*5. + u_time*0.); vec4 color; color = vec4(umbrella); color += waves; gl_FragColor = color; } A ripple and a star pattern\nCombined together\n",
-  "wordCount" : "1525",
-  "inLanguage": "en",
-  "image":"https://thebookofshaders.com/07/froebel.jpg","datePublished": "2023-05-11T14:23:07-04:00",
-  "dateModified": "2023-05-11T14:23:07-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/dev/playing_with_glsl/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -108,7 +43,7 @@ Drawing Circles A Circle Using step To start, this is what it looks like using t
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -130,16 +65,18 @@ Drawing Circles A Circle Using step To start, this is what it looks like using t
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -150,7 +87,7 @@ Drawing Circles A Circle Using step To start, this is what it looks like using t
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Playing With GLSL
     </h1>
@@ -253,7 +190,7 @@ Drawing Circles A Circle Using step To start, this is what it looks like using t
 <p>In the case that <code>v1 == v2</code>, the magnitude of <code>v1projected == v1</code> as well. This means the result of the dot product is actually
 <code>|v1|**2</code>!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>more formally...
-</span></span><span style="display:flex;"><span>if v1 <span style="color:#f92672">==</span> v2
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> v1 <span style="color:#f92672">==</span> v2
 </span></span><span style="display:flex;"><span>then v1⋅v2 <span style="color:#f92672">=</span> v1⋅v1 <span style="color:#f92672">=</span> <span style="color:#f92672">|</span>v1<span style="color:#f92672">||</span>v1<span style="color:#f92672">|</span><span style="color:#a6e22e">cos</span>(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">=</span> <span style="color:#f92672">|</span>v1<span style="color:#f92672">|**</span><span style="color:#ae81ff">2</span>
 </span></span></code></pre></div><p><strong>We&rsquo;re now close to getting the length of the vector</strong>, but again need to take to <code>sqrt</code> of it all the get the final length of <code>v1</code>.</p>
 <p>Let&rsquo;s look at what TheBookOfShaders does</p>
@@ -494,16 +431,16 @@ So you can surround your shader code with a frac and get a repeating pattern tha
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/glsl/">glsl</a></li>
-      <li><a href="https://hylog.netlify.app/tags/shaders/">shaders</a></li>
+      <li><a href="http://localhost:1313/tags/glsl/">Glsl</a></li>
+      <li><a href="http://localhost:1313/tags/shaders/">Shaders</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/handling_normals_from_unity_to_blender/">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/">
     <span class="title">« Prev</span>
     <br>
     <span>Handling Normals from Unity to Blender</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/intro_to_shaders/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/intro_to_shaders/">
     <span class="title">Next »</span>
     <br>
     <span>Introduction to Unity Shaders</span>
@@ -515,7 +452,7 @@ So you can surround your shader code with a frac and get a repeating pattern tha
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

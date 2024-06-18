@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Understanding Quaternions | Hylu Blog</title>
 <meta name="keywords" content="math, development">
 <meta name="description" content="When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.
 How It&rsquo;s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/quaternion/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/quaternion/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/quaternion/">
 <noscript>
     <style>
         #theme-toggle,
@@ -30,71 +29,7 @@ How It&rsquo;s Done With Trigonometry Depending on the framework or software usi
         }
 
     </style>
-</noscript><meta property="og:title" content="Understanding Quaternions" />
-<meta property="og:description" content="When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.
-How It&rsquo;s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/quaternion/" />
-<meta property="og:image" content="https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-05-05T10:37:52-04:00" />
-<meta property="article:modified_time" content="2023-05-05T10:37:52-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg" />
-<meta name="twitter:title" content="Understanding Quaternions"/>
-<meta name="twitter:description" content="When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.
-How It&rsquo;s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Understanding Quaternions",
-      "item": "https://hylog.netlify.app/posts/2023/old/dev/quaternion/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Understanding Quaternions",
-  "name": "Understanding Quaternions",
-  "description": "When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.\nHow It\u0026rsquo;s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes.",
-  "keywords": [
-    "math", "development"
-  ],
-  "articleBody": "When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.\nHow It’s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes. But for a simple point in space rotating in about an origin, what would that look like?\nYou can represent the x and y position of a point as a function of the angle and radius of the point on a unit circle. That is using our good friend SOH CAH TOA, you can represent x and y as:\nx = r x cos(\\theta) y = r x sin(\\theta) Then you can sub into \\theta, the angle around the origin you’d like the point to sit. However, this requires knowing the current angle the point sits at which adds another layer of computation. I got this proof from Khan Academy that gives the rotated point in relation to it’s original position and the desired angle of rotation.\nx′=x×cos(β)−y×sin(β) y′=y×cos(β)+x×sin(β) From there, you can apply this formula to every point and depending on the axes you’re rotating in space, we just swap the coordinates in the equation to the ones that change such as the z coordinate.\nFor example, instead of rotating about the Z-axis to rotate about the X-axis you’d do the following.\nz′=x×cos(β)−y×sin(β) y′=y×cos(β)+x×sin(β) In the case of a framework like ThreeJS, you’d represent each object rotation as a Vector3 containing all three axes. You can determine set each individual rotation directly without doing any of the math.\nSo far, we’ve been looking at 3D rotations as a manipulation of 3 axes of rotation also known as Euler Angles. However, this method of handling rotations is susceptible to 2 main probles.\nGimbal Lock - When two axes of rotation line up, two of the rotation axes perform the same rotation causing a loss of a dimension of rotation. This is shown beautifully by GuerrillaCG Interpolation - It’s exceedingly difficult to accurately move smoothly between different rotations Quaternions At first, the idea of using a whole different number system just for rotations can be quite abstract and even visualizing it is even more so. But, once the fundamentals are understood of how and why this works so efficiently, quaternions can be used very easily in software packages like Unity that handle the math calculations for you. A great explanation of application can be found here while a more comprehensive look at the underlying math is given by the always fantastic 3Blue1Brown\nVisual Understanding in Software Applied in blender, you may notice that influencing a single quat value doesn’t rotate the way you expect. Instead, altering a lone quat value will only flip the mesh into different orientations as follows, no rotations in between.\nSmooth rotation starts happening when you influence multiple values at once. In essence, the orientations are mixing depending on the weight you give to each value. Therefore, when thinking about how each quaternion value relates to its 3D rotation, you can think of a quaternion rotation as mixing together these four orientations in order to create the desired rotation. Of course, it’s not that simple as the way the mixing and rotating happens is a result of the underlying math but I think this way of thinking offers better visual and it can aid in understanding what’s really happening.\nFor instance, if you start with the model facing towards us with the quarternion (0, 0, 0, 1) and we want to flip it 90deg about the X-axis. What we should really be thinking is “Which two orientations can I mix to get what I want”. You might notice in the above example that a quaternion of (1, 0, 0, 0) rotates 180deg about the X-axis. So, wouldn’t we be wanting some rotation in between these two? This is precisely the answer. (1, 1, 0 0 ) mixes evenly the starting position and the 180deg rotation to result in a 90deg rotation.\nFor more complex rotations, you can imagine mixing in the other values to get further rotations. Here I add to Y and the mesh rotation mixes towards the upside-down, front facing position.\nit turns out you can achieve every 3D rotation this way without any of the drawbacks of Euler rotations.\nOne thing to notice is when mixing rotations, you can scale each value infinitely and the dominant value will mix the rotation the most. But to get a precise orientation, for example facing forwards, it’s best to return to whole numbers and setting unneeded rotations to 0 instead of battling out which rotation wins.\nSo Why Should I Use It? It comes down to if and when you may encounter the draw backs of using Euler angles. Euler angles are much easier for understand and manipulate mentally but come with the Gimbal drawbacks and interpolation issues that can become a larger issue in physics and animations.\nTypically, physics won’t be an issue as you can allow game engines to take care of that for you. For animations, it can be a benefit to use Quaternions over Euler angles to circumvent undesirable rotation paths. Otherwise, if you’re only performing 2D linear rotations, Euler angles can perform this perfectly and it only really comes to a mathematical and performance benefit with Quaternions.\nIn summary, Quaternions are superior in every way except for human readability.\n",
-  "wordCount" : "930",
-  "inLanguage": "en",
-  "image":"https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg","datePublished": "2023-05-05T10:37:52-04:00",
-  "dateModified": "2023-05-05T10:37:52-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/dev/quaternion/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -108,7 +43,7 @@ How It&rsquo;s Done With Trigonometry Depending on the framework or software usi
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -130,16 +65,18 @@ How It&rsquo;s Done With Trigonometry Depending on the framework or software usi
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -150,7 +87,7 @@ How It&rsquo;s Done With Trigonometry Depending on the framework or software usi
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Understanding Quaternions
     </h1>
@@ -242,16 +179,16 @@ However, this requires knowing the current angle the point sits at which adds an
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/math/">math</a></li>
-      <li><a href="https://hylog.netlify.app/tags/development/">development</a></li>
+      <li><a href="http://localhost:1313/tags/math/">Math</a></li>
+      <li><a href="http://localhost:1313/tags/development/">Development</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/dev/intro_to_shaders/">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/intro_to_shaders/">
     <span class="title">« Prev</span>
     <br>
     <span>Introduction to Unity Shaders</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/3d_character_unity_setup/">
     <span class="title">Next »</span>
     <br>
     <span>3D Character Unity Setup</span>
@@ -263,7 +200,7 @@ However, this requires knowing the current angle the point sits at which adds an
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

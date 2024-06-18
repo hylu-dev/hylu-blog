@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Svelte on Hylu Blog</title>
+    <link>http://localhost:1313/tags/svelte/</link>
+    <description>Recent content in Svelte on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Aug 2023 17:50:32 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/svelte/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revisting Pianotypes</title>
+      <link>http://localhost:1313/posts/2023/old/dev/revisting-pianotypes/</link>
+      <pubDate>Fri, 18 Aug 2023 17:50:32 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/revisting-pianotypes/</guid>
+      <description>I recently finished a course in deep learning and wanted to took a look at a few ways I could apply my knowledge to. The idea the came to me was to create an ai music generation model and feed it into my old pianotypes app. Simple right!
+It&amp;rsquo;s all broken So I booted up my old, dusty, untouched, forgotten, delapidated, abused, ramshackled, repository, and lo and behold, I can&amp;rsquo;t get it to run.</description>
+    </item>
+    <item>
+      <title>Svelte Reactive Classes</title>
+      <link>http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/</link>
+      <pubDate>Sat, 12 Aug 2023 20:29:42 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/</guid>
+      <description>I&amp;rsquo;ve been working on migrating my old PianoTypes project over from Vue to Svelte. So far the syntax has been much cleaner to use and has been an overall a great experience. My first and primary pain point thus far has been implementing a global reactive state for the piano.
+The Problem In Vue, it&amp;rsquo;s possible to add a reactive wrapper to any object. In my case, I had created a class containing all of the piano data and property methods so all I had to do was wrap this class in the wrapper and state is maintained across all instances of my piano class.</description>
+    </item>
+  </channel>
+</rss>

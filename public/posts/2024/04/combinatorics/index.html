@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Fundamentals of Combinatorics | Hylu Blog</title>
+<meta name="keywords" content="Math">
+<meta name="description" content="Why I&rsquo;m Writing This This semester I took a role tutoring MATH14998 (Computer Math) at Sheridan College. I originally felt a little out of water given how long it&rsquo;s been since last studied math. Throughout the term, I&rsquo;ve learned a lot about what it takes to teach and some of my short comings and strengths. One of them being, I have a sense of what concepts are particularly difficult grasp and finding ways to explain them so that the students can actually understand the concepts rather than memorize formulas.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2024/04/combinatorics/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2024/04/combinatorics/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Fundamentals of Combinatorics
+    </h1>
+    <div class="post-meta"><span title='2024-04-19 21:13:54 -0400 EDT'>April 19, 2024</span>
+
+</div>
+    
+    
+    
+    
+    
+<script
+  type="application/javascript"
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  async
+></script>
+<script 
+  type="text/x-mathjax-config"
+  async
+  >
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+    
+  </header> 
+<figure class="entry-cover"><a href="https://www.shutterstock.com/image-vector/fraction-chance-colored-balls-possibility-260nw-2409114537.jpg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://www.shutterstock.com/image-vector/fraction-chance-colored-balls-possibility-260nw-2409114537.jpg" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#why-im-writing-this" aria-label="Why I&rsquo;m Writing This">Why I&rsquo;m Writing This</a></li>
+                <li>
+                    <a href="#what-is-combinatorics" aria-label="What is Combinatorics">What is Combinatorics</a></li>
+                <li>
+                    <a href="#counting" aria-label="Counting">Counting</a></li>
+                <li>
+                    <a href="#permutations" aria-label="Permutations">Permutations</a><ul>
+                        
+                <li>
+                    <a href="#arranging-all-items" aria-label="Arranging all items">Arranging all items</a></li>
+                <li>
+                    <a href="#arranging-subset-of-items" aria-label="Arranging subset of items">Arranging subset of items</a></li>
+                <li>
+                    <a href="#permutations-is-counting" aria-label="Permutations is counting">Permutations is counting</a></li></ul>
+                </li>
+                <li>
+                    <a href="#combinations" aria-label="Combinations">Combinations</a><ul>
+                        
+                <li>
+                    <a href="#combinations-is-permutations-without-order" aria-label="Combinations is permutations without order">Combinations is permutations without order</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="why-im-writing-this">Why I&rsquo;m Writing This<a hidden class="anchor" aria-hidden="true" href="#why-im-writing-this">#</a></h2>
+<p>This semester I took a role tutoring MATH14998 (Computer Math) at Sheridan College. I originally felt a little out of water given how long it&rsquo;s been since last studied math. Throughout the term, I&rsquo;ve learned a lot about what it takes to teach and some of my short comings and strengths. One of them being, I have a sense of what concepts are particularly difficult grasp and finding ways to explain them so that the students can actually understand the concepts rather than memorize formulas. Now my delivery of the explanations could use some work but I&rsquo;ve put together some explanations that I&rsquo;m quite proud of, one of them being combinatorics. And so, I&rsquo;ve included a compilation of those notes here.</p>
+<h2 id="what-is-combinatorics">What is Combinatorics<a hidden class="anchor" aria-hidden="true" href="#what-is-combinatorics">#</a></h2>
+<p>Well it&rsquo;s simply about counting and arranging things. How many groups can you make out of a classroom of 40? How many ways can you pull marbles out of bag. These are the types of questions that combinatorics tries to answer. Things can get more complicated as we introduce more complex questions and formulas but one should never forget what it is at core.</p>
+<p><strong>It&rsquo;s simply about counting and arranging things</strong>. This will always be the case and often this topic seems more complicated that it needs to be because we forget this tenet.</p>
+<p>In this article, I will be covering three topics in combinatorics.</p>
+<ul>
+<li>Counting</li>
+<li>Permutations</li>
+<li>Combinations</li>
+</ul>
+<h2 id="counting">Counting<a hidden class="anchor" aria-hidden="true" href="#counting">#</a></h2>
+<p>Of the three topics, this is arguably the most important. Permutations and combinations can both be done purely by counting. In fact, their formulas are just shorthands for counting which I will show later on. For now let&rsquo;s take a look at what counting is.</p>
+<p>When you have \(X_1\) group of ways to do something and \(X_2\) group of ways to do something else. You can multiply them together to get the total number of ways to do something. For instance, <strong>two dice rolls</strong>.</p>
+<p>$$
+X_1 \cdot X_2 = 6 \cdot 6 = 36
+$$</p>
+<p>For brevity, let&rsquo;s try again with two dice where each die only has 3 sides. I&rsquo;ll also list out all the possible rolls.</p>
+<p>$$
+X_1 \cdot X_2 = 3 \cdot 3 = 9
+$$</p>
+<ul>
+<li>{1, 1}</li>
+<li>{1, 2}</li>
+<li>{1, 3}</li>
+<li>{2, 1}</li>
+<li>{2, 2}</li>
+<li>{2, 3}</li>
+<li>{3, 1}</li>
+<li>{3, 2}</li>
+<li>{3, 3}</li>
+</ul>
+<p>Notice that the set include cases where <strong>both rolls are the same</strong> or are the <strong>same but difference order</strong>.</p>
+<ul>
+<li>{1, 1}</li>
+<li>{1, 2} &amp; {2, 1}</li>
+</ul>
+<p>A more familiar to describe this would be to say the arrangements in the set</p>
+<ul>
+<li>Allow <strong>repetition</strong></li>
+<li>Ensure <strong>order matters</strong></li>
+</ul>
+<h2 id="permutations">Permutations<a hidden class="anchor" aria-hidden="true" href="#permutations">#</a></h2>
+<p>A review of the permutation formula.</p>
+<p>$$
+\frac{n!}{(n-r)!}
+$$</p>
+<ul>
+<li>\(n\) - total number of items</li>
+<li>\(r\) - the number of items to pick from</li>
+</ul>
+<p>We use this to solve problem where there&rsquo;s</p>
+<ul>
+<li>No repetition</li>
+<li>Order matters</li>
+</ul>
+<h3 id="arranging-all-items">Arranging all items<a hidden class="anchor" aria-hidden="true" href="#arranging-all-items">#</a></h3>
+<p>For example, let&rsquo;s say we have a bag with 1 red, 1 blue, and 1 green marble. How many ways can we pull out 3 marbles? Using the permuation formula, our total items are 3 and the number of items we are picking out are also 3.</p>
+<p>$$
+\frac{3!}{(3-3)!} = 3! = 6
+$$</p>
+<p><strong>But we can actually do this just by counting!</strong></p>
+<p>The difference from the previous counting is that each time we pick a marble, we remove on from the pool. So each time, we have one less way to choose. As long as we remember this, we can still just multiply.</p>
+<p>$$
+(3)(2)(1) = 3! = 6
+$$</p>
+<p>It ends up being the same calculation.</p>
+<h3 id="arranging-subset-of-items">Arranging subset of items<a hidden class="anchor" aria-hidden="true" href="#arranging-subset-of-items">#</a></h3>
+<p>Previously, we did the simplest form of a permutation where \(n\) = \(r\). Which reduces the formula to just \(n!\). What about if we don&rsquo;t pick all the marbles?</p>
+<p>Let&rsquo;s pick from the same bag of 1 red, 1 blue, and 1 green marble. How many ways can we pick out a marble?</p>
+<p>$$
+\frac{3!}{(3-1)!} = \frac{3!}{2!} = 3
+$$</p>
+<p><strong>We can still solve this by counting</strong>. All we have to do now is also count the amount of items we aren&rsquo;t including and remove them from our arrangements.</p>
+<p>$$
+\frac{(3)(2)(1)}{(2)(1)} = \frac{3!}{2!} = 3
+$$</p>
+<h3 id="permutations-is-counting">Permutations is counting<a hidden class="anchor" aria-hidden="true" href="#permutations-is-counting">#</a></h3>
+<p>Ultimately, permutations is just a shorthand for more complex counting problems. We introduce factorials to take care of repetition and introduce division to remove from our selection. But still, each component just makes clever use of counting.</p>
+<p>To summarize, permutations takes care of problems where:</p>
+<ul>
+<li><strong>We remove repetition</strong></li>
+<li><strong>We can choose the number of items to pick from</strong></li>
+<li>Order still matters</li>
+</ul>
+<h2 id="combinations">Combinations<a hidden class="anchor" aria-hidden="true" href="#combinations">#</a></h2>
+<p>Notice how the combination formula is just the permutation formula with a small alteration.</p>
+<p>$$
+\frac{n!}{r!(n-r)!}
+$$</p>
+<p>Notice it&rsquo;s nearly identical to the permutation formula except we&rsquo;re moving another \(r!\) arrangements from our total.</p>
+<p>This means combinations should give similar results to permutations. But what do we remove? We add the condition thatorder doesn&rsquo;t matter. In other words, we only consider <strong>arrangements different if they have different items</strong>, not if they&rsquo;re differently ordered.</p>
+<p>If we were making groups in a class, something like</p>
+<ul>
+<li>{Sarah, Max, Carl}</li>
+<li>{Max, Sarag, Carl}</li>
+</ul>
+<p>would not be counted as two separate groups. They would be the same group.</p>
+<blockquote>
+<p>Mathematically we divide out an additional r! because there are r! to arrange r items where order matters. So we get rid of those items by dividing.</p>
+</blockquote>
+<h3 id="combinations-is-permutations-without-order">Combinations is permutations without order<a hidden class="anchor" aria-hidden="true" href="#combinations-is-permutations-without-order">#</a></h3>
+<p>Because the combination formula is so similar to permutation, it&rsquo;s now wonder that they&rsquo;re results are so similar. The only difference is we don&rsquo;t differentiate order.</p>
+<p>= There&rsquo;s no repetition</p>
+<ul>
+<li>We can choose the numbers of items to pick from</li>
+<li><strong>Order doesn&rsquo;t matter</strong></li>
+</ul>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/math/">Math</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2024/05/github-basics/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>GitHub Basics for Designers</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2024/02/01/cyberpunk-2077-thoughts/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Cyberpunk 2077 Thoughts</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

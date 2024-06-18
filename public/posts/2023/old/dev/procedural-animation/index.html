@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Rain World Procedural Animation | Hylu Blog</title>
+<meta name="keywords" content="animation">
+<meta name="description" content="There&rsquo;s so many components to game development I want to learn about and the more I dig in, the more I feel like this hole of knowledge is neverending. It&rsquo;s also the fact that there&rsquo;s so much technology that&rsquo;s already been built and currently being built by people leagues ahead in expertise that it feels like a waste to start at anything only for it to be phased out by some new fangled technology.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/procedural-animation/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/procedural-animation/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Rain World Procedural Animation<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2023-06-07 15:59:24 -0400 EDT'>June 7, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/rockFight.gif" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/rockFight.gif" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#rain-world-procedural-animation-research" aria-label="Rain World Procedural Animation Research">Rain World Procedural Animation Research</a><ul>
+                        
+                <li>
+                    <a href="#limb-animating" aria-label="Limb Animating">Limb Animating</a></li>
+                <li>
+                    <a href="#procedural-animation-for-jumping-tied-to-ai" aria-label="Procedural animation for jumping tied to AI">Procedural animation for jumping tied to AI</a></li>
+                <li>
+                    <a href="#overview-of-early-animation" aria-label="Overview of Early Animation">Overview of Early Animation</a></li>
+                <li>
+                    <a href="#vector-animating" aria-label="Vector Animating">Vector Animating</a></li>
+                <li>
+                    <a href="#many-small-sprites-for-animations" aria-label="Many Small Sprites for Animations">Many Small Sprites for Animations</a></li>
+                <li>
+                    <a href="#climbing-animation" aria-label="Climbing Animation">Climbing Animation</a></li>
+                <li>
+                    <a href="#lizard-debug-examples-gifs" aria-label="Lizard Debug Examples Gifs">Lizard Debug Examples Gifs</a></li>
+                <li>
+                    <a href="#shader-fading-extra" aria-label="Shader Fading (Extra)">Shader Fading (Extra)</a></li>
+                <li>
+                    <a href="#vulture-early-animating" aria-label="Vulture Early Animating">Vulture Early Animating</a></li>
+                <li>
+                    <a href="#vulture-shadow-warning" aria-label="Vulture Shadow Warning">Vulture Shadow Warning</a></li>
+                <li>
+                    <a href="#1-bit-sprites" aria-label="1 Bit Sprites">1 Bit Sprites</a></li>
+                <li>
+                    <a href="#rotating-lizard-gif" aria-label="Rotating Lizard Gif">Rotating Lizard Gif</a></li>
+                <li>
+                    <a href="#animations-only-positions" aria-label="Animations Only Positions">Animations Only Positions</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>There&rsquo;s so many components to game development I want to learn about and the more I dig in, the more I feel like this hole of knowledge is neverending. It&rsquo;s also the fact that there&rsquo;s so much technology that&rsquo;s already been built and currently being built by people leagues ahead in expertise that it feels like a waste to start at anything only for it to be phased out by some new fangled technology.</p>
+<p>Though, the more I look into the games that impress me the more I realize that development is full of creative ideas made on the fly and strong problem solving skills.</p>
+<p>With that preamble aside, after playing Rainworld, I&rsquo;ve gotten extremely interested in it&rsquo;s procedural animation. It&rsquo;s mindbending how everything seems to twist and move in 3 dimensions despite being purely 2D sprites and it all seems to be done with a lot of clever code and sprite design.</p>
+<h2 id="rain-world-procedural-animation-research">Rain World Procedural Animation Research<a hidden class="anchor" aria-hidden="true" href="#rain-world-procedural-animation-research">#</a></h2>
+<p>I&rsquo;ve done some looking around for tutorials on Rainworld animation and other than a popular <a href="https://www.youtube.com/watch?v=sVntwsrjNe4">GDC Presentation</a>, I couldn&rsquo;t find any direct tutorial other than comment speculations and surface level analysis. I&rsquo;d seem to hit a rut until I found out that Joar&rsquo;s whole devlog is archived nicely at <strong><a href="https://candlesign.github.io/Rain-World-Devlog/Home">https://candlesign.github.io/Rain-World-Devlog/Home</a></strong>.</p>
+<p>Starting from the top, the first few logs that talk about animation don&rsquo;t go far in depth but revealed to me that the sprites were indeed programmed frame by frame. Joar had done some experimentation with vectors but ended up doing it frame by frame. But that still doesn&rsquo;t answer the procedural aspect.</p>
+<h3 id="limb-animating">Limb Animating<a hidden class="anchor" aria-hidden="true" href="#limb-animating">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#84">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#84</a>.</p>
+<p>Rainworld limbs are have their extension animated frame by frame and then cleverly rotated through code depending on context.</p>
+<div class="center-flex">
+  <a class="center-flex link " href="#ZgotmplZ" target="_blank">
+    <img alt="&lt;https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/wcbsyb.jpg&gt;" src="#ZgotmplZ" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<blockquote>
+<p>Furthermore, the arms are coming together. I had to make three animations like the one above, because the arm needs to be able to rotate&hellip; inwards so to speak, but I think that it right now looks OK, or at least has the potential to look OK. - <a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#85">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#85</a>
+What you see here is the arm, in 0-8 extension modes and three different degrees of rotation towards the viewer, where the topmost is a profile where you see the bend of the elbow, while the third row is the same arm viewed from &ldquo;above&rdquo;. Rows 4-6 are the same thing, but for the leg. - <a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#86">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#86</a>
+Thanks! The way I animate things is by a combination of pixel animation and a vector animation. I don&rsquo;t remember how much detil I go into, but there is some stuff on animation back there. - <a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#111">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#111</a>
+Very little is done with traditional animation, almost everything is done by the computer. - <a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#293">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#293</a></p>
+</blockquote>
+<h3 id="procedural-animation-for-jumping-tied-to-ai">Procedural animation for jumping tied to AI<a hidden class="anchor" aria-hidden="true" href="#procedural-animation-for-jumping-tied-to-ai">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#364">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#364</a></p>
+<h3 id="overview-of-early-animation">Overview of Early Animation<a hidden class="anchor" aria-hidden="true" href="#overview-of-early-animation">#</a></h3>
+<p><a href="https://www.kickstarter.com/projects/rain-world/project-rain-world/posts/720818">https://www.kickstarter.com/projects/rain-world/project-rain-world/posts/720818</a></p>
+<h3 id="vector-animating">Vector Animating<a hidden class="anchor" aria-hidden="true" href="#vector-animating">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#570">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#570</a></p>
+<h3 id="many-small-sprites-for-animations">Many Small Sprites for Animations<a hidden class="anchor" aria-hidden="true" href="#many-small-sprites-for-animations">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#577">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#577</a></p>
+<h3 id="climbing-animation">Climbing Animation<a hidden class="anchor" aria-hidden="true" href="#climbing-animation">#</a></h3>
+<p>Hands are drawn infront of the graphics directly</p>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#581">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#581</a></p>
+<h3 id="lizard-debug-examples-gifs">Lizard Debug Examples Gifs<a hidden class="anchor" aria-hidden="true" href="#lizard-debug-examples-gifs">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#694">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#694</a></p>
+<h3 id="shader-fading-extra">Shader Fading (Extra)<a hidden class="anchor" aria-hidden="true" href="#shader-fading-extra">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#694">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#694</a></p>
+<h3 id="vulture-early-animating">Vulture Early Animating<a hidden class="anchor" aria-hidden="true" href="#vulture-early-animating">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#961">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#961</a></p>
+<h3 id="vulture-shadow-warning">Vulture Shadow Warning<a hidden class="anchor" aria-hidden="true" href="#vulture-shadow-warning">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#963">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#963</a></p>
+<h3 id="1-bit-sprites">1 Bit Sprites<a hidden class="anchor" aria-hidden="true" href="#1-bit-sprites">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#1258">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#1258</a></p>
+<h3 id="rotating-lizard-gif">Rotating Lizard Gif<a hidden class="anchor" aria-hidden="true" href="#rotating-lizard-gif">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#1275">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#1275</a></p>
+<h3 id="animations-only-positions">Animations Only Positions<a hidden class="anchor" aria-hidden="true" href="#animations-only-positions">#</a></h3>
+<p><a href="https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#1422">https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#1422</a></p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/animation/">Animation</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Intro to Deep Learning</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2023/old/ai/overview-of-probability/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Overview of Probability</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

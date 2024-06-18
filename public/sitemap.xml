@@ -2,192 +2,243 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hylog.netlify.app/tags/gamedev/</loc>
+    <loc>http://localhost:1313/tags/gamedev/</loc>
+    <lastmod>2024-06-05T23:56:04-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-06-05T23:56:04-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-06-05T23:56:04-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/06/responsive-melee-combat/</loc>
+    <lastmod>2024-06-05T23:56:04-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-06-05T23:56:04-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/unity/</loc>
+    <lastmod>2024-06-05T23:56:04-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/05/real-time-toon-shading/</loc>
+    <lastmod>2024-05-12T00:12:51-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/shaders/</loc>
+    <lastmod>2024-05-12T00:12:51-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/code/</loc>
+    <lastmod>2024-05-07T12:35:27-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/</loc>
+    <lastmod>2024-05-07T12:35:27-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/05/github-basics/</loc>
+    <lastmod>2024-05-07T00:28:21-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/04/combinatorics/</loc>
+    <lastmod>2024-04-19T21:13:54-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/math/</loc>
+    <lastmod>2024-04-19T21:13:54-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cyberpunk/</loc>
+    <lastmod>2024-02-01T20:01:21-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/02/01/cyberpunk-2077-thoughts/</loc>
+    <lastmod>2024-02-01T20:01:21-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/games/</loc>
+    <lastmod>2024-02-01T20:01:21-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/c&#43;&#43;/</loc>
+    <lastmod>2024-01-10T01:02:05-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024/01/ubisoft-next/</loc>
+    <lastmod>2024-01-10T01:02:05-05:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023/12/slime-hunter/</loc>
     <lastmod>2023-12-19T01:03:34-05:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/</loc>
-    <lastmod>2023-12-19T01:03:34-05:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/posts/</loc>
-    <lastmod>2023-12-19T01:03:34-05:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/12/slime-hunter/</loc>
-    <lastmod>2023-12-19T01:03:34-05:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/tags/</loc>
-    <lastmod>2023-12-19T01:03:34-05:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/tags/c&#43;&#43;/</loc>
+    <loc>http://localhost:1313/posts/2023/10/c&#43;&#43;-test-review/</loc>
     <lastmod>2023-10-16T13:48:23-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-test-review/</loc>
-    <lastmod>2023-10-16T13:48:23-04:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/10/satisfying-2d-movement/</loc>
+    <loc>http://localhost:1313/posts/2023/10/satisfying-2d-movement/</loc>
     <lastmod>2023-10-13T22:35:08-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/10/portrait-mobile-games/</loc>
+    <loc>http://localhost:1313/posts/2023/10/portrait-mobile-games/</loc>
     <lastmod>2023-10-11T20:03:58-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-a-personal-guide/</loc>
+    <loc>http://localhost:1313/posts/2023/10/c&#43;&#43;-a-personal-guide/</loc>
     <lastmod>2023-10-04T13:05:14-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/development/</loc>
+    <loc>http://localhost:1313/tags/development/</loc>
     <lastmod>2023-10-01T02:07:05-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/pianotypes/</loc>
+    <loc>http://localhost:1313/tags/pianotypes/</loc>
     <lastmod>2023-10-01T02:07:05-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/</loc>
+    <loc>http://localhost:1313/posts/2023/10/pianotypes-devlog-5/</loc>
     <lastmod>2023-10-01T02:07:05-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/09/stack-and-heap/</loc>
+    <loc>http://localhost:1313/posts/2023/09/habits-and-goals/</loc>
+    <lastmod>2023-09-28T08:20:52-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/personal/</loc>
+    <lastmod>2023-09-28T08:20:52-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023/09/stack-and-heap/</loc>
     <lastmod>2023-09-27T10:08:53-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/math/</loc>
+    <loc>http://localhost:1313/posts/2023/09/useful-linear-algebra/</loc>
     <lastmod>2023-09-25T12:17:47-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/09/useful-linear-algebra/</loc>
-    <lastmod>2023-09-25T12:17:47-04:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/09/dot-product/</loc>
+    <loc>http://localhost:1313/posts/2023/09/dot-product/</loc>
     <lastmod>2023-09-14T14:57:16-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/09/signed-ints/</loc>
+    <loc>http://localhost:1313/posts/2023/09/signed-ints/</loc>
     <lastmod>2023-09-12T16:56:05-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/personal/</loc>
+    <loc>http://localhost:1313/posts/2023/09/pgdap-log-2/</loc>
     <lastmod>2023-09-12T11:34:05-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/09/pgdap-log-2/</loc>
-    <lastmod>2023-09-12T11:34:05-04:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/09/starting-the-school-year/</loc>
+    <loc>http://localhost:1313/posts/2023/09/starting-the-school-year/</loc>
     <lastmod>2023-09-05T11:33:26-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/tabby/</loc>
+    <loc>http://localhost:1313/tags/tabby/</loc>
     <lastmod>2023-09-05T11:33:26-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-5/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/</loc>
     <lastmod>2023-09-04T16:48:12-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/glsl/</loc>
+    <loc>http://localhost:1313/tags/glsl/</loc>
     <lastmod>2023-08-26T12:23:27-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/layering-colours/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/layering-colours/</loc>
     <lastmod>2023-08-26T12:23:27-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/which-way-does-the-uv-go/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/which-way-does-the-uv-go/</loc>
     <lastmod>2023-08-25T23:35:31-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-4/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-4/</loc>
     <lastmod>2023-08-25T21:51:48-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/chrome/</loc>
+    <loc>http://localhost:1313/tags/chrome/</loc>
     <lastmod>2023-08-23T22:23:06-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/reviving-tabby-sort/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/reviving-tabby-sort/</loc>
     <lastmod>2023-08-23T22:23:06-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-3/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-3/</loc>
     <lastmod>2023-08-23T09:29:07-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-2/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-2/</loc>
     <lastmod>2023-08-21T13:18:35-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/revisting-pianotypes/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/revisting-pianotypes/</loc>
     <lastmod>2023-08-18T17:50:32-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/svelte/</loc>
+    <loc>http://localhost:1313/tags/svelte/</loc>
     <lastmod>2023-08-18T17:50:32-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/svelte-reactive-classes/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/svelte-reactive-classes/</loc>
     <lastmod>2023-08-12T20:29:42-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/some-more-glsl/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/some-more-glsl/</loc>
     <lastmod>2023-07-19T03:43:21-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/js-modules-in-hugo/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/js-modules-in-hugo/</loc>
     <lastmod>2023-07-14T07:57:33-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/basics-of-shader-fractals/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</loc>
     <lastmod>2023-07-13T20:53:06-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/shaders/</loc>
-    <lastmod>2023-07-13T20:53:06-04:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/tags/art/</loc>
+    <loc>http://localhost:1313/tags/art/</loc>
     <lastmod>2023-07-13T01:27:51-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/procreate/</loc>
+    <loc>http://localhost:1313/tags/procreate/</loc>
     <lastmod>2023-07-13T01:27:51-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/other/some-casual-art/</loc>
+    <loc>http://localhost:1313/posts/2023/old/other/some-casual-art/</loc>
     <lastmod>2023-07-13T01:27:51-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/3d-matrix-rotations/</loc>
+    <loc>http://localhost:1313/posts/2023/old/other/just-do/</loc>
+    <lastmod>2023-07-11T02:31:07-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</loc>
     <lastmod>2023-06-15T02:03:50-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/ai/</loc>
+    <loc>http://localhost:1313/tags/ai/</loc>
     <lastmod>2023-06-12T17:22:24-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/ai/intro-to-deep-learning/</loc>
+    <loc>http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/</loc>
     <lastmod>2023-06-12T17:22:24-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/</loc>
+    <loc>http://localhost:1313/tags/animation/</loc>
+    <lastmod>2023-06-07T15:59:24-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023/old/dev/procedural-animation/</loc>
+    <lastmod>2023-06-07T15:59:24-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</loc>
     <lastmod>2023-06-04T12:27:54-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/ai/intro-to-machine-learning/</loc>
+    <loc>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</loc>
     <lastmod>2023-05-28T21:17:51-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/blender/</loc>
+    <loc>http://localhost:1313/posts/2023/old/other/iccit_website/</loc>
+    <lastmod>2023-05-24T12:16:13-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/blender/</loc>
     <lastmod>2023-05-15T14:34:17-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/handling_normals_from_unity_to_blender/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/</loc>
     <lastmod>2023-05-15T14:34:17-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/unity/</loc>
-    <lastmod>2023-05-15T14:34:17-04:00</lastmod>
-  </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/playing_with_glsl/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</loc>
     <lastmod>2023-05-11T14:23:07-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/intro_to_shaders/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/intro_to_shaders/</loc>
     <lastmod>2023-05-06T13:26:32-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/quaternion/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/quaternion/</loc>
     <lastmod>2023-05-05T10:37:52-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/dev/3d_character_unity_setup/</loc>
+    <loc>http://localhost:1313/posts/2023/old/dev/3d_character_unity_setup/</loc>
     <lastmod>2023-05-03T10:54:02-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/osu/osu_banner/</loc>
+    <loc>http://localhost:1313/posts/2023/old/osu/osu_banner/</loc>
     <lastmod>2023-05-02T01:18:34-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/osu/</loc>
+    <loc>http://localhost:1313/tags/osu/</loc>
     <lastmod>2023-05-02T01:18:34-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/organization/</loc>
+    <loc>http://localhost:1313/tags/organization/</loc>
     <lastmod>2023-05-01T15:12:19-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/other/using_kanban_boards/</loc>
+    <loc>http://localhost:1313/posts/2023/old/other/using_kanban_boards/</loc>
     <lastmod>2023-05-01T15:12:19-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/other/folder_structure/</loc>
+    <loc>http://localhost:1313/posts/2023/old/other/folder_structure/</loc>
     <lastmod>2023-04-28T15:44:49-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/tags/fanart/</loc>
+    <loc>http://localhost:1313/tags/warframe/</loc>
+    <lastmod>2023-04-27T21:45:22-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/</loc>
+    <lastmod>2023-04-27T21:45:22-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/fanart/</loc>
     <lastmod>2023-04-24T02:57:43-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/osu/osu_fanart2/</loc>
+    <loc>http://localhost:1313/posts/2023/old/osu/osu_fanart2/</loc>
     <lastmod>2023-04-24T02:57:43-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/osu/osu_fanart/</loc>
+    <loc>http://localhost:1313/posts/2023/old/osu/osu_fanart/</loc>
     <lastmod>2023-04-24T00:39:23-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/posts/2023/old/other/first-post/</loc>
+    <loc>http://localhost:1313/posts/2023/old/other/first-post/</loc>
     <lastmod>2023-04-23T19:20:29-04:00</lastmod>
   </url><url>
-    <loc>https://hylog.netlify.app/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>

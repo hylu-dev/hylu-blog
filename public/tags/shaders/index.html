@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>shaders | Hylu Blog</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Shaders | Hylu Blog</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/tags/shaders/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/tags/shaders/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://hylog.netlify.app/tags/shaders/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/shaders/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/shaders/">
 <noscript>
     <style>
         #theme-toggle,
@@ -28,15 +29,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="shaders" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hylog.netlify.app/tags/shaders/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="shaders"/>
-<meta name="twitter:description" content=""/>
-
+</noscript>
 </head>
 
 <body class="list dark" id="top">
@@ -50,7 +43,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -72,16 +65,18 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -89,11 +84,31 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/tags/">Tags</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tags/">Tags</a></div>
   <h1>
-    shaders
+    Shaders
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Real Time Toon Shading in Unity
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Toon Shading We’ll be using a numbers of methods from Unity’s URP package by importing Lighting.hlsl. That file has some other inclusions that we will also make direct use of. In all, we’ll be using the following files.
+Lighting.hlsl RealTimeLights.hlsl Shadows.hlsl SpaceTransforms.hlsl Lighting.hlsl RealTimeLights.hlsl. In order to ensure our reacts to light in real-time, we need to hook on to some of Unity’s lighting methods to acquire the lights in the scene as well as the shadow maps....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-05-12 00:12:51 -0400 EDT'>May 12, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Real Time Toon Shading in Unity" href="http://localhost:1313/posts/2024/05/real-time-toon-shading/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
 <figure class="entry-cover"><a href="https://upload.wikimedia.org/wikipedia/commons/a/af/Simple_Fractals.png" target="_blank"
@@ -117,7 +132,7 @@ How to Make a Fractal I’ll be following kishimisu’s guide on shaders.
 Create a Shape First off, we can start by creating some base patterns that we want to design our fractal off of. In this case, we can start with a simple circle....</p>
   </div>
   <footer class="entry-footer"><span title='2023-07-13 20:53:06 -0400 EDT'>July 13, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Basics of Shader Fractals" href="https://hylog.netlify.app/posts/2023/old/dev/basics-of-shader-fractals/"></a>
+  <a class="entry-link" aria-label="post link to Basics of Shader Fractals" href="http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -142,7 +157,7 @@ Intuition of 3x3Matrix Transformations 3x3 matrices can be used to bend the coor
 As the coordinate space is being transformed, it’s helpful breaking up the matrix into its unit vectors...</p>
   </div>
   <footer class="entry-footer"><span title='2023-06-15 02:03:50 -0400 EDT'>June 15, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to 3D Matrix Rotations" href="https://hylog.netlify.app/posts/2023/old/dev/3d-matrix-rotations/"></a>
+  <a class="entry-link" aria-label="post link to 3D Matrix Rotations" href="http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -166,7 +181,7 @@ As the coordinate space is being transformed, it’s helpful breaking up the mat
 Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0....</p>
   </div>
   <footer class="entry-footer"><span title='2023-05-11 14:23:07 -0400 EDT'>May 11, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Playing With GLSL" href="https://hylog.netlify.app/posts/2023/old/dev/playing_with_glsl/"></a>
+  <a class="entry-link" aria-label="post link to Playing With GLSL" href="http://localhost:1313/posts/2023/old/dev/playing_with_glsl/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -190,12 +205,12 @@ Drawing Circles A Circle Using step To start, this is what it looks like using t
 Shader’s make use of the GPU to constantly run concurrent calculation on every pixel and you can decide what those calculations do through programming with languages such as HLSL and GLSL....</p>
   </div>
   <footer class="entry-footer"><span title='2023-05-06 13:26:32 -0400 EDT'>May 6, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Introduction to Unity Shaders" href="https://hylog.netlify.app/posts/2023/old/dev/intro_to_shaders/"></a>
+  <a class="entry-link" aria-label="post link to Introduction to Unity Shaders" href="http://localhost:1313/posts/2023/old/dev/intro_to_shaders/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

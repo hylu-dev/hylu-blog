@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blender on Hylu Blog</title>
-    <link>https://hylu-blog.netlify.app/tags/blender/</link>
-    <description>Recent content in blender on Hylu Blog</description>
+    <title>Blender on Hylu Blog</title>
+    <link>http://localhost:1313/tags/blender/</link>
+    <description>Recent content in Blender on Hylu Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 May 2023 01:18:34 -0400</lastBuildDate><atom:link href="https://hylu-blog.netlify.app/tags/blender/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 May 2023 14:34:17 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blender/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Handling Normals from Unity to Blender</title>
+      <link>http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/</link>
+      <pubDate>Mon, 15 May 2023 14:34:17 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/</guid>
+      <description>While trying to import a plane from Blender to Unity, I ran into the issue of the normals facing the wrong direction once imported into Unity. This was particularly an issue when it came to vertex shaders as any vertex transform performed incorrectly.
+This crux of the issue is that Blender considers the z-axis to be the vertical axis while unity considers the y-axis to be. So, for a plane in Blender, the normals would face towards the positive z-axis but when imported to Unity, they remain so which to Unity is actually along the horizontal plane.</description>
+    </item>
     <item>
       <title>Making an Animated Osu Banner</title>
-      <link>https://hylu-blog.netlify.app/posts/osu_banner/</link>
+      <link>http://localhost:1313/posts/2023/old/osu/osu_banner/</link>
       <pubDate>Tue, 02 May 2023 01:18:34 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/posts/osu_banner/</guid>
+      <guid>http://localhost:1313/posts/2023/old/osu/osu_banner/</guid>
       <description>I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&amp;rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&amp;rsquo;s too large, the auto-compression will convert the image into a static jpeg).</description>
     </item>
-    
     <item>
       <title>Osu Fanart Again!?</title>
-      <link>https://hylu-blog.netlify.app/posts/osu_fanart2/</link>
+      <link>http://localhost:1313/posts/2023/old/osu/osu_fanart2/</link>
       <pubDate>Mon, 24 Apr 2023 02:57:43 -0400</pubDate>
-      
-      <guid>https://hylu-blog.netlify.app/posts/osu_fanart2/</guid>
+      <guid>http://localhost:1313/posts/2023/old/osu/osu_fanart2/</guid>
       <description>Journey into a Beatmap Getting Started After doing my first fanart, I didn&amp;rsquo;t have any intention of doing another but this one&amp;rsquo;s theme instantly gave me the idea of incorporating 3D modelling into the art piece. In summary, the theme is to create an Osu fanart with the OC&amp;rsquo;s inside a beatmap.
 I immediately had the idea of drawing Enchanted Love as I fell in love with the visuals from the original MV.</description>
     </item>
-    
   </channel>
 </rss>

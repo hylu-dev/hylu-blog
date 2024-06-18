@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Stack and Heap | Hylu Blog</title>
 <meta name="keywords" content="c&#43;&#43;">
 <meta name="description" content="Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack
@@ -12,18 +12,17 @@ vector&lt;Type&gt; vect; will allocate the vector, i.e. the header info, on the 
 vector&lt;Type&gt; *vect = new vector&lt;Type&gt;; allocates everything on the free store (except vect pointer, which is on the stack).
 vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/09/stack-and-heap/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/09/stack-and-heap/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/09/stack-and-heap/">
 <noscript>
     <style>
         #theme-toggle,
@@ -32,75 +31,7 @@ vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of p
         }
 
     </style>
-</noscript><meta property="og:title" content="Stack and Heap" />
-<meta property="og:description" content="Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack
-vector&lt;Type&gt; vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (&ldquo;heap&rdquo;).
-vector&lt;Type&gt; *vect = new vector&lt;Type&gt;; allocates everything on the free store (except vect pointer, which is on the stack).
-vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/09/stack-and-heap/" />
-<meta property="og:image" content="https://craftofcoding.files.wordpress.com/2015/12/stackmemory31.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-09-27T10:08:53-04:00" />
-<meta property="article:modified_time" content="2023-09-27T10:08:53-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://craftofcoding.files.wordpress.com/2015/12/stackmemory31.jpg" />
-<meta name="twitter:title" content="Stack and Heap"/>
-<meta name="twitter:description" content="Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack
-vector&lt;Type&gt; vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (&ldquo;heap&rdquo;).
-vector&lt;Type&gt; *vect = new vector&lt;Type&gt;; allocates everything on the free store (except vect pointer, which is on the stack).
-vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say)."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Stack and Heap",
-      "item": "https://hylog.netlify.app/posts/2023/09/stack-and-heap/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Stack and Heap",
-  "name": "Stack and Heap",
-  "description": "Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack\nvector\u0026lt;Type\u0026gt; vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (\u0026ldquo;heap\u0026rdquo;).\nvector\u0026lt;Type\u0026gt; *vect = new vector\u0026lt;Type\u0026gt;; allocates everything on the free store (except vect pointer, which is on the stack).\nvector\u0026lt;Type*\u0026gt; vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).",
-  "keywords": [
-    "c++"
-  ],
-  "articleBody": "Declaring Data Structures on the Heap https://stackoverflow.com/questions/8036474/when-vectors-are-allocated-do-they-use-memory-on-the-heap-or-the-stack\nvector\u003cType\u003e vect; will allocate the vector, i.e. the header info, on the stack, but the elements on the free store (“heap”).\nvector\u003cType\u003e *vect = new vector\u003cType\u003e; allocates everything on the free store (except vect pointer, which is on the stack).\nvector\u003cType*\u003e vect; will allocate the vector on the stack and a bunch of pointers on the free store, but where these point is determined by how you use them (you could point element 0 to the free store and element 1 to the stack, say).\nDangling Pointers on the Heap So the idea with dangling pointers is that if you allocate a piece of memory in the heap you need a pointer to pointer to that slot of memory. That’s a given.\nint* p = new int(5); Now if you want to release that block of memory, you use the pointer to free it.\ndelete *p But there’s a problem! You now have a pointer just pointing to a random block of memory that can be used by anything. This is a dangling pointer.\nDangling Pointers on the Stack If variables go out of scope in the stack, it gets released from the stack so we don’t need to depend on delete. However we can still get the dangers of dangling pointers.\nint* DoSomething() { int x; int* p = \u0026x; return p } int* a = DoSomething(); a now points to an unused piece of memory in the stack! This is dangerous cause that memory space could be taken up by something later on and we don’t want to mess with that memory.\nDifference With Uninitialized Variables An uninitialized variable is generally a bad idea\nint x;\nIf you dereference it, you could get anything depending on whatever was left there in memory. This is not as bad as the aforementioned dangling pointer though as at least that memory block is being used by x so it won’t be used later down line until x is released.\nint x; Memory Leaks If you allocate some memory on the heap, you should always have a pointer leading to it. If you lose those pointers, than you’ll have no way of accessing that memory.\nThat is, you won’t ever be able to free that memory.\n",
-  "wordCount" : "381",
-  "inLanguage": "en",
-  "image":"https://craftofcoding.files.wordpress.com/2015/12/stackmemory31.jpg","datePublished": "2023-09-27T10:08:53-04:00",
-  "dateModified": "2023-09-27T10:08:53-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/09/stack-and-heap/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -114,7 +45,7 @@ vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of p
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -136,16 +67,18 @@ vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of p
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -156,7 +89,7 @@ vector&lt;Type*&gt; vect; will allocate the vector on the stack and a bunch of p
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Stack and Heap
     </h1>
@@ -246,15 +179,15 @@ This is a <strong>dangling pointer</strong>.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/c&#43;&#43;/">c&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/">
+  <a class="prev" href="http://localhost:1313/posts/2023/09/habits-and-goals/">
     <span class="title">« Prev</span>
     <br>
-    <span>Pianotypes Devlog 5</span>
+    <span>Habits and Goals and Gratitude</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/09/useful-linear-algebra/">
+  <a class="next" href="http://localhost:1313/posts/2023/09/useful-linear-algebra/">
     <span class="title">Next »</span>
     <br>
     <span>Useful Linear Algebra</span>
@@ -266,7 +199,7 @@ This is a <strong>dangling pointer</strong>.</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

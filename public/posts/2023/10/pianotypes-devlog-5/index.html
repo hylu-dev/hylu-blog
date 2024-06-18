@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Pianotypes Devlog 5 | Hylu Blog</title>
 <meta name="keywords" content="pianotypes, development">
 <meta name="description" content="Not many code changes as of late but I&rsquo;ve been more active on one of the packages I&rsquo;m using to play sound, smplr. It&rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.
 A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
 Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&rsquo;s of static.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/10/pianotypes-devlog-5/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/10/pianotypes-devlog-5/">
 <noscript>
     <style>
         #theme-toggle,
@@ -31,71 +30,7 @@ Note Scheduling Throughput The first change was a tweak to note scheduling that 
         }
 
     </style>
-</noscript><meta property="og:title" content="Pianotypes Devlog 5" />
-<meta property="og:description" content="Not many code changes as of late but I&rsquo;ve been more active on one of the packages I&rsquo;m using to play sound, smplr. It&rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.
-A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
-Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&rsquo;s of static." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-10-01T02:07:05-04:00" />
-<meta property="article:modified_time" content="2023-10-01T02:07:05-04:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pianotypes Devlog 5"/>
-<meta name="twitter:description" content="Not many code changes as of late but I&rsquo;ve been more active on one of the packages I&rsquo;m using to play sound, smplr. It&rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.
-A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
-Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&rsquo;s of static."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Pianotypes Devlog 5",
-      "item": "https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Pianotypes Devlog 5",
-  "name": "Pianotypes Devlog 5",
-  "description": "Not many code changes as of late but I\u0026rsquo;ve been more active on one of the packages I\u0026rsquo;m using to play sound, smplr. It\u0026rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.\nA bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.\nNote Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot\u0026rsquo;s of static.",
-  "keywords": [
-    "pianotypes", "development"
-  ],
-  "articleBody": "Not many code changes as of late but I’ve been more active on one of the packages I’m using to play sound, smplr. It’s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.\nA bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.\nNote Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot’s of static.\nAn issue was opened a few months back that is now fixed.\ndanigb added a new queuing data structure that looks to better handle large amounts of notes as per feat/player #30. Definitely worth taking a look at in the future!\nonStart callback This was a feature I requested and is key for my project as I need to visualize keypresses as well as key releases on the piano whenever a note is played.\nweb audio nodes don’t have a built-in onStart callback so it makes sense why smplr didn’t immediately include one either.\nI used a pretty jank method of adding new web audio nodes and playing empty sounds with no duration only for them to trigger a callback when it ends. Since the duration is 0, the onEnded effectively acts as an onStart.\nlet timingNodes = []; const timingContext = new AudioContext(); function scheduleCallback(delay, callback){ const osc = timingContext.createOscillator(); osc.start(timingContext.currentTime+delay); osc.stop(timingContext.currentTime+delay); osc.onended = callback; // keep nodes in a list in case I need to stop them early timingNodes.push(osc); } But after some back and forth with some issues, danigb introduced a built in onstart as per my suggestion! I’ve replaced my code with the new callback and it works amazingly.\nOther stuff I put a pause on my work into converting the visualizer into an html canvas for two reasons.\nMy early implementation of canvas painting was actually lagging quite a big in comparison to the current HTML DOM elements. My use of shadows are really slow to draw on the canvas especially when there’s so many elements. I don’t want to lose the shadows since they look really nice. I still want to use canvas since the current implementations has some animation flickers and issues when the user is on a different tab. I’d need to rework my code a good bit since it’s not designed well for accessing piano events from a centralized place quickly Currently I have seperate component to handle ribbons for each note. A canvas would have to handle every note from within one component. I also put a start into including piano genie functionality.\n",
-  "wordCount" : "446",
-  "inLanguage": "en",
-  "datePublished": "2023-10-01T02:07:05-04:00",
-  "dateModified": "2023-10-01T02:07:05-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/10/pianotypes-devlog-5/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -109,7 +44,7 @@ Note Scheduling Throughput The first change was a tweak to note scheduling that 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -131,16 +66,18 @@ Note Scheduling Throughput The first change was a tweak to note scheduling that 
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -151,7 +88,7 @@ Note Scheduling Throughput The first change was a tweak to note scheduling that 
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Pianotypes Devlog 5
     </h1>
@@ -234,19 +171,19 @@ Note Scheduling Throughput The first change was a tweak to note scheduling that 
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/pianotypes/">pianotypes</a></li>
-      <li><a href="https://hylog.netlify.app/tags/development/">development</a></li>
+      <li><a href="http://localhost:1313/tags/pianotypes/">Pianotypes</a></li>
+      <li><a href="http://localhost:1313/tags/development/">Development</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/10/c&#43;&#43;-a-personal-guide/">
+  <a class="prev" href="http://localhost:1313/posts/2023/10/c&#43;&#43;-a-personal-guide/">
     <span class="title">« Prev</span>
     <br>
     <span>C&#43;&#43; A Personal Guide</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/09/stack-and-heap/">
+  <a class="next" href="http://localhost:1313/posts/2023/09/habits-and-goals/">
     <span class="title">Next »</span>
     <br>
-    <span>Stack and Heap</span>
+    <span>Habits and Goals and Gratitude</span>
   </a>
 </nav>
 
@@ -255,7 +192,7 @@ Note Scheduling Throughput The first change was a tweak to note scheduling that 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Overview of Probability | Hylu Blog</title>
 <meta name="keywords" content="math, ai">
 <meta name="description" content="I&rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
 Random Variable Whenever there&rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/ai/overview-of-probability/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/ai/overview-of-probability/">
 <noscript>
     <style>
         #theme-toggle,
@@ -30,71 +29,7 @@ Random Variable Whenever there&rsquo;s a question of probability, you tend to ha
         }
 
     </style>
-</noscript><meta property="og:title" content="Overview of Probability" />
-<meta property="og:description" content="I&rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
-Random Variable Whenever there&rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/" />
-<meta property="og:image" content="https://3b1b-posts.us-east-1.linodeobjects.com//images/topics/probability.jpg" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-06-04T12:27:54-04:00" />
-<meta property="article:modified_time" content="2023-06-04T12:27:54-04:00" />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://3b1b-posts.us-east-1.linodeobjects.com//images/topics/probability.jpg" />
-<meta name="twitter:title" content="Overview of Probability"/>
-<meta name="twitter:description" content="I&rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
-Random Variable Whenever there&rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Overview of Probability",
-      "item": "https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Overview of Probability",
-  "name": "Overview of Probability",
-  "description": "I\u0026rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.\nRandom Variable Whenever there\u0026rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.",
-  "keywords": [
-    "math", "ai"
-  ],
-  "articleBody": "I’ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.\nRandom Variable Whenever there’s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.\nWe label some process that has multiple outcomes as a random variable.\nTypically, we use \\(X\\) to name this random variable though it can be any name capitalized as convention.\nAn easy example is a six-sided die where there are precisely six possible outcomes. In essence, our random variable can be thought of as a list of these outcomes.\nX = [1, 2, 3, 4, 5, 6] Expected Value As the name suggests, this averages out the probabilities of all the outcomes and returns the mean (\\(\\mu\\)) of all the outcomes.\n$$E[X] = \\sum_{x} P(X=x)*x$$\nFor example, in the case of a six-sided fair die, the probability of each outcome is uniform leading to the following expected value.\n$$E[X] = \\frac{1}{6}(1 + 2 + 3 + 4 + 5 + 6) = 3.5$$\nThe average roll is 3.5\nVariance To preface, standard deviations and variance are nearly identical and both describe the dispersion of values. Standard deviation is often more useful in applications and visualizations than variance. However, standard deviations is derived from variance so it’s important to know what variance is though, seeing the purpose of variance this way can be difficult. Rather, comprehend the math of variance in relation to expected value, and then move on to standard deviation to understand its usefulness.\nThe variance tells us how spread out a probability distribution is. We do this by finding the difference between each outcome and the expected value (\\(\\mu\\)), and then take that expected value (in other words, we get the average difference each outcome is from the mean).\n$$V(X) = E[(X - \\mu)^2] = \\sum_{x} P(X=x)*(x-\\mu)^2$$\nYou may notice that we actually square that difference. Other than ensuring our difference is positive, taking square makes the math nicer later on.\nIn the case of a fair die, we get the following variance.\n$$V(X) = \\frac{1}{6}(17.5) = \\frac{35}{12}$$\nthe squared distance between each die face and the mean is 2.916.\nStandard Deviation Let’s start with this comparison with variance.\n$$\\sigma = \\sqrt{V(X)}$$\nWhen we talk about variance being the average difference from the mean, it can be difficult to picture as it is the squared distance from the mean. Instead, if we want to normalize the units we take the standard deviation as the square root of the variance.\nNow when we say the average distance each result is from the mean, we can properly denote it as \\(n\\) standard deviations away from the mean.\nFrom the prior die example, we get this standard deviation\n$$\\sigma = \\sqrt{\\frac{35}{12}} = 1.71$$\nNow let’s say we roll a 1 which deviates from the mean by 2.5, comparing this to our standard deviation we get the following\n$$\\frac{2.5}{\\sigma} = 1.46$$\nOur dice roll of 1 was roughly 1.46 standard deviations away from the mean which is actually just another way to say it was 2.5 away from the mean like we started.\nStatistical Uses Those who work with probabilities on large datasets are generally familiar with how data fits within a range of standard deviation. The chart above is saying:\n68% of values are within 1 \\(\\sigma\\) away from the mean 95% of values are within 2 \\(\\sigma\\) away from the mean 99.7% of values are within 3 \\(\\sigma\\) away from the mean Knowing the standard deviation gives great insight into how clustered dataset is around the mean. Larger values suggest a more spread out dataset.\nConditional Probabilities Conditional probabilities ask, “what is the probability of A given a condition B”.\nMore formally,\n$$P(A|B) = \\frac{P(A\\cap B)}{P(B)}$$\nThe intuition is that we’re looking at subset of the data that satisfies this condition B. Then, we’re taking a fraction of those that satisfy A within the subset B.\nBayes Theorem $$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$$\nThe thing you might notice is that we’re also describing conditional probabilities, so what’s the difference?\nInstead of using the joint probability \\(P(A\\cap B)\\), we use the reverse condition \\(P(B|A)P(A)\\). But these are actually equivalent! Think about it this way: The probability of A and B happening is the same thing as saying the probability of A happening and the probabilty of B given that A happened.\nBut what’s the point?\nBayes Theorem is better suited to conditional problems where our condition updates our original probability. In other words, we can visualize the probability as a hypothesis and a piece of evidence. We can repeatedly update our probability as new evidence comes in.\n$$P(A\\cap B) = P(B|A)P(A) = P(New\\ evidence\\ after\\ current\\ event)P(current\\ event)$$\nAn Example Let’s say our hypothesis is that Anne is a vegetarian and let’s say that 1/4 of people are vegetarians. Then the probability of Anne being one is just so.\n$$P(H) = 1/4$$\nNow, let’s say we get some evidence that Anne is a climate change activist. Now the question is, “what’s the probability that Anne is a vegetarian given that she’s also a climate change activist (activist for short).\nLet’s say we infer that a fifth of vegetarians are activists and a tenth of non-vegetarians are activists. Then we can solve as follows\n$$P(H|E) = \\frac{P(Vegetarian)P(Activist\\ if\\ Vegetarian)}{P(Activist)} = \\frac{\\frac{1}{4}*\\frac{1}{5}}{\\frac{1}{5}+\\frac{1}{10}} = \\frac{1}{6}$$\nImagine from here, we can repeat the process with new evidence using the previous evidence as our hypothesis instead, further refining our probability. This forms the basis of many uses cases like risk analysis and machine learning.'\n",
-  "wordCount" : "957",
-  "inLanguage": "en",
-  "image":"https://3b1b-posts.us-east-1.linodeobjects.com//images/topics/probability.jpg","datePublished": "2023-06-04T12:27:54-04:00",
-  "dateModified": "2023-06-04T12:27:54-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/ai/overview-of-probability/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -108,7 +43,7 @@ Random Variable Whenever there&rsquo;s a question of probability, you tend to ha
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -130,16 +65,18 @@ Random Variable Whenever there&rsquo;s a question of probability, you tend to ha
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -150,7 +87,7 @@ Random Variable Whenever there&rsquo;s a question of probability, you tend to ha
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Overview of Probability
     </h1>
@@ -306,16 +243,16 @@ Random Variable Whenever there&rsquo;s a question of probability, you tend to ha
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://hylog.netlify.app/tags/math/">math</a></li>
-      <li><a href="https://hylog.netlify.app/tags/ai/">ai</a></li>
+      <li><a href="http://localhost:1313/tags/math/">Math</a></li>
+      <li><a href="http://localhost:1313/tags/ai/">Ai</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/old/ai/intro-to-deep-learning/">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/procedural-animation/">
     <span class="title">« Prev</span>
     <br>
-    <span>Intro to Deep Learning</span>
+    <span>Rain World Procedural Animation</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/ai/intro-to-machine-learning/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/">
     <span class="title">Next »</span>
     <br>
     <span>Intro to Machine Learning</span>
@@ -327,7 +264,7 @@ Random Variable Whenever there&rsquo;s a question of probability, you tend to ha
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

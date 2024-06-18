@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gamedev on Hylu Blog</title>
+    <link>http://localhost:1313/tags/gamedev/</link>
+    <description>Recent content in Gamedev on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Jun 2024 23:56:04 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gamedev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Responsive Melee Combat</title>
+      <link>http://localhost:1313/posts/2024/06/responsive-melee-combat/</link>
+      <pubDate>Wed, 05 Jun 2024 23:56:04 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/06/responsive-melee-combat/</guid>
+      <description>What is Responsive Combat Whether it&amp;rsquo;s an attack, dodge, or block, responsive combat ensures each feels immediate and with appropriate feedback. Games like Hades got this nailed down to a tee. Attacks feel punchy with minimal delay and the player rarely feels like their fighting with the controls to get the game to do what they want. By providing precise control over the character&amp;rsquo;s abilities, responsive combat enhances the sense of agency and satisfaction, leading to more intense and rewarding gameplay experiences.</description>
+    </item>
+    <item>
+      <title>Ubisoft NEXT</title>
+      <link>http://localhost:1313/posts/2024/01/ubisoft-next/</link>
+      <pubDate>Wed, 10 Jan 2024 01:02:05 -0500</pubDate>
+      <guid>http://localhost:1313/posts/2024/01/ubisoft-next/</guid>
+      <description>Ubisoft NEXT is an annual competition run by Ubisoft that has contestants compete against a variety of disciplines within game development. From drawing art pieces, to level design, depending on your skillset you can test your abilities against others. The winner for each competition gets a 3-month internship with Ubisoft in Montreal!
+I&amp;rsquo;m entering into the programming category.
+Building a 3D Engine I took a look at some older submissions and noticed many of the successful projects tended towards 3D graphics.</description>
+    </item>
+    <item>
+      <title>Slime Hunter Pitch</title>
+      <link>http://localhost:1313/posts/2023/12/slime-hunter/</link>
+      <pubDate>Tue, 19 Dec 2023 01:03:34 -0500</pubDate>
+      <guid>http://localhost:1313/posts/2023/12/slime-hunter/</guid>
+      <description>First semester finished! With all the final assignments, I completely forgot about this blog. Whoops!
+In any case, I wanted to do a little retrospective on our final pitch assignment.
+Final Pitch The idea of this assignment is simple, we create a game idea and we pitch to the class with a short, 5 minute, prerecorded presentation. The presentation should be informative and succinct and give the viewers a clear idea of the game.</description>
+    </item>
+    <item>
+      <title>Satisfying 2D Movement</title>
+      <link>http://localhost:1313/posts/2023/10/satisfying-2d-movement/</link>
+      <pubDate>Fri, 13 Oct 2023 22:35:08 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/satisfying-2d-movement/</guid>
+      <description>I&amp;rsquo;m in the middle of working on my first mainline c++ project at school.
+We&amp;rsquo;re tasked with making a simple vertical spaceship shooter using c++ with SDL and some pre-made assets to form the game. At the moment, I&amp;rsquo;ve set up most of the classes I will need and have a simple ship that renders onto the screen.
+Naive Movement My first iteration of ship movement does have some forward thinking but allowing ship movement to continue by holding down keys.</description>
+    </item>
+    <item>
+      <title>Portrait Action Mobile Games</title>
+      <link>http://localhost:1313/posts/2023/10/portrait-mobile-games/</link>
+      <pubDate>Wed, 11 Oct 2023 20:03:58 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/10/portrait-mobile-games/</guid>
+      <description>As I was looking for games to play during my bus rides, I realized the convenience of being able to play phone games one-handed, or just simply in portrait mode. It&amp;rsquo;s a lot more comfortable to hold, especially in tighter environments like a bus.
+There&amp;rsquo;s lot&amp;rsquo;s of options for this but they mostly amount to puzzle games and such. Instead, I wanted something more actiony and rpg-like I could play in that format.</description>
+    </item>
+    <item>
+      <title>PGDAP Log 2</title>
+      <link>http://localhost:1313/posts/2023/09/pgdap-log-2/</link>
+      <pubDate>Tue, 12 Sep 2023 11:34:05 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/pgdap-log-2/</guid>
+      <description>I&amp;rsquo;m on my second week and to my surprise, all my anxieties and insecurities subsided really quickly. It had been while since I&amp;rsquo;ve had a proper schedule or talk to people in person on a frequent basis but I&amp;rsquo;m glad at how smoothly I&amp;rsquo;ve been able to reacclimate and I&amp;rsquo;ve been feeling a lot happier as a result.
+Anyways so far, it&amp;rsquo;s just been a lot of intro talk and fundamentals of concepts I&amp;rsquo;ve already learned before.</description>
+    </item>
+  </channel>
+</rss>

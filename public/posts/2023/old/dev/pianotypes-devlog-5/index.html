@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Pianotypes Devlog 5 | Hylu Blog</title>
 <meta name="keywords" content="">
 <meta name="description" content="I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.
 Why Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.
 The extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing.">
 <meta name="author" content="">
-<link rel="canonical" href="https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-5/">
-<link rel="stylesheet" href="https://hylog.netlify.app/css/custom.css">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.09da9c313791d5ebcf2403d84146f32ee6d50a4d877cf3a7b6d0590761e49cf5.css" integrity="sha256-CdqcMTeR1evPJAPYQUbzLubVCk2HfPOnttBZB2HknPU=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://hylog.netlify.app/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://hylog.netlify.app/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://hylog.netlify.app/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://hylog.netlify.app/apple-touch-icon.png">
-<link rel="mask-icon" href="https://hylog.netlify.app/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/">
 <noscript>
     <style>
         #theme-toggle,
@@ -31,71 +30,7 @@ The extending animation works by settings each ribbon to the max size of the lan
         }
 
     </style>
-</noscript><meta property="og:title" content="Pianotypes Devlog 5" />
-<meta property="og:description" content="I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.
-Why Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.
-The extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-5/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-09-04T16:48:12-04:00" />
-<meta property="article:modified_time" content="2023-09-04T16:48:12-04:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pianotypes Devlog 5"/>
-<meta name="twitter:description" content="I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.
-Why Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.
-The extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://hylog.netlify.app/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Pianotypes Devlog 5",
-      "item": "https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-5/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Pianotypes Devlog 5",
-  "name": "Pianotypes Devlog 5",
-  "description": "I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.\nWhy Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.\nThe extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing.",
-  "keywords": [
-    ""
-  ],
-  "articleBody": "I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.\nWhy Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.\nThe extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing. Once the ribbon is released, I then query the DOM object for it’s current length at that moment of the transition and then cancel the rest of the transition and manually set the div to that size. I also add a new transition that translates the ribbon from the bottom of the view until it’s offscreen where it’s then removed from the DOM.\nIt definitely works but there’s two main problems that lead to my desire for replacing with an HTML canvas.\nIt’s rather cumbersome to spawn that many DOM objects that are all styled and animating at once. I haven’t personally run into any lag issues in my testing but from a design perspective, it’s really inefficient. The current scaling transition doesn’t play well with round borders as it tries to scale those from 0 as well. This leads to a slight flicker once I end the transition and force the ribbons final size as the rounded borders snap to their final size. Another smaller reason is that I’d like to add more effects like particles which is better done with canvas anyways.\nCurrent Progress For now, I’ve just got the canvas setup and played around with creating ribbon blocks in it and animating the extension and translations of them. So far it looks great.\nMy next task is to figure out how I want to feed the key press events to the visualizer. Previously, I had a separate component for each note of the key that would just listen to keypresses for their individually note. Now, it’s just one component that needs to keep track of all notes being pressed. Additionally, since I can’t depend on the flexbox placements for the ribbon lanes, I need to notify the position of the key being pressed as well as the type of key so the canvas knows where and how to draw the ribbon.\nThough, I’m not using TypeScript, I mocked up an object type to describe the type of info the canvas will need to hold for all of the current ribbons it needs to draw.\ntype Ribbon { x: number; y: number; width: number; height: number; released: boolean; } I’m really conflicted now for how I should implement this. Even more, I’m wondering if I should rework how key press events are being handled as a whole…\nLike maybe I should just keep a single store object that tracks the most recent key event like\nexport const keyPressEvent = writable({}); And just have the piano listen to whenever this variable changes and react to it rather than what it’s doing now which is listening to a dictionary that holds the current state of every key…\n",
-  "wordCount" : "544",
-  "inLanguage": "en",
-  "datePublished": "2023-09-04T16:48:12-04:00",
-  "dateModified": "2023-09-04T16:48:12-04:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hylog.netlify.app/posts/2023/old/dev/pianotypes-devlog-5/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hylu Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hylog.netlify.app/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class=" dark" id="top">
@@ -109,7 +44,7 @@ The extending animation works by settings each ribbon to the max size of the lan
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://hylog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -131,16 +66,18 @@ The extending animation works by settings each ribbon to the max size of the lan
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://hylog.netlify.app/posts/" title="Posts">
+                <a href="http://localhost:1313/posts/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://hylog.netlify.app/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -151,7 +88,7 @@ The extending animation works by settings each ribbon to the max size of the lan
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://hylog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylog.netlify.app/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title">
       Pianotypes Devlog 5
     </h1>
@@ -221,12 +158,12 @@ The extending animation works by settings each ribbon to the max size of the lan
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://hylog.netlify.app/posts/2023/09/starting-the-school-year/">
+  <a class="prev" href="http://localhost:1313/posts/2023/09/starting-the-school-year/">
     <span class="title">« Prev</span>
     <br>
     <span>Starting the School Year</span>
   </a>
-  <a class="next" href="https://hylog.netlify.app/posts/2023/old/dev/layering-colours/">
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/layering-colours/">
     <span class="title">Next »</span>
     <br>
     <span>Layering Colours</span>
@@ -238,7 +175,7 @@ The extending animation works by settings each ribbon to the max size of the lan
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://hylog.netlify.app/">Hylu Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
