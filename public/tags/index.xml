@@ -81,7 +81,7 @@
     <item>
       <title>Personal</title>
       <link>http://localhost:1313/tags/personal/</link>
-      <pubDate>Thu, 28 Sep 2023 08:20:52 -0400</pubDate>
+      <pubDate>Tue, 12 Sep 2023 11:34:05 -0400</pubDate>
       <guid>http://localhost:1313/tags/personal/</guid>
       <description></description>
     </item>
@@ -135,13 +135,6 @@
       <description></description>
     </item>
     <item>
-      <title>Animation</title>
-      <link>http://localhost:1313/tags/animation/</link>
-      <pubDate>Wed, 07 Jun 2023 15:59:24 -0400</pubDate>
-      <guid>http://localhost:1313/tags/animation/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Blender</title>
       <link>http://localhost:1313/tags/blender/</link>
       <pubDate>Mon, 15 May 2023 14:34:17 -0400</pubDate>
@@ -160,13 +153,6 @@
       <link>http://localhost:1313/tags/organization/</link>
       <pubDate>Mon, 01 May 2023 15:12:19 -0400</pubDate>
       <guid>http://localhost:1313/tags/organization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Warframe</title>
-      <link>http://localhost:1313/tags/warframe/</link>
-      <pubDate>Thu, 27 Apr 2023 21:45:22 -0400</pubDate>
-      <guid>http://localhost:1313/tags/warframe/</guid>
       <description></description>
     </item>
     <item>

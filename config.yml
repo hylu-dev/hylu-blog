@@ -3,6 +3,11 @@ languageCode: en-us
 title: Hylu Blog
 theme: PaperMod
 disqusShortname: hylog
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
 params:
   custom_css: ["css/custom.css"]
   profileMode:
@@ -34,8 +39,11 @@ params:
 menu:
   main:
     - name: Archive
-      pageRef: /Posts
+      pageRef: /posts
       weight: 10
+    - name: Search
+      pageRef: /search
+      weight: 20
     - name: Tags
       pageRef: /tags
       weight: 30

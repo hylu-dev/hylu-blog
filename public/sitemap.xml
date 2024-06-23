@@ -80,12 +80,6 @@
     <loc>http://localhost:1313/posts/2023/10/pianotypes-devlog-5/</loc>
     <lastmod>2023-10-01T02:07:05-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/2023/09/habits-and-goals/</loc>
-    <lastmod>2023-09-28T08:20:52-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/personal/</loc>
-    <lastmod>2023-09-28T08:20:52-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/2023/09/stack-and-heap/</loc>
     <lastmod>2023-09-27T10:08:53-04:00</lastmod>
   </url><url>
@@ -97,6 +91,9 @@
   </url><url>
     <loc>http://localhost:1313/posts/2023/09/signed-ints/</loc>
     <lastmod>2023-09-12T16:56:05-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/personal/</loc>
+    <lastmod>2023-09-12T11:34:05-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2023/09/pgdap-log-2/</loc>
     <lastmod>2023-09-12T11:34:05-04:00</lastmod>
@@ -161,9 +158,6 @@
     <loc>http://localhost:1313/posts/2023/old/other/some-casual-art/</loc>
     <lastmod>2023-07-13T01:27:51-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/2023/old/other/just-do/</loc>
-    <lastmod>2023-07-11T02:31:07-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</loc>
     <lastmod>2023-06-15T02:03:50-04:00</lastmod>
   </url><url>
@@ -173,20 +167,11 @@
     <loc>http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/</loc>
     <lastmod>2023-06-12T17:22:24-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/animation/</loc>
-    <lastmod>2023-06-07T15:59:24-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2023/old/dev/procedural-animation/</loc>
-    <lastmod>2023-06-07T15:59:24-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</loc>
     <lastmod>2023-06-04T12:27:54-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</loc>
     <lastmod>2023-05-28T21:17:51-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2023/old/other/iccit_website/</loc>
-    <lastmod>2023-05-24T12:16:13-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/blender/</loc>
     <lastmod>2023-05-15T14:34:17-04:00</lastmod>
@@ -221,12 +206,6 @@
     <loc>http://localhost:1313/posts/2023/old/other/folder_structure/</loc>
     <lastmod>2023-04-28T15:44:49-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/warframe/</loc>
-    <lastmod>2023-04-27T21:45:22-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/</loc>
-    <lastmod>2023-04-27T21:45:22-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/fanart/</loc>
     <lastmod>2023-04-24T02:57:43-04:00</lastmod>
   </url><url>
@@ -240,5 +219,7 @@
     <lastmod>2023-04-23T19:20:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>

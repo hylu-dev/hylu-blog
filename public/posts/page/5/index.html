@@ -76,6 +76,11 @@
                 </a>
             </li>
             <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
                 <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
@@ -89,102 +94,6 @@
     Posts
   </h1>
 </header>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><a href="https://docs.blender.org/manual/en/2.79/_images/modeling_meshes_editing_normals_viewport.png" target="_blank"
-            rel="noopener noreferrer"><img loading="lazy" src="https://docs.blender.org/manual/en/2.79/_images/modeling_meshes_editing_normals_viewport.png" alt=""></a>
-        
-</figure>
-<style>
-    .entry-cover img {
-        height: 200px !important;
-        object-fit: cover !important;
-    }
-</style>
-
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Handling Normals from Unity to Blender
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>While trying to import a plane from Blender to Unity, I ran into the issue of the normals facing the wrong direction once imported into Unity. This was particularly an issue when it came to vertex shaders as any vertex transform performed incorrectly.
-This crux of the issue is that Blender considers the z-axis to be the vertical axis while unity considers the y-axis to be. So, for a plane in Blender, the normals would face towards the positive z-axis but when imported to Unity, they remain so which to Unity is actually along the horizontal plane....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-05-15 14:34:17 -0400 EDT'>May 15, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Handling Normals from Unity to Blender" href="http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><a href="https://thebookofshaders.com/07/froebel.jpg" target="_blank"
-            rel="noopener noreferrer"><img loading="lazy" src="https://thebookofshaders.com/07/froebel.jpg" alt=""></a>
-        
-</figure>
-<style>
-    .entry-cover img {
-        height: 200px !important;
-        object-fit: cover !important;
-    }
-</style>
-
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Playing With GLSL
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>From what I’ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
-Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-05-11 14:23:07 -0400 EDT'>May 11, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Playing With GLSL" href="http://localhost:1313/posts/2023/old/dev/playing_with_glsl/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><a href="https://acegikmo.com/shaderforge/images/web/screenshots/sf_ss_mainpage_b.jpg" target="_blank"
-            rel="noopener noreferrer"><img loading="lazy" src="https://acegikmo.com/shaderforge/images/web/screenshots/sf_ss_mainpage_b.jpg" alt=""></a>
-        
-</figure>
-<style>
-    .entry-cover img {
-        height: 200px !important;
-        object-fit: cover !important;
-    }
-</style>
-
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Introduction to Unity Shaders
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Shaders are programs used to describe how pixels should be arranged, colored, and transformed on the screen. The simple definition extends to so many applications especially in 3D graphics in movies and games. Every computer generated prop placed in a scene is carefully designed to look a certain way, all with the help of shaders.
-Shader’s make use of the GPU to constantly run concurrent calculation on every pixel and you can decide what those calculations do through programming with languages such as HLSL and GLSL....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-05-06 13:26:32 -0400 EDT'>May 6, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Introduction to Unity Shaders" href="http://localhost:1313/posts/2023/old/dev/intro_to_shaders/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><a href="https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg" target="_blank"
-            rel="noopener noreferrer"><img loading="lazy" src="https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg" alt=""></a>
-        
-</figure>
-<style>
-    .entry-cover img {
-        height: 200px !important;
-        object-fit: cover !important;
-    }
-</style>
-
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Understanding Quaternions
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.
-How It’s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-05-05 10:37:52 -0400 EDT'>May 5, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Understanding Quaternions" href="http://localhost:1313/posts/2023/old/dev/quaternion/"></a>
-</article>
 
 <article class="post-entry"> 
 <figure class="entry-cover"><a href="http://localhost:1313/posts/2023/old/dev/3d_character_unity_setup/images/jammo_movement.gif" target="_blank"
@@ -281,36 +190,6 @@ There you can add each of the states you want to transition your model to and fr
 </article>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><a href="http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/images/frame_drifter.jpg" target="_blank"
-            rel="noopener noreferrer">
-        <img loading="lazy" src="http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/images/frame_drifter.jpg" alt="Drifter"></a>
-        
-</figure>
-<style>
-    .entry-cover img {
-        height: 200px !important;
-        object-fit: cover !important;
-    }
-</style>
-
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Warframe visage inks are great! Duviri&#39;s alright too.
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Warframe recently released it’s long awaited update, The Duviri Paradox. I’ve been silently waiting for it’s release since it’s been talked about and delayed for many years. I played some and overall and I feel like I could pretty well enjoy it if not for the bugs. I think the push for slower paced gameplay is cool but just doesn’t really have a future with the rest of Warframe. I was a little disappointed how this really ends up as a huge, sectioned off experience with little impact on the rest of the game....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-27 21:45:22 -0400 EDT'>April 27, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Warframe visage inks are great! Duviri&#39;s alright too." href="http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/"></a>
-</article>
-
-<article class="post-entry"> 
 <figure class="entry-cover"><a href="https://assets.ppy.sh/contests/175/entries/Nervy%20Badger.jpg" target="_blank"
             rel="noopener noreferrer"><img loading="lazy" src="https://assets.ppy.sh/contests/175/entries/Nervy%20Badger.jpg" alt=""></a>
         
@@ -333,12 +212,58 @@ I immediately had the idea of drawing Enchanted Love as I fell in love with the 
   <footer class="entry-footer"><span title='2023-04-24 02:57:43 -0400 EDT'>April 24, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Osu Fanart Again!?" href="http://localhost:1313/posts/2023/old/osu/osu_fanart2/"></a>
 </article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="http://localhost:1313/posts/2023/old/osu/osu_fanart/images/final.png" target="_blank"
+            rel="noopener noreferrer">
+        <img loading="lazy" src="http://localhost:1313/posts/2023/old/osu/osu_fanart/images/final.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Making Osu Fanart
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>osu! Fanarts? Osu holds several fanart contest every year with themes often related to the time of year. Themes such as Winter or Halloween are such examples. Regardless of theme, the general idea seems to always be to draw any of the osu mascots inside or partaking in said theme.
+At the time I had been playing osu for about 4 months and really enjoying it. On the other hand, I’ve been drawing casually for a few years as a hobby so it seemed naturally to want to give these contests a shot....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-24 00:39:23 -0400 EDT'>April 24, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to Making Osu Fanart" href="http://localhost:1313/posts/2023/old/osu/osu_fanart/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="http://localhost:1313/img/heart.svg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="http://localhost:1313/img/heart.svg" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">New Beginnings
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Hi, I’m a developer. That in itself doesn’t mean too much really and for me it only really marks the beginning of what I would like to do and achieve. I’ve read my share of devlogs and appreciate the amount of value it gives to readers while also envying the sheer knowledge and coherence each of the authors are able to display. I hope I can also create devlogs of similar value....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-23 19:20:29 -0400 EDT'>April 23, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to New Beginnings" href="http://localhost:1313/posts/2023/old/other/first-post/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://localhost:1313/posts/page/4/">
       «&nbsp;Prev&nbsp;
-    </a>
-    <a class="next" href="http://localhost:1313/posts/page/6/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

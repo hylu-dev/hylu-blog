@@ -76,6 +76,11 @@
                 </a>
             </li>
             <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
                 <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
@@ -89,27 +94,6 @@
     Posts
   </h1>
 </header>
-
-<article class="post-entry"> 
-<style>
-    .entry-cover img {
-        height: 200px !important;
-        object-fit: cover !important;
-    }
-</style>
-
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Pianotypes Devlog 5
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>I finally put a start into replacing the current ribbon visualizer implementation with an HTML canvas drawn one.
-Why Bother? To reiterate, the current visualizers works by filling the screen with vertical divs that are positioned identically to the piano keys so each key essentially has a identically width column above it. I then spawn divs inside each lane that act as each of the ribbons.
-The extending animation works by settings each ribbon to the max size of the lane and running a scaleY transition from 0 to 1 to mimic the ribbon growing from nothing....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-09-04 16:48:12 -0400 EDT'>September 4, 2023</span></footer>
-  <a class="entry-link" aria-label="post link to Pianotypes Devlog 5" href="http://localhost:1313/posts/2023/old/dev/pianotypes-devlog-5/"></a>
-</article>
 
 <article class="post-entry"> 
 <style>
@@ -309,6 +293,30 @@ Notice that the texture remains flat but is effectively cropped onto the project
   </div>
   <footer class="entry-footer"><span title='2023-07-19 03:43:21 -0400 EDT'>July 19, 2023</span></footer>
   <a class="entry-link" aria-label="post link to Some More GLSL" href="http://localhost:1313/posts/2023/old/dev/some-more-glsl/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="https://discoverthreejs.com/images/logo/banner_trans.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://discoverthreejs.com/images/logo/banner_trans.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">JS Modules in Hugo
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>While writing this blog, I’ve been constantly finding a need to include various JavaScript libraries such as graphics libraries or text processors. I love the simplicity of Markdown but sometimes it can be really helpful to include more meaningful content and visuals to better illustrate a certain topic or idea.
+My most recent endeavor was adding an easy way to render shaders within each of posts which turned out to be a more painful task than I originally anticipated....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-14 07:57:33 -0400 EDT'>July 14, 2023</span></footer>
+  <a class="entry-link" aria-label="post link to JS Modules in Hugo" href="http://localhost:1313/posts/2023/old/dev/js-modules-in-hugo/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

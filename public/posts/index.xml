@@ -117,14 +117,6 @@ A bunch of new changes were made recently that have added some awesome features 
 Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&amp;rsquo;s of static.</description>
     </item>
     <item>
-      <title>Habits and Goals and Gratitude</title>
-      <link>http://localhost:1313/posts/2023/09/habits-and-goals/</link>
-      <pubDate>Thu, 28 Sep 2023 08:20:52 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2023/09/habits-and-goals/</guid>
-      <description>Having Goals I have goals and I like the fact that I do. It makes me feel like I have purpose, that I have some direction I need to follow. However, it often feels suffocating, demotivating, it makes me feel envious of others, it makes me feel that I&amp;rsquo;m unaccomplished or that I&amp;rsquo;m falling behind because of I haven&amp;rsquo;t done enough. These are the feelings of having goals.
-But how do you achieve goals.</description>
-    </item>
-    <item>
       <title>Stack and Heap</title>
       <link>http://localhost:1313/posts/2023/09/stack-and-heap/</link>
       <pubDate>Wed, 27 Sep 2023 10:08:53 -0400</pubDate>
@@ -290,14 +282,6 @@ Create a Shape First off, we can start by creating some base patterns that we wa
       <description>I&amp;rsquo;ve been trying to get into the habit of drawing casually as opposed to doing so as part of some contest or project. Part of that is just drawing what I feel in the moment. I&amp;rsquo;m not intending to follow any style but at the same time I&amp;rsquo;m not stopping myself from easing any habits which resulted with a few pictures that do share a style. I always felt with drawing that I have no clue what my style is.</description>
     </item>
     <item>
-      <title>Just do</title>
-      <link>http://localhost:1313/posts/2023/old/other/just-do/</link>
-      <pubDate>Tue, 11 Jul 2023 02:31:07 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2023/old/other/just-do/</guid>
-      <description>It&amp;rsquo;s been a while since I&amp;rsquo;ve done a post. Honestly, I&amp;rsquo;ve been hitting a bit of a slum. I have things I want to accomplish and a way towards it but every step in that direction feels so heavy. I am indulging in avoidance and everyday it eats at me because I know I can do better&amp;ndash;I&amp;rsquo;ve done better.
-What is it that I want to do? I want to make something of my own and share it to people who know why.</description>
-    </item>
-    <item>
       <title>3D Matrix Rotations</title>
       <link>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</link>
       <pubDate>Thu, 15 Jun 2023 02:03:50 -0400</pubDate>
@@ -317,13 +301,6 @@ One way is to start with all layers uing the same amount of neurons and continue
 Dropout: Regularlization technique to avoid overfitting. Leaves out data to better deal with general cases. 20%-50% dropout is a good starting range. Momentum: Helps finding the direction of next descent and prevent oscillations.</description>
     </item>
     <item>
-      <title>Rain World Procedural Animation</title>
-      <link>http://localhost:1313/posts/2023/old/dev/procedural-animation/</link>
-      <pubDate>Wed, 07 Jun 2023 15:59:24 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2023/old/dev/procedural-animation/</guid>
-      <description>There&amp;rsquo;s so many components to game development I want to learn about and the more I dig in, the more I feel like this hole of knowledge is neverending. It&amp;rsquo;s also the fact that there&amp;rsquo;s so much technology that&amp;rsquo;s already been built and currently being built by people leagues ahead in expertise that it feels like a waste to start at anything only for it to be phased out by some new fangled technology.</description>
-    </item>
-    <item>
       <title>Overview of Probability</title>
       <link>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</link>
       <pubDate>Sun, 04 Jun 2023 12:27:54 -0400</pubDate>
@@ -338,13 +315,6 @@ Random Variable Whenever there&amp;rsquo;s a question of probability, you tend t
       <guid>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</guid>
       <description>In preparation for a deep learning course I&amp;rsquo;m taking over the Summer, I&amp;rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I&amp;rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&amp;rsquo;s more than worth getting my feet wet.
 ML Overview flowchart LRsubgraph Shader Lifecycledirection LRd[(&#34;Dataset&#34;)] --&gt; m((&#34;Model&#34;)) --&gt; o(&#34;</description>
-    </item>
-    <item>
-      <title>ICCIT Web Development Logs</title>
-      <link>http://localhost:1313/posts/2023/old/other/iccit_website/</link>
-      <pubDate>Wed, 24 May 2023 12:16:13 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2023/old/other/iccit_website/</guid>
-      <description>Main Page Events Shop Main Page Events Shop </description>
     </item>
     <item>
       <title>Handling Normals from Unity to Blender</title>
@@ -408,13 +378,6 @@ There you can add each of the states you want to transition your model to and fr
       <pubDate>Fri, 28 Apr 2023 15:44:49 -0400</pubDate>
       <guid>http://localhost:1313/posts/2023/old/other/folder_structure/</guid>
       <description>When using a programming engine or framework, one of the things I get stuck on the most is how to organize all the directories and files for a project. Every technology has its own separate ethos when it comes to the separation of concerns. It&amp;rsquo;s such an important part in order to not have a growing project becoming a nightmare for other&amp;rsquo;s to work with, or even yourself after spending some time away from it.</description>
-    </item>
-    <item>
-      <title>Warframe visage inks are great! Duviri&#39;s alright too.</title>
-      <link>http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/</link>
-      <pubDate>Thu, 27 Apr 2023 21:45:22 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2023/old/other/a_return_to_warframe_duviri/</guid>
-      <description>Warframe recently released it&amp;rsquo;s long awaited update, The Duviri Paradox. I&amp;rsquo;ve been silently waiting for it&amp;rsquo;s release since it&amp;rsquo;s been talked about and delayed for many years. I played some and overall and I feel like I could pretty well enjoy it if not for the bugs. I think the push for slower paced gameplay is cool but just doesn&amp;rsquo;t really have a future with the rest of Warframe. I was a little disappointed how this really ends up as a huge, sectioned off experience with little impact on the rest of the game.</description>
     </item>
     <item>
       <title>Osu Fanart Again!?</title>
