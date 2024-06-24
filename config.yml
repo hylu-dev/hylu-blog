@@ -17,14 +17,12 @@ params:
   profileMode:
         enabled: true
         title: "Don't mind me." # optional default will be site title
-        subtitle: "Just stress writing."
+        subtitle: "Just coding the worries away"
         imageUrl: "img/heart.svg" # optional
         imageTitle: "Heart" # optional
-        imageWidth: 320 # custom size
-        imageHeight: 320 # custom size
-        buttons:
-            - name: Posts
-              url: "/posts"
+        imageWidth: 300 # custom size
+        imageHeight: 300 # custom size
+        imageLink: "/posts" # CUSTOM: index_profile
   socialIcons:
     - name: "github"
       url: "https://github.com/hylu-dev"

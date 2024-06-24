@@ -1,5 +1,5 @@
-<h2>
-    Some stuff
+<h2 class="project-title">
+    Project Highlights
 </h2>
 
 <div class="project-container">
@@ -10,7 +10,7 @@
     {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
     {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
     <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h3 class="entry-hint-parent">
         {{- .Title }}
         {{- if .Draft }}
         <span class="entry-hint" title="Draft">
@@ -20,7 +20,7 @@
         </svg>
         </span>
         {{- end }}
-    </h2>
+    </h3>
     </header>
     {{- if (ne (.Param "hideSummary") true) }}
     <div class="entry-content">
@@ -33,3 +33,28 @@
 {{ end }} {{/* end featuredPosts */}}
 </div>
 
+<style>
+    .project-title {
+        align-self: flex-start;
+        margin-top: 50px;
+    }
+
+    .project-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 10px;
+    }
+
+    .project-container > article {
+        text-align: center;
+    }
+
+    .entry-hint-parent {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .entry-cover img {
+        height: 100px !important;
+    }
+</style>
