@@ -3,7 +3,7 @@
 </h2>
 
 <div class="project-container">
-{{ range $page := site.Params.featuredPosts }}
+{{ range $page := site.Params.featuredProjects }}
 {{ with site.GetPage $page }}
 {{/* post template from list.html */}}
 <article class="post-entry">
@@ -41,11 +41,12 @@
 
     .project-container {
         display: grid;
+        justify-items: center;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 10px;
     }
 
-    .project-container > article {
+    .project-container > * {
         text-align: center;
     }
 

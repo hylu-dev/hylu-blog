@@ -1,7 +1,7 @@
 ---
 title: "Real Time Toon Shading in Unity"
 date: 2024-05-12T00:12:51-04:00
-draft: false
+draft: true
 cover:
     image: ""
 tags: ["Shaders", "Unity"]

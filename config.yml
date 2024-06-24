@@ -10,9 +10,11 @@ outputs:
     - JSON # necessary for search
 params:
   featuredPosts:
-      - ubisoft-next
-      - unity-custom-render-pipeline
-      - some-casual-art
+    - some-casual-art
+  featuredProjects:
+    - darkstar-showdown
+    - posts/2024/06/pianotypes/
+    - posts/2024/06/bujots/
   custom_css: ["css/custom.css"]
   profileMode:
         enabled: true
