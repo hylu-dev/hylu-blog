@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Making an Animated Osu Banner | Hylu Blog</title>
+<meta name="keywords" content="osu, blender">
+<meta name="description" content="I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&rsquo;s too large, the auto-compression will convert the image into a static jpeg).">
+<meta name="author" content="">
+<link rel="canonical" href="https://hylu-blog.netlify.app/posts/osu_banner/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://hylu-blog.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://hylu-blog.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://hylu-blog.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://hylu-blog.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://hylu-blog.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Making an Animated Osu Banner" />
+<meta property="og:description" content="I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&rsquo;s too large, the auto-compression will convert the image into a static jpeg)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hylu-blog.netlify.app/posts/osu_banner/" />
+<meta property="og:image" content="https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-02T01:18:34-04:00" />
+<meta property="article:modified_time" content="2023-05-02T01:18:34-04:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif" />
+<meta name="twitter:title" content="Making an Animated Osu Banner"/>
+<meta name="twitter:description" content="I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&rsquo;s too large, the auto-compression will convert the image into a static jpeg)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://hylu-blog.netlify.app/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Making an Animated Osu Banner",
+      "item": "https://hylu-blog.netlify.app/posts/osu_banner/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Making an Animated Osu Banner",
+  "name": "Making an Animated Osu Banner",
+  "description": "I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I\u0026rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it\u0026rsquo;s too large, the auto-compression will convert the image into a static jpeg).",
+  "keywords": [
+    "osu", "blender"
+  ],
+  "articleBody": "I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of Enchanted Love, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I’m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it’s too large, the auto-compression will convert the image into a static jpeg).\nCompositing I did some playing around and took some inspiration from this amazing art work. Linear ring - Enchanted love@karmabethe pic.twitter.com/9nUHgIcG5u\n— BigheadCrusher (@bigheadcrusher) January 2, 2022 From my previous artwork, I already had a lot of the patterns created as well as familiarty with the style so it really was a process of just stamping around different shapes and decorations until I liked it.\nOnce the main banner was done, I exported them in layers so I can seperate out where I want the foreground and backgrounds to be in relation to the animated characters.\nLayering into Blender With those exported, I moved on to organizing them into Blender. It took me a while to realize that just importing them is as images wasn’t going to render. Turns out pure image objects are more for just reference than anything. Instead, I needed to create an actual object in Blender and have the image on it as a texture. Luckily Blender has a nifty addon to import images directly as plane objects which will render.\nHowver, I had a lot of trouble getting images as planes to show up because in my original project, I forgot I removed the world lighting entirely so any objects with just the base shaders would just render black with no light. Once I realized this, I had to create a new shader. It seemed simple enough by just plugging in the image color directly into the material output but I forgot about the transparent parts of the images, they would also just render black this way. I managed a solution by mixing the image colors with a transparent shader and deciding when to mix into transparent based on the alpha channel of the image. Looking at it now, seems pretty obvious, but boy it did not come easy.\nOnce I finally got the images texture to show in full color, I could start layering up the banner.\nAnimating Animating was pretty simple, I only animated the positions of the characters and props with a subtle rotation to Mocha’s head to give her a little bit more life as well as the beach ball. The rotation is really the coolest part as it suddenly gives the 2D scene a lot more depth.\n",
+  "wordCount" : "459",
+  "inLanguage": "en",
+  "image":"https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif","datePublished": "2023-05-02T01:18:34-04:00",
+  "dateModified": "2023-05-02T01:18:34-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hylu-blog.netlify.app/posts/osu_banner/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hylu Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hylu-blog.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://hylu-blog.netlify.app/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://hylu-blog.netlify.app/" title="Hylu Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylu-blog.netlify.app/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hylu-blog.netlify.app/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://hylu-blog.netlify.app/">Home</a>&nbsp;»&nbsp;<a href="https://hylu-blog.netlify.app/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Making an Animated Osu Banner
+    </h1>
+    <div class="post-meta"><span title='2023-05-02 01:18:34 -0400 EDT'>May 2, 2023</span>
+
+</div>
+  </header> 
+<figure class="entry-cover"><a href="https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://hylu-blog.netlify.app/img/osu/banner/osu_banner.gif" alt=""></a>
+        
+</figure>
+  <div class="post-content"><p>I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of <em>Enchanted Love</em>, might as well put those meshes to more use. I wanted to keep it fairly simple as I know I&rsquo;m pretty limited in gif size and quality for it to work as a profile banner (otherwise if it&rsquo;s too large, the auto-compression will convert the image into a static jpeg).</p>
+<h2 id="compositing">Compositing<a hidden class="anchor" aria-hidden="true" href="#compositing">#</a></h2>
+<p>I did some playing around and took some inspiration from this amazing art work.
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Linear ring - Enchanted love<a href="https://twitter.com/karmabethe?ref_src=twsrc%5Etfw">@karmabethe</a> <a href="https://t.co/9nUHgIcG5u">pic.twitter.com/9nUHgIcG5u</a></p>&mdash; BigheadCrusher (@bigheadcrusher) <a href="https://twitter.com/bigheadcrusher/status/1477679577824886784?ref_src=twsrc%5Etfw">January 2, 2022</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+From my previous artwork, I already had a lot of the patterns created as well as familiarty with the style so it really was a process of just stamping around different shapes and decorations until I liked it.</p>
+<p>Once the main banner was done, I exported them in layers so I can seperate out where I want the foreground and backgrounds to be in relation to the animated characters.</p>
+<p><img loading="lazy" src="/img/osu/banner/layering.gif" alt="Layered Export"  />
+</p>
+<h2 id="layering-into-blender">Layering into Blender<a hidden class="anchor" aria-hidden="true" href="#layering-into-blender">#</a></h2>
+<p>With those exported, I moved on to organizing them into Blender. <strong>It took me a while to realize that just importing them is as images wasn&rsquo;t going to render</strong>. Turns out pure image objects are more for just reference than anything. Instead, I needed to create an actual object in Blender and have the image on it as a texture. Luckily Blender has a nifty addon to import images directly as plane objects which will render.</p>
+<p>Howver, I had a lot of trouble getting images as planes to show up because in my original project, I forgot I removed the world lighting entirely so any objects with just the base shaders would just render black with no light. Once I realized this, I had to create a new shader. It seemed simple enough by just plugging in the image color directly into the material output but I forgot about the transparent parts of the images, they would also just render black this way. I managed a solution by mixing the image colors with a transparent shader and deciding when to mix into transparent based on the alpha channel of the image. Looking at it now, seems pretty obvious, but boy it did not come easy.</p>
+<p><img loading="lazy" src="/img/osu/banner/image_shading.png" alt="Image Shading"  />
+</p>
+<p>Once I finally got the images texture to show in full color, I could start layering up the banner.</p>
+<p><img loading="lazy" src="/img/osu/banner/plane_layering.png" alt="Plane Layering"  />
+</p>
+<h2 id="animating">Animating<a hidden class="anchor" aria-hidden="true" href="#animating">#</a></h2>
+<p>Animating was pretty simple, I only animated the positions of the characters and props with a subtle rotation to <em>Mocha&rsquo;s</em> head to give her a little bit more life as well as the beach ball. The rotation is really the coolest part as it suddenly gives the 2D scene a lot more depth.</p>
+<p><img loading="lazy" src="/img/osu/banner/animating.gif" alt="Animating"  />
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://hylu-blog.netlify.app/tags/osu/">osu</a></li>
+      <li><a href="https://hylu-blog.netlify.app/tags/blender/">blender</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://hylu-blog.netlify.app/posts/using_kanban_boards/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Using Kanban Boards</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://hylu-blog.netlify.app/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Signed Ints and Two&#39;s Complement | Hylu Blog</title>
+<meta name="keywords" content="math, c&#43;&#43;">
+<meta name="description" content="Two&rsquo;s Complement Representation Why We Use It In c&#43;&#43;, signed integers are represented in two&rsquo;s complement notation. Before I get to how that notation works, I want to explain why we use it.
+Comparing both representations, -1 would look like this
+// Decimal 4294967295 // Binary Signed Int 10000000000000000000000000000001 // Two&#39;s Complement Signed Int 11111111111111111111111111111111 The normal signed binary representation is pretty easily understood if you know what a sign bit is.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2023/09/signed-ints/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/09/signed-ints/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Signed Ints and Two&#39;s Complement
+    </h1>
+    <div class="post-meta"><span title='2023-09-12 16:56:05 -0400 EDT'>September 12, 2023</span>
+
+</div>
+    
+    
+    
+    
+    
+<script
+  type="application/javascript"
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  async
+></script>
+<script 
+  type="text/x-mathjax-config"
+  async
+  >
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+    
+  </header> 
+<figure class="entry-cover"><a href="https://images.unsplash.com/photo-1569396116180-210c182bedb8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#twos-complement-representation" aria-label="Two&rsquo;s Complement Representation">Two&rsquo;s Complement Representation</a><ul>
+                        
+                <li>
+                    <a href="#why-we-use-it" aria-label="Why We Use It">Why We Use It</a></li>
+                <li>
+                    <a href="#how-it-works" aria-label="How it Works">How it Works</a></li>
+                <li>
+                    <a href="#negating-a-number-to-twos-complement" aria-label="Negating a Number to Two&rsquo;s Complement">Negating a Number to Two&rsquo;s Complement</a></li></ul>
+                </li>
+                <li>
+                    <a href="#signed-int-added-to-unsigned-int" aria-label="Signed Int Added to Unsigned Int">Signed Int Added to Unsigned Int</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="twos-complement-representation">Two&rsquo;s Complement Representation<a hidden class="anchor" aria-hidden="true" href="#twos-complement-representation">#</a></h2>
+<h3 id="why-we-use-it">Why We Use It<a hidden class="anchor" aria-hidden="true" href="#why-we-use-it">#</a></h3>
+<p>In c++, signed integers are represented in two&rsquo;s complement notation. Before I get to how that notation works, I want to explain why we use it.</p>
+<p>Comparing both representations, <code>-1</code> would look like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// Decimal
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">4294967295</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Binary Signed Int
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">10000000000000000000000000000001</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Two&#39;s Complement Signed Int
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#ae81ff">11111111111111111111111111111111</span>
+</span></span></code></pre></div><p>The normal signed binary representation is pretty easily understood if you know what a sign bit is. You just have the typical binary for <code>1</code> with the most significant bit being the sign bit to indicate that it&rsquo;s negative. <strong>Then why the heck do we use two&rsquo;s complement instead?</strong> Isn&rsquo;t it just more confusing?</p>
+<p>There are a few drawbacks to the normal method.</p>
+<ul>
+<li>Notice we have two ways to represent <code>0</code> (<code>0000</code> vs <code>1000</code>) so we waste a bitset</li>
+<li>Often, the sign bit can end up outside our initial bit range after an addition</li>
+<li>Addition between signed ints doesn&rsquo;t work
+<ul>
+<li>In this scenario we need to increase our bits to get the sign but we incorrectly lose the bit that should be in the 4&rsquo;s column.</li>
+</ul>
+</li>
+</ul>
+<p>$$
+5 + (-5) = 0
+$$</p>
+<p>$$
+0101 + 1101 = 10010
+$$</p>
+<h3 id="how-it-works">How it Works<a hidden class="anchor" aria-hidden="true" href="#how-it-works">#</a></h3>
+<p>Ben Eater has a fantastic explanation below</p>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4qH4unVtJkE?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+<p>We can start by adding the <strong>one&rsquo;s complement</strong> which involves just flipping all bits (excluding the sign bit). If we try adding both of these binaries together, we get much closer to the answer but you&rsquo;ll find that your result is off by <code>1</code>.</p>
+<p>$$
+5 + (-3)
+$$</p>
+<p>$$
+0101 + 1100  = 1
+$$</p>
+<p>What we can do is simply add <code>1</code> to our flipped bits and this solves our problem. The result we get is precisely the <strong>two&rsquo;s complement</strong></p>
+<p>There&rsquo;s actually a nice mathematical meaning if we analyze what the two&rsquo;s complement is really saying.</p>
+<p>Take the two&rsquo;s complement of <code>5</code></p>
+<p>$$
+1011
+$$</p>
+<p>What the most significant bit is really representing in this form is <code>-8</code>, and that&rsquo;s being subtracted from lesser bits which add up to <code>3</code>, therefore giving a bit representation of <code>-5</code>!</p>
+<p>Therefore, most languages will use two&rsquo;s complement for signed integers under the hood. In particular, for negative numbers, the compiler will know that when they encounter the negative sign bit how to convert to following bits to produce the correct numerical result.</p>
+<h3 id="negating-a-number-to-twos-complement">Negating a Number to Two&rsquo;s Complement<a hidden class="anchor" aria-hidden="true" href="#negating-a-number-to-twos-complement">#</a></h3>
+<p>To summarize, let&rsquo;s negate the number <code>5</code></p>
+<p>$$
+0101
+$$</p>
+<ol>
+<li>Convert to one&rsquo;s complement by flipping bits</li>
+</ol>
+<p>$$
+1010
+$$</p>
+<ol start="2">
+<li>Convert to two&rsquo;s complement by adding <code>1</code></li>
+</ol>
+<p>$$
+1011
+$$</p>
+<h2 id="signed-int-added-to-unsigned-int">Signed Int Added to Unsigned Int<a hidden class="anchor" aria-hidden="true" href="#signed-int-added-to-unsigned-int">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> un <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>PrintUnsignedBits(un <span style="color:#f92672">+</span> n);
+</span></span><span style="display:flex;"><span>PrintSignedBits(<span style="color:#f92672">-</span><span style="color:#ae81ff">2147483647</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>Unsigned Int (un <span style="color:#f92672">+</span> n)
+</span></span><span style="display:flex;"><span>Decimal Representation <span style="color:#f92672">=</span> <span style="color:#ae81ff">4294967295</span>
+</span></span><span style="display:flex;"><span>Bit Representation <span style="color:#f92672">=</span> <span style="color:#ae81ff">11111111111111111111111111111111</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Signed Int (<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>Decimal Representation <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2147483647</span>
+</span></span><span style="display:flex;"><span>Bit Representation <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000000000000000000000000000001</span>
+</span></span></code></pre></div><p><strong>The unsigned bit takes precedence</strong> resulting in the negative sign bit from the <code>-3</code> being the most significant postive bit in the result.</p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/math/">Math</a></li>
+      <li><a href="http://localhost:1313/tags/c&#43;&#43;/">C&#43;&#43;</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2023/09/dot-product/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Dot Product and How it Relates to Light</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2023/09/pgdap-log-2/">
+    <span class="title">Next »</span>
+    <br>
+    <span>PGDAP Log 2</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

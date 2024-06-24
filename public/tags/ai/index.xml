@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ai on Hylu Blog</title>
+    <link>http://localhost:1313/tags/ai/</link>
+    <description>Recent content in Ai on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Jun 2023 17:22:24 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intro to Deep Learning</title>
+      <link>http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/</link>
+      <pubDate>Mon, 12 Jun 2023 17:22:24 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/</guid>
+      <description>Neural Networks See Machine Learning
+How do you decide how many neurons to use per layer?
+One way is to start with all layers uing the same amount of neurons and continue adding them until they start overfitting the data
+Dropout: Regularlization technique to avoid overfitting. Leaves out data to better deal with general cases. 20%-50% dropout is a good starting range. Momentum: Helps finding the direction of next descent and prevent oscillations.</description>
+    </item>
+    <item>
+      <title>Overview of Probability</title>
+      <link>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</link>
+      <pubDate>Sun, 04 Jun 2023 12:27:54 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/ai/overview-of-probability/</guid>
+      <description>I&amp;rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
+Random Variable Whenever there&amp;rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.</description>
+    </item>
+    <item>
+      <title>Intro to Machine Learning</title>
+      <link>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</link>
+      <pubDate>Sun, 28 May 2023 21:17:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/</guid>
+      <description>In preparation for a deep learning course I&amp;rsquo;m taking over the Summer, I&amp;rsquo;m taking a short intro course on machine learning to help prepare me for some of the fundamental concepts. I&amp;rsquo;ve been avoiding AI for a while but given its ongoing application in nearly everything now, I figure it&amp;rsquo;s more than worth getting my feet wet.
+ML Overview flowchart LRsubgraph Shader Lifecycledirection LRd[(&#34;Dataset&#34;)] --&gt; m((&#34;Model&#34;)) --&gt; o(&#34;</description>
+    </item>
+  </channel>
+</rss>

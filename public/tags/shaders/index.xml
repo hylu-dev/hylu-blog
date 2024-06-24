@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shaders on Hylu Blog</title>
+    <link>http://localhost:1313/tags/shaders/</link>
+    <description>Recent content in Shaders on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 May 2024 00:12:51 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/shaders/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Real Time Toon Shading in Unity</title>
+      <link>http://localhost:1313/posts/2024/05/real-time-toon-shading/</link>
+      <pubDate>Sun, 12 May 2024 00:12:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/05/real-time-toon-shading/</guid>
+      <description>Toon Shading We&amp;rsquo;ll be using a numbers of methods from Unity&amp;rsquo;s URP package by importing Lighting.hlsl. That file has some other inclusions that we will also make direct use of. In all, we&amp;rsquo;ll be using the following files.
+Lighting.hlsl RealTimeLights.hlsl Shadows.hlsl SpaceTransforms.hlsl Lighting.hlsl RealTimeLights.hlsl. In order to ensure our reacts to light in real-time, we need to hook on to some of Unity&amp;rsquo;s lighting methods to acquire the lights in the scene as well as the shadow maps.</description>
+    </item>
+    <item>
+      <title>Basics of Shader Fractals</title>
+      <link>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</link>
+      <pubDate>Thu, 13 Jul 2023 20:53:06 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</guid>
+      <description>Fractals are built off of a single pattern or formula, repeated constantly with smaller and smaller transformations. In glsl, this idea translates nicely into iterative coding with for loops.
+How to Make a Fractal I&amp;rsquo;ll be following kishimisu&amp;rsquo;s guide on shaders.
+Create a Shape First off, we can start by creating some base patterns that we want to design our fractal off of. In this case, we can start with a simple circle.</description>
+    </item>
+    <item>
+      <title>3D Matrix Rotations</title>
+      <link>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</link>
+      <pubDate>Thu, 15 Jun 2023 02:03:50 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/3d-matrix-rotations/</guid>
+      <description>Rotation is one such transformation and that can be achieved by locking the desired axes of rotation and transforming the rest of the axes by \(sin\) and \(cos\).
+Intuition of 3x3Matrix Transformations 3x3 matrices can be used to bend the coordinate space in 3 dimensions, effectively allowing any desired transformations to objects in that space.
+As the coordinate space is being transformed, it&amp;rsquo;s helpful breaking up the matrix into its unit vectors</description>
+    </item>
+    <item>
+      <title>Playing With GLSL</title>
+      <link>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</link>
+      <pubDate>Thu, 11 May 2023 14:23:07 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</guid>
+      <description>From what I&amp;rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
+Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0.</description>
+    </item>
+    <item>
+      <title>Introduction to Unity Shaders</title>
+      <link>http://localhost:1313/posts/2023/old/dev/intro_to_shaders/</link>
+      <pubDate>Sat, 06 May 2023 13:26:32 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/intro_to_shaders/</guid>
+      <description>Shaders are programs used to describe how pixels should be arranged, colored, and transformed on the screen. The simple definition extends to so many applications especially in 3D graphics in movies and games. Every computer generated prop placed in a scene is carefully designed to look a certain way, all with the help of shaders.
+Shader&amp;rsquo;s make use of the GPU to constantly run concurrent calculation on every pixel and you can decide what those calculations do through programming with languages such as HLSL and GLSL.</description>
+    </item>
+  </channel>
+</rss>

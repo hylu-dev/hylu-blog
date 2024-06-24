@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Glsl on Hylu Blog</title>
+    <link>http://localhost:1313/tags/glsl/</link>
+    <description>Recent content in Glsl on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Aug 2023 12:23:27 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/glsl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Layering Colours</title>
+      <link>http://localhost:1313/posts/2023/old/dev/layering-colours/</link>
+      <pubDate>Sat, 26 Aug 2023 12:23:27 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/layering-colours/</guid>
+      <description>Hey, yep I&amp;rsquo;m back already with more mental pain.
+I&amp;rsquo;ve been working on putting together a layered parallax scene as per https://www.youtube.com/watch?v=XaiYKkxvrFM.
+I&amp;rsquo;m a good ways there writing most of the code on my own. I&amp;rsquo;ve made series of repeating trees across a sloping hill and it&amp;rsquo;s time for me to start layering them on top with a for loop.
+In the tutorial, he wrote all of the shape functions to return vec4 so they include the alpha channel in addition to the colours.</description>
+    </item>
+    <item>
+      <title>Which Way Does the UV Go?</title>
+      <link>http://localhost:1313/posts/2023/old/dev/which-way-does-the-uv-go/</link>
+      <pubDate>Fri, 25 Aug 2023 23:35:31 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/which-way-does-the-uv-go/</guid>
+      <description>While I was working on writing simple shape patterns in GLSL, I ended up with an interesting conundrum.
+I fell into the pattern of creating shapes by closing in each side of the shape with a smoothstep in the following form.
+smoothstep(-blur, +blur, uv.x); In this case, this creates a vertical edge where the left side is 0 and the right side is 1. I then do the same thing for the rest of the side of the shape, until I enclose it so that all values inside the shape are 1 and everywhere else remains 0.</description>
+    </item>
+    <item>
+      <title>Some More GLSL</title>
+      <link>http://localhost:1313/posts/2023/old/dev/some-more-glsl/</link>
+      <pubDate>Wed, 19 Jul 2023 03:43:21 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/some-more-glsl/</guid>
+      <description>Vertex Shaders So far, I&amp;rsquo;ve been primarily writing 2D shaders to create patterns on a flat canvas. In practice, shaders can also be applied to 3D objects to manipulate not only their textures but also their shape.
+To start, let&amp;rsquo;s take a look at a simple 2D shader placed on a 3D cube.
+Notice that the texture remains flat but is effectively cropped onto the projection of the cube. Ideally, we&amp;rsquo;d like the texture to wrap over the cube instead.</description>
+    </item>
+    <item>
+      <title>Basics of Shader Fractals</title>
+      <link>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</link>
+      <pubDate>Thu, 13 Jul 2023 20:53:06 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/basics-of-shader-fractals/</guid>
+      <description>Fractals are built off of a single pattern or formula, repeated constantly with smaller and smaller transformations. In glsl, this idea translates nicely into iterative coding with for loops.
+How to Make a Fractal I&amp;rsquo;ll be following kishimisu&amp;rsquo;s guide on shaders.
+Create a Shape First off, we can start by creating some base patterns that we want to design our fractal off of. In this case, we can start with a simple circle.</description>
+    </item>
+    <item>
+      <title>Playing With GLSL</title>
+      <link>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</link>
+      <pubDate>Thu, 11 May 2023 14:23:07 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/dev/playing_with_glsl/</guid>
+      <description>From what I&amp;rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
+Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0.</description>
+    </item>
+  </channel>
+</rss>

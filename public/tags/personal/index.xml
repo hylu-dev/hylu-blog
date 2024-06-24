@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal on Hylu Blog</title>
+    <link>http://localhost:1313/tags/personal/</link>
+    <description>Recent content in Personal on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Sep 2023 11:34:05 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PGDAP Log 2</title>
+      <link>http://localhost:1313/posts/2023/09/pgdap-log-2/</link>
+      <pubDate>Tue, 12 Sep 2023 11:34:05 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/pgdap-log-2/</guid>
+      <description>I&amp;rsquo;m on my second week and to my surprise, all my anxieties and insecurities subsided really quickly. It had been while since I&amp;rsquo;ve had a proper schedule or talk to people in person on a frequent basis but I&amp;rsquo;m glad at how smoothly I&amp;rsquo;ve been able to reacclimate and I&amp;rsquo;ve been feeling a lot happier as a result.
+Anyways so far, it&amp;rsquo;s just been a lot of intro talk and fundamentals of concepts I&amp;rsquo;ve already learned before.</description>
+    </item>
+    <item>
+      <title>Starting the School Year</title>
+      <link>http://localhost:1313/posts/2023/09/starting-the-school-year/</link>
+      <pubDate>Tue, 05 Sep 2023 11:33:26 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/09/starting-the-school-year/</guid>
+      <description>Today is my first official day of class attending the Advanced Programming program at Sheridan College.
+To commemorate this, I&amp;rsquo;ve reorganized my whole directory structure for this blog to be organized by year and month rather than sub topics. I&amp;rsquo;ve been finding the subtopic folders to be growing far to fast (particularly the dev folder) to keep posting all in one place.
+This way, my working directory is ever only so large for each month and I&amp;rsquo;m also relieved of the duty of figuring out which folder I should be making my post in.</description>
+    </item>
+    <item>
+      <title>Some Casual Art</title>
+      <link>http://localhost:1313/posts/2023/old/other/some-casual-art/</link>
+      <pubDate>Thu, 13 Jul 2023 01:27:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/some-casual-art/</guid>
+      <description>I&amp;rsquo;ve been trying to get into the habit of drawing casually as opposed to doing so as part of some contest or project. Part of that is just drawing what I feel in the moment. I&amp;rsquo;m not intending to follow any style but at the same time I&amp;rsquo;m not stopping myself from easing any habits which resulted with a few pictures that do share a style. I always felt with drawing that I have no clue what my style is.</description>
+    </item>
+    <item>
+      <title>New Beginnings</title>
+      <link>http://localhost:1313/posts/2023/old/other/first-post/</link>
+      <pubDate>Sun, 23 Apr 2023 19:20:29 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2023/old/other/first-post/</guid>
+      <description>Hi, I&amp;rsquo;m a developer. That in itself doesn&amp;rsquo;t mean too much really and for me it only really marks the beginning of what I would like to do and achieve. I&amp;rsquo;ve read my share of devlogs and appreciate the amount of value it gives to readers while also envying the sheer knowledge and coherence each of the authors are able to display. I hope I can also create devlogs of similar value.</description>
+    </item>
+  </channel>
+</rss>

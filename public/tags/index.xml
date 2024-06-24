@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Hylu Blog</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Jun 2024 23:56:04 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gamedev</title>
+      <link>http://localhost:1313/tags/gamedev/</link>
+      <pubDate>Wed, 05 Jun 2024 23:56:04 -0400</pubDate>
+      <guid>http://localhost:1313/tags/gamedev/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Unity</title>
+      <link>http://localhost:1313/tags/unity/</link>
+      <pubDate>Wed, 05 Jun 2024 23:56:04 -0400</pubDate>
+      <guid>http://localhost:1313/tags/unity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shaders</title>
+      <link>http://localhost:1313/tags/shaders/</link>
+      <pubDate>Sun, 12 May 2024 00:12:51 -0400</pubDate>
+      <guid>http://localhost:1313/tags/shaders/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code</title>
+      <link>http://localhost:1313/tags/code/</link>
+      <pubDate>Tue, 07 May 2024 12:35:27 -0400</pubDate>
+      <guid>http://localhost:1313/tags/code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Math</title>
+      <link>http://localhost:1313/tags/math/</link>
+      <pubDate>Fri, 19 Apr 2024 21:13:54 -0400</pubDate>
+      <guid>http://localhost:1313/tags/math/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cyberpunk</title>
+      <link>http://localhost:1313/tags/cyberpunk/</link>
+      <pubDate>Thu, 01 Feb 2024 20:01:21 -0500</pubDate>
+      <guid>http://localhost:1313/tags/cyberpunk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Games</title>
+      <link>http://localhost:1313/tags/games/</link>
+      <pubDate>Thu, 01 Feb 2024 20:01:21 -0500</pubDate>
+      <guid>http://localhost:1313/tags/games/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+      <pubDate>Wed, 10 Jan 2024 01:02:05 -0500</pubDate>
+      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Development</title>
+      <link>http://localhost:1313/tags/development/</link>
+      <pubDate>Sun, 01 Oct 2023 02:07:05 -0400</pubDate>
+      <guid>http://localhost:1313/tags/development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pianotypes</title>
+      <link>http://localhost:1313/tags/pianotypes/</link>
+      <pubDate>Sun, 01 Oct 2023 02:07:05 -0400</pubDate>
+      <guid>http://localhost:1313/tags/pianotypes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Personal</title>
+      <link>http://localhost:1313/tags/personal/</link>
+      <pubDate>Tue, 12 Sep 2023 11:34:05 -0400</pubDate>
+      <guid>http://localhost:1313/tags/personal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tabby</title>
+      <link>http://localhost:1313/tags/tabby/</link>
+      <pubDate>Tue, 05 Sep 2023 11:33:26 -0400</pubDate>
+      <guid>http://localhost:1313/tags/tabby/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Glsl</title>
+      <link>http://localhost:1313/tags/glsl/</link>
+      <pubDate>Sat, 26 Aug 2023 12:23:27 -0400</pubDate>
+      <guid>http://localhost:1313/tags/glsl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chrome</title>
+      <link>http://localhost:1313/tags/chrome/</link>
+      <pubDate>Wed, 23 Aug 2023 22:23:06 -0400</pubDate>
+      <guid>http://localhost:1313/tags/chrome/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Svelte</title>
+      <link>http://localhost:1313/tags/svelte/</link>
+      <pubDate>Fri, 18 Aug 2023 17:50:32 -0400</pubDate>
+      <guid>http://localhost:1313/tags/svelte/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Art</title>
+      <link>http://localhost:1313/tags/art/</link>
+      <pubDate>Thu, 13 Jul 2023 01:27:51 -0400</pubDate>
+      <guid>http://localhost:1313/tags/art/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Procreate</title>
+      <link>http://localhost:1313/tags/procreate/</link>
+      <pubDate>Thu, 13 Jul 2023 01:27:51 -0400</pubDate>
+      <guid>http://localhost:1313/tags/procreate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>http://localhost:1313/tags/ai/</link>
+      <pubDate>Mon, 12 Jun 2023 17:22:24 -0400</pubDate>
+      <guid>http://localhost:1313/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blender</title>
+      <link>http://localhost:1313/tags/blender/</link>
+      <pubDate>Mon, 15 May 2023 14:34:17 -0400</pubDate>
+      <guid>http://localhost:1313/tags/blender/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Osu</title>
+      <link>http://localhost:1313/tags/osu/</link>
+      <pubDate>Tue, 02 May 2023 01:18:34 -0400</pubDate>
+      <guid>http://localhost:1313/tags/osu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Organization</title>
+      <link>http://localhost:1313/tags/organization/</link>
+      <pubDate>Mon, 01 May 2023 15:12:19 -0400</pubDate>
+      <guid>http://localhost:1313/tags/organization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fanart</title>
+      <link>http://localhost:1313/tags/fanart/</link>
+      <pubDate>Mon, 24 Apr 2023 02:57:43 -0400</pubDate>
+      <guid>http://localhost:1313/tags/fanart/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

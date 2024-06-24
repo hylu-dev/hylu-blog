@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>GitHub Basics for Designers | Hylu Blog</title>
+<meta name="keywords" content="code">
+<meta name="description" content="This will be a short tutorial about GitHub to get you quickly up and started conceptually if you have little to no experience. I may gloss over some things if you&rsquo;re already familiar.
+What is Git? Git is a version control system. It keeps tracks of a repository of files and records all changes made to the files. Most popular in software development for managing code bases.
+It provides a system for multiple people to work on the same files by tracking changes, allowing easy reverting, and merging multiple changes.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2024/05/github-basics/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2024/05/github-basics/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      GitHub Basics for Designers
+    </h1>
+    <div class="post-meta"><span title='2024-05-07 00:28:21 -0400 EDT'>May 7, 2024</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://repository-images.githubusercontent.com/58559694/aeae5400-6102-11e9-980d-dc74185ed41d" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://repository-images.githubusercontent.com/58559694/aeae5400-6102-11e9-980d-dc74185ed41d" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#what-is-git" aria-label="What is Git?">What is Git?</a><ul>
+                        
+                <li>
+                    <a href="#but-why-not-just-use-dropbox" aria-label="But Why Not Just Use DropBox?">But Why Not Just Use DropBox?</a></li></ul>
+                </li>
+                <li>
+                    <a href="#what-is-github" aria-label="What is GitHub?">What is GitHub?</a></li>
+                <li>
+                    <a href="#git-basics" aria-label="Git Basics">Git Basics</a><ul>
+                        
+                <li>
+                    <a href="#repositories" aria-label="Repositories">Repositories</a></li>
+                <li>
+                    <a href="#cloning-repositories" aria-label="Cloning Repositories">Cloning Repositories</a></li>
+                <li>
+                    <a href="#syncing-changes" aria-label="Syncing Changes">Syncing Changes</a><ul>
+                        
+                <li>
+                    <a href="#add" aria-label="Add">Add</a></li>
+                <li>
+                    <a href="#commit" aria-label="Commit">Commit</a></li>
+                <li>
+                    <a href="#push" aria-label="Push">Push</a></li></ul>
+                </li>
+                <li>
+                    <a href="#receiving-changes" aria-label="Receiving Changes">Receiving Changes</a></li>
+                <li>
+                    <a href="#git-branches" aria-label="Git Branches">Git Branches</a><ul>
+                        
+                <li>
+                    <a href="#merge-conflicts" aria-label="Merge Conflicts">Merge Conflicts</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#github-desktop" aria-label="GitHub Desktop">GitHub Desktop</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This will be a short tutorial about GitHub to get you quickly up and started conceptually if you have little to no experience. I may gloss over some things if you&rsquo;re already familiar.</p>
+<h2 id="what-is-git">What is Git?<a hidden class="anchor" aria-hidden="true" href="#what-is-git">#</a></h2>
+<p>Git is a <strong>version control</strong> system. It keeps tracks of a <strong>repository</strong> of files and records all changes made to the files. Most popular in software development for managing code bases.</p>
+<p>It provides a system for multiple people to work on the same files by tracking changes, allowing easy reverting, and merging multiple changes.</p>
+<blockquote>
+<p>Essentially it&rsquo;s like shared cloud saving i.e. OneDrive, DropBox</p>
+</blockquote>
+<h3 id="but-why-not-just-use-dropbox">But Why Not Just Use DropBox?<a hidden class="anchor" aria-hidden="true" href="#but-why-not-just-use-dropbox">#</a></h3>
+<p>Working collaboratively with files can get complicated. Something like DropBox will constantly sync every change to every file for all users. I will list out some things to consider.</p>
+<ul>
+<li>What if multiple people change the same files?</li>
+<li>How can we track each feature as they&rsquo;re finished?</li>
+<li>What if you&rsquo;re not done and the files your working on are in an unfinished state</li>
+<li>What if someone elses change drastically effects your current work</li>
+<li>What if we need to go back</li>
+</ul>
+<p>I won&rsquo;t answer these specifically but all of these problems can spell disaster if you plan on working on software using a service like DropBox.
+Git is designed to address these issues by allowing you to choose when and how you want to sync your local files to the remote version as well as receive changes from others.</p>
+<h2 id="what-is-github">What is GitHub?<a hidden class="anchor" aria-hidden="true" href="#what-is-github">#</a></h2>
+<p>It&rsquo;s a popular git repository hosting service. While Git is the system for version control, by itself it doesn&rsquo;t provide you cloud storage of files. GitHub is one of these providers. There&rsquo;s plenty of others (<em>GitLab, BitBucket, etc.</em> ) and you can even host it yourself but GitHub is by far the most popular for individuals and smaller teams.</p>
+<h2 id="git-basics">Git Basics<a hidden class="anchor" aria-hidden="true" href="#git-basics">#</a></h2>
+<h3 id="repositories">Repositories<a hidden class="anchor" aria-hidden="true" href="#repositories">#</a></h3>
+<p><strong>Repository</strong> in this context just means a place to hold files. On GitHub, when you create a repository <strong>it essentially creates an empty folder that&rsquo;s available remotely</strong> and you can freely add/remove files to that folder</p>
+<div class="center-flex">
+  <a class="center-flex link img-lg" href="https://raw.githubusercontent.com/harshjv/github-repo-size/master/screenshot.png" target="_blank">
+    <img alt="https://raw.githubusercontent.com/harshjv/github-repo-size/master/screenshot.png" src="https://raw.githubusercontent.com/harshjv/github-repo-size/master/screenshot.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<h3 id="cloning-repositories">Cloning Repositories<a hidden class="anchor" aria-hidden="true" href="#cloning-repositories">#</a></h3>
+<p>This creates a local copy of the folder to your computer. This is similar to downloading files <strong>except</strong> it will create a hidden
+<strong>.git</strong> folder that holds metadata linking your local version to the remote version <em>and stuff</em>.</p>
+<h3 id="syncing-changes">Syncing Changes<a hidden class="anchor" aria-hidden="true" href="#syncing-changes">#</a></h3>
+<blockquote>
+<p>A change includes adding, deleting, or updating files. The process for relaying any changes to the remote repository is the same.</p>
+</blockquote>
+<p>In Git, the process is broken up into 3 steps simplified here.</p>
+<h4 id="add">Add<a hidden class="anchor" aria-hidden="true" href="#add">#</a></h4>
+<p>Select the files you want to sync</p>
+<h4 id="commit">Commit<a hidden class="anchor" aria-hidden="true" href="#commit">#</a></h4>
+<p>Give a name to your change. This makes it easier to track the set of changes you&rsquo;re making if we later want to view or revert them.</p>
+<h4 id="push">Push<a hidden class="anchor" aria-hidden="true" href="#push">#</a></h4>
+<p>Syncs all your commits to the remote repo.</p>
+<h3 id="receiving-changes">Receiving Changes<a hidden class="anchor" aria-hidden="true" href="#receiving-changes">#</a></h3>
+<p>This process is called <strong>pulling</strong>, it will grab all the file changes since the last time you pulled.</p>
+<h3 id="git-branches">Git Branches<a hidden class="anchor" aria-hidden="true" href="#git-branches">#</a></h3>
+<p>This is an extremely important concept when it comes to working collaboratively on a repository.</p>
+<p>When you&rsquo;re working on a feature, you often don&rsquo;t want to sync your changes with everyone elses until you have a complete package which may be the result of multiple commits. Even more, you don&rsquo;t want to have other peoples work constantly messing with yours everytime you pull.</p>
+<p><strong>It would be nice if we could hold off on combining our changes with others only when we&rsquo;re done</strong></p>
+<p>The solution is creating a branch. This will create a snapshot of the codebase at that state and let you work off of that. Once you&rsquo;re done with your work. You can then <strong>merge</strong> the entire branch back with the <strong>master branch</strong></p>
+<blockquote>
+<p><strong>master branch</strong> is just a common name used for the main lane of changes in a project.</p>
+</blockquote>
+<div class="center-flex">
+  <a class="center-flex link img-lg" href="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png" target="_blank">
+    <img alt="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png" src="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png" class="img">
+  </a>
+</div>
+
+<style>
+  .img {
+    box-shadow: 1px 1px 5px #000;
+  }
+
+  .img-xs, .img-xs img {
+    width: 35%;
+  }
+
+  .img-sm, .img-sm img {
+    width: 50%;
+  }
+
+  .img-md, .img-md img {
+    width: 70%;
+  }
+
+  .img-lg, .img-lg img {
+    width: 85%
+  }
+
+  .img-xl, .img-xl img {
+    width: 100%
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .link {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .center-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .white img {
+    background-color: white;
+  }
+</style>
+<h4 id="merge-conflicts">Merge Conflicts<a hidden class="anchor" aria-hidden="true" href="#merge-conflicts">#</a></h4>
+<p>When merging, Git tries its best to encorporate your changes with other people but often you&rsquo;ll get a CONFLICT warning if you&rsquo;ve changed a file someone else has as well. Git will need input from you to decide what to keep from your changes what&rsquo;s on the remote.</p>
+<h2 id="github-desktop">GitHub Desktop<a hidden class="anchor" aria-hidden="true" href="#github-desktop">#</a></h2>
+<p>Git is originally designed to be done through the commandline. This can add an additional learning curve so we&rsquo;re going to use <strong><a href="https://desktop.github.com/">GitHub Desktop</a></strong> that will give us a UI to perform all the needed actions.</p>
+
+
+    
+    
+    
+<script
+  type="application/javascript"
+  src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+  async
+></script>
+<script>
+  var config = {
+    startOnLoad: true,
+    theme:'dark',
+    align:'center',
+  };
+  mermaid.initialize(config);
+</script>
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/code/">Code</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Unity Custom Passes with URP</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2024/04/combinatorics/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Fundamentals of Combinatorics</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

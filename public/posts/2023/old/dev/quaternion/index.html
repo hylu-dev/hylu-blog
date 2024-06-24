@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Understanding Quaternions | Hylu Blog</title>
+<meta name="keywords" content="math, development">
+<meta name="description" content="When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.
+How It&rsquo;s Done With Trigonometry Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/quaternion/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/quaternion/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Understanding Quaternions
+    </h1>
+    <div class="post-meta"><span title='2023-05-05 10:37:52 -0400 EDT'>May 5, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#how-its-done-with-trigonometry" aria-label="How It&rsquo;s Done With Trigonometry">How It&rsquo;s Done With Trigonometry</a></li>
+                <li>
+                    <a href="#quaternions" aria-label="Quaternions">Quaternions</a><ul>
+                        
+                <li>
+                    <a href="#visual-understanding-in-software" aria-label="Visual Understanding in Software">Visual Understanding in Software</a></li></ul>
+                </li>
+                <li>
+                    <a href="#so-why-should-i-use-it" aria-label="So Why Should I Use It?">So Why Should I Use It?</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>When describing rotations of an object, the typical way would be through linear algebra and trigonometry. However, similarly to how complex numbers can be used to describe rotations in 2D, quaternions allow efficient and more pragmatic methods describing rotations in 3D.</p>
+<h2 id="how-its-done-with-trigonometry">How It&rsquo;s Done With Trigonometry<a hidden class="anchor" aria-hidden="true" href="#how-its-done-with-trigonometry">#</a></h2>
+<p>Depending on the framework or software using, a lot of the work is already done for you with API available to you to perform rotations on shapes. But for a simple point in space rotating in about an origin, what would that look like?</p>
+<p>You can represent the x and y position of a point as a function of the angle and radius of the point on a unit circle. That is using our good friend SOH CAH TOA, you can represent <em>x</em> and <em>y</em> as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> r x <span style="color:#a6e22e">cos</span>(\theta)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> r x <span style="color:#a6e22e">sin</span>(\theta)
+</span></span></code></pre></div><p>Then you can sub into \theta, the angle around the origin you&rsquo;d like the point to sit.
+However, this requires knowing the current angle the point sits at which adds another layer of computation. I got this proof from <a href="https://www.khanacademy.org/computing/computer-programming/programming-games-visualizations/programming-3d-shapes/a/rotating-3d-shapes">Khan Academy</a> that gives the rotated point in relation to it&rsquo;s original position and the desired angle of rotation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>x′<span style="color:#f92672">=</span>x×<span style="color:#a6e22e">cos</span>(β)−y×<span style="color:#a6e22e">sin</span>(β)
+</span></span><span style="display:flex;"><span>y′<span style="color:#f92672">=</span>y×<span style="color:#a6e22e">cos</span>(β)<span style="color:#f92672">+</span>x×<span style="color:#a6e22e">sin</span>(β)
+</span></span></code></pre></div><p>From there, you can apply this formula to every point and depending on the axes you&rsquo;re rotating in space, we just swap the coordinates in the equation to the ones that change such as the <code>z</code> coordinate.</p>
+<p>For example, instead of rotating about the Z-axis to rotate about the X-axis you&rsquo;d do the following.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>z′<span style="color:#f92672">=</span>x×<span style="color:#a6e22e">cos</span>(β)−y×<span style="color:#a6e22e">sin</span>(β)
+</span></span><span style="display:flex;"><span>y′<span style="color:#f92672">=</span>y×<span style="color:#a6e22e">cos</span>(β)<span style="color:#f92672">+</span>x×<span style="color:#a6e22e">sin</span>(β)
+</span></span></code></pre></div><p>In the case of a framework like ThreeJS, you&rsquo;d represent each object rotation as a Vector3 containing all three axes. You can determine set each individual rotation directly without doing any of the math.</p>
+<p>So far, we&rsquo;ve been looking at 3D rotations as a <strong>manipulation of 3 axes of rotation</strong> also known as <strong>Euler Angles</strong>. However, this method of handling rotations is susceptible to 2 main probles.</p>
+<ul>
+<li>Gimbal Lock - When two axes of rotation line up, two of the rotation axes perform the same rotation causing a loss of a dimension of rotation. This is shown beautifully by <a href="https://www.youtube.com/watch?v=zc8b2Jo7mno">GuerrillaCG</a></li>
+<li>Interpolation - It&rsquo;s exceedingly difficult to accurately move smoothly between different rotations</li>
+</ul>
+<h2 id="quaternions">Quaternions<a hidden class="anchor" aria-hidden="true" href="#quaternions">#</a></h2>
+<p>At first, the idea of using a whole different number system just for rotations can be quite abstract and even visualizing it is even more so. But, once the fundamentals are understood of how and why this works so efficiently, quaternions can be used very easily in software packages like Unity that handle the math calculations for you. A great explanation of application can be found <a href="https://www.youtube.com/watch?v=1yoFjjJRnLY">here</a> while a more comprehensive look at the underlying math is given by the always fantastic <a href="https://www.youtube.com/watch?v=d4EgbgTm0Bg">3Blue1Brown</a></p>
+<h3 id="visual-understanding-in-software">Visual Understanding in Software<a hidden class="anchor" aria-hidden="true" href="#visual-understanding-in-software">#</a></h3>
+<p>Applied in blender, you may notice that influencing a single quat value doesn&rsquo;t rotate the way you expect. Instead, altering a lone quat value will only flip the mesh into different orientations as follows, no rotations in between.</p>
+<p><img loading="lazy" src="images/quat_blender.png" alt="Quaternion Blender"  />
+</p>
+<p>Smooth rotation starts happening when you influence multiple values at once. In essence, the orientations are mixing depending on the weight you give to each value. Therefore, when thinking about how each quaternion value relates to its 3D rotation, you can think of a quaternion rotation as <strong>mixing together these four orientations in order to create the desired rotation.</strong> Of course, it&rsquo;s not that simple as the way the mixing and rotating happens is a result of the underlying math but I think this way of thinking offers better visual and it can aid in understanding what&rsquo;s really happening.</p>
+<p>For instance, if you start with the model facing towards us with the quarternion <code>(0, 0, 0, 1)</code> and we want to flip it 90deg about the X-axis. What we should really be thinking is <em>&ldquo;Which two orientations can I mix to get what I want&rdquo;</em>. You might notice in the above example that a quaternion of <code>(1, 0, 0, 0)</code> rotates 180deg about the X-axis. So, wouldn&rsquo;t we be wanting some rotation in between these two? This is precisely the answer. <code>(1, 1, 0 0 )</code> mixes evenly the starting position and the 180deg rotation to result in a 90deg rotation.</p>
+<p><img loading="lazy" src="images/quat_blender_rotation.gif" alt="Quat Blender Rotation"  />
+</p>
+<p>For more complex rotations, you can imagine mixing in the other values to get further rotations. Here I add to Y and the mesh rotation mixes towards the upside-down, front facing position.</p>
+<p><img loading="lazy" src="images/quat_blender_rotation2.gif" alt="Quat Blender Rotation 3 Axes"  />
+</p>
+<p>it turns out you can achieve every 3D rotation this way without any of the drawbacks of Euler rotations.</p>
+<p>One thing to notice is when mixing rotations, you can scale each value infinitely and the dominant value will mix the rotation the most. But to get a precise orientation, for example facing forwards, it&rsquo;s best to return to whole numbers and setting unneeded rotations to 0 instead of battling out which rotation wins.</p>
+<h2 id="so-why-should-i-use-it">So Why Should I Use It?<a hidden class="anchor" aria-hidden="true" href="#so-why-should-i-use-it">#</a></h2>
+<p>It comes down to if and when you may encounter the draw backs of using Euler angles. Euler angles are much easier for understand and manipulate mentally but come with the Gimbal drawbacks and interpolation issues that can become a larger issue in physics and animations.</p>
+<p>Typically, physics won&rsquo;t be an issue as you can allow game engines to take care of that for you. For animations, it can be a benefit to use Quaternions over Euler angles to circumvent undesirable rotation paths. Otherwise, if you&rsquo;re only performing 2D linear rotations, Euler angles can perform this perfectly and it only really comes to a mathematical and performance benefit with Quaternions.</p>
+<p>In summary, <strong>Quaternions are superior in every way except for human readability</strong>.</p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/math/">Math</a></li>
+      <li><a href="http://localhost:1313/tags/development/">Development</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/intro_to_shaders/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Introduction to Unity Shaders</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/3d_character_unity_setup/">
+    <span class="title">Next »</span>
+    <br>
+    <span>3D Character Unity Setup</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Overview of Probability | Hylu Blog</title>
+<meta name="keywords" content="math, ai">
+<meta name="description" content="I&rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.
+Random Variable Whenever there&rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/ai/overview-of-probability/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/ai/overview-of-probability/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Overview of Probability
+    </h1>
+    <div class="post-meta"><span title='2023-06-04 12:27:54 -0400 EDT'>June 4, 2023</span>
+
+</div>
+    
+    
+    
+    
+    
+<script
+  type="application/javascript"
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  async
+></script>
+<script 
+  type="text/x-mathjax-config"
+  async
+  >
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+    
+  </header> 
+<figure class="entry-cover"><a href="https://3b1b-posts.us-east-1.linodeobjects.com//images/topics/probability.jpg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://3b1b-posts.us-east-1.linodeobjects.com//images/topics/probability.jpg" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#random-variable" aria-label="Random Variable">Random Variable</a></li>
+                <li>
+                    <a href="#expected-value" aria-label="Expected Value">Expected Value</a></li>
+                <li>
+                    <a href="#variance" aria-label="Variance">Variance</a></li>
+                <li>
+                    <a href="#standard-deviation" aria-label="Standard Deviation">Standard Deviation</a><ul>
+                        
+                <li>
+                    <a href="#statistical-uses" aria-label="Statistical Uses">Statistical Uses</a></li></ul>
+                </li>
+                <li>
+                    <a href="#conditional-probabilities" aria-label="Conditional Probabilities">Conditional Probabilities</a></li>
+                <li>
+                    <a href="#bayes-theorem" aria-label="Bayes Theorem">Bayes Theorem</a><ul>
+                        
+                <li>
+                    <a href="#an-example" aria-label="An Example">An Example</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>I&rsquo;ve always had trouble understanding probability, especially when entering into the more theoretical aspects of it. Here, I want to cover some of the basic concepts and functions core to probability in an easily digestible format that I can refer to later on when I inevitably forget it all.</p>
+<h2 id="random-variable">Random Variable<a hidden class="anchor" aria-hidden="true" href="#random-variable">#</a></h2>
+<p>Whenever there&rsquo;s a question of probability, you tend to have some range of possible outcomes sourced from a specific event.</p>
+<p>We label some <strong>process</strong> that has <strong>multiple outcomes</strong> as a <strong>random variable</strong>.</p>
+<blockquote>
+<p>Typically, we use \(X\) to name this random variable though it can be any name capitalized as convention.</p>
+</blockquote>
+<p>An easy example is a six-sided die where there are precisely six possible outcomes. In essence, our random variable can be thought of as a list of these outcomes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>]
+</span></span></code></pre></div><h2 id="expected-value">Expected Value<a hidden class="anchor" aria-hidden="true" href="#expected-value">#</a></h2>
+<p>As the name suggests, this averages out the probabilities of all the outcomes and returns the <strong>mean</strong> (\(\mu\)) of all the outcomes.</p>
+<p>$$E[X] = \sum_{x} P(X=x)*x$$</p>
+<p>For example, in the case of a six-sided fair die, the probability of each outcome is uniform leading to the following expected value.</p>
+<p>$$E[X] = \frac{1}{6}(1 + 2 + 3 + 4 + 5 + 6) = 3.5$$</p>
+<p>The average roll is 3.5</p>
+<h2 id="variance">Variance<a hidden class="anchor" aria-hidden="true" href="#variance">#</a></h2>
+<blockquote>
+<p>To preface, standard deviations and variance are nearly identical and both describe the dispersion of values. Standard deviation is often more useful in applications and visualizations than variance. However, standard deviations is derived from variance so it&rsquo;s important to know what variance is though, <strong>seeing the purpose of variance this way can be difficult</strong>. Rather, comprehend the math of variance in relation to expected value, and then move on to standard deviation to understand its usefulness.</p>
+</blockquote>
+<p>The variance tells us how spread out a probability distribution is. We do this by finding the <strong>difference</strong> between each outcome and the expected value (\(\mu\)), and then take that expected value (in other words, <strong>we get the average difference each outcome is from the mean</strong>).</p>
+<p>$$V(X) = E[(X - \mu)^2] = \sum_{x} P(X=x)*(x-\mu)^2$$</p>
+<blockquote>
+<p>You may notice that we actually square that difference. Other than ensuring our difference is positive, taking square makes the math nicer later on.</p>
+</blockquote>
+<p>In the case of a fair die, we get the following variance.</p>
+<p>$$V(X) = \frac{1}{6}(17.5) = \frac{35}{12}$$</p>
+<blockquote>
+<p>the squared distance between each die face and the mean is 2.916.</p>
+</blockquote>
+<h2 id="standard-deviation">Standard Deviation<a hidden class="anchor" aria-hidden="true" href="#standard-deviation">#</a></h2>
+<p>Let&rsquo;s start with this comparison with variance.</p>
+<p>$$\sigma = \sqrt{V(X)}$$</p>
+<p>When we talk about variance being the average difference from the mean, it can be difficult to picture as it is the <strong>squared</strong> distance from the mean. Instead, if we want to normalize the units we take the standard deviation as the square root of the variance.</p>
+<p>Now when we say the average distance each result is from the mean, we can properly denote it as \(n\) standard deviations away from the mean.</p>
+<p>From the prior die example, we get this standard deviation</p>
+<p>$$\sigma = \sqrt{\frac{35}{12}} = 1.71$$</p>
+<p>Now let&rsquo;s say we roll a 1 which deviates from the mean by 2.5, comparing this to our standard deviation we get the following</p>
+<p>$$\frac{2.5}{\sigma} = 1.46$$</p>
+<p><strong>Our dice roll of 1 was roughly 1.46 standard deviations away from the mean</strong> which is actually just another way to say it was 2.5 away from the mean like we started.</p>
+<h3 id="statistical-uses">Statistical Uses<a hidden class="anchor" aria-hidden="true" href="#statistical-uses">#</a></h3>
+<p><img loading="lazy" src="https://www.wallstreetmojo.com/wp-content/uploads/2019/03/SD-Graph-1.gif" alt="Standard Deviation Chart"  />
+</p>
+<p>Those who work with probabilities on large datasets are generally familiar with how data fits within a range of standard deviation. The chart above is saying:</p>
+<ul>
+<li>68% of values are within 1 \(\sigma\) away from the mean</li>
+<li>95% of values are within 2 \(\sigma\) away from the mean</li>
+<li>99.7% of values are within 3 \(\sigma\) away from the mean</li>
+</ul>
+<p>Knowing the standard deviation gives great insight into how clustered dataset is around the mean. Larger values suggest a more spread out dataset.</p>
+<h2 id="conditional-probabilities">Conditional Probabilities<a hidden class="anchor" aria-hidden="true" href="#conditional-probabilities">#</a></h2>
+<p>Conditional probabilities ask, &ldquo;what is the probability of A given a condition B&rdquo;.</p>
+<p>More formally,</p>
+<p>$$P(A|B) = \frac{P(A\cap B)}{P(B)}$$</p>
+<p>The intuition is that we&rsquo;re looking at subset of the data that satisfies this condition B. Then, we&rsquo;re taking a fraction of those that satisfy A within the subset B.</p>
+<h2 id="bayes-theorem">Bayes Theorem<a hidden class="anchor" aria-hidden="true" href="#bayes-theorem">#</a></h2>
+<p>$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$</p>
+<p>The thing you might notice is that we&rsquo;re also describing conditional probabilities, so what&rsquo;s the difference?</p>
+<p>Instead of using the joint probability \(P(A\cap B)\), we use the reverse condition \(P(B|A)P(A)\). But these are actually equivalent! Think about it this way: <strong>The probability of A and B happening is the same thing as saying the probability of A happening and the probabilty of B given that A happened.</strong></p>
+<p>But what&rsquo;s the point?</p>
+<p>Bayes Theorem is better suited to conditional problems where our condition updates our original probability. In other words, we can visualize the probability as a hypothesis and a piece of evidence. We can repeatedly update our probability as new evidence comes in.</p>
+<p>$$P(A\cap B) = P(B|A)P(A) = P(New\ evidence\ after\ current\ event)P(current\ event)$$</p>
+<h3 id="an-example">An Example<a hidden class="anchor" aria-hidden="true" href="#an-example">#</a></h3>
+<p>Let&rsquo;s say our hypothesis is that Anne is a vegetarian and let&rsquo;s say that 1/4 of people are vegetarians. Then the probability of Anne being one is just so.</p>
+<p>$$P(H) = 1/4$$</p>
+<p>Now, let&rsquo;s say we get some evidence that Anne is a climate change activist. Now the question is, &ldquo;what&rsquo;s the probability that Anne is a vegetarian given that she&rsquo;s also a climate change activist (activist for short).</p>
+<p>Let&rsquo;s say we infer that a fifth of vegetarians are activists and a tenth of non-vegetarians are activists. Then we can solve as follows</p>
+<p>$$P(H|E) = \frac{P(Vegetarian)P(Activist\ if\ Vegetarian)}{P(Activist)} = \frac{\frac{1}{4}*\frac{1}{5}}{\frac{1}{5}+\frac{1}{10}} = \frac{1}{6}$$</p>
+<p>Imagine from here, we can repeat the process with new evidence using the previous evidence as our hypothesis instead, further refining our probability. This forms the basis of many uses cases like risk analysis and machine learning.'</p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/math/">Math</a></li>
+      <li><a href="http://localhost:1313/tags/ai/">Ai</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/ai/intro-to-deep-learning/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Intro to Deep Learning</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2023/old/ai/intro-to-machine-learning/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Intro to Machine Learning</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

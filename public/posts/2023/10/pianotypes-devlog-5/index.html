@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Pianotypes Devlog 5 | Hylu Blog</title>
+<meta name="keywords" content="pianotypes, development">
+<meta name="description" content="Not many code changes as of late but I&rsquo;ve been more active on one of the packages I&rsquo;m using to play sound, smplr. It&rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to danigb.
+A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.
+Note Scheduling Throughput The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&rsquo;s of static.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2023/10/pianotypes-devlog-5/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/10/pianotypes-devlog-5/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Pianotypes Devlog 5
+    </h1>
+    <div class="post-meta"><span title='2023-10-01 02:07:05 -0400 EDT'>October 1, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#note-scheduling-throughput" aria-label="Note Scheduling Throughput">Note Scheduling Throughput</a></li>
+                <li>
+                    <a href="#onstart-callback" aria-label="onStart callback">onStart callback</a></li>
+                <li>
+                    <a href="#other-stuff" aria-label="Other stuff">Other stuff</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Not many code changes as of late but I&rsquo;ve been more active on one of the packages I&rsquo;m using to play sound, <a href="https://github.com/danigb/smplr">smplr</a>. It&rsquo;s such an amazing package for playing instrument sounds with an incredibly simple and powerful api. Kudos to <a href="https://github.com/danigb/">danigb</a>.</p>
+<p>A bunch of new changes were made recently that have added some awesome features as well as some bugs I found while using them.</p>
+<h2 id="note-scheduling-throughput">Note Scheduling Throughput<a hidden class="anchor" aria-hidden="true" href="#note-scheduling-throughput">#</a></h2>
+<p>The first change was a tweak to note scheduling that fixes an issue of the web audio getting overloaded and introducing lot&rsquo;s of static.</p>
+<p>An <a href="https://github.com/danigb/smplr/issues/26">issue</a> was opened a few months back that is now fixed.</p>
+<p>danigb added a new queuing data structure that looks to better handle large amounts of notes as per <a href="https://github.com/danigb/smplr/pull/30/files">feat/player #30</a>. Definitely worth taking a look at in the future!</p>
+<h2 id="onstart-callback">onStart callback<a hidden class="anchor" aria-hidden="true" href="#onstart-callback">#</a></h2>
+<p>This was a feature I requested and is key for my project as I need to visualize keypresses as well as key releases on the piano whenever a note is played.</p>
+<p>web audio nodes don&rsquo;t have a built-in onStart callback so it makes sense why smplr didn&rsquo;t immediately include one either.</p>
+<p>I used a pretty jank method of adding new web audio nodes and playing empty sounds with no duration only for them to trigger a callback when it ends. Since the duration is 0, the <code>onEnded</code> effectively acts as an <code>onStart</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timingNodes</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">timingContext</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">AudioContext</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">scheduleCallback</span>(<span style="color:#a6e22e">delay</span>, <span style="color:#a6e22e">callback</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">osc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">timingContext</span>.<span style="color:#a6e22e">createOscillator</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">osc</span>.<span style="color:#a6e22e">start</span>(<span style="color:#a6e22e">timingContext</span>.<span style="color:#a6e22e">currentTime</span><span style="color:#f92672">+</span><span style="color:#a6e22e">delay</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">osc</span>.<span style="color:#a6e22e">stop</span>(<span style="color:#a6e22e">timingContext</span>.<span style="color:#a6e22e">currentTime</span><span style="color:#f92672">+</span><span style="color:#a6e22e">delay</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">osc</span>.<span style="color:#a6e22e">onended</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">callback</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// keep nodes in a list in case I need to stop them early
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">timingNodes</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">osc</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>But after some back and forth with some issues, danigb introduced a built in onstart as per my <a href="https://github.com/danigb/smplr/discussions/28">suggestion</a>! I&rsquo;ve replaced my code with the new callback and it works amazingly.</p>
+<h2 id="other-stuff">Other stuff<a hidden class="anchor" aria-hidden="true" href="#other-stuff">#</a></h2>
+<p>I put a pause on my work into converting the visualizer into an html canvas for two reasons.</p>
+<ul>
+<li>My early implementation of <code>canvas</code> painting was actually lagging quite a big in comparison to the current HTML DOM elements.
+<ul>
+<li>My use of shadows are really slow to draw on the canvas especially when there&rsquo;s so many elements. I don&rsquo;t want to lose the shadows since they look really nice.</li>
+<li>I still want to use canvas since the current implementations has some animation flickers and issues when the user is on a different tab.</li>
+</ul>
+</li>
+<li>I&rsquo;d need to rework my code a good bit since it&rsquo;s not designed well for accessing piano events from a centralized place quickly
+<ul>
+<li>Currently I have seperate component to handle ribbons for each note. A canvas would have to handle <strong>every note</strong> from within one component.</li>
+</ul>
+</li>
+</ul>
+<p>I also put a start into including <a href="https://magenta.tensorflow.org/pianogenie">piano genie</a> functionality.</p>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/pianotypes/">Pianotypes</a></li>
+      <li><a href="http://localhost:1313/tags/development/">Development</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2023/10/c&#43;&#43;-a-personal-guide/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>C&#43;&#43; A Personal Guide</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2023/09/stack-and-heap/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Stack and Heap</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

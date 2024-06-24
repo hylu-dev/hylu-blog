@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on Hylu Blog</title>
+    <link>http://localhost:1313/tags/code/</link>
+    <description>Recent content in Code on Hylu Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 May 2024 12:35:27 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity Custom Passes with URP</title>
+      <link>http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/</link>
+      <pubDate>Tue, 07 May 2024 12:35:27 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/</guid>
+      <description>I&amp;rsquo;m documenting some of my adventures looking into the Scriptable Render Pipelines in Unity. I have the goal of creating a stylized 3D pixel-art render pipeline heavily inspired by t3ssel8r.
+What is URP Cel-Shading Rendering To an Intermediate Texture During rendering passes, it&amp;rsquo;s common to store information by rendering to a texture instead of immediately rendering to the screen. For example, if you want to just do a pass to collect depth information, you can draw that information in memory and hold on to it to reference for later usage.</description>
+    </item>
+    <item>
+      <title>GitHub Basics for Designers</title>
+      <link>http://localhost:1313/posts/2024/05/github-basics/</link>
+      <pubDate>Tue, 07 May 2024 00:28:21 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024/05/github-basics/</guid>
+      <description>This will be a short tutorial about GitHub to get you quickly up and started conceptually if you have little to no experience. I may gloss over some things if you&amp;rsquo;re already familiar.
+What is Git? Git is a version control system. It keeps tracks of a repository of files and records all changes made to the files. Most popular in software development for managing code bases.
+It provides a system for multiple people to work on the same files by tracking changes, allowing easy reverting, and merging multiple changes.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Playing With GLSL | Hylu Blog</title>
+<meta name="keywords" content="glsl, shaders">
+<meta name="description" content="From what I&rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as TheBookOfShaders. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.
+Drawing Circles A Circle Using step To start, this is what it looks like using the step() function where for a circle of a radius, if the pixel is outside of this radius, give a value of 1, if not, return a 0.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2023/old/dev/playing_with_glsl/">
+<link rel="stylesheet" href="http://localhost:1313/css/custom.css">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8198515fa77a6b7ffb462312ed9ac85b9c0c3f31618c387a9779d093d86bbbac.css" integrity="sha256-gZhRX6d6a3/7RiMS7ZrIW5wMPzFhjDh6l3nQk9hru6w=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2023/old/dev/playing_with_glsl/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Hylu Blog (Alt + H)">Hylu Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Playing With GLSL
+    </h1>
+    <div class="post-meta"><span title='2023-05-11 14:23:07 -0400 EDT'>May 11, 2023</span>
+
+</div>
+    
+    
+    
+    
+  </header> 
+<figure class="entry-cover"><a href="https://thebookofshaders.com/07/froebel.jpg" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://thebookofshaders.com/07/froebel.jpg" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+<div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#drawing-circles" aria-label="Drawing Circles">Drawing Circles</a><ul>
+                        
+                <li>
+                    <a href="#a-circle-using-step" aria-label="A Circle Using step">A Circle Using step</a></li>
+                <li>
+                    <a href="#smoothstep" aria-label="smoothstep">smoothstep</a></li>
+                <li>
+                    <a href="#a-circle-using-smoothstep" aria-label="A Circle Using smoothstep()">A Circle Using smoothstep()</a></li>
+                <li>
+                    <a href="#dot-product-to-calculate-vector-length" aria-label="Dot Product to Calculate Vector Length?">Dot Product to Calculate Vector Length?</a></li></ul>
+                </li>
+                <li>
+                    <a href="#frac" aria-label="frac">frac</a></li>
+                <li>
+                    <a href="#generating-shapes-with-arctangent" aria-label="Generating Shapes with Arctangent">Generating Shapes with Arctangent</a></li>
+                <li>
+                    <a href="#morphing-mosaic" aria-label="Morphing Mosaic">Morphing Mosaic</a></li>
+                <li>
+                    <a href="#mixing-patterns" aria-label="Mixing Patterns">Mixing Patterns</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>From what I&rsquo;ve read, one of the classic shader introductions people reference is this online module-of-sorts known as <strong>TheBookOfShaders</strong>. On there, it covers topics of how math can generates different shapes and textures within shaders along with plenty of examples and tip from basic to more advanced creations.</p>
+<h2 id="drawing-circles">Drawing Circles<a hidden class="anchor" aria-hidden="true" href="#drawing-circles">#</a></h2>
+<h3 id="a-circle-using-step">A Circle Using <code>step</code><a hidden class="anchor" aria-hidden="true" href="#a-circle-using-step">#</a></h3>
+<p>To start, this is what it looks like using the <code>step()</code> function where for a circle of a <code>radius</code>, if the pixel is outside of this radius, give a value of <code>1</code>, if not, return a <code>0</code>. <em>Make pixels within <code>radius</code> away from the center white, otherwise black</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">circle</span>(in vec2 sst, in <span style="color:#66d9ef">float</span> radius) {
+</span></span><span style="display:flex;"><span>    vec2 dist <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec2</span>(<span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">-</span>st;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> length <span style="color:#f92672">=</span> <span style="color:#a6e22e">sqrt</span>(<span style="color:#a6e22e">pow</span>(dist.x, <span style="color:#ae81ff">2.</span>)<span style="color:#f92672">+</span><span style="color:#a6e22e">pow</span>(dist.y,<span style="color:#ae81ff">2.</span>)); <span style="color:#75715e">// getting magnitude of dist vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    pct <span style="color:#f92672">=</span> <span style="color:#a6e22e">step</span>(length, radius);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="smoothstep">smoothstep<a hidden class="anchor" aria-hidden="true" href="#smoothstep">#</a></h3>
+<p>Something that confused me with smoothstep was that I expected the value returned to be the interpolated result of a start <code>a</code> and end <code>b</code> based off a fraction <code>c</code>. However it&rsquo;s actually the inverse operation. You instead give it a value between <code>a</code> and <code>b</code> and value <code>c</code> in between the two and you&rsquo;ll that percentage between the two back as a fraction of 1.</p>
+<p>This is similar to the inverse lerp described by <a href="https://www.gamedev.net/articles/programming/general-and-gameplay-programming/inverse-lerp-a-super-useful-yet-often-overlooked-function-r5230/">Freya Holmér</a></p>
+<p>This was confusing as most interpolation I&rsquo;ve used previously (typically in a function just called lerp) has its third argument be the fraction of 1 to interpolate with.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">lerp</span>(<span style="color:#66d9ef">float</span> a, <span style="color:#66d9ef">float</span> b, <span style="color:#66d9ef">float</span> t) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> t) <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">*</span> t <span style="color:#75715e">// for 0 &lt;= t &lt;= 1, return a value as a fraction t of the range a -&gt; b
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} <span style="color:#75715e">// ex. lerp(0, 10, .5) = 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">invLerp</span>(<span style="color:#66d9ef">float</span> a, <span style="color:#66d9ef">float</span> b, <span style="color:#66d9ef">float</span> v) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (v <span style="color:#f92672">-</span> a)<span style="color:#f92672">/</span>(b<span style="color:#f92672">-</span>a) <span style="color:#75715e">// normalizes v between a and b to be between 0 and 1 and return that fraction
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} <span style="color:#75715e">// ex. invLerp(0, 10, 5) = .5
+</span></span></span></code></pre></div><p>Once this was understood, things like generating circles with smoothstep made a lot more sense.</p>
+<h3 id="a-circle-using-smoothstep">A Circle Using <code>smoothstep()</code><a hidden class="anchor" aria-hidden="true" href="#a-circle-using-smoothstep">#</a></h3>
+<p>Now approaching with <code>smoothstep()</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">circle</span>(in vec2 st, in <span style="color:#66d9ef">float</span> radius) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> length <span style="color:#f92672">=</span> <span style="color:#a6e22e">distance</span>(st, <span style="color:#a6e22e">vec</span>(<span style="color:#ae81ff">0.5</span>)) <span style="color:#75715e">// using GLSL built-in instead
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">smoothstep</span>(radius<span style="color:#f92672">-</span>(radius<span style="color:#f92672">*</span><span style="color:#ae81ff">0.01</span>), radius<span style="color:#f92672">+</span>(radius<span style="color:#f92672">*</span><span style="color:#ae81ff">0.01</span>), length);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Effectively. this does the same thing except changes around the logic and blurs the edges of the circle.</p>
+<p>This works largely the same as the step function except instead of a single number edge, you have a range between
+<code>radius-(radius*0.01)</code> and <code>radius+(radius*0.01)</code>. If the interpolated value is under this range, smoothstep will return <code>0</code>. If the interpolated value is above this range, it will return <code>1</code>.</p>
+<p>Now, if it&rsquo;s between this range, you will get a smooth fractional between <code>0</code> and <code>1</code> causing a transitional blurred edge to the circle as instead of flipping from black to white (0 -&gt; 1), it blends towards it for the width of that range.</p>
+<p>The range, TheBookoOfShaders gives it is small in order to keep the circle quite sharp. But, by increasing the range, the blur becomes much clearer.</p>
+<h3 id="dot-product-to-calculate-vector-length">Dot Product to Calculate Vector Length?<a hidden class="anchor" aria-hidden="true" href="#dot-product-to-calculate-vector-length">#</a></h3>
+<p>Generally, division is a costly operation for computers and thus so is the square root. For this reason, if there&rsquo;s an alternative to getting the length of a vector than the Pythagoras Theorem, we&rsquo;d like to use it.</p>
+<blockquote>
+<p>A <a href="https://www.youtube.com/watch?v=p8u_k2LIZyo">Doom developer</a> when to great lengths to avoid performing the costly inverse square root operation that he developed a brilliantly cursed alternative to it.</p>
+</blockquote>
+<p>The dot product returns the projection of one vector <code>v1</code> onto another and multiplies the length of the projection with that other vector <code>v2</code>. There are a couple things to note.</p>
+<ul>
+<li>The result is the magnitude of <code>|v1projected| * |v2|</code></li>
+<li>The length of <code>v1projected</code> decreases the wider the angle between it and <code>v2</code></li>
+<li>The general formula is <code>|A||B|cosθ</code></li>
+</ul>
+<p><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Projection_and_rejection.png" alt="Vector Projection"  />
+</p>
+<p>In the case that <code>v1 == v2</code>, the magnitude of <code>v1projected == v1</code> as well. This means the result of the dot product is actually
+<code>|v1|**2</code>!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>more formally...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> v1 <span style="color:#f92672">==</span> v2
+</span></span><span style="display:flex;"><span>then v1⋅v2 <span style="color:#f92672">=</span> v1⋅v1 <span style="color:#f92672">=</span> <span style="color:#f92672">|</span>v1<span style="color:#f92672">||</span>v1<span style="color:#f92672">|</span><span style="color:#a6e22e">cos</span>(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">=</span> <span style="color:#f92672">|</span>v1<span style="color:#f92672">|**</span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p><strong>We&rsquo;re now close to getting the length of the vector</strong>, but again need to take to <code>sqrt</code> of it all the get the final length of <code>v1</code>.</p>
+<p>Let&rsquo;s look at what TheBookOfShaders does</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">circle</span>(in vec2 st, in <span style="color:#66d9ef">float</span> radius) {
+</span></span><span style="display:flex;"><span>    vec2 dist <span style="color:#f92672">=</span> st<span style="color:#f92672">-</span><span style="color:#a6e22e">vec2</span>(<span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> length <span style="color:#f92672">=</span> <span style="color:#a6e22e">dot</span>(dist, dist)<span style="color:#f92672">*</span><span style="color:#ae81ff">4.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">smoothstep</span>(radius<span style="color:#f92672">-</span>(radius<span style="color:#f92672">*</span><span style="color:#ae81ff">0.01</span>), radius<span style="color:#f92672">+</span>(radius<span style="color:#f92672">*</span><span style="color:#ae81ff">0.01</span>), length);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Instead, what TheBookOfShaders opts to do is to <strong>multiply it all by 4 and call it day</strong> <code>dot(dist, dist)*4</code>. I&rsquo;ve done a bunch of playing around and all I conclude is, <strong>this is not equivalent to the actual length of the vector</strong>. Comparing it to using a distance function, radius of the circle isn&rsquo;t accurately represented. Instead, it following an exponential curve as you increase/decrease the radius value compared to a linear one where the value you input maps to the actual circle radii.</p>
+<p>Ultimately, the purpose of their example is to showcase a circle in GLSL and even with the square of the vector length, it&rsquo;s still enough to show it, just not for the correct radius. I will say, the author should&rsquo;ve multiplied it by 2, this way at least the max circle radius of <code>0.5</code> would match up with the correct distance function.</p>
+<p><strong>So in the end, you&rsquo;re better off using the square root here.</strong></p>
+<h2 id="frac">frac<a hidden class="anchor" aria-hidden="true" href="#frac">#</a></h2>
+<p>the <code>frac()</code> function is . It&rsquo;s often use to help visualize values in you&rsquo;re shader outside of 1. Specifically, shaders in Unity don&rsquo;t natively clamp values between 0 and 1 so if you&rsquo;re trying to create a gradient shader where color is based on the UV position on a mesh, that UV position can go above and below 0 and 1.</p>
+<p>The implementation of <code>frac()</code> is incredibly simple and is as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">frac</span>(<span style="color:#66d9ef">float</span> v) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> v <span style="color:#f92672">-</span> <span style="color:#a6e22e">floor</span>(v);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Frac will only return values between a range of 0 and 1 and if its fed a <code>v</code> out of this range, the pattern will repeat.
+So you can surround your shader code with a frac and get a repeating pattern that looks like this.</p>
+<p><img loading="lazy" src="https://pic4.zhimg.com/80/v2-2e6c3b65fbf3a07aa0e781ec6f3e97a7_1440w.webp" alt="frac example"  />
+</p>
+<h2 id="generating-shapes-with-arctangent">Generating Shapes with Arctangent<a hidden class="anchor" aria-hidden="true" href="#generating-shapes-with-arctangent">#</a></h2>
+<p>Trigonometric functions are closely tied with circles and are a key component to generating repeating, cyclical patterns. Here, we are taking a look at the power of the arctangent function.</p>
+<p>To begin, the arctangent function when graphed is a right rotation and mirror of the standard tangent graph.</p>
+<p><img loading="lazy" src="https://dfrrh0itwp1ti.cloudfront.net/img/a/trigonometry/trigonometric-functions/arctan/arctan.png" alt="Arctangent Graph"  />
+
+<img loading="lazy" src="https://study.com/cimages/multimages/16/tan38155360018730577690.png" alt="Tangent Graph"  />
+</p>
+<p>It can be hard to wrap your head around how each value of x in the arctan graph correlates to its plotted value but the key is to focus on how the arctan function relates to the tan function itself.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">arctan</span>(x) <span style="color:#f92672">=</span> θ <span style="color:#f92672">==&gt;</span> tanθ <span style="color:#f92672">=</span> x
+</span></span></code></pre></div><p>It&rsquo;s primarily used to find the angle between the opposite and adjacent sides of a trangle</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>θ <span style="color:#f92672">=</span> <span style="color:#a6e22e">arctan</span>(opposite<span style="color:#f92672">/</span>adjacent)
+</span></span></code></pre></div><p>When wanting to create patterns, this relation should be your tool to visualizing how patterns can be built with arctan.</p>
+<p>For example, for every pixel we have a <code>vector2</code> of it&rsquo;s position and by subbing that into arctan, we can get the angle that the pixel lies from the origin.</p>
+<p>Let&rsquo;s move the origin to the center and try plotting the angle directly to the color of the shader.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    vec2 st <span style="color:#f92672">=</span> gl_FragCoord.xy<span style="color:#f92672">/</span>u_resolution.xy;
+</span></span><span style="display:flex;"><span>    vec3 color <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec3</span>(<span style="color:#ae81ff">0.0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vec2 pos <span style="color:#f92672">=</span> st<span style="color:#f92672">*</span><span style="color:#ae81ff">2.</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> r <span style="color:#f92672">=</span> <span style="color:#a6e22e">length</span>(pos)<span style="color:#f92672">*</span><span style="color:#ae81ff">2.0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> a <span style="color:#f92672">=</span> <span style="color:#a6e22e">atan</span>(pos.y,pos.x);
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec3</span>(a);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    gl_FragColor <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec4</span>(color, <span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img loading="lazy" src="images/arctan_shader.png" alt="Arctan Shader"  />
+</p>
+<p>In GLSL, atan has two overloads, first used here can have deceptive behavior when it comes to signs</p>
+<blockquote>
+<p>atan returns either the angle whose trigonometric arctangent is yx or y_over_x, depending on which overload is invoked. In the first overload, the signs of y and x are used to determine the quadrant that the angle lies in. The value returned by atan in this case is in the range [−π,π]. The result is undefined if x=0</p>
+</blockquote>
+<p>.</p>
+<p>For the second overload, atan returns the angle whose tangent is y_over_x. The value returned in this case is in the range [−π2,π2]
+. n.</p>
+<p>If we then sub the angles into <code>cos</code>, we get the adjacent side of the right triangle angled θ from the origin.</p>
+<p><img loading="lazy" src="images/cos_shader.png" alt="Cos Shader"  />
+</p>
+<blockquote>
+<p>The adjacent component is only positive in quadrants I and IV</p>
+</blockquote>
+<p>What&rsquo;s exciting now is remember this is still a cosine function. We can increase the period in order to see more cycles.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> f <span style="color:#f92672">=</span> <span style="color:#a6e22e">cos</span>(a<span style="color:#f92672">*</span><span style="color:#ae81ff">8.</span>); <span style="color:#75715e">// 8 cycles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>f <span style="color:#f92672">=</span> <span style="color:#a6e22e">floor</span>(f <span style="color:#f92672">+</span> <span style="color:#ae81ff">.5</span>); <span style="color:#75715e">// round to solid values
+</span></span></span></code></pre></div><p><img loading="lazy" src="images/umbrella_shader.png" alt="Umbrella Shader"  />
+</p>
+<h2 id="morphing-mosaic">Morphing Mosaic<a hidden class="anchor" aria-hidden="true" href="#morphing-mosaic">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    vec2 uv <span style="color:#f92672">=</span> gl_FragCoord.xy <span style="color:#f92672">/</span> u_resolution;
+</span></span><span style="display:flex;"><span>    uv <span style="color:#f92672">=</span> uv<span style="color:#f92672">*</span><span style="color:#ae81ff">2.</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">vec2</span>(<span style="color:#ae81ff">1.</span>); <span style="color:#75715e">// center origin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> angle <span style="color:#f92672">=</span> <span style="color:#a6e22e">atan</span>(<span style="color:#a6e22e">sin</span>(uv.y<span style="color:#f92672">*</span>PI), <span style="color:#a6e22e">sin</span>(uv.x<span style="color:#f92672">*</span>PI));
+</span></span><span style="display:flex;"><span>    vec4 color <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec4</span>(<span style="color:#a6e22e">ceil</span>(<span style="color:#a6e22e">sin</span>(angle<span style="color:#f92672">*</span><span style="color:#ae81ff">10.</span> <span style="color:#f92672">+</span> u_time)));
+</span></span><span style="display:flex;"><span>    gl_FragColor <span style="color:#f92672">=</span> color;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="mixing-patterns">Mixing Patterns<a hidden class="anchor" aria-hidden="true" href="#mixing-patterns">#</a></h2>
+<p>By encorporating smaller, simpler patterns into your shader, you can combine them and get surprisingly complex designs that also show off the beauty of the math behind it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    vec2 uv <span style="color:#f92672">=</span> gl_FragCoord.xy <span style="color:#f92672">/</span> u_resolution;
+</span></span><span style="display:flex;"><span>    uv <span style="color:#f92672">=</span> uv<span style="color:#f92672">*</span><span style="color:#ae81ff">2.</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">vec2</span>(<span style="color:#ae81ff">1.</span>); <span style="color:#75715e">// center origin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> dist <span style="color:#f92672">=</span> <span style="color:#a6e22e">length</span>(uv);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> angle <span style="color:#f92672">=</span> <span style="color:#a6e22e">atan</span>(uv.y<span style="color:#f92672">*</span>PI, uv.x<span style="color:#f92672">*</span>PI);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> waves <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(dist<span style="color:#f92672">*</span><span style="color:#ae81ff">5.</span><span style="color:#f92672">*</span>TAU <span style="color:#f92672">-</span> u_time<span style="color:#f92672">*</span><span style="color:#ae81ff">0.</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> umbrella <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(angle<span style="color:#f92672">*</span><span style="color:#ae81ff">5.</span> <span style="color:#f92672">+</span> u_time<span style="color:#f92672">*</span><span style="color:#ae81ff">0.</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vec4 color;
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">=</span> <span style="color:#a6e22e">vec4</span>(umbrella);
+</span></span><span style="display:flex;"><span>    color <span style="color:#f92672">+=</span> waves;
+</span></span><span style="display:flex;"><span>    gl_FragColor <span style="color:#f92672">=</span> color;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="flex-tiles">
+    
+    <div class="center-flex">
+      <a class="center-flex link " href="images/ripple.jpg" target="_blank">
+        <img alt="images/ripple.jpg" src="images/ripple.jpg" class="img">
+      </a>
+    </div>
+    
+    <style>
+      .img {
+        box-shadow: 1px 1px 5px #000;
+      }
+    
+      .img-xs, .img-xs img {
+        width: 35%;
+      }
+    
+      .img-sm, .img-sm img {
+        width: 50%;
+      }
+    
+      .img-md, .img-md img {
+        width: 70%;
+      }
+    
+      .img-lg, .img-lg img {
+        width: 85%
+      }
+    
+      .img-xl, .img-xl img {
+        width: 100%
+      }
+    
+      .banner {
+        width: 100%;
+      }
+    
+      .banner img {
+        width: 100%;
+        object-fit: cover;
+        height: 150px;
+      }
+    
+      .link {
+        text-decoration: none;
+        outline: none;
+        box-shadow: none !important;
+      }
+    
+      .center-flex {
+        display: flex;
+        justify-content: center;
+      }
+    
+      .white img {
+        background-color: white;
+      }
+    </style>
+    <div class="center-flex">
+      <a class="center-flex link " href="images/star.jpg" target="_blank">
+        <img alt="images/star.jpg" src="images/star.jpg" class="img">
+      </a>
+    </div>
+    
+    <style>
+      .img {
+        box-shadow: 1px 1px 5px #000;
+      }
+    
+      .img-xs, .img-xs img {
+        width: 35%;
+      }
+    
+      .img-sm, .img-sm img {
+        width: 50%;
+      }
+    
+      .img-md, .img-md img {
+        width: 70%;
+      }
+    
+      .img-lg, .img-lg img {
+        width: 85%
+      }
+    
+      .img-xl, .img-xl img {
+        width: 100%
+      }
+    
+      .banner {
+        width: 100%;
+      }
+    
+      .banner img {
+        width: 100%;
+        object-fit: cover;
+        height: 150px;
+      }
+    
+      .link {
+        text-decoration: none;
+        outline: none;
+        box-shadow: none !important;
+      }
+    
+      .center-flex {
+        display: flex;
+        justify-content: center;
+      }
+    
+      .white img {
+        background-color: white;
+      }
+    </style>
+
+</div>
+
+<style>
+    .flex-tiles {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    .flex-tiles > * {
+        width: 49%;
+    }
+</style>
+
+
+<blockquote>
+<p>A ripple and a star pattern</p>
+</blockquote>
+<p><img loading="lazy" src="images/ripple-star.jpg" alt="Combined Ripple Star"  />
+</p>
+<blockquote>
+<p>Combined together</p>
+</blockquote>
+
+
+    
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/glsl/">Glsl</a></li>
+      <li><a href="http://localhost:1313/tags/shaders/">Shaders</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/2023/old/dev/handling_normals_from_unity_to_blender/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Handling Normals from Unity to Blender</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/2023/old/dev/intro_to_shaders/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Introduction to Unity Shaders</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Hylu Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
