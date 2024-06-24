@@ -260,6 +260,8 @@ The Drawbacks
 - Despite the collider being a box, Unity will not perform AABB collision but the less efficient mesh collision
 - Doesn't accurately represent the curve shape
 
+As can be seen above, the bounding collider ends up just being a box anyways. We might as well have just used a box collider to begin with.
+
 
 ### Approach #2: Repeated Box Curve
 
@@ -276,3 +278,5 @@ The Drawbacks
 ### Approach #3: Sphere Angle Cutoff
 
 This approach takes advantage of the fact that sphere colliders are quick and already perform most of the collision calculations that we need. Whenever we get a collision within the sphere all we need to check is that the collision happens within an angle range and (if we want) we can check the collision happens in a height range as well.
+
+I've yet to implement this design for now. When I have some time, I'll get to implementation update my results again here!
