@@ -1,3 +1,13 @@
 strong {
     font-size: 1.2rem;
 }
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.project-container > article {
+    text-align: center;
+}

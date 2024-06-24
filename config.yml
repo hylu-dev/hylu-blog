@@ -9,6 +9,10 @@ outputs:
     - RSS
     - JSON # necessary for search
 params:
+  featuredPosts:
+      - ubisoft-next
+      - unity-custom-render-pipeline
+      - some-casual-art
   custom_css: ["css/custom.css"]
   profileMode:
         enabled: true

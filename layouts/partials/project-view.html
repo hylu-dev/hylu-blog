@@ -1,20 +1,11 @@
 <h2>
-    Projects
-    {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
-    {{- with .OutputFormats.Get "rss" }}
-    <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" height="23">
-        <path d="M4 11a9 9 0 0 1 9 9" />
-        <path d="M4 4a16 16 0 0 1 16 16" />
-        <circle cx="5" cy="19" r="1" />
-        </svg>
-    </a>
-    {{- end }}
-    {{- end }}
+    Some stuff
 </h2>
 
-{{ with site.GetPage "unity-custom-render-pipeline" }}
+<div class="project-container">
+{{ range $page := site.Params.featuredPosts }}
+{{ with site.GetPage $page }}
+{{/* post template from list.html */}}
 <article class="post-entry">
     {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
     {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
@@ -39,3 +30,6 @@
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{ end }}
+{{ end }} {{/* end featuredPosts */}}
+</div>
+
