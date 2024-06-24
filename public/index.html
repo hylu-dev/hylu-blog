@@ -73,8 +73,8 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/posts/" title="Archive">
-                    <span>Archive</span>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
                 </a>
             </li>
             <li>
@@ -92,31 +92,68 @@
 </header>
 <main class="main"><div class="profile">
     <div class="profile_inner">
-        <img draggable="false" src="http://localhost:1313/img/heart.svg" alt="&lt;title of image as alt&gt;" title="&lt;title of image as alt&gt;"
+        <img draggable="false" src="http://localhost:1313/img/heart.svg" alt="Heart" title="Heart"
             height="320" width="320" />
-        <h1><!-- raw HTML omitted -->
-</h1>
-        <span></span><div class="social-icons" >
+        <h1>Don&rsquo;t mind me.</h1>
+        <span>Just stress writing.</span><div class="social-icons" >
+    <a href="https://github.com/hylu-dev" target="_blank" rel="noopener noreferrer me"
+        title="Github">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+    <a href="https://www.linkedin.com/in/roylu01/" target="_blank" rel="noopener noreferrer me"
+        title="Linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+    </a>
 </div>
 
         <div class="buttons">
-            <a class="button" href="/posts" rel="noopener" title="Archive">
+            <a class="button" href="/posts" rel="noopener" title="Posts">
                 <span class="button-inner">
-                    Archive
-                </span>
-            </a>
-            <a class="button" href="https://github.com/hylu-dev" rel="noopener" title="Github">
-                <span class="button-inner">
-                    Github&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
+                    Posts
                 </span>
             </a>
         </div>
+        
+        <h2>
+    Projects
+</h2>
+
+
+<article class="post-entry"> 
+<figure class="entry-cover"><a href="https://roystan.net/media/tutorials/toon-shader-demo.png" target="_blank"
+            rel="noopener noreferrer"><img loading="lazy" src="https://roystan.net/media/tutorials/toon-shader-demo.png" alt=""></a>
+        
+</figure>
+<style>
+    .entry-cover img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+</style>
+
+    <header class="entry-header">
+    <h2 class="entry-hint-parent">Unity Custom Passes with URP
+    </h2>
+    </header>
+    <div class="entry-content">
+    <p>I’m documenting some of my adventures looking into the Scriptable Render Pipelines in Unity. I have the goal of creating a stylized 3D pixel-art render pipeline heavily inspired by t3ssel8r.
+What is URP Cel-Shading Rendering To an Intermediate Texture During rendering passes, it’s common to store information by rendering to a texture instead of immediately rendering to the screen. For example, if you want to just do a pass to collect depth information, you can draw that information in memory and hold on to it to reference for later usage....</p>
+    </div>
+    <a class="entry-link" aria-label="post link to Unity Custom Passes with URP" href="http://localhost:1313/posts/2024/05/unity-custom-render-pipeline/"></a>
+</article>
+
+
+
     </div>
 </div>
 
