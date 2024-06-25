@@ -1,18 +1,13 @@
-<div class="flex-tiles">
+<div class="grid-tiles">
     {{ .Inner }}
 </div>
 
 <style>
-    .flex-tiles {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        gap: 2%;
-    }
-
-    .flex-tiles > * {
-        width: 49%;
+    .grid-tiles {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
     }
 </style>
 
