@@ -12,9 +12,12 @@ tags: ["development"]
 
 PianoTypes is a web-based piano that provides a full-range, customizable piano that's fast, visually sleek, and easy-to-use. While there are similar sites out there, PianoTypes tries to stand out by being the fully featured package and replicates most of the fundamental requirements of a keyboard.
 
-// List | Split Mode
-
-
+{{< tiles >}}
+    {{< img src="midi-player.gif" >}}
+    {{< img src="modes.gif" >}}
+    {{< img src="range.gif" >}}
+    {{< img src="split-range.gif" >}}
+{{</ tiles >}}
 
 There are many similar piano sites available but I've never been satisfied with them. I kept seeing clunky UI, limited features sets, and intrusive ads that hampered the user experience. I'm looking to add more customizability and refinement to this application in the future.
 
