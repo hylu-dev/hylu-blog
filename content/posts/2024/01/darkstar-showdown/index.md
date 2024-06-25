@@ -3,7 +3,7 @@ title: "Darkstar Showdown (NEXT 2024)"
 date: 2024-01-10T01:02:05-05:00
 draft: false
 cover:
-    image: "images/start.gif"
+    image: "start.gif"
 tags: ["gamedev", "c++"]
 ---
 

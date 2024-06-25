@@ -2,7 +2,6 @@ baseURL: 'https://hylog.netlify.app/'
 languageCode: en-us
 title: Hylu Blog
 theme: PaperMod
-disqusShortname: hylog
 outputs:
   home:
     - HTML
