@@ -1,4 +1,4 @@
-baseURL: 'http://hylu.dev/'
+baseURL: 'https://hylu.dev/'
 languageCode: en-us
 title: Hylu Blog
 theme: PaperMod
@@ -9,7 +9,7 @@ outputs:
     - JSON # necessary for search
 params:
   featuredPosts:
-    - posts/2023/old/osu/osu_banner/
+    - osu_banner
     - posts/2023/old/osu/osu_fanart/
     - posts/2023/old/other/some-casual-art/
   featuredProjects:
