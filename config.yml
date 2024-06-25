@@ -10,6 +10,8 @@ outputs:
     - JSON # necessary for search
 params:
   featuredPosts:
+    - osu_banner
+    - osu_fanart
     - some-casual-art
   featuredProjects:
     - darkstar-showdown
@@ -19,7 +21,7 @@ params:
   profileMode:
         enabled: true
         title: "Don't mind me." # optional default will be site title
-        subtitle: "Just coding the worries away"
+        subtitle: "Just coding the worries away."
         imageUrl: "img/heart.svg" # optional
         imageTitle: "Heart" # optional
         imageWidth: 300 # custom size
