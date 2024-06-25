@@ -1,4 +1,4 @@
-baseURL: 'hylu.dev'
+baseURL: 'https://hylu.dev'
 languageCode: en-us
 title: Hylu Blog
 theme: PaperMod
