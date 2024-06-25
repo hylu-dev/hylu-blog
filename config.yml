@@ -10,11 +10,11 @@ outputs:
     - JSON # necessary for search
 params:
   featuredPosts:
-    - osu_banner
-    - osu_fanart
-    - some-casual-art
+    - posts/2023/old/osu/osu_banner/
+    - posts/2023/old/osu/osu_fanart/
+    - posts/2023/old/other/some-casual-art/
   featuredProjects:
-    - darkstar-showdown
+    - posts/2024/01/darkstar-showdown/
     - posts/2024/06/pianotypes/
     - posts/2024/06/bujots/
   custom_css: ["css/custom.css"]
