@@ -116,7 +116,7 @@ class HotkeyStore {
 const hotkey = new HotkeyStore("C3");
 export default hotkey;
 ```
-Inside that store holds several method for a set keys onto the respective white and black keys of the piano. The following method I use multiple times to bind each layer keys to the desired piano scale.
+Inside that store holds several methods for matching hotkeys onto the respective white and black keys of the piano. The following method I use multiple times to bind each layer of keys to the desired piano scale.
 
 ```js
 /**
