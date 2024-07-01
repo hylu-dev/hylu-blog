@@ -7,7 +7,7 @@ cover:
 tags: ["development"]
 ---
 
-## Online Bullet-Journaling
+## Jot-Based Journals
 
 {{< badge text="React" icon="react" >}}
 {{< badge text="Redux" icon="redux" >}}
@@ -15,4 +15,8 @@ tags: ["development"]
 {{< badge text="MongoDB" icon="mongodb" >}}
 {{< badge text="TypeScript" icon="typescript" >}}
 
+> https://github.com/hylu-dev/bujots
+
 Web-based jot note app inspired by bullet journaling to create organized online notes. The goal of this project is to mimic the joy and satisfaction of writing beautiful journal entry and apply that to jot notes. Along with the ability to write daily notes, organized with a timeline. Notes can be freely customized through the use of stickers allowing more personality and charm between each note
+
+{{< video src="demo.mp4" >}}
