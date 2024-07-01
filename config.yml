@@ -1,7 +1,7 @@
 baseURL: 'https://hylu.dev'
 languageCode: en-us
 title: Hylu Blog
-theme: PaperMod
+theme: ["PaperMod"]
 outputs:
   home:
     - HTML
@@ -13,9 +13,9 @@ params:
     - posts/2023/old/osu/osu_fanart/
     - posts/2023/old/other/some-casual-art/
   featuredProjects:
-    - posts/2024/01/darkstar-showdown/
-    - posts/2024/06/pianotypes/
-    - posts/2024/06/bujots/
+    - projects/darkstar-showdown/
+    - projects/pianotypes/
+    - projects/bujots/
   custom_css: ["css/custom.css"]
   profileMode:
         enabled: true

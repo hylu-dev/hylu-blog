@@ -1,7 +1,7 @@
 {{- $src := .Get "src" -}}
 <div class="center-flex">
   <a class="center-flex link {{ .Get "class" }}" href="{{ $src }}" target="_blank">
-    <img alt="{{ $src }}" src="{{ $src }}" class="img">
+    <img loading="lazy" alt="{{ $src }}" src="{{ $src }}" class="img">
   </a>
 </div>
 

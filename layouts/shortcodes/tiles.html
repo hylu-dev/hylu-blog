@@ -7,11 +7,15 @@
         display: grid;
         justify-items: center;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1rem;
+        gap: calc(var(--gap)/2);
         margin-bottom: var(--content-gap);
     }
 
     .grid-tiles img {
+        margin: 0 !important;
+    }
+
+    .grid-tiles > div {
         margin: 0 !important;
     }
 </style>
