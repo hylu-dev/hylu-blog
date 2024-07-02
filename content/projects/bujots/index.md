@@ -53,7 +53,7 @@ The goal of this project is to capture the joy and satisfaction of writing a bea
 
 ## Code Insights
 
-### Front End
+### Frontend
 
 State is managed using Redux slices. For the journal content, a slice is created with reducers that allow us to control updates to the state.
 
@@ -109,7 +109,7 @@ const newPage = () => {
   }
 ```
 
-### Backend Server
+### Backend
 
 #### Document Database
 
