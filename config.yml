@@ -20,7 +20,7 @@ params:
       - pageRef: projects/darkstar-showdown/
         links:
           - name: "github"
-            url: "https://github.com/hylu-dev/NextGame"
+            url: "https://github.com/hylu-dev/next-game"
       - pageRef: projects/pianotypes/
         links:
           - name: "github"
