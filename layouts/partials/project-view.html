@@ -4,7 +4,7 @@
 
 <div class="project-container">
     {{ range $page := site.Params.featuredProjects }}
-    {{ with site.GetPage $page }}
+    {{ with site.GetPage $page.pageRef }}
     {{/* post template from list.html */}}
     <article class="post-entry">
         {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
@@ -28,12 +28,31 @@
         </div>
         {{- end }}
         <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+        <!-- Links -->
+        <div class="social-icons project-links">
+            {{- range $page.links }}
+            <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+                title="{{ (.title | default .name) | title }}">
+                {{ partial "svg.html" . }}
+            </a>
+            {{- end }}
+        </div>
     </article>
     {{ end }}
     {{ end }} {{/* end featuredPosts */}}
 </div>
 
 <style>
+    .project-links {
+        position: absolute;
+        left: -10px;
+        bottom: -17px;
+    }
+
+    .project-links a {
+        padding: 0; /* override social links padding */   
+    }
+
     .post-entry {
         padding: 0.7rem;
     }

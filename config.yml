@@ -16,14 +16,24 @@ markup:
     #noClasses: false
     style: onedark
 params:
+  featuredProjects:
+      - pageRef: projects/darkstar-showdown/
+        links:
+          - name: "github"
+            url: "https://github.com/hylu-dev/NextGame"
+      - pageRef: projects/pianotypes/
+        links:
+          - name: "github"
+            url: "https://github.com/hylu-dev/pianotypes"
+      - pageRef: projects/bujots/
+        links:
+            - name: "github"
+              url: "https://github.com/hylu-dev/bujots"
+      
   featuredPosts:
     - osu_banner
     - posts/2023/old/osu/osu_fanart/
     - posts/2023/old/other/some-casual-art/
-  featuredProjects:
-    - projects/darkstar-showdown/
-    - projects/pianotypes/
-    - projects/bujots/
   custom_css: ["css/custom.css"]
   profileMode:
         enabled: true
