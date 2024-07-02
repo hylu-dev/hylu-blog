@@ -58,6 +58,8 @@ I got interested in AI through a deep learning course offered at UofT. I leverag
 - **Temperature**: The amount of randomization to add to the music
 - **Trim**: Whether to trim to inputted midi file to the specified seconds before generation
 
+## Code Insights
+
 ### Managing Piano State
 
 The heart of how this app works is modelling the piano as a single *reactive* store so any piece of the app can update the piano while also receiving updates to the piano.
@@ -148,7 +150,7 @@ I got the idea visualzizing note presses as ribbons from the popular app [Synthe
 
 At the time, Vue was on the rise and reigned in simplicity over frameworks like React and Angular which seemed like a good fit for a small app like this. I still enjoy using TailwindCSS for creating responsive layouts but nowadays, modern css is quite good and I prefer keeping app dependecies to a minimal.
 
-### Features
+### Original Features
 
 The primary features I implemented are the following.
 

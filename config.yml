@@ -7,6 +7,14 @@ outputs:
     - HTML
     - RSS
     - JSON # necessary for search
+markup:
+  highlight:
+    #anchorLineNos: true
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    #noClasses: false
+    style: onedark
 params:
   featuredPosts:
     - osu_banner
@@ -39,6 +47,7 @@ params:
   defaultTheme: dark
   assets:
     favicon: "favicon.ico"
+    disableHLJS: true
   cover:
     linkFullImages: true
   homeInfoParams:

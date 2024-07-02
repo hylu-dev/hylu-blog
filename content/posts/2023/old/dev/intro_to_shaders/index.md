@@ -22,13 +22,13 @@ This post covers a summary of [Freya Holmér's course] on Shaders (<https://www.
 It's better to talk about shaders in the context of how they're used which is typically starting from some material being fed into a shader and then placed onto an object.
 Depending on the framework or engine that you're using, shader's can be used very differently. For instance, in Unity, your first have to start with a base material and then feed that material information into the shader to perform calculations on to get the final texture.
 
+**Shader Lifecycle**
+
 {{< mermaid >}}
 flowchart LR
-    subgraph Shader Lifecycle
-        x("Mesh") --> s("Shader")
-        y("Material") --> s
-        s --> f(("Final Mesh"))
-    end
+    x("Mesh") --> s("Shader")
+    y("Material") --> s
+    s --> f(("Final Mesh"))
 {{< /mermaid >}}
 
 > Credits to [Navendu](https://navendu.me/posts/adding-diagrams-to-your-hugo-blog-with-mermaid/) for the tutorial on setting up Mermaid diagrams on Hugo

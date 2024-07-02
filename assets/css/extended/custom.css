@@ -1,7 +1,55 @@
 :root {
-    --link-color: var(--primary);
-    --link-hover-color: #573eaa;
-    --link-underline-shadow: 0 1px 0 var(--link-color);
-    --link-hover-underline-color: #573eaa;
-    --link-hover-underline-shadow: 0 2px 0 var(--link-hover-underline-color);
-  }
+  --link-color: var(--primary);
+  --link-hover-color: #573eaa;
+  --link-underline-shadow: 0 1px 0 var(--link-color);
+  --link-hover-underline-color: #573eaa;
+  --link-hover-underline-shadow: 0 2px 0 var(--link-hover-underline-color);
+}
+
+.chroma {
+  background-color: unset;
+}
+
+strong {
+  font-size: 1.1em;
+}
+
+.post-content h2 {
+    margin: 32px auto 32px !important;
+    position: relative;
+}
+
+.post-content h2::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 30px;
+    height: 5px;
+    background-color: var(--content);
+    margin-top: 7px;
+    margin-left: 1px;
+}
+
+/* Github gist formatting */
+
+body .gist .gist-file {
+    border-color: #555 #555 #444
+}
+body .gist .gist-data {
+    height:300px;
+    overflow-y: visible;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-color: #555
+}
+body .gist .gist-meta {
+    color: #ffffff;
+    background: #373737; 
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+body .gist .gist-meta a {
+    color: #ffffff;
+}
+body .gist .gist-data .pl-s .pl-s1 {
+    color: #a5c261;
+}
