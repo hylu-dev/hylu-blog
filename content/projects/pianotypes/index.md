@@ -7,7 +7,9 @@ cover:
 tags: ["development"]
 ---
 
-## Extensive Virtual Piano
+## Virtual Piano
+
+**PianoTypes** is a web-based piano that provides a full-range, customizable piano that is fast, visually sleek, and easy-to-use. While there are similar sites out there, PianoTypes tries to stand out by being a fully featured package and replicates most of the fundamental capabilities of a keyboard and more.
 
 {{< badge text="Svelte" icon="svelte" >}}
 {{< badge text="JavaScript" icon="javascript" >}}
@@ -21,7 +23,9 @@ tags: ["development"]
 
 > https://github.com/hylu-dev/pianotypes
 
-**PianoTypes** is a web-based piano that provides a full-range, customizable piano that is fast, visually sleek, and easy-to-use. While there are similar sites out there, PianoTypes tries to stand out by being a fully featured package and replicates most of the fundamental capabilities of a keyboard and more.
+---
+
+## Features
 
 {{< card src="pedal-and-controllers.gif" class="bottom" >}}
     Full Pedalling and Instrument Controller
@@ -58,33 +62,9 @@ I got interested in AI through a deep learning course offered at UofT. I leverag
 
 The heart of how this app works is modelling the piano as a single *reactive* store so any piece of the app can update the piano while also receiving updates to the piano.
 
-```js
-class PianoStore {
-    constructor(minNote, maxNote) {
-        this.minNote = minNote;
-        this.maxNote = maxNote;
-        this.sustainPedal = false;
-        this.softPedal = false;
-        this.sostenutoPedal = false;
-        this.instrument = 'acoustic_grand_piano';
-        this.volume = 100;
-        ... // Members
-    }
-    pressKey(note, velocity);
-    releaseKey(note);
-    scheduleKey(note, velocity);
-    setSustainPedal(active);
-    setSostenutoPedal(active);
-    ... // Methods
-
-    // Anything with a subscribe function is a store
-    subscribe(subscriber) {
-		return this._store.subscribe(subscriber)
-	}
-}
-const piano = new PianoStore('F2', 'G6');
-export default piano;
-```
+{{< html >}}
+<script src="https://gist.github.com/hylu-dev/e4aa52a63a3fe6e640b3034dd16483b5.js"></script>
+{{</ html >}}
 
 I depend on [derived stores](https://learn.svelte.dev/tutorial/derived-stores), to only listen to specific piano state changes to avoid unnecessary or unintended updates.
 
@@ -124,7 +104,7 @@ Inside that store holds several methods for matching hotkeys onto the respective
  * @param {Array} whiteKeys Array of keys to bind to white keys
  * @param {Array} blackKeys Array of keys to bind to black keys
  * @param {Array} scale The scale we want to bind notes to, typically chromatically
- * @param {Number} index The index of the chromaic scale to start binding from
+ * @param {Number} index The index of the scale to start binding from
  * @returns {Number} The index of the note last binded, can be reused to bind remaining scale
  */
 __bindToScale(whiteKeys, blackKeys, scale, index) {
@@ -147,6 +127,8 @@ __bindToScale(whiteKeys, blackKeys, scale, index) {
 }
 ```
 
+---
+
 ## How it Began
 
 I've studied and played piano for a large and meaningful portion of my life. In times where a physical piano isn't available, I've looked to online web options. Unfortunately, I could never find a good, fully-featured virtual piano that runs in the browser. Back in 2021 while studying web development, I decided to make this my first major project.
@@ -155,8 +137,6 @@ I've studied and played piano for a large and meaningful portion of my life. In 
 
 The first version of PianoTypes was developed as a front-end app using the following technologies. My goals were to design a web piano that was fast, sounded good, allowed pedaling, and was visually clean/minimal. Many of the other options lacked one or more of these features and so it was important to me that my version did.
 I got the idea visualzizing note presses as ribbons from the popular app [Synthesia](https://synthesiagame.com/).
-
-### Stack
 
 {{< badge text="Vue" icon="vue" >}}
 {{< badge text="Tailwind" icon="tailwind" >}}

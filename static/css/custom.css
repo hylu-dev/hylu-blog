@@ -1,3 +1,24 @@
 strong {
     font-size: 1.2rem;
 }
+
+body .gist .gist-file {
+    border-color: #555 #555 #444
+}
+body .gist .gist-data {
+    height:300px;
+    overflow-y: visible;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-color: #555
+}
+body .gist .gist-meta {
+    color: #ffffff;
+    background: #373737; 
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+body .gist .gist-meta a {
+    color: #ffffff;
+}
+body .gist .gist-data .pl-s .pl-s1 {
+    color: #a5c261;
+}
