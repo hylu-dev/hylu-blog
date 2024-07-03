@@ -25,21 +25,21 @@
             {{- end }}
             {{- if .imageLink }}
                 <a href="{{ .imageLink }}">
-                    <img draggable="false" src="{{ $img.Permalink }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
+                    <img class="profile-image" draggable="false" src="{{ $img.Permalink }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
                         height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
                 </a>
             {{- else }}
-                <img draggable="false" src="{{ $img.Permalink }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
+                <img class="profile-image" draggable="false" src="{{ $img.Permalink }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
                     height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
             {{- end }}
         {{- else }}
             {{- if .imageLink }}
                 <a href="{{ .imageLink }}">
-                    <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
+                    <img class="profile-image" draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
                         height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
                 </a>
             {{- else }}
-                <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
+                <img class="profile-image" draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle }}"
                     height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
             {{- end }}
         {{- end }}
