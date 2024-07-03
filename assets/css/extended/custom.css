@@ -1,9 +1,19 @@
 .social-icons a {
-    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .social-icons a:hover {
+    filter: drop-shadow(0 0 1px white)brightness(2);
+    transform: scale(1.3);
+}
+
+.social-icons svg {
+    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.social-icons svg:hover {
     transform: scale(1.2);
+    animation: tilt 0.5s infinite;
 }
 
 .chroma {
@@ -29,6 +39,45 @@ strong {
     background-color: var(--content);
     margin-top: 7px;
     margin-left: 1px;
+}
+
+.profile img {
+    filter: 
+    drop-shadow(0px 1px 0px white)
+    drop-shadow(0px 2px 2px black);
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.profile img:hover {
+    filter: 
+    invert(0.8)
+    drop-shadow(0px 2px 1px #333)
+    drop-shadow(0px 2px 2px white);
+    animation: heartbeat 1s infinite;
+}  
+
+@keyframes tilt {
+    0% {
+    transform: rotate(0deg);
+    }
+    50% {
+    transform: rotate(3deg); /* Adjust the tilt angle as needed */
+    }
+    100% {
+    transform: rotate(0deg);
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1.0);
+    }
+    80% {
+        transform: scale(0.97); /* Adjust scale and tilt angle as needed */
+    }
+    100% {
+        transform: scale(1.0);
+    }
 }
 
 /* Github gist formatting */
