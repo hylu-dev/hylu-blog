@@ -43,7 +43,6 @@ strong {
 
 .profile-image {
     filter: 
-    drop-shadow(0px 1px 0px white)
     drop-shadow(0px 2px 2px black);
     transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -51,7 +50,6 @@ strong {
 .profile-image:hover {
     filter: 
     invert(0.8)
-    drop-shadow(0px 2px 1px #333)
     drop-shadow(0px 2px 2px white);
     animation: heartbeat 1s infinite;
 }  
