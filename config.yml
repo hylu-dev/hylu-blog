@@ -68,9 +68,12 @@ menu:
     - name: Posts
       pageRef: /posts
       weight: 10
+    - name: Archive
+      pageRef: /archive
+      weight: 20
     - name: Search
       pageRef: /search
-      weight: 20
+      weight: 30
     - name: Tags
       pageRef: /tags
-      weight: 30
+      weight: 40
