@@ -71,7 +71,7 @@ strong {
         transform: scale(1.0);
     }
     80% {
-        transform: scale(0.97); /* Adjust scale and tilt angle as needed */
+        transform: scale(0.9); /* Adjust scale and tilt angle as needed */
     }
     100% {
         transform: scale(1.0);
