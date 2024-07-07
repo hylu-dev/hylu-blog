@@ -59,7 +59,7 @@ strong {
     transform: rotate(0deg);
     }
     50% {
-    transform: rotate(3deg); /* Adjust the tilt angle as needed */
+    transform: rotate(3deg);
     }
     100% {
     transform: rotate(0deg);
@@ -71,7 +71,7 @@ strong {
         transform: scale(1.0);
     }
     80% {
-        transform: scale(0.9); /* Adjust scale and tilt angle as needed */
+        transform: scale(0.9);
     }
     100% {
         transform: scale(1.0);

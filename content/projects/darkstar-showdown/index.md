@@ -7,6 +7,62 @@ cover:
 tags: ["gamedev", "c++"]
 ---
 
+## Darkstar Showdown
+
+**PianoTypes** is a web-based piano that provides a full-range, customizable piano that is fast, visually sleek, and easy-to-use. While there are similar sites out there, PianoTypes tries to stand out by being a fully featured package and replicates most of the fundamental capabilities of a keyboard and more.
+
+{{< badge text="C++" icon="cpp" >}}
+
+- asds
+- asds
+- asds
+
+> https://github.com/hylu-dev/next-game
+
+---
+
+## Game Features
+
+{{< tiles >}}
+    {{< card src="" >}}
+        
+    {{</ card >}}
+    {{< card src="plane.gif" >}}
+        Vertex Shading
+    {{</ card >}}
+    {{< card src="particles.gif" >}}
+        Particle System
+    {{</ card >}}
+    {{< card src="" >}}
+        Animation System
+    {{</ card >}}
+    {{< card src="collision1.gif" >}}
+        Collision Detection
+    {{</ card >}}
+{{</ tiles >}}
+
+## Engine Features
+
+{{< tiles >}}
+    {{< card src="" >}}
+        Custom 3D Renderer
+    {{</ card >}}
+    {{< card src="plane.gif" >}}
+        Vertex Shading
+    {{</ card >}}
+    {{< card src="particles.gif" >}}
+        Particle System
+    {{</ card >}}
+    {{< card src="" >}}
+        Animation System
+    {{</ card >}}
+    {{< card src="collision1.gif" >}}
+        Collision Detection
+    {{</ card >}}
+{{</ tiles >}}
+
+## Ubisoft NEXT
+
 [Ubisoft NEXT](https://toronto.ubisoft.com/next/) is an annual competition run by Ubisoft that has contestants compete against a variety of disciplines within game development. From drawing art pieces, to level design, depending on your skillset you can test your abilities against others. The winner for each competition gets a 3-month internship with Ubisoft!
 
 I'm entering into the programming category.
@@ -42,7 +98,7 @@ I relied heavily on the amazing series from [One Lone Coder](https://www.youtube
 
 ### Vertex Shading
 
-{{< img src="images/plane.gif" >}}
+{{< img src="plane.gif" >}}
 
 One of my favourite additions is the capability of vertex shading. My prior work in this blog is evident if my enjoyment of creating shader patterns using math functions so I wanted to include that in the engine. The implementation is pretty simple. Loop through all the vertexes and run some function on the position of each vertex.
 
@@ -80,14 +136,14 @@ This feature is dependent on high vertex density meshes for there to be enough d
 ### Collision Detection
 
 {{< tiles >}}
-    {{< img src="images/collision1.gif" >}}
-    {{< img src="images/collision2.gif" >}}
-    {{< img src="images/collision3.gif" >}}
+    {{< img src="collision1.gif" >}}
+    {{< img src="collision2.gif" >}}
+    {{< img src="collision3.gif" >}}
 {{</ tiles >}}
 
 ### Particle System
 
-{{< img src="images/particles.gif" >}}
+{{< img src="particles.gif" >}}
 
 ### Challenges
 
@@ -154,4 +210,4 @@ for creativity on the kind of game we wanted to make.
 - Clipping
 - Depth Buffering
 
-{{< img src="images/pulse.gif" >}}
+{{< img src="pulse.gif" >}}
