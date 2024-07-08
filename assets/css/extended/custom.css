@@ -24,6 +24,15 @@ strong {
   font-size: 1.1em;
 }
 
+.post-entry {
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.post-entry:hover {
+    border-color: var(--tertiary);
+    filter: contrast(1.1);
+}
+
 .post-content h2 {
     margin: 32px auto 32px !important;
     position: relative;

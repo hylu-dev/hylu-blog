@@ -20,7 +20,7 @@ tags: ["gamedev", "c++"]
 
 ### Game Features
 
-You and another player pilot a spaceship separated by a dying *darkstar* with the goal of destroying the other player before the star implodes.
+You and another player, pilot a spaceship separated by a dying *darkstar* with the goal of destroying the other player before the star implodes.
 
 > Meet Dark-52, a dwarf star rumored to be abundant with resources and scientific knowledge. In the pursuit of advancement, nations have sent legions of ships to the star only to meet their unexpected doom as the star begins dying lightyears ahead of schedule. You and another player pilot the remaining ships from opposing nations. As death draws near, the two of you face off in a final showdown of triumph. The game starts with both players on opposite sides of the star. The goal is to confront the other player and shoot them down before the star implodes and kills everyone.
 
@@ -41,7 +41,7 @@ You and another player pilot a spaceship separated by a dying *darkstar* with th
 
 ### Engine Features
 
-I developed a custom entity-component-system alongside 3D rendering from scratch using a line drawing API provided by Ubisoft.
+I developed a custom entity-component-system alongside 3D rendering from scratch using a **line drawing API** provided by Ubisoft.
 
 {{< tiles >}}
     {{< card src="primitives.gif" >}}
