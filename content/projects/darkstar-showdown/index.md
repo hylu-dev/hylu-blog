@@ -9,51 +9,54 @@ tags: ["gamedev", "c++"]
 
 ## Darkstar Showdown
 
-**PianoTypes** is a web-based piano that provides a full-range, customizable piano that is fast, visually sleek, and easy-to-use. While there are similar sites out there, PianoTypes tries to stand out by being a fully featured package and replicates most of the fundamental capabilities of a keyboard and more.
+**Darkstar Showdown** is a 3D turn-based strategy game written in C++. It was submitted for the [Ubisoft NEXT 2024](https://toronto.ubisoft.com/ubisoft-toronto-next-2024-winners-celebrating-ontarios-student-talent-in-game-dev/) competition in the programming category winning third place. The game was developed over 3 days, using a provided graphics API. The topic for this year was to make a game that involves the concept of "firing projectiles".
 
 {{< badge text="C++" icon="cpp" >}}
-
-- asds
-- asds
-- asds
+{{< badge text="opengl" icon="opengl" >}}
 
 > https://github.com/hylu-dev/next-game
 
 ---
 
-## Game Features
+### Game Features
+
+You and another player pilot a spaceship separated by a dying *darkstar* with the goal of destroying the other player before the star implodes.
+
+> Meet Dark-52, a dwarf star rumored to be abundant with resources and scientific knowledge. In the pursuit of advancement, nations have sent legions of ships to the star only to meet their unexpected doom as the star begins dying lightyears ahead of schedule. You and another player pilot the remaining ships from opposing nations. As death draws near, the two of you face off in a final showdown of triumph. The game starts with both players on opposite sides of the star. The goal is to confront the other player and shoot them down before the star implodes and kills everyone.
 
 {{< tiles >}}
     {{< card src="" >}}
-        
-    {{</ card >}}
-    {{< card src="plane.gif" >}}
-        Vertex Shading
-    {{</ card >}}
-    {{< card src="particles.gif" >}}
-        Particle System
+        Dynamic Camera Switching
     {{</ card >}}
     {{< card src="" >}}
-        Animation System
+        Resource Collection and Upgrades
     {{</ card >}}
-    {{< card src="collision1.gif" >}}
-        Collision Detection
+    {{< card src="" >}}
+        Randomly Generated Asteroids
+    {{</ card >}}
+    {{< card src="" >}}
+        Imploding Star
     {{</ card >}}
 {{</ tiles >}}
 
-## Engine Features
+### Engine Features
+
+I developed a custom entity-component-system alongside 3D rendering from scratch using a line drawing API provided by Ubisoft.
 
 {{< tiles >}}
-    {{< card src="" >}}
+    {{< card src="primitives.gif" >}}
         Custom 3D Renderer
     {{</ card >}}
     {{< card src="plane.gif" >}}
         Vertex Shading
     {{</ card >}}
+    {{< card src="density.gif" >}}
+        Variable Mesh Density
+    {{</ card >}}
     {{< card src="particles.gif" >}}
         Particle System
     {{</ card >}}
-    {{< card src="" >}}
+    {{< card src="easing.gif" >}}
         Animation System
     {{</ card >}}
     {{< card src="collision1.gif" >}}
@@ -61,11 +64,28 @@ tags: ["gamedev", "c++"]
     {{</ card >}}
 {{</ tiles >}}
 
-## Ubisoft NEXT
+### How To Play
+
+**Turn-Based**
+
+Player's take turn making moves, being able to fly around and fire 3 bullets per turn. After each turn, those 3 bullets will be reloaded. Flying around costs fuel and will not normally replenish each turn so players must be careful not to run out of fuel early.
+
+Both ships start rather weak, but they can destroy surrounding asteroids to gather a resource called scrap. Spend scrap to upgrade and refurbish your ship to prepare for combat.
+
+**Star Pulses**
+
+As the game progresses, the star will weaken and occasionally pulse having a few effects.
+
+- Players will take a bit of damage but also have their fuel replenished
+- The star will shrink and pull players and asteroids closer
+- The positioning of asteroids and players will shift as well, disorienting the area.
+- Pulses can be manually triggered by shooting the star
+
+After enough pulses, players will be pulled so close that they will be forced to confront eachother. If that's not enough, after too many pulses, the star will explode leading to both players losing in a draw.
+
+### Ubisoft NEXT
 
 [Ubisoft NEXT](https://toronto.ubisoft.com/next/) is an annual competition run by Ubisoft that has contestants compete against a variety of disciplines within game development. From drawing art pieces, to level design, depending on your skillset you can test your abilities against others. The winner for each competition gets a 3-month internship with Ubisoft!
-
-I'm entering into the programming category.
 
 ## Building a 3D Engine
 
@@ -133,18 +153,6 @@ IMPLEMENT_PREFAB(Checker, {
 
 This feature is dependent on high vertex density meshes for there to be enough detail to see the math functions. This is why I put the time into the ability to generate vertex dense meshes.
 
-### Collision Detection
-
-{{< tiles >}}
-    {{< img src="collision1.gif" >}}
-    {{< img src="collision2.gif" >}}
-    {{< img src="collision3.gif" >}}
-{{</ tiles >}}
-
-### Particle System
-
-{{< img src="particles.gif" >}}
-
 ### Challenges
 
 #### Projection Issues
@@ -181,6 +189,9 @@ The topic for this year's NEXT was incredibly broad. "Firing projectles".
 In prior years, the topic was usually some old school game like Bomberman or Gravitar. This gave us a lot for room
 for creativity on the kind of game we wanted to make.
 
+Here are some of the notes I scribbled down during my ideation period for the game.
+
+```
 ### Darkstar Showdown
 
 - Two player turn-based shooter
@@ -210,4 +221,4 @@ for creativity on the kind of game we wanted to make.
 - Clipping
 - Depth Buffering
 
-{{< img src="pulse.gif" >}}
+```
