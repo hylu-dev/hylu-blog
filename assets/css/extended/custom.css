@@ -1,3 +1,16 @@
+/* ## Globals */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.chroma {
+    background-color: unset;
+}
+
+strong {
+    font-size: 1.1em;
+}
+
+/* ## Social */
+
 .social-icons a {
     transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -16,13 +29,7 @@
     animation: tilt 0.5s infinite;
 }
 
-.chroma {
-  background-color: unset;
-}
-
-strong {
-  font-size: 1.1em;
-}
+/* ## Post Features */
 
 .post-entry {
     transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -87,7 +94,7 @@ strong {
     }
 }
 
-/* Github gist formatting */
+/* ## Github gist formatting */
 
 body .gist .gist-file {
     border-color: #555 #555 #444
