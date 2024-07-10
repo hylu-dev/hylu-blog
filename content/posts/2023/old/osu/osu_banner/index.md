@@ -1,5 +1,5 @@
 ---
-title: "Making an Animated Osu Banner"
+title: "Making an Osu Banner"
 date: 2023-05-02T01:18:34-04:00
 draft: False
 cover: 
