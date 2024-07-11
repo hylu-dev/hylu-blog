@@ -3,7 +3,7 @@ title: "Making an Osu Banner"
 date: 2023-05-02T01:18:34-04:00
 draft: False
 cover: 
-    image: 'images/osu_banner.gif'
+    image: 'osu_banner.gif'
     alt: ''
     caption: ''
 tags: ['osu', 'blender', "art"]
@@ -19,7 +19,7 @@ From my previous artwork, **I already had a lot of the patterns created as well 
 
 Once the main banner was done, I exported them in layers so I can seperate out where I want the foreground and backgrounds to be in relation to the animated characters.
 
-![Layered Export](images/layering.gif)
+![Layered Export](layering.gif)
 
 ## Layering into Blender
 
@@ -29,17 +29,17 @@ However, I had a lot of trouble getting images as planes to show up because in m
 
 > As a self note, there was a bit of white dithering around the pngs when I imported them in. **By changing the image node interpolation from *linear to* *closest***, the issue was gone. The white dithering is still in the original image though this is just an issue with Clip Studio's exporting. Apparently, Photoshop has a "matted" option when exporting png's which removes dithering. Hopefully, a future version of CSP will also have the feature.
 
-![Image Shading](images/image_shading.png)
+![Image Shading](image_shading.png)
 
 Once I finally got the images texture to show in full color, I could start layering up the banner.
 
-![Plane Layering](images/plane_layering.gif)
+![Plane Layering](plane_layering.gif)
 
 ## Animating
 
 Animating was pretty simple, I only animated the positions of the characters and props with a subtle rotation to *Mocha's* head to give her a little bit more life as well as the beach ball. Seeing the rotations in the final render really adds a cool depth to what is otherwise a very 2D composition.
 
-![Animating](images/animating.gif)
+![Animating](animating.gif)
 
 Last thing to do is crank out final render and we're done!
 

@@ -13,12 +13,12 @@ I've been trying to get into the habit of drawing casually as opposed to doing s
 I always felt with drawing that I have no clue what my style is. For instance, everytime I play Gartic Phone, I tend to do something different each time and I don't find myself easing into any one method. Perhaps more casual art does a better job at bringing out the characteristics of my drawing.
 
 {{< tiles >}}
-    {{< img src="images/1.jpg" >}}
-    {{< img src="images/2.jpg" >}}
-    {{< img src="images/3.jpg" >}}
-    {{< img src="images/4.jpg" >}}
-    {{< img src="images/5.jpg" >}}
-    {{< img src="images/6.jpg" >}}
-    {{< img src="images/7.jpg" >}}
-    {{< img src="images/8.jpg" >}}
+    {{< img src="1.jpg" >}}
+    {{< img src="2.jpg" >}}
+    {{< img src="3.jpg" >}}
+    {{< img src="4.jpg" >}}
+    {{< img src="5.jpg" >}}
+    {{< img src="6.jpg" >}}
+    {{< img src="7.jpg" >}}
+    {{< img src="8.jpg" >}}
 {{</ tiles >}}
