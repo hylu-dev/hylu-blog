@@ -126,7 +126,7 @@ function matrixShader(m1, m2, m3) {
         uniforms: {
             time: { value: 1.0 },
             resolution: { value: new THREE.Vector2(container.offsetWidth, container.offsetHeight) },
-            m1: { value: m1},
+            m1: { value: m1 },
             m2: { value: m2 },
             m3: { value: m3 }
         },    

@@ -9,9 +9,9 @@ math: true
 tags: ["shaders", "development"]
 ---
 
- Rotation is one such transformation and that can be achieved by locking the desired axes of rotation and transforming the rest of the axes by \\(sin\\) and \\(cos\\).
-
 ## Intuition of 3x3Matrix Transformations
+
+ Rotations can be achieved by locking the desired axes of rotation and transforming the rest of the axes by \\(sin\\) and \\(cos\\).
 
 3x3 matrices can be used to bend the coordinate space in 3 dimensions, effectively allowing any desired transformations to objects in that space.
 
@@ -37,19 +37,19 @@ $$\def\rmatrices{
 R_x(\theta) = 
 \begin{bmatrix}
 1 & 0 & 0\\\\
-0 & cos\theta & -sin\theta\\\\
-0 & sin\theta & cos\theta\\\\
+0 & cos\alpha & -sin\beta\\\\
+0 & sin\gamma & cos\phi\\\\
 \end{bmatrix}
 R_y(\theta) = 
 \begin{bmatrix}
-cos\theta & 0 & sin\theta\\\\
+cos\alpha & 0 & sin\beta\\\\
 0 & 1 & 0\\\\
--sin\theta & 0 & cos\theta\\\\
+-sin\gamma & 0 & cos\phi\\\\
 \end{bmatrix}
 R_z(\theta) = 
 \begin{bmatrix}
-cos\theta & -sin\theta & 0\\\\
-sin\theta & cos\theta  & 0\\\\
+cos\alpha & -sin\beta & 0\\\\
+sin\beta & cos\phi  & 0\\\\
 0 & 0 & 1\\\\
 \end{bmatrix}
 }
@@ -60,9 +60,9 @@ Let's take a look at how the \\(R_z(\theta)\\) matrix was formed as it's the eas
 
 Therefore we set the zcomponent to \\(\begin{bmatrix}0\\\\0\\\\1\end{bmatrix}\\) to multiply any values on it by 1.
 
--unfinished-
-
 ## Sandbox Example
+
+{{< badge text="threejs" icon="three" >}}
 
 $$\rmatrices$$
 
@@ -74,9 +74,24 @@ $$\rmatrices$$
         flex-grow: 1;
         margin: 1ch;
     }
+    .range-labels {
+        display: flex;
+        flex-flow: column;
+        margin: 1ch;
+    }
 </style>
 
-<form style="display:flex;" autocomplete="off">
+<form style="display:flex;margin-bottom:1rem;" autocomplete="off">
+    <div style="display:flex;flex-direction:column;margin-right:1ch">
+        <div>
+            <div>&alpha;</div>
+            <div>&beta;</div>
+            <div>&gamma;</div>
+            <div>&phi;</div>
+            <br>
+            <div>&theta;</div>
+        </div>
+    </div>
     <div style="display:flex;flex-direction:column;">
         <div id="range-x" class="range-menu">
             <input id="range-x1" type="range" min="-3" max="3" step=".3">
