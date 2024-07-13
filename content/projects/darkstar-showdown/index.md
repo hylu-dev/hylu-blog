@@ -25,17 +25,17 @@ You and another player, pilot a spaceship separated by a dying *darkstar* with t
 > Meet Dark-52, a dwarf star rumored to be abundant with resources and scientific knowledge. In the pursuit of advancement, nations have sent legions of ships to the star only to meet their unexpected doom as the star begins dying lightyears ahead of schedule. You and another player pilot the remaining ships from opposing nations. As death draws near, the two of you face off in a final showdown of triumph. The game starts with both players on opposite sides of the star. The goal is to confront the other player and shoot them down before the star implodes and kills everyone.
 
 {{< tiles >}}
-    {{< card src="" >}}
-        Dynamic Camera Switching
+    {{< card src="camera.gif" >}}
+        Turn-Based Camera Switching
     {{</ card >}}
-    {{< card src="" >}}
+    {{< card src="asteroids.gif" >}}
         Resource Collection and Upgrades
     {{</ card >}}
-    {{< card src="" >}}
-        Randomly Generated Asteroids
+    {{< card src="reposition.gif" >}}
+        Map Repositioning
     {{</ card >}}
-    {{< card src="" >}}
-        Imploding Star
+    {{< card src="implode.gif" >}}
+        Countdown to Star Implosion
     {{</ card >}}
 {{</ tiles >}}
 
