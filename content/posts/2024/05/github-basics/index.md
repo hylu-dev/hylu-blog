@@ -88,6 +88,31 @@ The solution is creating a branch. This will create a snapshot of the codebase a
 
 When merging, Git tries its best to encorporate your changes with other people but often you'll get a CONFLICT warning if you've changed a file someone else has as well. Git will need input from you to decide what to keep from your changes what's on the remote.
 
+### All Together
+
+So in summary when you want to grab a github project and make a change...
+
+{{< mermaid >}}
+flowchart LR
+    A[Clone Repository] --> B[Pull Changes]
+    B --> C[Make Changes]
+    C --> D[Stage Changes]
+    D --> E[Commit Changes]
+    E --> F[Push Changes]
+{{</ mermaid >}}
+
+If you want to make changes on a separate branch and merge than branch in...
+
+{{< mermaid >}}
+flowchart LR
+    A[Create a Branch] --> B[Switch to Branch]
+    B --> C[Make Changes]
+    C --> D[Stage Changes]
+    D --> E[Commit Changes]
+    E --> F[Push Changes]
+    F --> G[Merge Branch]
+{{</ mermaid>}}
+
 ## GitHub Desktop
 
 Git is originally designed to be done through the commandline. This can add an additional learning curve so we're going to use **[GitHub Desktop](https://desktop.github.com/)** that will give us a UI to perform all the needed actions.

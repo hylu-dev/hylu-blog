@@ -29,6 +29,10 @@ params:
         links:
             - name: "github"
               url: "https://github.com/hylu-dev/bujots"
+      - pageRef: projects/slime-hunter/
+        links:
+            - name: "github"
+              url: "https://github.com/Studio-Bounce/slime-hunter"
       
   featuredPosts:
     - posts/2023/old/dev/basics-of-shader-fractals/

@@ -9,7 +9,7 @@ tags: ["gamedev", "c++"]
 
 ## Darkstar Showdown
 
-**Darkstar Showdown** is a 3D turn-based strategy game written in C++. It was submitted for the [Ubisoft NEXT 2024](https://toronto.ubisoft.com/ubisoft-toronto-next-2024-winners-celebrating-ontarios-student-talent-in-game-dev/) competition in the programming category winning third place. The game was developed over 3 days, using a provided graphics API. The topic for this year was to make a game that involves the concept of "firing projectiles".
+**Darkstar Showdown** is a 3D turn-based strategy game written in C++. It was submitted for the [Ubisoft NEXT 2024](https://toronto.ubisoft.com/ubisoft-toronto-next-2024-winners-celebrating-ontarios-student-talent-in-game-dev/) competition in the programming category **winning third place**. The game was developed over 3 days, using a provided graphics API. The topic for this year was to make a game that involves the concept of "firing projectiles".
 
 {{< badge text="C++" icon="cpp" >}}
 {{< badge text="opengl" icon="opengl" >}}
@@ -117,8 +117,6 @@ I relied heavily on the amazing series from [One Lone Coder](https://www.youtube
 ### Shape Primitives With Flexible Vertex Density
 
 ### Vertex Shading
-
-{{< img src="plane.gif" >}}
 
 One of my favourite additions is the capability of vertex shading. My prior work in this blog is evident if my enjoyment of creating shader patterns using math functions so I wanted to include that in the engine. The implementation is pretty simple. Loop through all the vertexes and run some function on the position of each vertex.
 
