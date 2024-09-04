@@ -69,10 +69,19 @@
         {{- end }}
         
         {{/* BEGIN CUSTOM PROJECT VIEW */}}
-        {{- partial "project-view.html" }}
-        {{- partial "feature-view.html" }}
+        <h2 class="project-title" style="">Projects</h2>
+        {{- partial "feature-view.html" site.Params.featuredProjects }}
+        <h2 class="project-title">Just for Fun</h2>
+        {{- partial "feature-view.html" site.Params.featuredPosts }}
 
 
     </div>
     {{- end}}
 </div>
+
+<style>
+    .project-title {
+        margin-top: var(--content-gap);
+        align-self: flex-start;
+    }
+</style>

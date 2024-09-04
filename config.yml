@@ -22,13 +22,12 @@ params:
       - pageRef: projects/pianotypes/
       - pageRef: projects/bujots/
       - pageRef: projects/slime-hunter/
-      
   featuredPosts:
-    - posts/2023/old/dev/basics-of-shader-fractals/
-    - posts/2023/old/dev/3d-matrix-rotations/
-    - osu_banner
-    - posts/2023/old/osu/osu_fanart/
-    - posts/2023/old/other/some-casual-art/
+    - pageRef: posts/2023/old/dev/basics-of-shader-fractals/
+    - pageRef: posts/2023/old/dev/3d-matrix-rotations/
+    - pageRef: osu_banner
+    - pageRef: posts/2023/old/osu/osu_fanart/
+    - pageRef: posts/2023/old/other/some-casual-art/
   customCSS: ["css/custom.css"]
   profileMode:
         enabled: true

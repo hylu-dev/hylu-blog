@@ -1,6 +1,9 @@
 {{- $src := .Get "src" -}}
 <div class="card-wrapper">
+    <a href="{{ $src }}" target="_blank"
+            rel="noopener noreferrer">
     <img loading="lazy"  alt="{{ $src }}" src="{{ $src }}" class="{{ .Get "class" }}">
+    </a>
     <div>
         <p>{{ .Inner }}</p>
     </div>

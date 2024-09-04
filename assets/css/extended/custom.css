@@ -12,25 +12,15 @@ strong {
     font-size: 1.1em;
 }
 
-a {
-    transition: filter .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-a:hover {
-    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
-}
-
-figure a:hover {
-    filter: none;
-}
-
 /* ## Social */
 
 .social-icons a {
-    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: filter .3s cubic-bezier(0.075, 0.82, 0.165, 1),
+        transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .social-icons a:hover {
+    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
     transform: scale(1.2);
 }
 
