@@ -13,7 +13,7 @@ strong {
 }
 
 a {
-    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: filter .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 a:hover {
@@ -25,6 +25,10 @@ figure a:hover {
 }
 
 /* ## Social */
+
+.social-icons a {
+    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
 .social-icons a:hover {
     transform: scale(1.2);
