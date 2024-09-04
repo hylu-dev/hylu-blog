@@ -13,24 +13,28 @@ strong {
 }
 
 a {
-    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 a:hover {
     filter: drop-shadow(0 0 1px var(--primary))brightness(2);
 }
 
+figure a:hover {
+    filter: none;
+}
+
 /* ## Social */
 
 .social-icons a:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 .social-icons svg {
     transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.social-icons svg:hover {
+.social-icons a:hover svg {
     transform: scale(1.2);
     animation: tilt 0.5s infinite;
 }

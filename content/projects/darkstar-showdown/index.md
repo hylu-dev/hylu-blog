@@ -17,8 +17,6 @@ socialIcons:
 {{< badge text="C++" icon="cpp" >}}
 {{< badge text="opengl" icon="opengl" >}}
 
-> https://github.com/hylu-dev/next-game
-
 ---
 
 ### Game Features

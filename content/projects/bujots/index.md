@@ -26,8 +26,6 @@ The goal of this project is to capture the joy and satisfaction of writing a bea
 {{< badge text="MongoDB" icon="mongodb" >}}
 {{< badge text="TypeScript" icon="typescript" >}}
 
-> https://github.com/hylu-dev/bujots
-
 ---
 
 ## Features

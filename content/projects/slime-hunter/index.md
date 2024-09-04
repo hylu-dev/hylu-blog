@@ -27,8 +27,6 @@ socialIcons:
 {{< badge text="C#" icon="csharp" >}}
 {{< badge text="fmod" icon="fmod" >}}
 
-> https://github.com/Studio-Bounce/slime-hunter
-
 ---
 
 ## What I Worked On

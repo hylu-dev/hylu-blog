@@ -6,6 +6,8 @@ cover:
     image: "demo.gif"
 tags: ["development"]
 socialIcons:
+    - name: "website"
+      url: "https://pianotypes.netlify.app"
     - name: "github"
       url: "https://github.com/hylu-dev/pianotypes"
 ---
@@ -23,8 +25,6 @@ socialIcons:
 - **smplr.js** | Instrument Sounds
 - **MidiPlayerJS** | Instrument Sounds
 - Simply **JavaScript** and **CSS**
-
-> https://github.com/hylu-dev/pianotypes
 
 ---
 
