@@ -2,7 +2,7 @@
 <div class="card-wrapper">
     <a href="{{ $src }}" target="_blank"
             rel="noopener noreferrer">
-    <img loading="lazy"  alt="{{ $src }}" src="{{ $src }}" class="{{ .Get "class" }}">
+        <img loading="lazy"  alt="{{ $src }}" src="{{ $src }}" class="{{ .Get "class" }}">
     </a>
     <div>
         <p>{{ .Inner }}</p>
@@ -22,7 +22,7 @@
         color: var(--primary);
     }
 
-    .card-wrapper > img {
+    .card-wrapper img {
         margin: 0;
         height: 300px;
         width: 100%;
@@ -42,19 +42,19 @@
     }
 
     .card-wrapper > div {
+        display: flex;
         text-align: center;
         margin: calc(var(--gap)/2) 0;
         color: var(--secondary);
         font-size: 14px;
         line-height: 1.6;
         overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+        line-clamp: 2;
         margin-bottom: 0 !important;
     }
 
     .card-wrapper > div > p {
+        width: 100%;
         font-size: 1.2em;
         margin-bottom: 0;
     }
