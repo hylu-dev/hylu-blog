@@ -29,7 +29,7 @@ params:
     - osu_banner
     - posts/2023/old/osu/osu_fanart/
     - posts/2023/old/other/some-casual-art/
-  custom_css: ["css/custom.css"]
+  customCSS: ["css/custom.css"]
   profileMode:
         enabled: true
         title: "Don't mind me." # optional default will be site title

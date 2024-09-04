@@ -37,8 +37,8 @@
 {{- end }}
 
 {{- /* Styles */}}
-{{ range .Site.Params.custom_css -}}
-    <link rel="stylesheet" href="{{ . | absURL }}">
+{{ range .Site.Params.customCSS -}}
+<link rel="stylesheet" href="{{ . | absURL }}">
 {{- end }}
 
 {{- /* includes */}}
