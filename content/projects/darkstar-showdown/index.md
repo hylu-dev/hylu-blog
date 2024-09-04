@@ -12,7 +12,7 @@ socialIcons:
 
 ## Darkstar Showdown
 
-**Darkstar Showdown** is a 3D turn-based strategy game written in C++. It was submitted for the [Ubisoft NEXT 2024](https://toronto.ubisoft.com/ubisoft-toronto-next-2024-winners-celebrating-ontarios-student-talent-in-game-dev/) competition in the programming category **winning third place**. The game was developed over 3 days, using a provided graphics API. The topic for this year was to make a game that involves the concept of "firing projectiles".
+**Darkstar Showdown** is a 3D turn-based strategy game developed in C++ as an individual submission for the [Ubisoft NEXT 2024](https://toronto.ubisoft.com/ubisoft-toronto-next-2024-winners-celebrating-ontarios-student-talent-in-game-dev/) competition in the programming category, where it **won third place**. The game was created in just 3 days using a provided graphics API, and it centered around this year's theme of "firing projectiles."
 
 {{< badge text="C++" icon="cpp" >}}
 {{< badge text="opengl" icon="opengl" >}}

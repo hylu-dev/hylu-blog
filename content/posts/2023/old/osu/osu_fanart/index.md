@@ -7,6 +7,9 @@ cover:
     alt: ''
     caption: ''
 tags: ['osu', 'fanart', 'art']
+socialIcons:
+    - name: "osu!"
+      url: "https://osu.ppy.sh/community/contests/160"
 ---
 
 ## osu! Fanarts?

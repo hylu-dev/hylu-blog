@@ -7,6 +7,9 @@ cover:
     alt: ''
     caption: ''
 tags: ['osu', 'blender', "art"]
+socialIcons:
+    - name: "osu!"
+      url: "https://osu.ppy.sh/users/13895854"
 ---
 
 After submitting my [last osu fanart]({{< ref "osu_fanart2"  >}}), I decided to make my own osu banner. My profile was looking pretty empty without one and I figured after all that work to put together my own rendition of *Enchanted Love*, **might as well put those meshes to more use**. I wanted to keep it fairly simple as I know I'm pretty limited in gif size and quality for it to work as a profile banner (otherwise if it's too large, the auto-compression will convert the image into a static jpeg).

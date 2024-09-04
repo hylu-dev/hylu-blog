@@ -19,9 +19,9 @@ markup:
 params:
   featuredProjects:
       - pageRef: projects/darkstar-showdown/
+      - pageRef: projects/slime-hunter/
       - pageRef: projects/pianotypes/
       - pageRef: projects/bujots/
-      - pageRef: projects/slime-hunter/
   featuredPosts:
     - pageRef: posts/2023/old/dev/basics-of-shader-fractals/
     - pageRef: posts/2023/old/dev/3d-matrix-rotations/

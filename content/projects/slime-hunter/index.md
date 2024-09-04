@@ -15,7 +15,7 @@ socialIcons:
 
 {{< youtube kVwYAnipyD8 >}}
 
-> Created by me with **Blender**
+> Trailer created with **Blender** by me
 
 ## Slime Hunter
 
@@ -31,49 +31,55 @@ socialIcons:
 
 ## What I Worked On
 
-As we're a small team, the majority of systems were worked with or iterated over by both developers. Here are a few features which designs and implementations were done largely done by me.
+As a small team with two programmers, both of us contributed to most game systems. However, I was primarily responsible for designing and implementing several key features.
 
 {{< tiles >}}
-    {{< card src="" >}}
-        Inventory System
+    {{< card src="combat.gif" >}}
+        Melee Combat and Arenas
     {{</ card >}}
-    {{< card src="" >}}
-        Resource Drops
-    {{</ card >}}
-    {{< card src="" >}}
-        Flexible Melee Combos
-    {{</ card >}}
-    {{< card src="" >}}
+    {{< card src="spell.gif" >}}
         Spell Casting System
     {{</ card >}}
-    {{< card src="" >}}
-        Damage/Status Effect System
+{{</ tiles >}}
+
+{{< card src="ui.gif" >}}
+    Full Responsive UI Implementation
+{{</ card >}}
+
+{{< tiles >}}
+    {{< card src="camera.gif" >}}
+        Camera Transitions & Effects
     {{</ card >}}
-    {{< card src="" >}}
-        Reflex Dodging
+    {{< card src="particles.gif" >}}
+        Particles & Post-Processing
     {{</ card >}}
 {{</ tiles >}}
+
+{{< card src="inventory.gif" >}}
+    Inventory System
+{{</ card >}}
+
+### Also...
+
+- Full Audio Integration Including Dynamic Music & SFX
+- Controller Support with Adaptive Button Prompts
+- Multi-Scene Load Structure
 
 ## Other Features
 
-{{< tiles >}}
-    {{< card src="" >}}
-        Bitstream Saving/Loading
-    {{</ card >}}
-    {{< card src="" >}}
-        Steering Behavior & FSM Enemy AI
-    {{</ card >}}
-    {{< card src="" >}}
-        Multi-Scene Load Structure
-    {{</ card >}}
-    {{< card src="" >}}
-        Custom Built Environments and Assets
-    {{</ card >}}
-{{</ tiles >}}
+- Dialogue System Using [Ink](https://www.inklestudios.com/ink/)
+- Quest System
+- Bitstream Saving/Loading
+- Steering Behavior & FSM Enemy AI
+- Custom Built Environments and Assets
 
-## Combat System
+## The Development Team
 
-## Spells and Status Effects
+## Game System Highlights
+
+### Combat System
+
+### Spells and Status Effects
 
 ### Inventory System
 
