@@ -31,6 +31,19 @@
   </header>
   {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
   {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+
+  <!-- Show social links at top of project of applicable -->
+  {{- if (.Params.socialIcons) }}
+  <div class="social-icons">
+    {{- range.Params.socialIcons }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+  </div>
+  {{- end }}
+
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}
@@ -66,6 +79,26 @@
   {{- partial "comments.html" . }}
   {{- end }}
 </article>
+
+<style>
+  .social-icons {
+    margin-bottom: var(--content-gap);
+  }
+
+  .social-icons svg {
+    width:100px !important;
+    height:100px !important;
+  }
+
+  .social-icons svg * {
+    width:  100%;
+    height: 100%;
+  }
+
+  .social-icons a {
+    box-shadow: none; /* override single link box underline */
+  }
+</style>
 
 {{- end }}{{/* end main */}}
 

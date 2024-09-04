@@ -2,6 +2,7 @@ baseURL: 'https://hylu.dev'
 languageCode: en-us
 title: Hylu Blog
 theme: ["PaperMod"]
+enableRobotsTXT: true
 outputs:
   home:
     - HTML
@@ -18,21 +19,9 @@ markup:
 params:
   featuredProjects:
       - pageRef: projects/darkstar-showdown/
-        links:
-          - name: "github"
-            url: "https://github.com/hylu-dev/next-game"
       - pageRef: projects/pianotypes/
-        links:
-          - name: "github"
-            url: "https://github.com/hylu-dev/pianotypes"
       - pageRef: projects/bujots/
-        links:
-            - name: "github"
-              url: "https://github.com/hylu-dev/bujots"
       - pageRef: projects/slime-hunter/
-        links:
-            - name: "github"
-              url: "https://github.com/Studio-Bounce/slime-hunter"
       
   featuredPosts:
     - posts/2023/old/dev/basics-of-shader-fractals/

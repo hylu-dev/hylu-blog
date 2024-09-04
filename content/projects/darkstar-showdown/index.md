@@ -5,6 +5,9 @@ draft: false
 cover:
     image: "start.gif"
 tags: ["gamedev", "c++"]
+socialIcons:
+  - name: "github"
+    url: "https://github.com/hylu-dev/next-game"
 ---
 
 ## Darkstar Showdown

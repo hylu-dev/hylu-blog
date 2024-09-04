@@ -6,6 +6,9 @@ cover:
     image: "https://raw.githubusercontent.com/hylu-dev/bujots/main/demo.png"
 tags: ["development"]
 mermaid: true
+socialIcons:
+    - name: "github"
+      url: "https://github.com/hylu-dev/bujots"
 ---
 
 > **Bujots** - *"boo-jots": /buˈʒɒts/*

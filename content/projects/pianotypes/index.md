@@ -5,6 +5,9 @@ draft: false
 cover:
     image: "demo.gif"
 tags: ["development"]
+socialIcons:
+    - name: "github"
+      url: "https://github.com/hylu-dev/pianotypes"
 ---
 
 ## Virtual Piano
