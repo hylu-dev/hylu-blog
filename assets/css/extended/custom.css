@@ -12,14 +12,17 @@ strong {
     font-size: 1.1em;
 }
 
-/* ## Social */
-
-.social-icons a {
+a {
     transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.social-icons a:hover {
+a:hover {
     filter: drop-shadow(0 0 1px var(--primary))brightness(2);
+}
+
+/* ## Social */
+
+.social-icons a:hover {
     transform: scale(1.3);
 }
 
