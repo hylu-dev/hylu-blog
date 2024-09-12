@@ -4,7 +4,7 @@ A website for my projects and other ongoings. Created with Hugo and a modified P
 
 Custom Features Include:
  - Mermaid | In-Post Charts
- - MathJax | In-Post LateX Math Rendering
+ - MathJax | In-Post LaTeX Math Rendering
  - ThreeJS | In-Post 3D WebGL Rendering
  - Featured Posts with Project Links
  - Badges and Element Tiling
@@ -22,7 +22,7 @@ git clone <repo>
 ```bash
 git submodule update --init
 ```
-## Start Development Server
+## Start development server
 
 ```bash
 hugo server -D
