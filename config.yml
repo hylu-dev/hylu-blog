@@ -1,6 +1,6 @@
 baseURL: 'https://hylu.dev'
 languageCode: en-us
-title: Hylu Blog
+title: hylu blog
 theme: ["PaperMod"]
 enableRobotsTXT: true
 outputs:
@@ -61,15 +61,15 @@ params:
     Content: "Just stress writing."
 menu:
   main:
-    - name: Posts
+    - name: posts
       pageRef: /posts
       weight: 10
-    - name: Archive
+    - name: archive
       pageRef: /archive
       weight: 20
-    - name: Search
+    - name: search
       pageRef: /search
       weight: 30
-    - name: Tags
+    - name: tags
       pageRef: /tags
       weight: 40

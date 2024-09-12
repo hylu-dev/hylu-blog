@@ -40,11 +40,23 @@ Instead, have them both depend on abstractions.
 
 ### Precompiled Headers
 
+### Build Process
+
+### Memory Management (Stack/Heap Diagrams)
+
 ### Smart Pointers
 
 ### Threading 
 
-## 3D Programming
+## Game Programming
+
+### ECS System
+
+### Reducing Draw Calls
+
+### Asset/Texture Management
+
+### How Game Loops and Frame Rate Work
 
 ### Lighting
 
