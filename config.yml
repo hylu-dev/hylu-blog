@@ -17,6 +17,8 @@ markup:
     #noClasses: false
     style: onedark
 params:
+  footer:
+    hideCopyright: false
   featuredProjects:
       - pageRef: projects/darkstar-showdown/
       - pageRef: projects/slime-hunter/

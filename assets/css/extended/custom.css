@@ -111,15 +111,17 @@ strong {
 
 .profile-image {
     filter: 
+    invert(0)
     drop-shadow(0px 2px 2px black);
-    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation: heartbeat 1s infinite;
 }
 
 .profile-image:hover {
     filter: 
     invert(0.7)
     drop-shadow(0px 0px 2px var(--primary))brightness(1.3);
-    animation: heartbeat 1s infinite;
+    scale: 1.1;
 }  
 
 @keyframes tilt {
@@ -139,7 +141,7 @@ strong {
         transform: scale(1.0);
     }
     80% {
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     100% {
         transform: scale(1.0);
