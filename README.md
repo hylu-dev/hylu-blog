@@ -1,6 +1,15 @@
 # My Personal Blog
 
-My principle for this blog is for it to be as easy and fun for me as possible. That means dreadful commit names as well as a chaotic commit history.
+A website for my projects and other ongoings. Created with Hugo and a modified PaperMod Theme.
+
+Custom Features Include:
+ - Mermaid | In-Post Charts
+ - MathJax | In-Post LateX Math Rendering
+ - ThreeJS | In-Post 3D WebGL Rendering
+ - Featured Posts with Project Links
+ - Badges and Element Tiling
+ - Responsive Styles
+ - More!
 
 ## Pull the main repo
 
@@ -12,4 +21,9 @@ git clone <repo>
 
 ```bash
 git submodule update --init
+```
+## Start Development Server
+
+```bash
+hugo server -D
 ```
