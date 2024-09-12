@@ -20,6 +20,15 @@
     src: url('/fonts/Mononoki.woff2') format('woff2');
 }
 
+a {
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+header a:hover, p a:hover, li:hover a, h3 a:hover {
+    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
+    transform: translateY(-3px) !important;
+}
+
 body {
     font-family: 'SUSE', -apple-, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
@@ -38,6 +47,16 @@ details {
 
 strong {
     font-size: 1.1em;
+}
+
+/* ## Archive */
+.archive-entry {
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.archive-entry:hover {
+    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
+    transform: translateX(5px);
 }
 
 /* ## Social */
