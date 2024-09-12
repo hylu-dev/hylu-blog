@@ -6,6 +6,16 @@
 }
 
 @font-face {
+    font-family: "Torus SemiBold";
+    src: url('/fonts/Torus-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "Torus Bold";
+    src: url('/fonts/Torus-Bold.otf') format('opentype');
+}
+
+@font-face {
     font-family: "Mononoki";
     src: url('/fonts/Mononoki.woff2') format('woff2');
 }
@@ -14,8 +24,12 @@ body {
     font-family: 'SUSE', -apple-, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 
-header, h1, h2, h3, h4, details {
-    font-family: 'Mononoki', monospace; 
+header, h1, h2, h3 {
+    font-family: 'Torus SemiBold', monospace; 
+}
+
+details {
+    font-family: 'Torus Regular', monospace; 
 }
 
 .chroma {
@@ -29,6 +43,7 @@ strong {
 /* ## Social */
 
 .social-icons a {
+    font-family: 'Torus SemiBold';
     transition: filter .3s cubic-bezier(0.075, 0.82, 0.165, 1),
         transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
