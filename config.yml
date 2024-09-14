@@ -46,7 +46,7 @@ params:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/roylu01/"
     - name: "cv"
-      url: "https://hylu.dev/documents/resume.pdf"
+      url: /documents/resume.pdf 
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
   ShowToc: true
