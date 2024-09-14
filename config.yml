@@ -75,3 +75,6 @@ menu:
     - name: tags
       pageRef: /tags
       weight: 40
+    - name: resume
+      url: /documents/resume.pdf
+      weight: 50
