@@ -1,5 +1,5 @@
 ---
-title: "Slime Hunter"
+title: "Slime Hunter: Action-RPG"
 date: 2024-07-12T21:36:00-04:00
 draft: false
 cover:
