@@ -61,6 +61,10 @@ params:
   homeInfoParams:
     Title: "Don't mind me."
     Content: "Just stress writing."
+  analytics:
+    google:
+      SiteVerificationTag: "G-YLM4S2QRTK"
+
 menu:
   main:
     - name: posts
@@ -77,4 +81,4 @@ menu:
       weight: 40
     - name: resume
       url: /documents/resume.pdf
-      weight: 50
+      weight: 50 
