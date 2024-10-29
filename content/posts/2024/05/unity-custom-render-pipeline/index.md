@@ -1,7 +1,7 @@
 ---
 title: "Unity Custom Passes with URP"
 date: 2024-05-07T12:35:27-04:00
-draft: true
+draft: false 
 cover:
     image: "https://roystan.net/media/tutorials/toon-shader-demo.png"
 tags: ["Unity", "Code"]
