@@ -31,6 +31,7 @@ header a:hover, p a:hover, li:hover a, h3 a:hover {
 
 body {
     font-family: 'SUSE', -apple-, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    font-size: 16px;
 }
 
 header, h1, h2, h3 {
