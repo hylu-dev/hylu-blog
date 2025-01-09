@@ -1,0 +1,24 @@
+{{- $src := .Get "src" -}}
+<div class="info-wrapper">
+    <a href="{{ $src }}" target="_blank"
+            rel="noopener noreferrer">
+        <img loading="lazy"  alt="{{ $src }}" src="{{ $src }}" class="{{ .Get "class" }}">
+    </a>
+    <div>
+        <p>{{ .Inner }}</p>
+    </div>
+</div>
+
+<style>
+    .info-wrapper {
+        /* styles from post-entry */
+        width: 100%;
+        position: relative;
+        margin-bottom: var(--content-gap);
+        padding: calc(var(--gap)/2);
+        background: var(--entry);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        color: var(--primary);
+    }
+</style>

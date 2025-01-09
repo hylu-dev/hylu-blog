@@ -85,6 +85,10 @@ Instead, have them both depend on abstractions.
 
 ### Threading 
 
+## Technical Interview
+
+### Boyer-Moore Voting
+
 ## Game Programming
 
 ### ECS System
