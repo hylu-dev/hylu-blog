@@ -59,8 +59,8 @@ classDiagram
     Jump.asset <.. PlayerController : References
 
     class PlayerController {
-        +InputActionDefinition OnMove;
-        +InputActionDefinition OnJump;
+        +InputActionDefinition OnMove
+        +InputActionDefinition OnJump
 
         +Move() void
         +Jump() void
