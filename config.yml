@@ -27,11 +27,11 @@ params:
       - pageRef: projects/bujots/
       - pageRef: projects/lucid-dream/
   featuredPosts:
+    - pageRef: posts/2024/shadow-detection-with-render-textures
     - pageRef: posts/2025/lucid-dream
     - pageRef: posts/2023/old/dev/basics-of-shader-fractals/
     - pageRef: posts/2023/old/dev/3d-matrix-rotations/
     - pageRef: osu_banner
-    - pageRef: posts/2023/old/osu/osu_fanart/
     - pageRef: posts/2023/old/other/some-casual-art/
   customCSS: ["css/custom.css"]
   profileMode:

@@ -1,5 +1,5 @@
 ---
-title: "Shadow Detection With Render Textures"
+title: "Shadow Detection: Why Render Textures Were a Mistake"
 date: 2024-10-28T21:32:19-04:00
 draft: false
 cover:
@@ -10,46 +10,45 @@ socialIcons:
       url: "https://teamnightcreature.itch.io/luciddream"
 ---
 
-I participated in a game jam where we worked on game with the theme surrounding light. If you're interested, you can check out [here](https://teamnightcreature.itch.io/luciddream).
+During a game jam centered around the theme of light, I worked on a project that required a shadow detection system. You can check out the game [here](https://teamnightcreature.itch.io/luciddream). 
 
-For now, I want to focus on the shadow detection system I developed for the project. The designers originally came to me with the challenge of detecting when something is an light and shadow. That by itself would seem easy enough with some careful usage of raycasts. However it was the second requirement that made things complicated.
+> The challenge was to detect when objects were in light or shadow and identify the closest shadow to an object.
 
-> Detecting where the closest shadow would be.
+Initially, I thought render textures would be an elegant solution, **but this approach turned out to be a mistake. Here's why**.
 
-This gets complicated as you need some sense of the space around the world, not just the targets that are receiving light. You might start thinking about shooting many rays in every direction but that becomes a massive performance hit, especially if you have lot's a objects calculating at the same time. The solution I came to was to use render textures.
+## The Initial Appeal of Render Textures
 
-## Mapping the World in a Texture
-
-The idea is, you place another camera above the world and have it capture just the light and shadow data and write that to a texture buffer. Then, whenever you need to figure out whether something is in shadow, you can just sample the world position and project that onto that texture.
-
-Then for finding the closest shadow, since we now have data about the environment, we can map that to any position on the direction and sample around it to find the closest shadow. This is admittedly an expensive operation but there are solutions.
+The idea was to use a camera positioned above the scene to capture light and shadow data into a render texture. This texture could then be sampled to determine if an object was in shadow or to find the nearest shadow by analyzing surrounding pixels. It seemed promising because it provided a dynamic map of the environment, avoiding the performance cost of casting multiple rays while also letting us easily find the closest shadow.
 
 {{< tiles >}}
     {{< card src="shadow-shader.gif">}}
-        The scene is rendered with a blank replacement material so colors don't affect the shadow. It's then posterized into black and white
+        The scene is rendered with a replacement shader to posterize light and shadow into black and white.
     {{</ card >}}
     {{< card src="closest-shadow.gif">}}
-        The cylinder looks for the closest dark pixel based on its location
+        A cylinder samples the render texture to locate the closest dark pixel.
     {{</ card >}}
 {{</ tiles>}}
 
-{{< card src="shadow-map.gif">}}
-    The replacement shader also does some light reweighting so the actual brightness doesn't affect the range. I needed to use a wider color format in order to reweight accurately enough.
+## Why Render Textures Failed
+
+Despite the initial optimism, the render texture approach had significant flaws:
+
+1. **Performance Overhead**: Generating and sampling render textures consumed substantial resources, causing frame rate drops, especially on lower-end hardware.
+2. **Complexity**: Managing render textures added layers of complexity to the rendering pipeline, making it harder to debug and maintain.
+3. **Inaccurate Shadow Calculations**: Shadows for additional lights were unreliable due to issues with Unity’s shadow map accessors. Misaligned shadow data led to artifacts and incorrect mappings.
+4. **Light Layer Challenges**: Encoding lights into RGB channels for selective light interactions required switching to unlit shaders and manual light calculations. This introduced additional complexity and still didn’t fully resolve shadow inaccuracies.
+5. **Design Changes**: Finding the *closest shadow* turned out also being too much of a design challenge so we didn't end up using this feature.
+
+{{< card src="light-layers.png">}}
+    Lights were encoded in RGB based on their layer, but shadow artifacts and incorrect mappings persisted.
 {{</ card >}}
 
-## Solving Selective Light Interactions
+## The Shader Attempt
 
-The problem with the system at this point is that all lighting is treated the same. There is no sense of which light is which and no way to ignore some lights while listening for others.
-
-A solution that I came up with is to encode the lights in RGB depending on what layer they're on and write that onto the render texture instead of just plain white for every light. The issue now is that so far, I've been using URP **lit shaders** to render the light shadows and just reweighting the colors until I got a *correct* enough map. 
-I need to make use of several URP libraries to get per-lighting info in code so that leaves my with **unlit shaders** where I have to calculate lighting manually.
-
-Below you can see the main portion of the shader which does all the light and shadow calculation using the needed URP functions. For light layers, I pull the data off of the `Light` struct for both the directional and additional lights.
+To address selective light interactions, I used unlit shaders to manually calculate lighting and encode light layers into RGB channels. Below is the core fragment shader used:
 
 ```cpp
 // LightShadowRGBLayerEncoded.shader
-
-...
 
 half4 PosterizeToRGB(half3 color, half threshold)
 {
@@ -61,18 +60,16 @@ half4 frag(Varyings IN) : SV_Target
     // Initialize color to black
     half3 finalColor = 0;
 
-    // Calculate diffuse lighting contribution from the main light
+    // Calculate diffuse lighting from the main light
     Light mainLight = GetMainLight(IN.shadowCoords);
     float diffMain = max(dot(IN.normalWS, mainLight.direction), 0.0);
     finalColor += diffMain * mainLight.color * mainLight.shadowAttenuation;
 
-    // Calculate lighting contributions from additional lights
+    // Calculate lighting from additional lights
     int additionalLightsCount = GetAdditionalLightsCount();
     for (int i = 0; i < additionalLightsCount; i++)
     {
-        // Check if pointlight (1.0) or spotlight (0.0)
         Light l = GetAdditionalLight(i, IN.positionWS);
-
         float diffuse = max(dot(IN.normalWS, l.direction), 0.0);
         float shadowAmount = AdditionalLightRealtimeShadow(i, IN.positionWS, l.direction);
 
@@ -82,7 +79,7 @@ half4 frag(Varyings IN) : SV_Target
             (l.layerMask & 0x4) != 0 ? half3(0, 0, 1) : // Blue for Layer 2
             half3(0, 0, 0); // Default color black
 
-        // Disable shadows for now
+        // Disable shadows due to alignment issues
         shadowAmount = 1.0;
         finalColor += diffuse * lightColor * l.distanceAttenuation * shadowAmount;
         finalColor = saturate(finalColor);  
@@ -93,10 +90,16 @@ half4 frag(Varyings IN) : SV_Target
 }
 ```
 
-> There's a great benefit to manual light calculations as I can be certain of the color values being rendered unlike using lit shaders where I had to do rough constraining of Unity's rendered colors. I also save on computation because I can optimize the lighting calculations to the bare minimum instead of everything a PBR shader does.
+## Lessons Learned
 
-{{< card src="light-layers.png">}}
-    Light are encoded in RGB based on the layer they are in. If you look closely at the shadows, you can see incorrect mapping and artifacts.
-{{</ card >}}
+The render texture approach was a poor fit for shadow detection. It introduced performance bottlenecks, unreliable results, and excessive complexity. A simpler solution, such as optimized raycasting or leveraging Unity’s built-in shadow maps more effectively, would likely have been more efficient and reliable.
 
-I ran into an issue trying to calculate shadows for additional lights. While Unity provides accessors for their shadows maps, I couldn't quite figure out why they weren't lining up correctly. The functions internally do handling of shadow sampling slicing. Because the shadows weren't calculating correctly. In the end, I actually took out the shadows from this shader and used two render textures for sampling. The original one for shadow locations and this one for light layer mapping.
+## Moving Forward
+
+There may be potential in this method we needed to find the closest shadow but for this project, it ended up being a big time sink with lack luster results.
+
+If I were to come back to this method, I'd implement the following improvements.
+
+- Shadow Map Sampling: Directly sample Unity’s shadow maps with proper alignment to avoid artifacts.
+- Compute Shaders: Offload shadow detection to compute shaders for better performance in complex scenes.
+- Spatial Paritioning: Optimize searching for the closest shadow in partitions rather than trying to read all the pixels.
