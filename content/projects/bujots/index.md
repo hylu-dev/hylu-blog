@@ -6,25 +6,27 @@ cover:
     image: "https://raw.githubusercontent.com/hylu-dev/bujots/main/demo.png"
 tags: ["development"]
 mermaid: true
+badges:
+    - icon: "react"
+    - icon: "typescript"
+    - icon: "mongodb"
+    - icon: "express"
+    - icon: "framer"
+    - icon: "redux"
+    
 socialIcons:
     - name: "github"
       url: "https://github.com/hylu-dev/bujots"
 ---
 
 > **Bujots** - *"boo-jots": /buˈʒɒts/*
+
 - A portmanteau of bullet journaling and Jots
 - A web-based jot note app to create organized online notes
 
 ## Jot-Based Journals
 
 The goal of this project is to capture the joy and satisfaction of writing a beautiful journal entry and apply it to jot notes. Along with the ability to write daily notes organized in a timeline, users can freely customize their notes with stickers, adding personality and charm to each one.
-
-{{< badge text="React" icon="react" >}}
-{{< badge text="Redux" icon="redux" >}}
-{{< badge text="FramerMotion" icon="framer" >}}
-{{< badge text="Express" icon="express" >}}
-{{< badge text="MongoDB" icon="mongodb" >}}
-{{< badge text="TypeScript" icon="typescript" >}}
 
 ---
 

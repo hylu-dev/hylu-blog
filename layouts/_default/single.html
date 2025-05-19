@@ -36,7 +36,7 @@
   {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
   {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
 
-  <!-- Show social links at top of project of applicable -->
+  <!-- Show social links at top of project if applicable -->
   {{- if (.Params.socialIcons) }}
   <div class="social-icons">
     {{- range.Params.socialIcons }}
@@ -47,6 +47,22 @@
     </a>
     {{- end }}
   </div>
+  {{- end }}
+
+  <!-- Show badges at top of project if applicable -->
+  {{- if .Params.badges }}
+    <div class="badge-group">
+      {{- range .Params.badges }}
+        {{ partial "badge.html" (dict
+          "text" (cond (isset . "text") .text .icon)
+          "theme" .theme
+          "icon" .icon
+          "href" .href
+          "id" .id
+          "class" .class
+          "context" $) }}
+      {{- end }}
+    </div>
   {{- end }}
 
   {{- if (.Param "ShowToc") }}
@@ -82,6 +98,11 @@
 </article>
 
 <style>
+
+  .badge-group {
+    margin-bottom: var(--content-gap);
+  }
+
   .social-icons {
     display: flex;
     justify-content: center;

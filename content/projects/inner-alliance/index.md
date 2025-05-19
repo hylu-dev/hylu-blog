@@ -4,6 +4,9 @@ date: 2025-04-11T19:37:44-04:00
 draft: false
 cover:
     image: "cover.gif"
+badges:
+    - icon: "unity"
+    - icon: "csharp"
 tags: ["development", "unity", "c#"]
 ---
 

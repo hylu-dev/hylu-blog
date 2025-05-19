@@ -5,6 +5,10 @@ draft: false
 cover:
     image: "https://img.itch.zone/aW1nLzE3NTExMTE2LnBuZw==/original/MIHxmP.png"
 tags: ["gamedev", "unity", "c#"]
+badges:
+    - icon: "unity"
+    - icon: "csharp"
+    - icon: "fmod"
 socialIcons:
     - name: "itchio"
       url: "https://studiobounce.itch.io/slime-hunter-studio-bounce"
@@ -22,10 +26,6 @@ socialIcons:
 **Slime Hunter** is a *3D Top-Down Action RPG* set in the fantasy world of **Slimeria**, where players hunt cute and dangerous slimes. Featuring comprehensive combat, spell, and inventory systems, diverse enemies, and a beautifully hand-built environment.
 
 > Slimeria is a fantasy world where Slimes are the primary fauna alongside humans. For mysterious reasons, the slime population has grown significantly while more dangerous breeds wreaking havoc on local towns. You play a lone slime hunter, making their journey through Slimeria to learn about the state of the slime invasion and hopefully find the source.
-
-{{< badge text="Unity" icon="unity" >}}
-{{< badge text="C#" icon="csharp" >}}
-{{< badge text="fmod" icon="fmod" >}}
 
 ### How It Began
 

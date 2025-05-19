@@ -5,6 +5,10 @@ draft: false
 cover:
     image: "demo.gif"
 tags: ["development"]
+badges:
+    - icon: "svelte"
+    - icon: "javascript"
+    - icon: "css"
 socialIcons:
     - name: "website"
       url: "https://pianotypes.netlify.app"
@@ -15,10 +19,6 @@ socialIcons:
 ## Virtual Piano
 
 **PianoTypes** is a web-based piano that provides a full-range, customizable piano that is fast, visually sleek, and easy-to-use. While there are similar sites out there, PianoTypes tries to stand out by being a fully featured package and replicates most of the fundamental capabilities of a keyboard and more.
-
-{{< badge text="Svelte" icon="svelte" >}}
-{{< badge text="JavaScript" icon="javascript" >}}
-{{< badge text="CSS" icon="css" >}}
 
 - **Svelte** | Front-End Framework
 - **tonal.js** | Music Theory Calculations
