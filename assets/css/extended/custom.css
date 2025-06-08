@@ -24,6 +24,12 @@ a {
     transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+pre {
+    border-radius: var(--radius);
+    max-height: 36rem;
+    overflow-y: auto;
+}
+
 header a:hover, p a:hover, li:hover a, h3 a:hover {
     filter: drop-shadow(0 0 1px var(--primary))brightness(2);
     transform: translateY(-3px) !important;

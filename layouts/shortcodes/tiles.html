@@ -1,34 +1,34 @@
-<div class="grid-tiles">
-    {{ .Inner }}
+<div class="grid-tiles" style="{{ with .Get "columns" }}{{ printf "grid-template-columns: repeat(%s, 1fr);" . | safeCSS }}{{ else }}grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));{{ end }}">
+    {{ $type := lower (.Get "type") }}
+    {{ if or (eq $type "markdown") (eq $type "md") }}
+        {{ .Inner | markdownify }}
+    {{ else }}
+        {{ .Inner }}
+    {{ end }}
 </div>
 
 <style>
-    .grid-tiles {
-        display: grid;
-        justify-items: center;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: calc(var(--gap)/2);
-        margin-bottom: var(--content-gap);
-    }
+.grid-tiles {
+    display: grid;
+    justify-items: center;
+    gap: calc(var(--gap) / 2);
+    margin-bottom: var(--content-gap);
+}
+.grid-tiles img,
+.grid-tiles > div {
+    margin: 0 !important;
+}
 
-    .grid-tiles img {
-        margin: 0 !important;
-    }
+.grid-tiles > * {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
 
-    .grid-tiles > div {
-        margin: 0 !important;
-    }
+.grid-tiles pre {
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
 </style>
-
-{{/*  
-Example Syntax:
-
-{{< img-tile >}}
-    {{< img src="images/1.png" >}}
-    {{< img src="images/2.png" >}}
-    {{< img src="images/3.png" >}}
-    {{< img src="images/4.png" >}}
-    {{< img src="images/5.png" >}}
-{{</ img-tile >}}
-    
-*/}}

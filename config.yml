@@ -21,6 +21,7 @@ params:
     hideCopyright: false
   featuredProjects:
       - pageRef: projects/darkstar-showdown/
+      - pageRef: projects/volumetric-fog-of-war/
       - pageRef: projects/inner-alliance/
       - pageRef: projects/slime-hunter/
       - pageRef: projects/pianotypes/
