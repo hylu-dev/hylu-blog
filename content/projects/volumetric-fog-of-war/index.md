@@ -1,109 +1,88 @@
 ---
-
 title: "Creating Volumetric Fog of War"
 date: 2025-06-07T22:38:56-04:00
 draft: false
 cover:
-    image: "fog-cover.gif"
+  image: "fog-cover.gif"
 badges:
-    - icon: "unity"
-    - icon: "csharp"
-    - icon: "hlsl"
+  - icon: "unity"
+  - icon: "csharp"
+  - icon: "hlsl"
 tags: ["development", "unity", "c#", "shaders"]
 math: true
+---
+
+While I was working on *Inner Alliance*, we wanted to implement a fog of war but we realized a simple 2D screen effect wouldn't cut it when we had a dynamic 3D camera. That led me down the path of raymarched fog. Here, we'll take a look at how I built it in Unity URP.
 
 ---
 
-## Volumetric Fog of War
+## Fog Shading Approaches
 
-While working on *Inner Alliance*, we needed a fog of war system to obscure vision ranges. Initially, I explored 2D solutions since the game is top-down. However, due to dynamic camera angles that show side perspectives, I opted for a volumetric fog approach.
+### Texture-Based Shadows
 
----
+I started by layering simplex noise for both density and “fake” shadowing. Imagine two wispy noise textures overlapping to give depth.
 
-## Fog Shading Techniques
-
-Without lighting, the fog appears flat.
-
-### Texture Shading
-
-My first approach was to simulate realistic lighting by raymarching from the camera and calculating how light scattered through the fog. While visually accurate, it was far too heavy on the GPU and had to be scrapped.
-
-I then experimented with layering simplex noise twice:
-
-- First to add texture to the fog density.
-- Then to overlay a secondary color, simulating shadowing.
-
-This created a more stylized look, but it ended up feeling too busy and unnatural for the scene.
+```hlsl
+// Sample shader snippet for texture-based fog
+float noiseDensity = snoise(worldPos * densityScale);
+float shadowMask  = snoise(worldPos * shadowScale);
+float fogAmount   = smoothstep(minDist, maxDist, length(rayDir)) * noiseDensity;
+Color             *= fogAmount * (1 - shadowMask);
+```
 
 {{< card src="fog-texture-shadows.gif" >}}
-Fog rendered with texture-based shadows.
-{{</ card >}}
+Fog rendered with texture-driven shadows—stylized but quite noisy.
+{{< /card >}}
 
-### Rayleigh Scattering
+In practice, the look was interesting but too busy: the scene felt like it was pulsing rather than smoothly fading. Performance was good since I could just encode multiple noise textures onto multiple channels in the texture so it only required a single sample per fragment.
 
-Searching for better performance-quality balance, I came across an [Acerola video](https://www.youtube.com/watch?v=ryB8hT5TMSg) using **Rayleigh Scattering**. While it's often used with light ray sampling, I used **single scattering** for a lightweight yet visually pleasing effect. It reacts to the main light’s direction and color.
+### Rayleigh Scattering (Single-Scattering)
 
-```cpp
-float RayleighScattering(float3 cameraRay, float3 lightDirection)
+Next, I found a way to mimic light scattering a video by [Acerola](https://www.youtube.com/watch?v=ryB8hT5TMSg). We calculate light scattering based on the angle between your view ray and the main light along with some constants.
+
+```hlsl
+float RayleighScattering(float3 cameraRay, float3 lightDir)
 {
-    float3 lightVector = -lightDirection;
-    float3 worldUp = float3(0, 1, 0);
-
-    float lightHeightInfluence = saturate(dot(lightVector, worldUp));
-    float cosineAngle = saturate(dot(normalize(cameraRay), normalize(lightDirection)));
-    float intensityMultiplier = pow(lightHeightInfluence, 0.5);
-
-    return THREESIXTEENTHPI * (1 + cosineAngle * cosineAngle) * intensityMultiplier;
+    float3 up             = float3(0, 1, 0);
+    float heightInfluence = saturate(dot(-lightDir, up));
+    float cosAngle        = saturate(dot(normalize(cameraRay), normalize(lightDir)));
+    float intensity       = pow(heightInfluence, 0.5) * (1 + cosAngle * cosAngle);
+    return THREESIXTEENTHPI * intensity;
 }
 ```
 
 $$
-I(\theta) \propto (1 + \cos^2\theta)
+I(\theta) \propto 1 + \cos^2\theta
 $$
 
-- \\(I(\theta)\\): The brightness of the scattered light you see.
-- \\(\propto\\): Means "is proportional to," showing the brightness changes with the equation.
-- \\(\cos\theta\\): How the angle between the incoming light and your view affects the light's brightness.
-
 {{< card src="fog-rayleigh.gif" >}}
-Fog rendered with Rayleigh Scattering.
-{{</ card >}}
+Fog rendered with Rayleigh scattering. More natural and reacts to scene lighting.
+{{< /card >}}
 
 ---
 
-## Setting Up the Post-Processing Pipeline
+## Building the URP Post-Processing Pass
 
-Volumetric fog is usually rendered via **raymarching**. To enable this in Unity URP:
+To get volumetric fog working, we need two things: depth data and a custom render pass.
 
-1. **Set up a post-process pipeline.**
-2. **Pass required data:** depth texture and view-projection matrix (to reconstruct world positions in the shader).
+1. **Enable Depth Texture** in your URP asset settings.
+2. **Reconstruct World Positions** in the shader:
 
-{{< card src="depth-to-world-space.png" >}}
-Reconstructed world-space positions as RGB.
-{{</ card >}}
-
-{{< tiles type="md" >}}
-
-```cpp
+```hlsl
 float3 GetWorldPosition(float2 uv, float depth)
 {
-    float4 clipPos = float4(uv * 2.0 - 1.0, depth, 1.0);
-    clipPos.y = -clipPos.y;
-    float4 worldPos = mul(_InverseViewProjection, clipPos);
-    return worldPos.xyz / worldPos.w;
+    float4 clip = float4(uv * 2 - 1, depth, 1);
+    clip.y    = -clip.y;
+    float4 world = mul(_InverseVP, clip);
+    return world.xyz / world.w;
 }
 ```
 
-- Converts screen-space UV and depth into world-space coordinates.
-- Uses the inverse view-projection matrix to reconstruct 3D positions.
+### Render Graph Workflow
 
-{{< /tiles >}}
-
-In the render pass, we:
-
-- Compute and pass the camera's view-projection matrix.
-- Use a **temporary texture** to avoid read-write conflicts on the camera buffer.
-- Perform a two-step blit: camera → temp → camera.
+1. Calculate the camera view-projection matrix and pass into the shader
+2. **Pass 1:** Raymarch fog into a temporary texture.  
+3. **Pass 2:** Blit the result back to the camera target.
 
 ```csharp
 // FogPostProcessRenderPass.cs
@@ -141,46 +120,42 @@ public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer
 }
 ```
 
-**Note:** Don't blit directly to the source texture; use a temp buffer to avoid undefined behavior.
-
-> ["Avoid setting source and dest to the same render texture..."](https://docs.unity3d.com/ScriptReference/Graphics.Blit.html)
+> **Tip:** Always double buffer to a temporary texture first—writing directly to the camera buffer can lead to [race conditions](https://docs.unity3d.com/ScriptReference/Graphics.Blit.html).
 
 ---
 
-## Fixing Raymarch Step Transitions
+## Tackling Raymarch Banding
 
-Banding artifacts appear due to fixed raymarch step sizes. To mitigate this:
-
-- Offset the starting point of each ray using noise (e.g., Perlin or blue noise).
+Raymarching with constant steps can leave noticeable bands. Our fix: jitter the start of each ray with blue noise.
 
 {{< tiles >}}
 {{< card src="fog-banding.png" >}}
-Raymarch banding visible.
-{{</ card >}}
+Notice the straight, uniform bands—definitely not what you want.
+{{< /card >}}
 
 {{< card src="fog-banding-noise.png" >}}
-Banding reduced with noise offset.
-{{</ card >}}
-{{</ tiles >}}
+After adding a small noise offset, the bands smoothed out into a natural gradient.
+{{< /card >}}
+{{< /tiles >}}
 
 ---
 
-## Voxel-Based Fog: Lessons Learned
+## Why We Skipped Voxel-Based Fog
 
-My first approach used voxel data (from existing scene voxelization) for fog.
+We tried using our scene’s voxel grid to intersect rays against. It looked neat, but:
 
-- Passed voxel grid as a structured buffer.
-- Did ray-box intersection per voxel.
-- Rendered fog on voxel-bound geometry.
-
-It looked promising but:
-
-- Performance suffered due to per-voxel intersections.
-- Fog coverage was limited to voxel bounds.
-- Scaling fog density worsened performance.
+- **Performance:** Per-voxel intersection kills the GPU.  
+- **Limits:** Fog didn’t extend beyond the voxelized bounds.  
+- **Scalability:** Cranking up density made things crawl.
 
 {{< card src="fog-voxel-based.png" >}}
-Voxel-based volumetric fog (ray-box intersection).
-{{</ card >}}
+Voxel-based volumetric fog using ray-box intersections—cool proof of concept, but too slow for real-time.
+{{< /card >}}
 
-Ultimately, a screen-space raymarch was simpler and more performant for our needs.
+Ultimately, screen-space raymarching offered full-screen coverage and much smoother performance.
+
+---
+
+## Wrapping Up
+
+Volumetric fog of war adds a layer of immersion, but only if it doesn’t tank your frame rate. By combining single-scattering Rayleigh, a URP render graph, and noise-baked optimizations, you get a flexible system that stays lean. Give it a try and tweak the balance between density, scattering, and noise to fit your game’s style!
