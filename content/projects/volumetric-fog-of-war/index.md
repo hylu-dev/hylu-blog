@@ -12,7 +12,7 @@ tags: ["development", "unity", "c#", "shaders"]
 math: true
 ---
 
-While I was working on *Inner Alliance*, we wanted to implement a fog of war but we realized a simple 2D screen effect wouldn't cut it when we had a dynamic 3D camera. That led me down the path of raymarched fog. Here, we'll take a look at how I built it in Unity URP.
+While I was working on *Inner Alliance*, I needed to implement a fog of war but I realized a simple 2D screen effect wouldn't cut it when we had a dynamic 3D camera. That led me down the path of raymarched fog. Here, we'll take a look at how I built it in Unity URP.
 
 ---
 
@@ -84,7 +84,6 @@ $$
 I(\theta) \propto 1 + \cos^2\theta
 $$
 Rayleigh scattering models light scattering intensity based on the angle \\(\theta\\) between the view and light directions, creating a realistic fog glow.
-
 
 {{</ tiles >}}
 
@@ -171,7 +170,7 @@ public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer
 
 ## Tackling Raymarch Banding
 
-Raymarching with constant steps can leave noticeable bands. Our fix: jitter the start of each ray with blue noise.
+Raymarching with constant steps can leave noticeable bands. To fix: jitter the start of each ray with some blue noise.
 
 {{< tiles >}}
 {{< card src="fog-banding.png" >}}
@@ -222,14 +221,18 @@ Voxel-based volumetric fog using intersection and voxel sampling.
 
 At this point, I stopped due to performance issues with voxel-based fog calculations. Below are the key benefits and drawbacks of this approach, and why I pivoted to post-processing for fog of war.
 
-- **Benefits**:
+{{< tiles type="md" >}}
+
+- **Potential**:
   - **Precise Control**: Voxel data shapes fog to match scene geometry or game regions (e.g., dense fog in specific areas).
   - **Data Integration**: Supports precomputed or simulation-driven effects, aligning with level design or dynamic systems.
-  
+
 - **Drawbacks**:
   - **High Memory Usage**: Large voxel grids (e.g., `_VoxelDataBuffer`) consume significant memory.
   - **Performance Overhead**: Sampling the structured buffer and noise texture in the raymarching loop is costly, especially for high-resolution grids or many steps.
-  
+
+{{</ tiles >}}
+
 Ultimately, for a fog of war effect requiring efficient screen-space occlusion, post-processing offered better performance than raymarching.
 
 ## Wrapping Up
