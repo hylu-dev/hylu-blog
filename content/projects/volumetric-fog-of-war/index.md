@@ -56,7 +56,7 @@ Sampling from a 3D cloud texture instead of an SDF.
 
 ## Fog Shading Approaches
 
-When approaching fog a referenced a ton of resources (along with some AI assistance) that can be found here.
+When approaching fog a referenced a bunch of resources (along with some AI assistance). Here are some the key ones that I found most helpful!
 > <https://blog.maximeheckel.com/posts/real-time-cloudscapes-with-volumetric-raymarching/>
 > <https://shaderbits.com/blog/creating-volumetric-ray-marcher>
 > <https://github.com/GarrettGunnell/CS2-Smoke-Grenades>
