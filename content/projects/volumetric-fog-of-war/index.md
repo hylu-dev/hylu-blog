@@ -16,7 +16,45 @@ While I was working on *Inner Alliance*, we wanted to implement a fog of war but
 
 ---
 
+## Intro to Ray Marching
+
+Raymarching is a powerful rendering technique that casts rays from the camera and steps along them to sample shapes or volumes. Instead of relying on complex meshes, it uses signed distance functions (SDFs) to represent objects like spheres, fog, or clouds.
+
+For example, by applying a raymarching material to a Unity cube, you can render a sphere inside it using an SDF. The SDF provides the distance to the nearest surface, allowing the shader to march along the ray until it either hits the shape or exits the bounds.
+
+### Key Equations
+
+1. **Ray Path**: \\(\mathbf{O}\\) is the camera, \\(\mathbf{D}\\) is the ray direction, \\(t\\) is the distance.
+   \\[
+   \mathbf{P}(t) = \mathbf{O} + t \cdot \mathbf{D}
+   \\]
+
+2. **Sphere SDF**:
+   For a sphere at \\(\mathbf{C}\\) with radius \\(r\\):
+   \\[
+   \text{SDF}(\mathbf{P}) = \|\mathbf{P} - \mathbf{C}\| - r
+   \\]
+   **Negative** = inside, **zero** = surface, **positive** = outside.
+
+3. **Marching Step**:
+   Step by the SDF value:
+   \\[
+   t \gets t + \text{SDF}(\mathbf{P}(t))
+   \\]
+   Stop when \\(\text{SDF} < \epsilon\\) or you exit.
+
+{{< tiles >}}
+{{< card src="raymarch-sphere.png" >}}
+Sphere raymarched in a cube with an SDF.
+{{</ card >}}
+{{< card src="raymarch-cloud.png" >}}
+Sampling from a 3D cloud texture instead of an SDF.
+{{</ card >}}
+{{</ tiles >}}
+
 ## Fog Shading Approaches
+
+Let's take a look at some of the results.
 
 ### Texture-Based Shadows
 
@@ -38,9 +76,20 @@ In practice, the look was interesting but too busy: the scene felt like it was p
 
 ### Rayleigh Scattering (Single-Scattering)
 
+{{< tiles type="md" >}}
+
 Next, I found a way to mimic light scattering a video by [Acerola](https://www.youtube.com/watch?v=ryB8hT5TMSg). We calculate light scattering based on the angle between your view ray and the main light along with some constants.
 
+$$
+I(\theta) \propto 1 + \cos^2\theta
+$$
+Rayleigh scattering models light scattering intensity based on the angle \\(\theta\\) between the view and light directions, creating a realistic fog glow.
+
+
+{{</ tiles >}}
+
 ```hlsl
+// FogPostProcess.hlsl
 float RayleighScattering(float3 cameraRay, float3 lightDir)
 {
     float3 up             = float3(0, 1, 0);
@@ -51,10 +100,6 @@ float RayleighScattering(float3 cameraRay, float3 lightDir)
 }
 ```
 
-$$
-I(\theta) \propto 1 + \cos^2\theta
-$$
-
 {{< card src="fog-rayleigh.gif" >}}
 Fog rendered with Rayleigh scattering. More natural and reacts to scene lighting.
 {{< /card >}}
@@ -63,7 +108,7 @@ Fog rendered with Rayleigh scattering. More natural and reacts to scene lighting
 
 ## Building the URP Post-Processing Pass
 
-To get volumetric fog working, we need two things: depth data and a custom render pass.
+To get volumetric fog working, we need two things: **scene depth data** and the **camera view matrix**. Post processes are screen space and don't have world space data so we need to generate that data ourselves.
 
 1. **Enable Depth Texture** in your URP asset settings.
 2. **Reconstruct World Positions** in the shader:
@@ -140,22 +185,57 @@ After adding a small noise offset, the bands smoothed out into a natural gradien
 
 ---
 
-## Why We Skipped Voxel-Based Fog
+## Trying Voxel-Based Fog
 
-We tried using our scene’s voxel grid to intersect rays against. It looked neat, but:
+Previously, I had implemented [scene voxelization in Inner Alliance]({{< ref "/projects/inner-alliance" >}}) so I thought I could use that data to help me shape the fog around the scene geometry. My voxel data exists as a 1D array of bools that I index as a 3D array.
 
-- **Performance:** Per-voxel intersection kills the GPU.  
-- **Limits:** Fog didn’t extend beyond the voxelized bounds.  
-- **Scalability:** Cranking up density made things crawl.
+I convert that into a structured buffer and pass that directly to the shader properties.
 
-{{< card src="fog-voxel-based.png" >}}
-Voxel-based volumetric fog using ray-box intersections—cool proof of concept, but too slow for real-time.
+```csharp
+int VoxelBufferID = Shader.PropertyToID("_VoxelDataBuffer");
+GraphicsBuffer _fogBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, grid.VoxelCount, sizeof(float));
+Shader.SetGlobalBuffer(VoxelBufferID, _fogBuffer);
+```
+
+For each of the raymarch rays, I do a **bounding box AABB intersection** and discard any rays that don't intersect the bounding box. For the ones that do intersect, I then march through the box and sample from the voxel grid to determine the densities at each step. Lastly, add some noise sampling to give a bit of texture to the fog.
+
+```cpp
+for (int step = 0; step < _MaxSteps; ++step) {
+    float3 currentPos = rayOrigin + rayDir * current_t;
+    float density = SampleDensityFromVoxels(currentPos);
+
+    if (density > EPSILON)
+    {
+        float scaledDensity = density * _DensityScale;
+        float alpha = 1.0 - exp(-scaledDensity * _Absorption * stepSize); // Apply Beer's law to get fog alpha
+        ...
+        // Visual Tuning
+    }
+    current_t += stepSize;
+    if (current_t > t_far) break;
+}
+```
+
+{{< card src="fog-voxel-based.gif" >}}
+Voxel-based volumetric fog using intersection and voxel sampling.
 {{< /card >}}
 
-Ultimately, screen-space raymarching offered full-screen coverage and much smoother performance.
+At this point, I stopped due to performance issues with voxel-based fog calculations. Below are the key benefits and drawbacks of this approach, and why I pivoted to post-processing for fog of war.
 
----
+- **Benefits**:
+  - **Precise Control**: Voxel data shapes fog to match scene geometry or game regions (e.g., dense fog in specific areas).
+  - **Data Integration**: Supports precomputed or simulation-driven effects, aligning with level design or dynamic systems.
+  
+- **Drawbacks**:
+  - **High Memory Usage**: Large voxel grids (e.g., `_VoxelDataBuffer`) consume significant memory.
+  - **Performance Overhead**: Sampling the structured buffer and noise texture in the raymarching loop is costly, especially for high-resolution grids or many steps.
+  
+Ultimately, for a fog of war effect requiring efficient screen-space occlusion, post-processing offered better performance than raymarching.
 
 ## Wrapping Up
 
-Volumetric fog of war adds a layer of immersion, but only if it doesn’t tank your frame rate. By combining single-scattering Rayleigh, a URP render graph, and noise-baked optimizations, you get a flexible system that stays lean. Give it a try and tweak the balance between density, scattering, and noise to fit your game’s style!
+- **Lessons Learned**:
+  - Learned about raymarching and voxel-based rendering, deepening shader programming skills.
+  - Gained insights into balancing visual fidelity and performance in resource-constrained environments.
+  - Understood trade-offs between voxel-based and procedural methods, guiding future effect design.
+  - Had a lot of fun!
