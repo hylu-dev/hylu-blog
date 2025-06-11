@@ -56,6 +56,11 @@ Sampling from a 3D cloud texture instead of an SDF.
 
 ## Fog Shading Approaches
 
+When approaching fog a referenced a ton of resources (along with some AI assistance) that can be found here.
+> <https://blog.maximeheckel.com/posts/real-time-cloudscapes-with-volumetric-raymarching/>
+> <https://shaderbits.com/blog/creating-volumetric-ray-marcher>
+> <https://github.com/GarrettGunnell/CS2-Smoke-Grenades>
+
 Let's take a look at some of the results.
 
 ### Texture-Based Shadows
@@ -110,6 +115,8 @@ Fog rendered with Rayleigh scattering. More natural and reacts to scene lighting
 ## Building the URP Post-Processing Pass
 
 To get volumetric fog working, we need two things: **scene depth data** and the **camera view matrix**. Post processes are screen space and don't have world space data so we need to generate that data ourselves.
+
+> This is using Unity 6's new render graph api which honestly gave me a bit of a hard time with limited resources because it's so new. Luckily the sample code that Unity provides helps a lot especially with setting up basic blitting.
 
 1. **Enable Depth Texture** in your URP asset settings.
 2. **Reconstruct World Positions** in the shader:
