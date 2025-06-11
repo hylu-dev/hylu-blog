@@ -20,7 +20,7 @@ While I was working on *Inner Alliance*, I needed to implement a fog of war but 
 
 Raymarching is a powerful rendering technique that casts rays from the camera and steps along them to sample shapes or volumes. Instead of relying on complex meshes, it uses signed distance functions (SDFs) to represent objects like spheres, fog, or clouds.
 
-For example, by applying a raymarching material to a Unity cube, you can render a sphere inside it using an SDF. The SDF provides the distance to the nearest surface, allowing the shader to march along the ray until it either hits the shape or exits the bounds.
+For example, imagine drawing a flashlight beam in a dark room. At each step along the beam, you check how far you are from the nearest object. If you're close enough, you stop—because you've “hit” something. This is how a shader figures out what to draw, using math instead of detailed 3D models.
 
 ### Key Equations
 
@@ -42,6 +42,8 @@ For example, by applying a raymarching material to a Unity cube, you can render 
    t \gets t + \text{SDF}(\mathbf{P}(t))
    \\]
    Stop when \\(\text{SDF} < \epsilon\\) or you exit.
+
+For a more in-depth look at how this all works and some cool examples, checkout this [fantastic post by Michael Walcyk](https://michaelwalczyk.com/blog-ray-marching.html).
 
 {{< tiles >}}
 {{< card src="raymarch-sphere.png" >}}
