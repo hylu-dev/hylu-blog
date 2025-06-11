@@ -60,6 +60,7 @@ When approaching fog a referenced a ton of resources (along with some AI assista
 > <https://blog.maximeheckel.com/posts/real-time-cloudscapes-with-volumetric-raymarching/>
 > <https://shaderbits.com/blog/creating-volumetric-ray-marcher>
 > <https://github.com/GarrettGunnell/CS2-Smoke-Grenades>
+> <https://www.youtube.com/watch?v=hXYOlXVRRL8>
 
 Let's take a look at some of the results.
 
