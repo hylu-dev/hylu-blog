@@ -184,7 +184,7 @@ Raymarching with constant steps can leave noticeable bands. To fix: jitter the s
 
 {{< tiles >}}
 {{< card src="fog-banding.png" >}}
-Notice the straight, uniform bands—definitely not what you want.
+Raymarch step increments creating uniform bands at each density test.
 {{< /card >}}
 
 {{< card src="fog-banding-noise.png" >}}
@@ -231,8 +231,6 @@ Voxel-based volumetric fog using intersection and voxel sampling.
 
 At this point, I stopped due to performance issues with voxel-based fog calculations. Below are the key benefits and drawbacks of this approach, and why I pivoted to post-processing for fog of war.
 
-{{< tiles type="md" >}}
-
 - **Potential**:
   - **Precise Control**: Voxel data shapes fog to match scene geometry or game regions (e.g., dense fog in specific areas).
   - **Data Integration**: Supports precomputed or simulation-driven effects, aligning with level design or dynamic systems.
@@ -240,8 +238,6 @@ At this point, I stopped due to performance issues with voxel-based fog calculat
 - **Drawbacks**:
   - **High Memory Usage**: Large voxel grids (e.g., `_VoxelDataBuffer`) consume significant memory.
   - **Performance Overhead**: Sampling the structured buffer and noise texture in the raymarching loop is costly, especially for high-resolution grids or many steps.
-
-{{</ tiles >}}
 
 Ultimately, for a fog of war effect requiring efficient screen-space occlusion, post-processing offered better performance than raymarching.
 
