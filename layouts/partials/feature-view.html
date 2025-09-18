@@ -25,23 +25,18 @@
         <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
         </div>
         {{- end }}
+        
+        <!-- Tags -->
+        {{- if .Params.tags }}
+        <div class="entry-tags">
+            {{- range first 5 .Params.tags }}
+            <span class="tag">{{ . }}</span>
+            {{- end }}
+        </div>
+        {{- end }}
+        
         <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 
-        <!-- Top badge tabs -->
-        {{- if .Params.badges }}
-            <div class="badge-group">
-            {{- range .Params.badges }}
-                {{- with .icon }}
-                    {{- $svgPath := printf "svg/%s.svg" . -}}
-                    {{- if templates.Exists (printf "partials/%s" $svgPath) }}
-                        {{- partial $svgPath (dict "classTheme" "") | safeHTML -}}
-                    {{- else }}
-                        {{- warnf "SVG partial '%s' not found for badge with icon '%s'" $svgPath . -}}
-                    {{- end }}
-                {{- end }}
-            {{- end }}
-            </div>
-        {{- end }}
         <!-- Bottom Social Links -->
         {{- if (.Params.socialIcons) }}
         <div class="social-icons project-links">
@@ -60,28 +55,6 @@
 </div>
 
 <style>
-    .badge-group {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: end;
-        position: absolute;
-        right: -1px;
-        top: 0;
-        transform: translateY(-75%);
-        padding: 3px;
-        padding-bottom: 0;
-        background: var(--entry);
-        border-radius: var(--radius) var(--radius) 0 0;
-        border-right: 1px solid var(--border);
-        border-top: 1px solid var(--border);
-    }
-
-    .badge-group * {
-        height: 24px;
-        width: 24px;
-        margin: 0 2px;
-    }
 
     .project-links {
         position: absolute;
@@ -115,6 +88,24 @@
     .entry-hint-parent {
         text-align: center;
         justify-content: center;
+    }
+
+    .entry-tags {
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.125rem;
+        margin: 0.5rem 0;
+        flex-wrap: wrap;
+    }
+
+    .entry-tags .tag {
+        background: var(--theme);
+        color: var(--primary);
+        padding: 0.125rem 0.375rem;
+        border-radius: calc(var(--radius) / 2);
+        font-size: 0.7rem;
+        font-family: 'Torus Regular', monospace;
+        border: 1px solid var(--border);
     }
 
     .entry-cover img {

@@ -4,7 +4,7 @@ date: 2025-08-23T17:29:49-04:00
 draft: false
 cover:
     image: "cover.png"
-tags: ["AI"]
+tags: ["ai", "web-development", "cursor"]
 ---
 
 I took part on a project tentatively named **"Mini Escape Maker"** - an educational tool that lets teachers create interactive mystery games for their students. I focused mainly on the front-end implementation.

@@ -4,7 +4,7 @@ date: 2024-06-24T05:55:12-04:00
 draft: false
 cover:
     image: "demo.gif"
-tags: ["development"]
+tags: ["svelte", "javascript", "music"]
 badges:
     - icon: "svelte"
     - icon: "javascript"

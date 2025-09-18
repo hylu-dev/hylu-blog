@@ -4,7 +4,7 @@ date: 2025-04-05T19:40:30-04:00
 draft: false
 cover:
     image: "cover.jpg"
-tags: ["development", "unity"]
+tags: ["gamedev", "unity", "game-jam"]
 socialIcons:
     - name: "itchio"
       url: "https://teamnightcreature.itch.io/luciddream"
