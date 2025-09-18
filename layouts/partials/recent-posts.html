@@ -1,0 +1,94 @@
+<div class="recent-posts-container">
+    {{ $recentPosts := where site.RegularPages "Section" "posts" | first 3 }}
+    {{ range $recentPosts }}
+    <div class="recent-post-entry">
+        <h3 class="recent-post-title entry-hint-parent">
+            {{ .Title | markdownify }}
+        </h3>
+        <div class="recent-post-meta">
+            <time class="recent-post-date">{{ .Date.Format "Jan 2, 2006" }}</time>
+            {{ if .Params.tags }}
+            <span class="recent-post-tags">
+                {{ range first 2 .Params.tags }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </span>
+            {{ end }}
+        </div>
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+    </div>
+    {{ end }}
+</div>
+
+<style>
+    .recent-posts-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .recent-post-entry {
+        position: relative;
+        padding: 8px 5px 8px 0;
+        margin: 0;
+        transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .recent-post-entry:last-child {
+        border-bottom: none;
+    }
+
+    .recent-post-entry:hover {
+        filter: drop-shadow(0 0 1px var(--primary))brightness(2);
+        transform: translateX(5px);
+    }
+
+    .recent-post-title {
+        margin: 5px 0;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--content);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: block;
+        text-align: left !important;
+    }
+
+    .recent-post-meta {
+        color: var(--secondary);
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .recent-post-date {
+        font-family: 'Torus Regular', monospace;
+    }
+
+    .recent-post-tags {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    .tag {
+        background: var(--theme);
+        color: var(--primary);
+        padding: 0.125rem 0.375rem;
+        border-radius: calc(var(--radius) / 2);
+        font-size: 0.75rem;
+        font-family: 'Torus Regular', monospace;
+        border: 1px solid var(--border);
+    }
+
+    .entry-link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+</style>
