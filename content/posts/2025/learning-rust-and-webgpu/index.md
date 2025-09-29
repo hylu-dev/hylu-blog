@@ -107,8 +107,57 @@ Once that was done, I used `wasm-pack build --target web` to generate the `WASM`
 
 > For this, I just did some quick AI-generated styling and logic
 
-{{< img src=todo.png >}}
+{{< img src=todo.webp >}}
 
 ## Getting Started with WebGPU
 
-I won't go into too much detail in this post, but I've been closely following an excellent tutorial series by Ben Hansen at <https://sotrh.github.io/learn-wgpu/>. The guide does a fantastic job explaining all the boilerplate needed to get rendering up and running on screen, plus includes some great practical rendering examples to help you get your feet wet. I'll be back with more updates once I've made more progress through the material!
+I won't go into too much detail in this post, but I've been closely following an excellent tutorial series by Ben Hansen at <https://sotrh.github.io/learn-wgpu/>. The guide does a fantastic job explaining all the boilerplate needed to get rendering up and running on screen, plus includes some great practical rendering examples to help you get your feet wet.
+
+For now, I've set up some rendering to a canvas with some manually generated vertices to form a square.
+
+```c
+// Vertex shader
+
+const PI: f32 = 3.1415926535;
+
+struct VertexOutput {
+    @builtin(position) clip_position: vec4<f32>,
+    @location(0) uv: vec2<f32>,
+};
+
+@vertex
+fn vs_main(
+    @builtin(vertex_index) in_vertex_index: u32,
+) -> VertexOutput {
+    var out: VertexOutput;
+    // Create a square with two triangles (6 vertices)
+    var positions = array<vec2<f32>, 6>(
+        vec2<f32>(-1.0, -1.0), // Bottom left
+        vec2<f32>( 1.0, -1.0), // Bottom right
+        vec2<f32>(-1.0,  1.0), // Top left
+        vec2<f32>( 1.0, -1.0), // Bottom right
+        vec2<f32>( 1.0,  1.0), // Top right
+        vec2<f32>(-1.0,  1.0)  // Top left
+    );
+    
+    let pos = positions[in_vertex_index];
+    out.clip_position = vec4<f32>(pos, 0.0, 1.0);
+    out.uv = vec2<f32>(pos.x * 0.5 + 0.5, pos.y * 0.5 + 0.5);
+    return out;
+}
+
+@fragment
+fn fs_main(in: VertexOutput) -> @location(0) vec4<f32> {
+    let uv = fract(in.uv*4) * 2 - 1;
+    var dist = sin(length(uv*4*PI));
+    dist += sin(atan2(uv.y, uv.x)*8);
+    var color = vec4<f32>(dist, dist, dist, 1.0);
+    return color;
+}
+```
+
+The fragment shader is just some messing around with `sin` waves resulting in the following output.
+
+{{< img src=shader.webp >}}
+
+I'll be back with more updates once I've made more progress through the material!
