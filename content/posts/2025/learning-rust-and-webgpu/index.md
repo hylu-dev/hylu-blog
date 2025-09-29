@@ -1,7 +1,7 @@
 ---
 title: "Learning Rust and WebGPU"
 date: 2025-09-26T23:21:03-04:00
-draft: true
+draft: false
 cover:
     image: ""
 tags: ["rust", "graphics"]
