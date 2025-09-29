@@ -31,7 +31,7 @@ Instead of using some globally triggered dialogue, I instead fashioned a new opt
 
 This way, the instructions for the dialogues are all nicely encoded into the html rather than needing to send html using js. For the trigger, I just added a small *absolutely position* questions mark button at the corner of each options block.
 
-{{< img src="images/options-block.png" >}}
+{{< img src="images/options-block.webp" >}}
 
 Now the syntax to create a new widget in the options panel with instructions just requires indicating which **slot** you want to child content to belong in.
 
@@ -53,4 +53,4 @@ Now the syntax to create a new widget in the options panel with instructions jus
 
 I also took the chance to reorganize the music generation block by separating out the playback portion and he generation portion to make it easier to differentiate the two features.
 
-{{< img src="images/magenta.jpg" >}}
+{{< img src="images/magenta.webp" >}}

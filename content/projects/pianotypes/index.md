@@ -49,13 +49,13 @@ socialIcons:
 
 ### Midi Playback Demonstration
 
-{{< video src="demo.mp4" >}}
+{{< video src="demo.webm" >}}
 
 ### AI Music Generation
 
 I got interested in AI through a deep learning course offered at UofT. I leveraged **magenta.js** to add music generation functionality using a midi file as input. The generated music would then get played back by the piano.
 
-{{< video src="magenta-demo.mp4" >}}
+{{< video src="magenta-demo.webm" >}}
 
 - **Steps**: The amount of music to generate
 - **Temperature**: The amount of randomization to add to the music
@@ -138,7 +138,7 @@ __bindToScale(whiteKeys, blackKeys, scale, index) {
 
 I've studied and played piano for a large and meaningful portion of my life. In times where a physical piano isn't available, I've looked to online web options. Unfortunately, I could never find a good, fully-featured virtual piano that runs in the browser. Back in 2021 while studying web development, I decided to make this my first major project.
 
-{{< img src="pianotypes_old.png" class="img-lg" >}}
+{{< img src="pianotypes_old.webp" class="img-lg" >}}
 
 The first version of PianoTypes was developed as a front-end app using the following technologies. My goals were to design a web piano that was fast, sounded good, allowed pedaling, and was visually clean/minimal. Many of the other options lacked one or more of these features and so it was important to me that my version did.
 I got the idea visualzizing note presses as ribbons from the popular app [Synthesia](https://synthesiagame.com/).

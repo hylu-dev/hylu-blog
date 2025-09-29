@@ -41,7 +41,7 @@ It's a popular git repository hosting service. While Git is the system for versi
 
 **Repository** in this context just means a place to hold files. On GitHub, when you create a repository **it essentially creates an empty folder that's available remotely** and you can freely add/remove files to that folder
 
-{{< img src="https://raw.githubusercontent.com/harshjv/github-repo-size/master/screenshot.png" class="img-lg" >}}
+{{< img src="https://raw.githubusercontent.com/harshjv/github-repo-size/master/screenshot.webp" class="img-lg" >}}
 
 ### Cloning Repositories
 
@@ -82,7 +82,7 @@ The solution is creating a branch. This will create a snapshot of the codebase a
 
 > **master branch** is just a common name used for the main lane of changes in a project.
 
-{{< img src="https://www.nobledesktop.com/image/gitresources/git-branches-merge.png" class="img-lg" >}}
+{{< img src="https://www.nobledesktop.com/image/gitresources/git-branches-merge.webp" class="img-lg" >}}
 
 #### Merge Conflicts
 

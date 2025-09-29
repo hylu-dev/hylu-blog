@@ -13,7 +13,7 @@ There's lot's of options for this but they mostly amount to puzzle games and suc
 
 ## Post Knight
 
-{{< img src="https://i.ytimg.com/vi/j0qqO_dB6q8/maxresdefault.jpg" class="img-sm">}}
+{{< img src="https://i.ytimg.com/vi/j0qqO_dB6q8/maxresdefault.webp" class="img-sm">}}
 
 The best example I've come across so far is called **Post Knight**. It has a simple formula where you have a hero that's training to be part of an organization known as the *Post Knights*, whom take on missions to deliver virtually anything. Deliveries are often through dangerous territories infested with monsters which is where the knight part comes in.
 

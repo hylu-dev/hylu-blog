@@ -3,7 +3,7 @@ title: "Using Kanban Boards"
 date: 2023-05-01T15:12:19-04:00
 draft: false
 cover: 
-    image: images/trello_example.png
+    image: images/trello_example.webp
     alt: ''
     caption: ''
 tags: ['organization']

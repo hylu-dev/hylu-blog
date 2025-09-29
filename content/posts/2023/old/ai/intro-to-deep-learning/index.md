@@ -357,7 +357,7 @@ These are a special type of neural net designed to work for a sequence of data. 
 
 Unfolding is a terminology to describe a very simple process. Examining a recurrent layer over multiple timesteps. Rather than showing one recurrent network, we show it as multiple networks that feed into eachother to create that recurrent behavior. This makes it easier to see how our recursion occurs as well as how backpropagation occurs.
 
-{{< img src="https://machinelearningmastery.com/wp-content/uploads/2021/09/rnn1-1536x726.png">}}
+{{< img src="https://machinelearningmastery.com/wp-content/uploads/2021/09/rnn1-1536x726.webp">}}
 
 ### Backpropagation in Time (BPTT)
 
@@ -381,7 +381,7 @@ Generally, the process of creating an NLP model requires a lot of preprocessing 
 
 Later when we talk about word embeddings, the learning component of NLP comes into play where can train a model to set a weights for each word in a vocabulary.
 
-{{< img class="img-sm" src="https://www.researchgate.net/profile/Kim-Schouten/publication/318138528/figure/fig4/AS:667674447204357@1536197401651/The-NLP-pipeline-used-at-the-basis-of-the-methods-features-compared-to-the-number-of.png">}}
+{{< img class="img-sm" src="https://www.researchgate.net/profile/Kim-Schouten/publication/318138528/figure/fig4/AS:667674447204357@1536197401651/The-NLP-pipeline-used-at-the-basis-of-the-methods-features-compared-to-the-number-of.webp">}}
 
 ### Common Problems
 

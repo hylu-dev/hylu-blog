@@ -22,7 +22,7 @@ https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@17.0/manu
 
 Phong reflection
 
-{{< img src="https://learnopengl.com/img/advanced-lighting/advanced_lighting_halfway_vector.png">}}
+{{< img src="https://learnopengl.com/img/advanced-lighting/advanced_lighting_halfway_vector.webp">}}
 
 
 > DepthTexture don't work with SSAO enabled in URP https://forum.unity.com/threads/depth-texture-doesnt-work-correctly-without-ssao.1555910/

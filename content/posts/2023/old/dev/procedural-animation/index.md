@@ -25,7 +25,7 @@ Starting from the top, the first few logs that talk about animation don't go far
 
 Rainworld limbs are have their extension animated frame by frame and then cleverly rotated through code depending on context.
 
-{{< img src="<https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/wcbsyb.jpg>" >}}
+{{< img src="<https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/wcbsyb.webp>" >}}
 
 > Furthermore, the arms are coming together. I had to make three animations like the one above, because the arm needs to be able to rotate... inwards so to speak, but I think that it right now looks OK, or at least has the potential to look OK. - <https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#85>
 > What you see here is the arm, in 0-8 extension modes and three different degrees of rotation towards the viewer, where the topmost is a profile where you see the bend of the elbow, while the third row is the same arm viewed from "above". Rows 4-6 are the same thing, but for the leg. - <https://candlesign.github.io/Rain-World-Devlog/Full%20devlog#86>

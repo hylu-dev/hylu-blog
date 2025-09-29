@@ -25,7 +25,7 @@ I see no reason why they couldn't let takedowns be done from any angle. With the
 
 Multi enemy takedowns would also be amazing. With weapons like the mantis blades, it seems incredibly limiting to not be able to execute two enemies at once from stealth.
 
-{{< img src="https://assetsio.reedpopcdn.com/cyberpunk-2077-mantis-blades.jpg" class="img-lg">}}
+{{< img src="https://assetsio.reedpopcdn.com/cyberpunk-2077-mantis-blades.webp" class="img-lg">}}
 
 Ultimately, melee stealth killing just lacks options when dealing with multiple enemies. A feature like chaining stealth kills without alerting enemies is sorely needed. Dying Light had a similar mechanic a think (haven't played). You can stealth kill one enemy and time slows down letting you chain into another takedown on a nearby enemy or even a knife kill on an enemy further away.
 

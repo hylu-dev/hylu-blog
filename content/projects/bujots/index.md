@@ -52,7 +52,7 @@ The goal of this project is to capture the joy and satisfaction of writing a bea
 
 ### Journaling Demo
 
-{{< video src="demo.mp4" >}}
+{{< video src="demo.webm" >}}
 
 ## Code Insights
 

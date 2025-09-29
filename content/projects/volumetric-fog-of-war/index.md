@@ -46,10 +46,10 @@ For example, imagine drawing a flashlight beam in a dark room. At each step alon
 For a more in-depth look at how this all works and some cool examples, checkout this [fantastic post by Michael Walcyk](https://michaelwalczyk.com/blog-ray-marching.html).
 
 {{< tiles >}}
-{{< card src="raymarch-sphere.png" >}}
+{{< card src="raymarch-sphere.webp" >}}
 Sphere raymarched in a cube with an SDF.
 {{</ card >}}
-{{< card src="raymarch-cloud.png" >}}
+{{< card src="raymarch-cloud.webp" >}}
 Sampling from a 3D cloud texture instead of an SDF.
 {{</ card >}}
 {{</ tiles >}}
@@ -183,11 +183,11 @@ public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer
 Raymarching with constant steps can leave noticeable bands. To fix: jitter the start of each ray with some blue noise.
 
 {{< tiles >}}
-{{< card src="fog-banding.png" >}}
+{{< card src="fog-banding.webp" >}}
 Raymarch step increments creating uniform bands at each density test.
 {{< /card >}}
 
-{{< card src="fog-banding-noise.png" >}}
+{{< card src="fog-banding-noise.webp" >}}
 After adding a small noise offset, the bands smoothed out into a natural gradient.
 {{< /card >}}
 {{< /tiles >}}

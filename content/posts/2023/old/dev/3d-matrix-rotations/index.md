@@ -29,7 +29,7 @@ Imagine taking a 1x1x1 unit cube from our coordinate space and aligning each of 
 
 The same idea applies if we want to rotate our coordinate space. We want to be able to translate each unit axis in a circle based off of some angle. Remember at each point of a unit circle, height is equal to \\(sin\theta\\) and width is equal to \\(cos\theta\\). We can can then use those as our vector inputs to follow a constant circle based off of \\(\theta\\).
 
-{{< img class="img-xs" src="https://assets.website-files.com/621ca7b6009267905d98302b/62f2b425837a662e4220d242_Trigonometric%20Functions%20and%20Unit%20Circle.png">}}
+{{< img class="img-xs" src="https://assets.website-files.com/621ca7b6009267905d98302b/62f2b425837a662e4220d242_Trigonometric%20Functions%20and%20Unit%20Circle.webp">}}
 
 We get the following matrices for rotating about each axis of rotation.
 

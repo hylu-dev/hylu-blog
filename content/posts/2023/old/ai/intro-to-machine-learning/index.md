@@ -54,7 +54,7 @@ For example you may be sampling for animals that are dogs, you'd have an output 
 
 We call the set of features the **feature vector**. We call the output label the **target**
 
-{{< img class="img-md" src="https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.png" >}}
+{{< img class="img-md" src="https://i0.wp.com/www.sharpsightlabs.com/wp-content/uploads/2021/04/supervised-learning-data_vs_unsupervised-learning-data.webp" >}}
 
 ## Machine Learning Models
 
@@ -106,11 +106,11 @@ We want to find the category that maximizes the probability given by the Naive B
 
 ### Logistic Regression
 
-{{< img class="img-sm" src="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.png" >}}
+{{< img class="img-sm" src="https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/3_logistic-regression-classification-algorithm.webp" >}}
 
 ### Support Vector Machines
 
-{{< img class="img-md" src="https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.png" >}}
+{{< img class="img-md" src="https://miro.medium.com/v2/resize:fit:1400/1*ZpkLQf2FNfzfH4HXeMw4MQ.webp" >}}
 
 ## Neural Network
 
@@ -162,7 +162,7 @@ $$
 
 ### Neurons & Hidden Layers
 
-{{< img class="img-md" src="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.png">}}
+{{< img class="img-md" src="https://images.deepai.org/glossary-terms/4c9d8f89916848b4803df475ef6892be/hiddenlayer.webp">}}
 
 Neurons are grouped into layers known as *hidden layers*. We can have as many layers as deemed necessary, and each layer will have to job of classifying the data given by the previous layer.
 
@@ -241,7 +241,7 @@ Instead, if we have some cost function, all we need to know is the slope of the 
 
 > Gradient descent just means walking in the downhill direction to minimize the cost function. - 3b1b
 
-{{< img src="https://www.3blue1brown.com/content/lessons/2017/gradient-descent/gradient-descent.png" class="img-sm" >}}
+{{< img src="https://www.3blue1brown.com/content/lessons/2017/gradient-descent/gradient-descent.webp" class="img-sm" >}}
 
 ### Back Propagation
 
@@ -257,7 +257,7 @@ The result is a series of values representing how closely or far away the model 
 
 Let's however start our intuition with how would we want our outputs to change to get a lower cost. If we were trying to train our model to identify numbers, we would have outputs of all the digits 0-9. Now let's say we give our model the number 2. Our ideal output is for the 2 output light up to one while every other output is zero. We'd likely want it to increase the weights & biases to lead to 2 as well as lower the weights & biases of all the other outputs.
 
-{{< img src="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2017/backpropagation/classify-as-2.png" >}}
+{{< img src="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2017/backpropagation/classify-as-2.webp" >}}
 
 Not only that, we out cost function, **we know how far away each of our prediction are from the actual outputs**. The more the cost, the more we want to lower or increase the weights & biases leading to that output.
 

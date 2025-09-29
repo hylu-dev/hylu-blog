@@ -2,8 +2,6 @@
 title: "Reviving Tabby Sort"
 date: 2023-08-23T22:23:06-04:00
 draft: false
-cover:
-    image: "https://lh3.googleusercontent.com/ouAehAR2Mqj6qNfiGf_fB0faYB0ox4iDxZxZviDR_0ewGRCBkL1btFmnPkyfGsS-mT_WoE0_0PhfLLIE29o11kZb=w640-h400-e365-rj-sc0x00ffffff"
 tags: ["development", "chrome"]
 ---
 

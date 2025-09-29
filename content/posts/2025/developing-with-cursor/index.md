@@ -3,7 +3,7 @@ title: "Building Mini Escape Maker with AI"
 date: 2025-08-23T17:29:49-04:00
 draft: false
 cover:
-    image: "cover.png"
+    image: "cover.webp"
 tags: ["ai", "web-development", "cursor"]
 ---
 
@@ -15,7 +15,7 @@ It's a tool targeted towards educators to help build interactive mystery games (
 
 Educators then create pairings of **clues** and **tools**, and students can match them up in order to produce **findings**.
 
-{{< img src="cards.png" >}}
+{{< img src="cards.webp" >}}
 
 Once they have enough findings, they can try to guess who the culprit is.
 
@@ -25,7 +25,7 @@ While educators can do this process manually, we can also make use of **LLMs** t
 
 In our case, we use OpenAI and **prompt engineering** to ensure our generate results are fit for use.
 
-{{< img src="generate.png" >}}
+{{< img src="generate.webp" >}}
 
 ## My Experience with AI-Assisted Development
 

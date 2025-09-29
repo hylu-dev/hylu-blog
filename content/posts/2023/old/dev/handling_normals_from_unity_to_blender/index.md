@@ -2,8 +2,6 @@
 title: "Handling Normals from Unity to Blender"
 date: 2023-05-15T14:34:17-04:00
 draft: False
-cover:
-    image: https://docs.blender.org/manual/en/2.79/_images/modeling_meshes_editing_normals_viewport.png
 tags: ["unity", "blender"]
 ---
 

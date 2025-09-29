@@ -75,7 +75,7 @@ The dot product returns the projection of one vector `v1` onto another and multi
 * The length of `v1projected` decreases the wider the angle between it and `v2`
 * The general formula is `|A||B|cosθ`
 
-![Vector Projection](https://upload.wikimedia.org/wikipedia/commons/9/98/Projection_and_rejection.png)
+![Vector Projection](https://upload.wikimedia.org/wikipedia/commons/9/98/Projection_and_rejection.webp)
 
 In the case that `v1 == v2`, the magnitude of `v1projected == v1` as well. This means the result of the dot product is actually
 `|v1|**2`!
@@ -127,8 +127,8 @@ Trigonometric functions are closely tied with circles and are a key component to
 
 To begin, the arctangent function when graphed is a right rotation and mirror of the standard tangent graph.
 
-![Arctangent Graph](https://dfrrh0itwp1ti.cloudfront.net/img/a/trigonometry/trigonometric-functions/arctan/arctan.png)
-![Tangent Graph](https://study.com/cimages/multimages/16/tan38155360018730577690.png)
+![Arctangent Graph](https://dfrrh0itwp1ti.cloudfront.net/img/a/trigonometry/trigonometric-functions/arctan/arctan.webp)
+![Tangent Graph](https://study.com/cimages/multimages/16/tan38155360018730577690.webp)
 
 It can be hard to wrap your head around how each value of x in the arctan graph correlates to its plotted value but the key is to focus on how the arctan function relates to the tan function itself.
 
@@ -163,7 +163,7 @@ void main(){
 }
 ```
 
-![Arctan Shader](images/arctan_shader.png)
+![Arctan Shader](images/arctan_shader.webp)
 
 In GLSL, atan has two overloads, first used here can have deceptive behavior when it comes to signs
 > atan returns either the angle whose trigonometric arctangent is yx or y_over_x, depending on which overload is invoked. In the first overload, the signs of y and x are used to determine the quadrant that the angle lies in. The value returned by atan in this case is in the range [−π,π]. The result is undefined if x=0
@@ -175,7 +175,7 @@ For the second overload, atan returns the angle whose tangent is y_over_x. The v
 
 If we then sub the angles into `cos`, we get the adjacent side of the right triangle angled θ from the origin.
 
-![Cos Shader](images/cos_shader.png)
+![Cos Shader](images/cos_shader.webp)
 
 > The adjacent component is only positive in quadrants I and IV
 
@@ -186,7 +186,7 @@ float f = cos(a*8.); // 8 cycles
 f = floor(f + .5); // round to solid values
 ```
 
-![Umbrella Shader](images/umbrella_shader.png)
+![Umbrella Shader](images/umbrella_shader.webp)
 
 ## Morphing Mosaic
 
@@ -223,12 +223,12 @@ void main() {
 ```
 
 {{< tiles >}}
-    {{< img src="images/ripple.jpg" >}}
-    {{< img src="images/star.jpg" >}}
+    {{< img src="images/ripple.webp" >}}
+    {{< img src="images/star.webp" >}}
 {{< /tiles >}}
 
 > A ripple and a star pattern
 
-![Combined Ripple Star](images/ripple-star.jpg)
+![Combined Ripple Star](images/ripple-star.webp)
 
 > Combined together

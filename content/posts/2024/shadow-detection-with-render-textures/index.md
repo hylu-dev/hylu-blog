@@ -39,7 +39,7 @@ Despite the initial optimism, the render texture approach had significant flaws:
 4. **Light Layer Challenges**: Encoding lights into RGB channels for selective light interactions required switching to unlit shaders and manual light calculations. This introduced additional complexity and still didn’t fully resolve shadow inaccuracies.
 5. **Design Changes**: Finding the *closest shadow* turned out also being too much of a design challenge so we didn't end up using this feature.
 
-{{< card src="light-layers.png">}}
+{{< card src="light-layers.webp">}}
     Lights were encoded in RGB based on their layer, but shadow artifacts and incorrect mappings persisted.
 {{</ card >}}
 

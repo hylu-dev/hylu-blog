@@ -2,8 +2,6 @@
 title: "Understanding Quaternions"
 date: 2023-05-05T10:37:52-04:00
 draft: false
-cover:
-    image: https://paulneale.com/wp-content/uploads/2019/04/QuaternionFormula-768x132.jpg
 tags: ["math", "development"]
 ---
 
@@ -52,7 +50,7 @@ At first, the idea of using a whole different number system just for rotations c
 
 Applied in blender, you may notice that influencing a single quat value doesn't rotate the way you expect. Instead, altering a lone quat value will only flip the mesh into different orientations as follows, no rotations in between.
 
-![Quaternion Blender](images/quat_blender.png)
+![Quaternion Blender](images/quat_blender.webp)
 
 Smooth rotation starts happening when you influence multiple values at once. In essence, the orientations are mixing depending on the weight you give to each value. Therefore, when thinking about how each quaternion value relates to its 3D rotation, you can think of a quaternion rotation as **mixing together these four orientations in order to create the desired rotation.** Of course, it's not that simple as the way the mixing and rotating happens is a result of the underlying math but I think this way of thinking offers better visual and it can aid in understanding what's really happening.
 

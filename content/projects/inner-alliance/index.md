@@ -43,7 +43,7 @@ To solve this, I introduced an `IHexGridStrategy` interface to handle generation
 
 Rather than crafting the hex grid in isolation, we align it to an existing environment, decoupling the visual scene from the gameplay map for a streamlined workflow.
 
-{{< card src="raycast-generation.png" >}}
+{{< card src="raycast-generation.webp" >}}
     Alignment Using Raycasting
 {{</ card >}}
 
@@ -66,7 +66,7 @@ Implementation wasn’t without hurdles:
 
 - **Vertex Intersection Errors:** Early voxelization only detected mesh edges, missing interiors. Applying the **Separating Axis Theorem** fixed this by properly testing voxel-triangle intersections.
 
-  {{< card src="voxel-intersect-fail.png" >}}
+  {{< card src="voxel-intersect-fail.webp" >}}
       Voxels Only Enabled on Mesh Edges
   {{</ card >}}
 

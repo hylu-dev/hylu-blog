@@ -32,7 +32,7 @@ However, I had a lot of trouble getting images as planes to show up because in m
 
 > As a self note, there was a bit of white dithering around the pngs when I imported them in. **By changing the image node interpolation from *linear to* *closest***, the issue was gone. The white dithering is still in the original image though this is just an issue with Clip Studio's exporting. Apparently, Photoshop has a "matted" option when exporting png's which removes dithering. Hopefully, a future version of CSP will also have the feature.
 
-![Image Shading](image_shading.png)
+![Image Shading](image_shading.webp)
 
 Once I finally got the images texture to show in full color, I could start layering up the banner.
 

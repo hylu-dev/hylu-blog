@@ -102,7 +102,7 @@ flowchart LR
 
 In order to rasterize, an important process that happens is **Barycentric Interpolation**. This blends the colours of each of the vertices to make approximate the colour of pixels between vertices. Otherwise, there's no explicit information for Unity to know how these areas should be displayed.
 
-![Barycentric](images/barycentric.png)
+![Barycentric](images/barycentric.webp)
 
 The fragment shader does not receive the vertex colours but instead, all the interpolated pixel colours.
 
@@ -191,7 +191,7 @@ Generally, a mesh will have more pixels when rendered than vertices. It's usuall
 
 ### Displaying 'Normals' as Colours
 
-![Normals Shaded Sphere](images/normals_shader.png)
+![Normals Shaded Sphere](images/normals_shader.webp)
 
 > Notice how the colors coorespond to the normals. The top is green as the normal on the top of the sphere is the vector `(0, 1, 0)`, therefore mapping to green as the color.
 
@@ -252,7 +252,7 @@ float2 col = floor(sin(i.uv.xy*6*TAU - PI/2) + .5);
 return float4(col.xy, 0, 1);
 ```
 
-![Simple Pattern](images/simple_pattern.png)
+![Simple Pattern](images/simple_pattern.webp)
 
 We get can even fancier and add a wiggle to the stripes. For simplicity, let's add the wiggle just to the horizontal stripes. Intuitively, we want to do is shift the position of the pixels along the horizontal stripe up and down in a wave pattern.
 
@@ -276,7 +276,7 @@ return float4(col.xy, 0, 1);
 
 Similarly to the stripes themselves, I've adjusted the period and amplitude to change the look of the wiggles.
 
-![Wiggle Pattern](images/wiggle_pattern.png)
+![Wiggle Pattern](images/wiggle_pattern.webp)
 
 > Notice, though I'm only focusing on adding the wiggle to the horizontal stripes, they've also influenced the period of the vertical stripes. As the wave function of the offset peaks, **we're also phase-shifting the vertical lines** which is why there are tighter grouping of vertical stripes after the peaks of the horizontal waves and bigger gaps after the dips.
 
@@ -286,7 +286,7 @@ If you're familiar with blending modes in programs such as Photoshop, the theory
 
 The process of blending looks like this
 
-![Blending Equation](images/blending_equation.png)
+![Blending Equation](images/blending_equation.webp)
 
 The achieve different blending effects on shaders, you will be manipulating this equation to decide how the colors defined in your shader will be effected by the colors behind it.
 
@@ -438,7 +438,7 @@ We can also produce a masking effect by drawing another texture and using its va
 
 To begin, let's create a mask and play with it. We'll do a simple mask of black and white. This is drawn simply in Clip Studio.
 
-![Simple Mask](images/pattern_mask.png)
+![Simple Mask](images/pattern_mask.webp)
 
 Create a new texture input we'll call `_MaskTex` and use the mask as an input.
 

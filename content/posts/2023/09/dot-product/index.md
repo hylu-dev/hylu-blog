@@ -38,7 +38,7 @@ A simpler version of this is just "how much are these vectors pointing in the sa
 
 Personally, though I find this characterization to be confusing as it really only applies with your vectors are of length 1. Still, let's start with this intuition and work forwards
 
-{{< img src="https://cdn1.byjus.com/wp-content/uploads/2022/09/Dot-Product-Of-Two-Vectors-1.png" >}}
+{{< img src="https://cdn1.byjus.com/wp-content/uploads/2022/09/Dot-Product-Of-Two-Vectors-1.webp" >}}
 
 Imagine, you're trying to figure out how similar two vectors `A` and `B` are. To start, with can stick them together tail-by-tail and try to get a gauge of how much their direction diverges.
 

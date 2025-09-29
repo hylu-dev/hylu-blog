@@ -2,8 +2,6 @@
 title: "Overview of Probability"
 date: 2023-06-04T12:27:54-04:00
 draft: false
-cover:
-    image: "https://3b1b-posts.us-east-1.linodeobjects.com//images/topics/probability.jpg"
 math: true
 tags: ["math", "ai"]
 category: ["Study"]

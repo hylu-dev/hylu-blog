@@ -76,7 +76,7 @@ classDiagram
 
 ### Example PlayerInput Component
 
-{{< img src="player-input.png" >}}
+{{< img src="player-input.webp" >}}
 
 ## Example Implementation
 

@@ -3,7 +3,7 @@ title: "Revisting Pianotypes"
 date: 2023-08-18T17:50:32-04:00
 draft: false
 cover:
-    image: "images/pianotypes.png"
+    image: "images/pianotypes.webp"
 tags: ["development", "svelte"]
 ---
 

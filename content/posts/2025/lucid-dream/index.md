@@ -3,7 +3,7 @@ title: "20-day TapTap Spotlight Challenge 2024"
 date: 2025-04-05T19:40:30-04:00
 draft: false
 cover:
-    image: "cover.jpg"
+    image: "cover.webp"
 tags: ["gamedev", "unity", "game-jam"]
 socialIcons:
     - name: "itchio"

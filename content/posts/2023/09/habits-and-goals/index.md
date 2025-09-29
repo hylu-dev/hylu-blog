@@ -1,7 +1,7 @@
 ---
 title: "Habits and Goals and Gratitude"
 date: 2023-09-28T08:20:52-04:00
-draft: false
+draft: true
 cover:
     image: "//jobsforeditors.com/blog/wp-content/uploads/2018/11/How-to-measure-your-goals-as-a-writer.jpg"
 tags: ["personal"]

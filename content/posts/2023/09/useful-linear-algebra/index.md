@@ -3,7 +3,7 @@ title: "Useful Linear Algebra"
 date: 2023-09-25T12:17:47-04:00
 draft: false
 cover:
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Linear_subspaces_with_shading.svg/1200px-Linear_subspaces_with_shading.svg.png"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Linear_subspaces_with_shading.svg/1200px-Linear_subspaces_with_shading.svg.webp"
 tags: ["math", "development"]
 math:  true
 ---
