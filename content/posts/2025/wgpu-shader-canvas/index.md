@@ -8,6 +8,8 @@ tags: ["wgpu", "shaders"]
 socialIcons:
     - name: "github"
       url: "https://github.com/hylu-dev/wgsl-fragment-editor"
+    - name: "demo"
+      url: "https://hylu-dev.github.io/wgsl-fragment-editor/"
 ---
 
 This is a continuation from my previous post about [Learning Rust and WebGPU](/posts/2025/learning-rust-and-webgpu/).
@@ -26,4 +28,4 @@ There may be cases in the future where the extra control from using Rust and `wg
 
 Because of these considerations, I haven't integrated the editor directly into my site yet—I'll likely do a rewrite using the JS bindings first and perhaps also some more vertex shading support. In the meantime, you can try out the current version here:
 
-<https://hylu-dev.github.io/wgsl-fragment-editor/>
+{{< iframe src="https://hylu-dev.github.io/wgsl-fragment-editor/" height="600" title="WebGPU Shader Editor" >}}
