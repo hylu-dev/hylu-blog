@@ -3,7 +3,7 @@ title: "Procedural Hex Maps in Inner Alliance"
 date: 2025-04-11T19:37:44-04:00
 draft: false
 cover:
-    image: "cover.gif"
+    image: "cover.webp"
 badges:
     - icon: "unity"
     - icon: "csharp"
@@ -26,7 +26,7 @@ Hex grids are popular in strategy games for their flexible movement and natural 
 
 > The [RedBlobGames](https://www.redblobgames.com/grids/hexagons/) guide on hex coordinates was invaluable for mastering axial coordinates and conversions between systems.
 
-{{< card src="vertex-mesh.gif" >}}
+{{< card src="vertex-mesh.webp" >}}
     Generated Mesh with a Custom Shader
 {{</ card >}}
 
@@ -51,7 +51,7 @@ Initially, I used a simple raycasting method—projecting rays downward from eac
 
 Switching to a voxelization approach, inspired by Unity’s nav mesh techniques (see [this](https://bronsonzgeb.com/index.php/2021/05/15/simple-mesh-voxelization-in-unity/) and [this](https://bronsonzgeb.com/index.php/2021/05/22/gpu-mesh-voxelizer-part-1/)), proved more effective:
 
-{{< card src="voxel-generation.gif" >}}
+{{< card src="voxel-generation.webp" >}}
     Alignment Using Voxel Generation
 {{</ card >}}
 

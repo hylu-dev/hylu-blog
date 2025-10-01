@@ -3,7 +3,7 @@ title: "Creating Volumetric Fog of War"
 date: 2025-06-07T22:38:56-04:00
 draft: false
 cover:
-  image: "fog-cover.gif"
+  image: "fog-cover.webp"
 badges:
   - icon: "unity"
   - icon: "csharp"
@@ -76,7 +76,7 @@ float fogAmount   = smoothstep(minDist, maxDist, length(rayDir)) * noiseDensity;
 Color             *= fogAmount * (1 - shadowMask);
 ```
 
-{{< card src="fog-texture-shadows.gif" >}}
+{{< card src="fog-texture-shadows.webp" >}}
 Fog rendered with texture-driven shadows—stylized but quite noisy.
 {{< /card >}}
 
@@ -107,7 +107,7 @@ float RayleighScattering(float3 cameraRay, float3 lightDir)
 }
 ```
 
-{{< card src="fog-rayleigh.gif" >}}
+{{< card src="fog-rayleigh.webp" >}}
 Fog rendered with Rayleigh scattering. More natural and reacts to scene lighting.
 {{< /card >}}
 
@@ -225,7 +225,7 @@ for (int step = 0; step < _MaxSteps; ++step) {
 }
 ```
 
-{{< card src="fog-voxel-based.gif" >}}
+{{< card src="fog-voxel-based.webp" >}}
 Voxel-based volumetric fog using intersection and voxel sampling.
 {{< /card >}}
 

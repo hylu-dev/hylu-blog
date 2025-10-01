@@ -3,7 +3,7 @@ title: "Shadow Detection: Why Render Textures Were a Mistake"
 date: 2024-10-28T21:32:19-04:00
 draft: false
 cover:
-    image: "shadow-map.gif"
+    image: "shadow-map.webp"
 tags: ["unity", "shaders", "graphics"]
 socialIcons:
     - name: "itchio"
@@ -21,10 +21,10 @@ Initially, I thought render textures would be an elegant solution, **but this ap
 The idea was to use a camera positioned above the scene to capture light and shadow data into a render texture. This texture could then be sampled to determine if an object was in shadow or to find the nearest shadow by analyzing surrounding pixels. It seemed promising because it provided a dynamic map of the environment, avoiding the performance cost of casting multiple rays while also letting us easily find the closest shadow.
 
 {{< tiles >}}
-    {{< card src="shadow-shader.gif">}}
+    {{< card src="shadow-shader.webp">}}
         The scene is rendered with a replacement shader to posterize light and shadow into black and white.
     {{</ card >}}
-    {{< card src="closest-shadow.gif">}}
+    {{< card src="closest-shadow.webp">}}
         A cylinder samples the render texture to locate the closest dark pixel.
     {{</ card >}}
 {{</ tiles>}}

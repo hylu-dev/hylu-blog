@@ -126,7 +126,7 @@ $$
 
 As we slide our kernel across the pixel array, we must move across the vertial and horizontal pixels to cover the whole image.
 
-{{< img src="https://d33wubrfki0l68.cloudfront.net/bd7d4b44eee0adfc2a64a6bf35c2e058e25b5aa2/38785/images/blog/convoluting-a-5x5x1-image-with-a-3x3x1-kernel-to-get-a-3x3x1-convolved-feature.gif" >}}
+{{< img src="https://d33wubrfki0l68.cloudfront.net/bd7d4b44eee0adfc2a64a6bf35c2e058e25b5aa2/38785/images/blog/convoluting-a-5x5x1-image-with-a-3x3x1-kernel-to-get-a-3x3x1-convolved-feature.webp" >}}
 
 ### Building a Convolutional Network with TensorFlow
 
@@ -345,7 +345,7 @@ Things become much more complicated when you want your model to identify multipl
 
 A naive approach involves sliding a bounding box across the image and having the model identify the bounding boxes that identify an object. This is computationally expensive as we need to consider differing box dimensions.
 
-{{< img class="img-sm" src="https://developers.arcgis.com/python/guide/images/slidingwindow.gif" >}}
+{{< img class="img-sm" src="https://developers.arcgis.com/python/guide/images/slidingwindow.webp" >}}
 
 #### Single Shot Detector
 

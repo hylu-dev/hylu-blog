@@ -73,7 +73,7 @@ $$\frac{2.5}{\sigma} = 1.46$$
 
 ### Statistical Uses
 
-![Standard Deviation Chart](https://www.wallstreetmojo.com/wp-content/uploads/2019/03/SD-Graph-1.gif)
+![Standard Deviation Chart](https://www.wallstreetmojo.com/wp-content/uploads/2019/03/SD-Graph-1.webp)
 
 Those who work with probabilities on large datasets are generally familiar with how data fits within a range of standard deviation. The chart above is saying:
 

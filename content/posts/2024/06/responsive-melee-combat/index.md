@@ -3,7 +3,7 @@ title: "Responsive Melee Combat"
 date: 2024-06-05T23:56:04-04:00
 draft: false
 cover:
-    image: "attacking.gif"
+    image: "attacking.webp"
 tags: ["unity", "gamedev"]
 ---
 
@@ -249,7 +249,7 @@ The classic collider approach won't work as the animation doesn't have enough fr
 
 ### Approach #1: Convex Meshes
 
-{{< img src="mesh-curve.gif" class="img-lg" >}}
+{{< img src="mesh-curve.webp" class="img-lg" >}}
 
 This approach involves dynamically generating points in the shape of the curve and using those points to generate a collision mesh. Because of a convex mesh, Unity will generate an approximating bounding collider that approximates the shape of the points and uses that for collision.
 
@@ -265,7 +265,7 @@ As can be seen above, the bounding collider ends up just being a box anyways. We
 
 ### Approach #2: Repeated Box Curve
 
-{{< img src="box-curve.gif" class="img-lg" >}}
+{{< img src="box-curve.webp" class="img-lg" >}}
 
 This approach is simlilar to the convex mesh in implementation but instead of building the curve using points, we use a set of box colliders to build up the curve. We can use more boxes to get closer to the ideal curve shape. 4 boxes in my case seemed to be plenty accurate
 

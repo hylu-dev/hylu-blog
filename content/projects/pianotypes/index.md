@@ -3,7 +3,7 @@ title: "PianoTypes: Virtual Piano"
 date: 2024-06-24T05:55:12-04:00
 draft: false
 cover:
-    image: "demo.gif"
+    image: "demo.webp"
 tags: ["svelte", "javascript", "music"]
 badges:
     - icon: "svelte"
@@ -30,20 +30,20 @@ socialIcons:
 
 ## Features
 
-{{< card src="pedal-and-controllers.gif" class="bottom" >}}
+{{< card src="pedal-and-controllers.webp" class="bottom" >}}
     Full Pedalling and Instrument Controller
 {{</ card >}}
 
 {{< tiles >}}
-    {{< card src="midi-player.gif" >}}
+    {{< card src="midi-player.webp" >}}
         Midi Playback
     {{</ card >}}
-    {{< card src="range.gif" >}}
+    {{< card src="range.webp" >}}
         Adjustable Range
     {{</ card >}}
 {{</ tiles >}}
 
-{{< card src="input-modes.gif" class="bottom" >}}
+{{< card src="input-modes.webp" class="bottom" >}}
     Row-Based & Split Key Bindings
 {{</ card >}}
 

@@ -3,7 +3,7 @@ title: "Rain World Procedural Animation"
 date: 2023-06-07T15:59:24-04:00
 draft: true
 cover:
-    image: "https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/rockFight.gif"
+    image: "https://candlesign.github.io/Rain-World-Devlog/Images/Archived%20Images/rockFight.webp"
 tags: ["animation"]
 ---
 

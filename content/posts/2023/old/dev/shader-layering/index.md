@@ -3,7 +3,7 @@ title: "Shader Layering"
 date: 2023-08-26T12:23:27-04:00
 draft: false
 cover:
-    image: "anim.gif"
+    image: "anim.webp"
 tags: ["glsl"]
 ---
 

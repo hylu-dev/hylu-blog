@@ -75,6 +75,6 @@ The goal of *Slime Hunter* is to merge the gameplay components of **Amorphous+**
 One of the biggest changes with Slime Hunter is a move from 2D to 3D. I still want to keep a more retro cartoony style like the below while dialing into the mystical fantasy aspect of the world.
 
 {{< tiles >}}
-    {{< img src="images/aesthetics.gif" >}}
+    {{< img src="images/aesthetics.webp" >}}
     {{< img src="images/mood.webp" >}}
 {{</ tiles >}}

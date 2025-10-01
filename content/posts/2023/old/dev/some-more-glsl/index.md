@@ -3,7 +3,7 @@ title: "Some More GLSL"
 date: 2023-07-19T03:43:21-04:00
 draft: false
 cover:
-    image: "https://thebookofshaders.com/04/glslGallery.gif"
+    image: "https://thebookofshaders.com/04/glslGallery.webp"
 tags: ["glsl"]
 ---
 

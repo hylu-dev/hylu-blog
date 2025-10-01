@@ -40,28 +40,28 @@ Our team consisted of **two programmers** and **two designers**, with me as one 
 As a small team with two programmers, both of us contributed to most game systems. However, I was primarily responsible for designing and implementing several key features.
 
 {{< tiles >}}
-    {{< card src="combat.gif" >}}
+    {{< card src="combat.webp" >}}
         Melee Combat and Arenas
     {{</ card >}}
-    {{< card src="spell.gif" >}}
+    {{< card src="spell.webp" >}}
         Spell Casting System
     {{</ card >}}
 {{</ tiles >}}
 
-{{< card src="ui.gif" >}}
+{{< card src="ui.webp" >}}
     Full Responsive UI Implementation
 {{</ card >}}
 
 {{< tiles >}}
-    {{< card src="camera.gif" >}}
+    {{< card src="camera.webp" >}}
         Camera Transitions & Effects
     {{</ card >}}
-    {{< card src="particles.gif" >}}
+    {{< card src="particles.webp" >}}
         Particles & Post-Processing
     {{</ card >}}
 {{</ tiles >}}
 
-{{< card src="inventory.gif" >}}
+{{< card src="inventory.webp" >}}
     Inventory System
 {{</ card >}}
 

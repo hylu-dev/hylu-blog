@@ -3,7 +3,7 @@ title: "Satisfying 2D Movement"
 date: 2023-10-13T22:35:08-04:00
 draft: false
 cover:
-    image: "images/movement-1.gif"
+    image: "images/movement-1.webp"
 tags: ["gamedev"]
 ---
 
@@ -18,7 +18,7 @@ The problem is, standard keyboards when held have a delay on the first press bef
 
 To avoid that jerk, I use a simple `isMove` boolean to toggle ship movement on key presses which removes the dependency on the keyboard for continuous key events. This movements looks like the below.
 
-{{< img src="images/movement-1.gif" class="img-md" >}}
+{{< img src="images/movement-1.webp" class="img-md" >}}
 
 You probably notice the lack of diagonal movement. I could add that quickly but it would be overridden anyways by the below method.
 
@@ -51,4 +51,4 @@ pos[1] += move[1];
 
 There's a quite a big more code now since I'm working with vectors to calculate the direction we're moving in at any given time. This still isn't the best implementation, especially since I don't have a nice way to cap out the movement speed. I would consider using either some interpolating or clamping to keep a hard cap on the speed. For now I've just hardcoded some friction that ensure the accelerated speed doesn't go on to infinity and also smoothly slows down when there's no movement at all.
 
-{{< img src="images/movement-2.gif" class="img-md" >}}
+{{< img src="images/movement-2.webp" class="img-md" >}}

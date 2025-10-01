@@ -22,7 +22,7 @@ From there, I took a detour from working purely on the art piece to learning som
 
 My result from the tutorial looked pretty bad I think, especially if you compare it to his results. I decided not to overthink it as I just wanted to get a feel for how to use the software anyways. *Also a note for myself, I chose to render with Eevee as opposed to Cycles.*
 
-![Doughnut Spin](images/doughnut_spin.gif)
+![Doughnut Spin](images/doughnut_spin.webp)
 
 ## The Background
 
@@ -44,9 +44,9 @@ I will however highlight the **rigging** and **weight painting** because that re
 
 There is an option to have Blender automatically weight paint for you but it was extremely off when I used it on my mesh so I had to manually weight paint everything.
 
-![Weight Painting](images/weight_painting.gif)
+![Weight Painting](images/weight_painting.webp)
 
-![Skeleton Rigging](images/skeleton_demo.gif)
+![Skeleton Rigging](images/skeleton_demo.webp)
 
 Often, I get lazy whether it's making my bed or cleaning the house. Creative work is no different. The shadows of Mocha (the green haired girl) aren't actually shadows at all. I just duplicated all of the meshes and shaded them to the colour I wanted. I then shifted their axes behind and slightly to the side of the real meshes to mimic shadows. I'm sure there's some way to project to model onto some plane under it and get a much more accurate and resourceful shadow but I was running out of time (less than an hour left) and brain cells to explore that solution. So instead this is what I did and it worked. I remember a quote that went something like ***it's better to fake it than to make it***. Something one of the Rainworld devs said I believe. Well, here it is in action.
 

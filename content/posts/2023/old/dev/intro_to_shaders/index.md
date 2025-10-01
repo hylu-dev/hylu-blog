@@ -359,11 +359,11 @@ float4 frag(v2f i) : SV_Target{
 
 And just like that, we have waves in both the pattern and shape of our plane.
 
-![Ripple Shader](images/ripple_shader.gif)
+![Ripple Shader](images/ripple_shader.webp)
 
 > With dissipation
 
-![Ripple Shader2](images/ripple_shader2.gif)
+![Ripple Shader2](images/ripple_shader2.webp)
 
 > Without dissipation
 
@@ -430,7 +430,7 @@ float4 frag(v2f i) : SV_Target{
 }
 ```
 
-![World Space Texture](images/world_space_texture.gif)
+![World Space Texture](images/world_space_texture.webp)
 
 ### Texture Masking
 
@@ -457,7 +457,7 @@ float4 frag(v2f i) : SV_Target{
 }
 ```
 
-![Mask Sampling](images/mask_sampling.gif)
+![Mask Sampling](images/mask_sampling.webp)
 
 ### Mixing Textures
 
@@ -480,7 +480,7 @@ float4 frag(v2f i) : SV_Target {
 }
 ```
 
-![Texture Lerp](images/texture_lerp.gif)
+![Texture Lerp](images/texture_lerp.webp)
 
 > We're still mapping the texture based on world coordinates so the textures is consistent no matter the position of the plane. Additionally, techniques such a noise are used to create better transition between textures but we remain this simple example for now.
 

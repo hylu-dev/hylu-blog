@@ -3,7 +3,7 @@ title: "Darkstar Showdown (NEXT 2024)"
 date: 2024-01-10T01:02:05-05:00
 draft: false
 cover:
-    image: "start.gif"
+    image: "start.webp"
 tags: ["gamedev", "c++"]
 badges:
     - icon: "cpp"
@@ -26,16 +26,16 @@ You and another player, pilot a spaceship separated by a dying *darkstar* with t
 > Meet Dark-52, a dwarf star rumored to be abundant with resources and scientific knowledge. In the pursuit of advancement, nations have sent legions of ships to the star only to meet their unexpected doom as the star begins dying lightyears ahead of schedule. You and another player pilot the remaining ships from opposing nations. As death draws near, the two of you face off in a final showdown of triumph. The game starts with both players on opposite sides of the star. The goal is to confront the other player and shoot them down before the star implodes and kills everyone.
 
 {{< tiles >}}
-    {{< card src="camera.gif" >}}
+    {{< card src="camera.webp" >}}
         Turn-Based Camera Switching
     {{</ card >}}
-    {{< card src="asteroids.gif" >}}
+    {{< card src="asteroids.webp" >}}
         Resource Collection and Upgrades
     {{</ card >}}
-    {{< card src="reposition.gif" >}}
+    {{< card src="reposition.webp" >}}
         Map Repositioning
     {{</ card >}}
-    {{< card src="implode.gif" >}}
+    {{< card src="implode.webp" >}}
         Countdown to Star Implosion
     {{</ card >}}
 {{</ tiles >}}
@@ -45,22 +45,22 @@ You and another player, pilot a spaceship separated by a dying *darkstar* with t
 I developed a custom entity-component-system alongside 3D rendering from scratch using a **line drawing API** provided by Ubisoft.
 
 {{< tiles >}}
-    {{< card src="primitives.gif" >}}
+    {{< card src="primitives.webp" >}}
         Custom 3D Renderer
     {{</ card >}}
-    {{< card src="plane.gif" >}}
+    {{< card src="plane.webp" >}}
         Vertex Shading
     {{</ card >}}
-    {{< card src="density.gif" >}}
+    {{< card src="density.webp" >}}
         Variable Mesh Density
     {{</ card >}}
-    {{< card src="particles.gif" >}}
+    {{< card src="particles.webp" >}}
         Particle System
     {{</ card >}}
-    {{< card src="easing.gif" >}}
+    {{< card src="easing.webp" >}}
         Animation System
     {{</ card >}}
-    {{< card src="collision1.gif" >}}
+    {{< card src="collision1.webp" >}}
         Collision Detection
     {{</ card >}}
 {{</ tiles >}}

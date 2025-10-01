@@ -43,7 +43,7 @@ These fireworks were a memorable challenge cause it was one of the times I where
 Though I must add, later I added some of the fireworks lighting onto the clouds and that really sold the look I wanted.
 
 Once I got most of the base colors and shadows worked out, it came time to work out the lighting. I went through a lot of iterations to try to get something that looked good. I really agonized over where the light source would be and how that would shine on the character and where shadows would be. In the end I kept getting results that had shadows that didn't feel right and also made Pippi less of the focal point I wanted. In the end, I just illuminated the parts I wanted to be on focus and then added a bunch of ambient light to balance out the shadows until it looked right. I'm a little disappointed I couldn't apply the lighting with more intention and spatial awareness but this was the best I could do for now. Perhaps next time I'll use more references to base my lighting upon.
-![targets](lighting.gif)
+![targets](lighting.webp)
 
 There were plenty of more things that had gone through my mind while drawing this fanart but I am writing this log long after the fact so much of it isn't fresh in my mind and I might just be too lazy right now to recount it all heh. In any case, below is a final timelapse of my work using Clip Studio's built in timelapse function. It doesn't include any of the CTRL+Zing I did which may as well have been 50% of the whole drawing process.
 

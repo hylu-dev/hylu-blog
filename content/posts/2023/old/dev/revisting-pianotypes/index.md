@@ -47,7 +47,7 @@ The first new feature I needed to add was midi playback. While the goal is to us
 
 Before we get to the Ai part, one of my favourite features I've added actually comes back to the hotkey system. Though I think I bound the hotkeys as sensibly as I could, it still quite confusing to learn their placements and actually play with them. So, my solution was the add visual guides on hotkey placements. Particularly, darkening and focusing out the keys that aren't bound and my favourite, raising the keys that are bound to the top keyboard row. Even to my surprise, this made it sooo much easier to read and I'm very happy with it. So much so, that I'll include a little gif. c:
 
-{{< img src="images/hotkey-guides.gif" >}}
+{{< img src="images/hotkey-guides.webp" >}}
 
 ### Music Generator with MagentaJS
 

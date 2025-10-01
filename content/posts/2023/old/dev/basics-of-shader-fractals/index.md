@@ -3,7 +3,7 @@ title: "Basics of Shader Fractals"
 date: 2023-07-13T20:53:06-04:00
 draft: False
 cover:
-    image: "fractal.gif"
+    image: "fractal.webp"
 math: true
 tags: ["shaders", "glsl"]
 category: ["Development"]

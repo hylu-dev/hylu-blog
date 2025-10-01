@@ -33,19 +33,19 @@ The goal of this project is to capture the joy and satisfaction of writing a bea
 ## Features
 
 {{< tiles >}}
-    {{< card src="login.gif" >}}
+    {{< card src="login.webp" >}}
         Login and Registration with OAuth
     {{</ card >}}
-    {{< card src="persistence.gif" >}}
+    {{< card src="persistence.webp" >}}
         Persistent User Storage
     {{</ card >}}
-    {{< card src="sticker.gif" >}}
+    {{< card src="sticker.webp" >}}
         Automatic Sticker Formatting
     {{</ card >}}
-    {{< card src="autosave.gif" >}}
+    {{< card src="autosave.webp" >}}
         Autosaving
     {{</ card >}}
-    {{< card src="timeline.gif" >}}
+    {{< card src="timeline.webp" >}}
         Timeline Organization
     {{</ card >}}
 {{</ tiles >}}

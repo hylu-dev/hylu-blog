@@ -44,16 +44,16 @@ Despite the tight deadline, we hit all our milestones and submitted a completed 
 ## Highlights
 
 {{< tiles >}}
-    {{< card src="lantern.gif" >}}
+    {{< card src="lantern.webp" >}}
         Light up all the flowers.
     {{</ card >}}
-    {{< card src="crab.gif" >}}
+    {{< card src="crab.webp" >}}
         Use the creatures to your advantage.
     {{</ card >}}
-    {{< card src="exit-up.gif" >}}
+    {{< card src="exit-up.webp" >}}
         Progress across 10 hand-crafted levels.
     {{</ card >}}
-    {{< card src="death.gif" >}}
+    {{< card src="death.webp" >}}
         Beware of the ink!
     {{</ card >}}
 {{</ tiles >}}
