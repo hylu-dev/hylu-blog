@@ -50,7 +50,7 @@ params:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/roylu01/"
     - name: "cv"
-      url: /documents/resume.pdf 
+      url: /documents/cv.pdf 
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
   ShowToc: true
@@ -84,5 +84,5 @@ menu:
       pageRef: /tags
       weight: 40
     - name: resume
-      url: /documents/resume.pdf
+      url: /documents/cv.pdf
       weight: 50 
