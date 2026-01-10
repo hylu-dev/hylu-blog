@@ -1,0 +1,214 @@
+/* =====================================================
+   Layouts
+   Page-specific layout styles
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Profile Page (Home)
+   ----------------------------------------------------- */
+.profile-main-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: var(--content-gap);
+    width: 100%;
+}
+
+.profile-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-image {
+    filter: invert(0) drop-shadow(0px 2px 2px black);
+    transition: var(--transition-smooth);
+    animation: heartbeat 1s infinite;
+}
+
+.profile-image:hover {
+    filter: invert(0.7) drop-shadow(0px 0px 2px var(--primary)) brightness(1.3);
+    scale: 1.1;
+}
+
+.profile-image:active {
+    filter: invert(1.1) drop-shadow(0px 0px 2px var(--primary)) brightness(1.3);
+    scale: 0.9;
+}
+
+/* -----------------------------------------------------
+   Recent Posts Sidebar
+   ----------------------------------------------------- */
+.recent-posts-sidebar {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
+.recent-posts-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    text-align: left;
+    color: var(--content);
+}
+
+.recent-posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-align: left;
+}
+
+.recent-post-entry {
+    position: relative;
+    padding: 8px 5px 8px 0;
+    margin: 0;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid var(--border);
+}
+
+.recent-post-entry:last-child {
+    border-bottom: none;
+}
+
+.recent-post-entry:hover {
+    filter: var(--hover-glow);
+    transform: translateX(5px);
+}
+
+.recent-post-title {
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--content);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    text-align: left;
+}
+
+.recent-post-meta {
+    color: var(--secondary);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recent-post-date {
+    font-family: var(--font-torus);
+}
+
+.recent-post-tags {
+    display: flex;
+    gap: 0.125rem;
+}
+
+/* Entry link overlay (for clickable cards) */
+.recent-post-entry .entry-link,
+.project-container .entry-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* -----------------------------------------------------
+   Project/Feature Grid
+   ----------------------------------------------------- */
+.project-title {
+    margin-top: var(--content-gap);
+    align-self: flex-start;
+}
+
+.project-container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.project-container > * {
+    text-align: center;
+}
+
+.project-container .entry-hint-parent {
+    text-align: center;
+    justify-content: center;
+}
+
+.project-container .post-entry {
+    padding: calc(var(--gap) / 2);
+}
+
+.project-links {
+    position: absolute;
+    left: -10px;
+    bottom: -17px;
+}
+
+.project-links a {
+    padding: 0;
+}
+
+/* -----------------------------------------------------
+   Responsive Breakpoints
+   ----------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .recent-posts-sidebar {
+        flex: 0 0 240px;
+        max-width: 240px;
+    }
+    
+    .project-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .profile-main-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .recent-posts-sidebar {
+        flex: none;
+        max-width: none;
+        width: 100%;
+    }
+
+    .recent-posts-title {
+        text-align: center;
+    }
+    
+    .recent-posts-container {
+        text-align: center;
+    }
+    
+    .recent-post-title {
+        text-align: center;
+    }
+
+    .project-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .card-wrapper img {
+        height: 200px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+}
