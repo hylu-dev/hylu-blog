@@ -1,8 +1,8 @@
 backend:
-  name: github
+  name: git-gateway
   repo: hylu-dev/hylu-blog
   branch: main
-  site_domain: hylu.netlify.app # Instructions: Replace this with your Netlify site domain
+  site_domain: hylu.netlify.app
 
 media_folder: "static/img" # Global folder
 public_folder: "/img"
