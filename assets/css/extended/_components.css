@@ -9,7 +9,7 @@
 .tag,
 .entry-tags .tag,
 .recent-post-tags .tag {
-    background: var(--theme);
+    background: var(--code-bg);
     color: var(--primary);
     padding: 0.125rem 0.375rem;
     border-radius: calc(var(--radius) / 2);
