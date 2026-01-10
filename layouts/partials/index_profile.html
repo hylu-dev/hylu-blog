@@ -79,7 +79,7 @@
         </div>
         
         {{/* BEGIN CUSTOM PROJECT VIEW */}}
-        <h2 class="project-title" style="">Projects</h2>
+        <h2 class="project-title">Projects</h2>
         {{- partial "feature-view.html" site.Params.featuredProjects }}
         <h2 class="project-title">Just for Fun</h2>
         {{- partial "feature-view.html" site.Params.featuredPosts }}
@@ -87,60 +87,3 @@
     </div>
     {{- end}}
 </div>
-
-<style>
-    .project-title {
-        margin-top: var(--content-gap);
-        align-self: flex-start;
-    }
-
-    .profile-main-content {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        margin-bottom: var(--content-gap);
-        width: 100%;
-    }
-
-    .profile-info {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .recent-posts-sidebar {
-        flex: 0 0 280px;
-        max-width: 280px;
-    }
-
-    .recent-posts-title {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.25rem;
-        text-align: left;
-        color: var(--content);
-    }
-
-    .recent-posts-container {
-        text-align: left;
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-        .profile-main-content {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .recent-posts-sidebar {
-            flex: none;
-            max-width: none;
-            width: 100%;
-        }
-        
-        .recent-posts-title {
-            text-align: center;
-        }
-    }
-</style>

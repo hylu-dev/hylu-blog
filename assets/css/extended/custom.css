@@ -1,106 +1,99 @@
-/* ## Globals */
+/* =====================================================
+   Custom Theme Overrides for PaperMod
+   Main stylesheet - imports component styles
+   ===================================================== */
 
+/* -----------------------------------------------------
+   Font Definitions
+   ----------------------------------------------------- */
 @font-face {
     font-family: "Torus Regular";
     src: url('/fonts/Torus-Regular.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Torus SemiBold";
     src: url('/fonts/Torus-SemiBold.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Torus Bold";
     src: url('/fonts/Torus-Bold.otf') format('opentype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Mononoki";
     src: url('/fonts/Mononoki.woff2') format('woff2');
+    font-display: swap;
 }
 
-a {
-    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-pre {
-    border-radius: var(--radius);
-    max-height: 36rem;
-    overflow-y: auto;
-}
-
-header a:hover, p a:hover, li:hover a, h3 a:hover {
-    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
-    transform: translateY(-3px) !important;
-}
-
+/* -----------------------------------------------------
+   Global Styles
+   ----------------------------------------------------- */
 body {
-    font-family: 'SUSE', -apple-, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    font-family: var(--font-body);
     font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header, h1, h2, h3 {
-    font-family: 'Torus SemiBold', monospace; 
+/* Smooth theme transition for all elements using theme variables */
+*,
+*::before,
+*::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+header,
+h1,
+h2,
+h3 {
+    font-family: var(--font-torus-semi);
 }
 
 details {
-    font-family: 'Torus Regular', monospace; 
-}
-
-.chroma {
-    background-color: unset;
+    font-family: var(--font-torus);
 }
 
 strong {
     font-size: 1.1em;
 }
 
-/* ## Archive */
-.archive-entry {
-    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+a {
+    transition: var(--transition-smooth);
 }
 
-.archive-entry:hover {
-    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
-    transform: translateX(5px);
+/* -----------------------------------------------------
+   Code Blocks
+   ----------------------------------------------------- */
+pre {
+    border-radius: var(--radius);
+    max-height: 36rem;
+    overflow-y: auto;
 }
 
-/* ## Social */
-
-.social-icons a {
-    font-family: 'Torus SemiBold';
-    transition: filter .3s cubic-bezier(0.075, 0.82, 0.165, 1),
-        transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+.chroma {
+    background-color: unset;
 }
 
-.social-icons a:hover {
-    filter: drop-shadow(0 0 1px var(--primary))brightness(2);
-    transform: scale(1.2);
+/* -----------------------------------------------------
+   Link Hover Effects
+   ----------------------------------------------------- */
+header a:hover,
+p a:hover,
+li:hover a,
+h3 a:hover {
+    filter: var(--hover-glow);
+    transform: translateY(-3px);
 }
 
-.social-icons svg {
-    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.social-icons a:hover svg {
-    transform: scale(1.2);
-    animation: tilt 0.5s infinite;
-}
-
-/* ## Post Features */
-
-.post-entry {
-    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.post-entry:hover {
-    border-color: var(--tertiary);
-    filter: contrast(1.1);
-}
-
+/* -----------------------------------------------------
+   Post Content
+   ----------------------------------------------------- */
 .post-content h2 {
-    margin: 32px auto 32px !important;
+    margin: 32px auto 32px;
     position: relative;
 }
 
@@ -116,71 +109,54 @@ strong {
     margin-left: 1px;
 }
 
-.profile-image {
-    filter: 
-    invert(0)
-    drop-shadow(0px 2px 2px black);
-    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation: heartbeat 1s infinite;
+/* -----------------------------------------------------
+   Archive Page
+   ----------------------------------------------------- */
+.archive-entry {
+    transition: var(--transition-smooth);
 }
 
-.profile-image:hover {
-    filter: 
-    invert(0.7)
-    drop-shadow(0px 0px 2px var(--primary))brightness(1.3);
-    scale: 1.1;
-}  
-
-.profile-image:active {
-    filter: 
-    invert(1.1)
-    drop-shadow(0px 0px 2px var(--primary))brightness(1.3);
-    scale: 0.9;
+.archive-entry:hover {
+    filter: var(--hover-glow);
+    transform: translateX(5px);
 }
 
-@keyframes tilt {
-    0% {
-    transform: rotate(0deg);
-    }
-    50% {
-    transform: rotate(3deg);
-    }
-    100% {
-    transform: rotate(0deg);
-    }
+/* -----------------------------------------------------
+   Post Entry Cards
+   ----------------------------------------------------- */
+.post-entry {
+    transition: var(--transition-smooth);
 }
 
-@keyframes heartbeat {
-    0% {
-        transform: scale(1.0);
-    }
-    80% {
-        transform: scale(0.95);
-    }
-    100% {
-        transform: scale(1.0);
-    }
+.post-entry:hover {
+    border-color: var(--tertiary);
+    filter: contrast(1.1);
 }
 
-/* ## Github gist formatting */
-
+/* -----------------------------------------------------
+   GitHub Gist Formatting (Dark Theme)
+   ----------------------------------------------------- */
 body .gist .gist-file {
-    border-color: #555 #555 #444
+    border-color: #555 #555 #444;
 }
+
 body .gist .gist-data {
-    height:300px;
+    height: var(--gist-height);
     overflow-y: visible;
     border-radius: var(--radius) var(--radius) 0 0;
-    border-color: #555
+    border-color: #555;
 }
+
 body .gist .gist-meta {
     color: #ffffff;
-    background: #373737; 
+    background: #373737;
     border-radius: 0 0 var(--radius) var(--radius);
 }
+
 body .gist .gist-meta a {
     color: #ffffff;
 }
+
 body .gist .gist-data .pl-s .pl-s1 {
     color: #a5c261;
 }
