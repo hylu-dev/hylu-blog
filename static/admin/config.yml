@@ -1,0 +1,41 @@
+backend:
+  name: github
+  repo: hylu-dev/hylu-blog
+  branch: main
+  site_domain: hylu.netlify.app # Instructions: Replace this with your Netlify site domain
+
+media_folder: "static/img" # Global folder
+public_folder: "/img"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    path: "{{year}}/{{slug}}/index" # Structure for leaf bundles
+    create: true
+    media_folder: "" # Save images in the same folder as the content file (Leaf Bundle)
+    public_folder: "" # Use relative path for the image value
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - label: "Cover"
+        name: "cover"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - {
+              label: "Alt Text",
+              name: "alt",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Caption",
+              name: "caption",
+              widget: "string",
+              required: false,
+            }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

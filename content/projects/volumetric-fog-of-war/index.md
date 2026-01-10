@@ -8,7 +8,7 @@ badges:
   - icon: "unity"
   - icon: "csharp"
   - icon: "hlsl"
-tags: ["graphics", "unity", "c#", "shaders"]
+tags: ["graphics", "unity", "csharp", "shaders"]
 math: true
 ---
 

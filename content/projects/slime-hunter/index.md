@@ -4,7 +4,7 @@ date: 2024-07-12T21:36:00-04:00
 draft: false
 cover:
     image: "https://img.itch.zone/aW1nLzE3NTExMTE2LnBuZw==/original/MIHxmP.png"
-tags: ["gamedev", "unity", "c#"]
+tags: ["gamedev", "unity", "csharp"]
 badges:
     - icon: "unity"
     - icon: "csharp"

@@ -7,7 +7,7 @@ cover:
 badges:
     - icon: "unity"
     - icon: "csharp"
-tags: ["gamedev", "unity", "c#"]
+tags: ["gamedev", "unity", "csharp"]
 ---
 
 ## Inner Alliance

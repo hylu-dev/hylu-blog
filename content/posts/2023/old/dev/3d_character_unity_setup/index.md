@@ -33,7 +33,7 @@ Once this is setup, immediately you will see your character using the playing th
 
 The old way of managing inputs in Unity is by using the input manager accessible in the project settings. There you can set mapping of keys to actions and use those new naming in code. For example, you can map **W** and **UP** to **jump**, and use that naming in your code. Whenver you need to change it, just change it from the input manager instead of digging through code.
 
-```C#
+```csharp
 if (Input.GetKeyDown("jump")) {
     // do stuff
 }
@@ -55,7 +55,7 @@ These are the basic steps from what I've gathered
 3. Add a new C# script to your character to handle movement
 4. In the awake function access your components as well as creating a PlayerInput object to access your InputActions
 
-    ```C#
+    ```csharp
     private void Awake() {
         input = new PlayerInput();
         characterController = GetComponent<CharacterController>();
@@ -69,7 +69,7 @@ These are the basic steps from what I've gathered
 5. From there you can access your **inputs**, **animations**, as well as **character manipulation**. I won't go into the logic but I will leave some examples of how to use these classes.
     - Input callbacks
 
-        ```C#
+        ```csharp
         input.Player.Move.started += onMoveInput;
         input.Player.Move.canceled += onMoveInput;
         input.Player.Move.performed += onMoveInput;
@@ -78,7 +78,7 @@ These are the basic steps from what I've gathered
         A list of callback functions you add to be triggered after the indicated events
     - Animator Parameters
 
-        ```C#
+        ```csharp
         isWalkHash = Animator.StringToHash("isWalking");
         bool isWalking = animator.GetBool("isWalking");
         animator.SetBool(isWalkHash, true);
@@ -88,7 +88,7 @@ These are the basic steps from what I've gathered
         The `StringToHash` is a performance optimization to use instead of pure strings to access a parameter
     - Manipulating the character
 
-        ```C#
+        ```csharp
         characterController.Move(currMove * currRunMultiplier * Time.deltaTime);
         ```
 
