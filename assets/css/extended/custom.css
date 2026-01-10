@@ -36,6 +36,14 @@
 body {
     font-family: var(--font-body);
     font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth theme transition for all elements using theme variables */
+*,
+*::before,
+*::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 header,
