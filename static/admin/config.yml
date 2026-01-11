@@ -1,8 +1,6 @@
 backend:
   name: git-gateway
-  repo: hylu-dev/hylu-blog
   branch: main
-  site_domain: hylu-blog.netlify.app
 
 media_folder: "static/img" # Global folder
 public_folder: "/img"
