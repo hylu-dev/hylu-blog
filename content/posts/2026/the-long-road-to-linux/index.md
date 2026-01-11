@@ -50,7 +50,7 @@ Eventually I learned that Hyprland could be installed on Fedora. The moment I tr
 
 ## Moving onto Arch
 
-At this point Arch became a bucket‑list item for me—“I have to try it at least once.” My Fedora setup was becoming unstable: the fans spun up for no reason, the battery drained quickly, crashes became frequent, and package updates started conflicting. It was time for a fresh start.
+At this point Arch became a bucket-list item for me, I felt like I had to try it at least once. My Fedora setup was becoming unstable because the fans spun up for no reason, the battery drained quickly, crashes became frequent, and package updates started conflicting. It was time for a fresh start.
 
 During my research I discovered **Niri**, a scrolling window manager, which seemed better suited for a laptop with limited screen‑real‑estate. I also found **Quickshell**, a framework for building custom desktop environments, promising a polished look with minimal effort.
 
@@ -66,6 +66,6 @@ In Hyprland I used multiple workspaces to group project windows. With Niri I can
 
 ## Extra
 
-I also ran into [Wayfire](https://github.com/WayfireWM/wayfire) which is an absolutely crazy window manager. It's completely over done with visual effects (it render your desktop in 3D!) but I kinda love it. I would never use it for my actual workspace but might be fun to try out.
+I also ran into [Wayfire](https://github.com/WayfireWM/wayfire) which is an absolutely crazy window manager.
 
 {{< youtube NwBcCH1cJRI>}}
