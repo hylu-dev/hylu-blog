@@ -1,33 +1,34 @@
 ---
-title: "The Long Road to Linux"
+title: The Long Road to Linux
 date: 2026-01-09T01:20:54-05:00
 draft: false
 cover:
-  image: "fedora_hyprland.webp"
-tags: ["linux", "arch"]
+  image: fedora_hyprland.webp
+tags:
+  - linux
+  - arch
 ---
-
 I spent most of my life on Windows, with a few short stints on macOS. My only real exposure to Linux was via SSH sessions on CentOS VMs at work—purely command‑line, just enough to get the job done.
 
 About a year ago I stumbled upon a collection of Hyprland *rices* (custom configurations) and was instantly hooked. The snappy feel, the satisfying workflow, and the keyboard‑centric approach drew me in. That curiosity led me to explore:
 
-- Tiling window managers
-- Fancy Bash prompts
-- Linux desktop environments
-- Custom status bars
-- Powerful terminal tools
-- A renewed love for Vim
+* Tiling window managers
+* Fancy Bash prompts
+* Linux desktop environments
+* Custom status bars
+* Powerful terminal tools
+* A renewed love for Vim
 
 ## Starting from Windows
 
 My first attempt at customization stayed on Windows. I installed a handful of tools:
 
-- **Scoop** – a package manager that gave me utilities like `bat`, `tldr`, `fzf`, `zoxide`, etc.
-- **Komorebi** – a tiling window manager for Windows.
-- **Yasb** – a status bar.
-- **Flow Launcher** – an application launcher.
-- **oh‑my‑posh** – a prompt theme engine.
-- **LazyVim** – a pre‑configured Neovim setup.
+* **Scoop** – a package manager that gave me utilities like `bat`, `tldr`, `fzf`, `zoxide`, etc.
+* **Komorebi** – a tiling window manager for Windows.
+* **Yasb** – a status bar.
+* **Flow Launcher** – an application launcher.
+* **oh‑my‑posh** – a prompt theme engine.
+* **LazyVim** – a pre‑configured Neovim setup.
 
 The desktop looked decent, but the tiling manager and status bar were buggy: windows would resize or reposition incorrectly, and the bar would often glitch. Still, I appreciated the tiling experience, especially since I was already comfortable with LazyGit’s Vim‑style keybindings.
 
@@ -62,3 +63,9 @@ Niri’s scrolling behaviour feels natural on a laptop trackpad and lets me keep
 In Hyprland I used multiple workspaces to group project windows. With Niri I can keep everything for a single project on one workspace, simplifying navigation. The only feature I miss is Hyprland’s scratchpad, which Niri lacks; however, I work around it by moving those windows to a dedicated workspace.
 
 {{< video src="niri_noctalia.webm" >}}
+
+## Extra
+
+I also ran into [Wayfire](https://github.com/WayfireWM/wayfire) which is an absolutely crazy window manager. It's completely over done with visual effects (it render your desktop in 3D!) but I kinda love it. I would never use it for my actual workspace but might be fun to try out.
+
+{{< youtube NwBcCH1cJRI>}}
