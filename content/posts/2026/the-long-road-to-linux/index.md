@@ -66,6 +66,6 @@ In Hyprland I used multiple workspaces to group project windows. With Niri I can
 
 ## Extra
 
-I also ran into [Wayfire](https://github.com/WayfireWM/wayfire) which is an absolutely crazy window manager.
+I also ran into [Wayfire](https://github.com/WayfireWM/wayfire) which is an absolutely crazy window manager. It's completely over done with visual effects (it renders your desktop in 3D) but I kinda love it! I would never use it for my actual workspace but might be fun to try out.
 
 {{< youtube NwBcCH1cJRI>}}
