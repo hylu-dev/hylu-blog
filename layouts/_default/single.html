@@ -34,7 +34,7 @@
     {{ end }}
   </header>
   {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" false "IsSingle" true "isHidden" $isHidden) }}
 
   <!-- Show social links at top of project if applicable -->
   {{- if (.Params.socialIcons) }}

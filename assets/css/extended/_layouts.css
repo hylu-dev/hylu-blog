@@ -201,7 +201,8 @@
         gap: 0.75rem;
     }
     
-    .card-wrapper img {
+    .card-wrapper img,
+    .card-wrapper video {
         height: 200px;
     }
 }

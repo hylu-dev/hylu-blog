@@ -87,7 +87,8 @@
     color: var(--primary);
 }
 
-.card-wrapper img {
+.card-wrapper img,
+.card-wrapper video {
     margin: 0;
     height: var(--card-height);
     width: 100%;
@@ -218,7 +219,8 @@
 /* -----------------------------------------------------
    Cover Images
    ----------------------------------------------------- */
-.entry-cover img {
+.entry-cover img,
+.entry-cover video {
     height: var(--cover-height-md);
     object-fit: cover;
     border-radius: 8px;
@@ -226,10 +228,28 @@
 }
 
 /* Smaller covers in project grid */
-.project-container .entry-cover img {
+.project-container .entry-cover img,
+.project-container .entry-cover video {
     height: var(--cover-height-sm);
 }
 
 .project-container .entry-cover {
     margin-bottom: calc(var(--gap) / 2);
+}
+
+/* Looping videos rendered in place of animated images (layouts/partials/media.html) */
+.autoplay-video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.post-content .autoplay-video {
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.entry-cover video {
+    width: 100%;
+    border-radius: var(--radius);
 }

@@ -1,0 +1,18 @@
+{{- /* Play looping videos (layouts/partials/media.html) only while on screen; they use preload="none" so nothing downloads until then */ -}}
+<script>
+(function () {
+  var videos = document.querySelectorAll('video[data-autoplay]');
+  if (!videos.length) return;
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    videos.forEach(function (v) { v.controls = true; });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.play().catch(function () { e.target.controls = true; }); }
+      else { e.target.pause(); }
+    });
+  }, { rootMargin: '200px 0px' });
+  videos.forEach(function (v) { io.observe(v); });
+})();
+</script>

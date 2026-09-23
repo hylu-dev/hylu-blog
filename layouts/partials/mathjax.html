@@ -1,23 +1,22 @@
 {{/* courtesy of https://www.mrnice.dev/posts/how-to-add-math-expressions-to-hugo-blog-the-shortest-guide-possible/  */}}
+{{/* MathJax v3 reads window.MathJax before it loads (the old MathJax.Hub.Config block was v2-only and ignored) */}}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams'
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+</script>
 <script
   type="application/javascript"
   id="MathJax-script"
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"
   async
 ></script>
-<script 
-  type="text/x-mathjax-config"
-  async
-  >
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['\\(','\\)']],
-      displayMath: [['$$','$$'], ['\[','\]']],
-      processEscapes: true,
-      processEnvironments: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      TeX: { equationNumbers: { autoNumber: "AMS" },
-           extensions: ["AMSmath.js", "AMSsymbols.js"] }
-    }
-  });
-</script>
