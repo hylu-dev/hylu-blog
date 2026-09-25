@@ -47,6 +47,6 @@ Once I got most of the base colors and shadows worked out, it came time to work 
 
 There were plenty of more things that had gone through my mind while drawing this fanart but I am writing this log long after the fact so much of it isn't fresh in my mind and I might just be too lazy right now to recount it all heh. In any case, below is a final timelapse of my work using Clip Studio's built in timelapse function. It doesn't include any of the CTRL+Zing I did which may as well have been 50% of the whole drawing process.
 
-{{< video src="osu_new_beginnings_timelapse.webm" type="video/webm" preload="auto" >}}
+{{< video src="osu_new_beginnings_timelapse.webm" type="video/webm" >}}
 
 All in all, I'm really proud of what I managed to create but if anything it let me appreciate how talented the other art submissions were (seriously, [check them out](https://osu.ppy.sh/home/news/2022-12-31-new-beginnings-results)) and where my current strengths and weaknesses are. It's so valuable and it makes me want to participate in more of these contests.

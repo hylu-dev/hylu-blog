@@ -1,0 +1,73 @@
+{{- /*
+  Renders an image or looping video for a page resource.
+
+  Params (dict):
+    page   the page whose bundle holds the file (required)
+    src    path relative to the bundle, or an absolute/external URL (required)
+    alt    alt text
+    class  class for the <img>/<video>
+    sizes  sizes attribute for the srcset (default: full content width)
+    lazy   false for above-the-fold media (default true)
+
+  - Still images get a resized WebP srcset plus width/height.
+  - If <name>.mp4 sits next to <name>.webp (see scripts/optimize-media.sh), it is
+    rendered as a muted looping video with the still as its poster.
+  - Animated WebP/GIF, SVG, missing files and external URLs are passed through.
+*/ -}}
+{{- $page := .page -}}
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "(min-width: 768px) 720px, 100vw" -}}
+{{- $lazy := ne .lazy false -}}
+{{- $widths := slice 360 480 720 1080 1500 -}}
+
+{{- $res := "" -}}
+{{- $video := "" -}}
+{{- $u := urls.Parse $src -}}
+{{- if and (not $u.IsAbs) (not (hasPrefix $src "/")) $page -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path -}}
+  {{- $res = $page.Resources.Get $path -}}
+  {{- $ext := lower (path.Ext $path) -}}
+  {{- if in (slice ".mp4" ".webm") $ext -}}
+    {{- $video = $res -}}
+    {{- $res = $page.Resources.Get (print (strings.TrimSuffix $ext $path) ".webp") -}}
+  {{- else -}}
+    {{- $video = $page.Resources.Get (print (strings.TrimSuffix $ext $path) ".mp4") -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $video -}}
+  <video class="autoplay-video {{ $class }}" muted loop playsinline preload="none" data-autoplay
+    {{- with $res }} poster="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+    {{- with $alt }} aria-label="{{ . }}"{{ end }}>
+    <source src="{{ $video.RelPermalink }}" type="{{ $video.MediaType.Type }}">
+  </video>
+{{- else if and $res (eq $res.ResourceType "image") (in (slice "jpeg" "png" "webp" "bmp" "tiff") $res.MediaType.SubType) (not (and (eq $res.MediaType.SubType "webp") (strings.Contains (substr $res.Content 0 64) "ANIM"))) -}}
+  {{- $srcset := slice -}}
+  {{- $fallback := $res -}}
+  {{- range $widths -}}
+    {{- if lt . $res.Width -}}
+      {{- $r := $res.Resize (printf "%dx webp q80" .) -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $r.RelPermalink $r.Width) -}}
+      {{- if eq . 720 }}{{ $fallback = $r }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if le $res.Width 1600 -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $res.RelPermalink $res.Width) -}}
+  {{- end -}}
+  <img src="{{ $fallback.RelPermalink }}"
+    {{- if gt (len $srcset) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }}
+    width="{{ $res.Width }}" height="{{ $res.Height }}" alt="{{ $alt }}"
+    {{- with $class }} class="{{ . }}"{{ end }}
+    {{- if $lazy }} loading="lazy"{{ else }} fetchpriority="high"{{ end }} decoding="async">
+{{- else if $res -}}
+  <img src="{{ $res.RelPermalink }}" alt="{{ $alt }}"
+    {{- with $class }} class="{{ . }}"{{ end }}
+    {{- if and (eq $res.ResourceType "image") (not (strings.Contains $res.MediaType.Type "svg")) }} width="{{ $res.Width }}" height="{{ $res.Height }}"{{ end }}
+    {{- if $lazy }} loading="lazy"{{ end }} decoding="async">
+{{- else -}}
+  <img src="{{ $src }}" alt="{{ $alt }}"
+    {{- with $class }} class="{{ . }}"{{ end }}
+    {{- if $lazy }} loading="lazy"{{ end }} decoding="async">
+{{- end -}}

@@ -1,32 +1,37 @@
 {{- $src := .Get "src" -}}
+{{- $class := .Get "class" -}}
+{{- $sizes := "(min-width: 768px) 720px, 100vw" -}}
+{{- with index (dict "img-xs" "(min-width: 768px) 252px, 35vw" "img-sm" "(min-width: 768px) 360px, 50vw" "img-md" "(min-width: 768px) 504px, 70vw" "img-lg" "(min-width: 768px) 612px, 85vw") $class }}{{ $sizes = . }}{{ end -}}
 <div class="center-flex">
-  <a class="center-flex link {{ .Get "class" }}" href="{{ $src }}" target="_blank">
-    <img loading="lazy" alt="{{ $src }}" src="{{ $src }}" class="img">
+  <a class="center-flex link {{ $class }}" href="{{ $src }}" target="_blank">
+    {{ partial "media.html" (dict "page" .Page "src" $src "alt" (.Get "alt") "class" "img" "sizes" $sizes) }}
   </a>
 </div>
 
 <style>
   .img {
     box-shadow: 1px 1px 5px #000;
+    max-width: 100%;
+    height: auto;
   }
 
-  .img-xs, .img-xs img {
+  .img-xs, .img-xs img, .img-xs video {
     width: 35%;
   }
 
-  .img-sm, .img-sm img {
+  .img-sm, .img-sm img, .img-sm video {
     width: 50%;
   }
 
-  .img-md, .img-md img {
+  .img-md, .img-md img, .img-md video {
     width: 70%;
   }
 
-  .img-lg, .img-lg img {
+  .img-lg, .img-lg img, .img-lg video {
     width: 85%
   }
 
-  .img-xl, .img-xl img {
+  .img-xl, .img-xl img, .img-xl video {
     width: 100%
   }
 
@@ -34,7 +39,7 @@
     width: 100%;
   }
 
-  .banner img {
+  .banner img, .banner video {
     width: 100%;
     object-fit: cover;
     height: 150px;
@@ -51,7 +56,7 @@
     justify-content: center;
   }
 
-  .white img {
+  .white img, .white video {
     background-color: white;
   }
 </style>

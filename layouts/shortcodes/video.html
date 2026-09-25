@@ -1,5 +1,9 @@
-<video class="video-shortcode" preload="{{ .Get "preload" }}" controls>
-    <source src="{{ .Get "src" }}" type="{{ .Get "type" }}">
+{{- /* preload defaults to "metadata": an empty preload attribute means "auto" and downloads the whole file */ -}}
+{{- $src := .Get "src" -}}
+{{- $type := .Get "type" | default (cond (strings.HasSuffix (lower $src) ".mp4") "video/mp4" "video/webm") -}}
+<video class="video-shortcode" preload="{{ .Get "preload" | default "metadata" }}" controls playsinline
+    {{- with .Get "poster" }} poster="{{ . }}"{{ end }}>
+    <source src="{{ $src }}" type="{{ $type }}">
     There should have been a video here but your browser does not seem
     to support it.
 </video>
@@ -11,5 +15,5 @@
         position: relative;
         border-radius: var(--radius);
         border: 1px solid var(--border);
-    }      
+    }
 </style>

@@ -1,13 +1,10 @@
 {{/* courtesy of https://navendu.me/posts/adding-diagrams-to-your-hugo-blog-with-mermaid/  */}}
-<script
-  type="application/javascript"
-  src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
-></script>
-<script>
-  const config = {
+{{/* Pinned version; module scripts are deferred so this no longer blocks rendering */}}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12.0.0/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
     startOnLoad: true,
-    theme:'dark',
-    align:'center'
-  };
-  mermaid.initialize(config);
+    theme: 'dark',
+    align: 'center'
+  });
 </script>

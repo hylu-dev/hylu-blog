@@ -4,7 +4,7 @@
     {{/* post template from list.html */}}
     <article class="post-entry">
         {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-        {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+        {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden "sizes" "(min-width: 481px) 360px, 100vw") }}
         <header class="entry-header">
             
         <h3 class="entry-hint-parent">

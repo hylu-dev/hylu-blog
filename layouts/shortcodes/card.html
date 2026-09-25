@@ -2,7 +2,7 @@
 <div class="card-wrapper">
     <a href="{{ $src }}" target="_blank"
             rel="noopener noreferrer">
-        <img loading="lazy"  alt="{{ $src }}" src="{{ $src }}" class="{{ .Get "class" }}">
+        {{ partial "media.html" (dict "page" .Page "src" $src "alt" (.Get "alt") "class" (.Get "class")) }}
     </a>
     <div>
         <p>{{ .Inner }}</p>
