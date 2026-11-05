@@ -4,7 +4,7 @@ date: 2026-11-05T12:00:00-05:00
 draft: true
 cover:
     image: "cover.webp"
-    alt: "A girl in a white tunic flying over a sea of cloud among floating cliffs at golden hour."
+    alt: "A girl dozes at the foot of a great tree at night while fireflies drift around her."
 tags: ["gamedev", "webgl", "javascript", "gaussian-splatting"]
 socialIcons:
     - name: "github"
